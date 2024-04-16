@@ -12,7 +12,7 @@ on:
         required: true
         type: string
         description: "The ID of the post to clone"
-        default: "27964"
+        default: "25163"
 
 jobs:
   clone_post:
