@@ -1,4 +1,4 @@
-name: Clone Wordpress QA
+name: Clone Wordpress PROD
 
 on:
   workflow_dispatch:
