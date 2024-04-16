@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Clone Post
-        uses: ./.github/workdflows/clone-post
+        uses: ./.github/workflows/clone-post.yml
         with:
           environment: QA
           postID: ${{ github.event.inputs.postID }}
@@ -21,5 +21,5 @@ jobs:
           WORDPRESS_PASSWORD: ${{ github.event.inputs.WORDPRESS_PASSWORD }}
   upload_to_s3:
     uses: ./upload_to_s3.yml
-    needs: [upload_to_s3]
+    needs: [clone_post]
 
