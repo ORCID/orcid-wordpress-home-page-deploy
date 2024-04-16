@@ -7,10 +7,12 @@ on:
         required: true
         type: string
         description: "The deployment environment (QA, SBOX, PROD)"
+        default: "PROD"
       postID:
         required: true
         type: string
         description: "The ID of the post to clone"
+        default: "27964"
 
 jobs:
   clone_post:
@@ -65,4 +67,3 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: 'us-east-1'  # Adjust to your AWS region
           SOURCE_DIR: 'dist'
-          DEST_DIR: '/'
