@@ -73,8 +73,6 @@ jobs:
     needs: clear_s3_bucket
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
 
       - name: Upload HTML to S3
         uses: jakejarvis/s3-sync-action@master
