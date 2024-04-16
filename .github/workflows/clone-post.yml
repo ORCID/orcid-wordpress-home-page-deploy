@@ -7,12 +7,6 @@ inputs:
   postID:
     description: 'The ID of the post to clone'
     required: true
-  WORDPRESS_USERNAME:
-    description: 'WordPress Username'
-    required: true
-  WORDPRESS_PASSWORD:
-    description: 'WordPress Password'
-    required: true
 runs:
   using: 'composite'
   steps:
