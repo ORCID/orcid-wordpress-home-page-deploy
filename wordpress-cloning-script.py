@@ -29,7 +29,7 @@ def main(environment, post_id, wordpreess_staggin_username, wordpreess_staggin_p
         print(f"Failed to fetch post: {response}")
 
 if __name__ == "__main__":
-    if len(sys.argv) != 5:
+    if len(sys.argv) != 4:
         print("Usage: python wordpress-cloning-script.py <environment> <postID> <wordpreess_staggin_username> <wordpreess_staggin_password>")
         sys.exit(1)
     
