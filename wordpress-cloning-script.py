@@ -5,7 +5,7 @@ from requests.auth import HTTPBasicAuth
 
 def main(environment, post_id, wordpreess_staggin_username, wordpreess_staggin_password):
     # Define the base URL based on the environment
-    base_url = "https://info.qa.orcid.org/" if environment == "PROD" else "https://info.orcid.org/"
+    base_url = "https://info.qa.orcid.org/" if environment != "PROD" else "https://info.orcid.org/"
     headers = {
         'Accept': 'application/json',
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"

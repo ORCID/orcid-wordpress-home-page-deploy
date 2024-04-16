@@ -11,7 +11,7 @@ on:
       postID:
         required: true
         type: string
-        description: "The ID of the post to clone"
+        description: "The ID of the page to clone"
         default: "25163"
 
 jobs:
