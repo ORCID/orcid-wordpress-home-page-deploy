@@ -69,6 +69,7 @@ jobs:
           SOURCE_DIR: 'dist'
 
   cloudfront-invalidation:
+    needs: upload_to_s3
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
