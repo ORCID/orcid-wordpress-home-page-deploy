@@ -9,7 +9,7 @@ def main(environment, post_id):
     print(f"Fetching post {post_id} from {base_url}wp-json/wp/v2/posts/{post_id}")
     if response.status_code == 200:
         html_content = response.json()["content"]["rendered"]
-        with open(f"{post_id}.html", "w") as file:
+        with open(f"dist/index.html", "w") as file:
             file.write(html_content)
         print(f"Successfully cloned post {post_id} to {post_id}.html")
     else:

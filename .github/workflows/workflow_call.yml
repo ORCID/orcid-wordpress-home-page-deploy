@@ -1,4 +1,4 @@
-name: Clone WordPress Post
+name: Clone and Upload WordPress Post - ${{ github.event.inputs.environment }} - ${{ github.event.inputs.postID }}
 
 on:
   workflow_dispatch:
@@ -64,5 +64,5 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: 'us-east-1'  # Adjust to your AWS region
-          SOURCE_DIR: '.'
-          DEST_DIR: 'home-page.html'
+          SOURCE_DIR: 'dist'
+          DEST_DIR: '.'
