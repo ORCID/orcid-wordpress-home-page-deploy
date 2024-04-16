@@ -1,4 +1,4 @@
-name: Clone and Upload WordPress Post - ${{ github.event.inputs.environment }} - ${{ github.event.inputs.postID }}
+name: Clone and Upload WordPress Post
 
 on:
   workflow_dispatch:
