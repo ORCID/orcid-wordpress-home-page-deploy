@@ -1,4 +1,4 @@
-name: Clone and Upload WordPress Post
+name: Clone And QA Deploy WordPress Post
 
 on:
   workflow_dispatch:
