@@ -17,7 +17,7 @@ def main(environment, post_id, wordpreess_staggin_username, wordpreess_staggin_p
         auth = HTTPBasicAuth(wordpreess_staggin_username, wordpreess_staggin_password)
 
     # Make the request with or without authentication based on the environment
-    response = requests.get(f"{base_url}wp-json/wp/v2/posts/{post_id}", headers=headers, auth=auth)
+    response = requests.get(f"{base_url}wp-json/wp/v2/pages/{post_id}", headers=headers, auth=auth)
 
     print(f"Fetching post {post_id} from {base_url}wp-json/wp/v2/posts/{post_id}")
     if response.status_code == 200:
