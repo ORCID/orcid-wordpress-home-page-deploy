@@ -50,8 +50,27 @@ jobs:
             git push
           fi
 
-  upload_to_s3:
+  clear_s3_bucket:
     needs: clone_post
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      - name: Empty S3 Bucket
+        run: |
+          aws s3 rm s3://orcid-qa-public-page --recursive
+
+  upload_to_s3:
+    needs: clear_s3_bucket
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -68,7 +87,7 @@ jobs:
           AWS_REGION: 'us-east-1'  
           SOURCE_DIR: 'dist'
 
-  cloudfront-invalidation:
+  cloudfront_invalidation:
     needs: upload_to_s3
     runs-on: ubuntu-latest
     steps:
