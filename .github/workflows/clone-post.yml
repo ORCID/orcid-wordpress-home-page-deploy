@@ -14,7 +14,6 @@ inputs:
     description: 'WordPress Password'
     required: true
 runs:
-
   using: 'composite'
   steps:
     - name: Checkout repository
