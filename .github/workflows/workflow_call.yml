@@ -40,5 +40,29 @@ jobs:
       - name: Commit and push changes
         run: |
           git add .
-          git commit -m "Cloned WordPress post ${{ inputs.postID }} for environment ${{ inputs.environment }}" --allow-empty
-          git push
+          # Check if there are any changes
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Cloned WordPress post ${{ github.event.inputs.postID }} for environment ${{ github.event.inputs.environment }}"
+            git push
+          fi
+
+  upload_to_s3:
+    needs: clone_post
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Upload HTML to S3
+        uses: jakejarvis/s3-sync-action@master
+        with:
+          args: --acl public-read --follow-symlinks --delete
+        env:
+          AWS_S3_BUCKET: orcid-qa-public-page
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: 'us-east-1'  # Adjust to your AWS region
+          SOURCE_DIR: '.'
+          DEST_DIR: 'home-page.html'
