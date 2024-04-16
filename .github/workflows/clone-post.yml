@@ -32,7 +32,7 @@ jobs:
           pip install requests
 
       - name: Run cloning script
-        run: python wordpress-cloning-script.py ${{ inputs.environment }} ${{ inputs.postID }} ${{ inputs.WORDPRESS_USERNAME }} ${{ inputs.WORDPRESS_PASSWORD }}
+        run: python wordpress-cloning-script.py ${{ inputs.environment }} ${{ inputs.postID }} ${{ secrets.WORDPRESS_USERNAME }} ${{ secrets.WORDPRESS_PASSWORD }}
 
       - name: Configure git user
         run: |
