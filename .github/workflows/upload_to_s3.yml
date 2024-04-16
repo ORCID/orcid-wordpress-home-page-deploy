@@ -14,7 +14,7 @@ inputs:
     description: 'WordPress Password'
     required: true
 runs:
-  needs: clone_post
+  using: 'composite'
   steps:
     - name: Checkout repository
       uses: actions/checkout@v3
