@@ -15,7 +15,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
       - name: Clone Post
-        uses: clone-post.yml
+        uses: .github/workflows/clone-post.yml
         with:
           environment: QA
           postID: ${{ github.event.inputs.postID }}
@@ -28,7 +28,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
       - name: Clone Post
-        uses: upload_to_s3.yml
+        uses: .github/workflows/upload_to_s3.yml
         with:
           environment: QA
           postID: ${{ github.event.inputs.postID }}
