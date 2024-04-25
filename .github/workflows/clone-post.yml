@@ -50,25 +50,6 @@ jobs:
             git push
           fi
 
-  clear_s3_bucket:
-    needs: clone_post
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1
-
-      - name: Empty S3 Bucket
-        run: |
-          aws s3 rm s3://orcid-qa-public-page --recursive
-
   upload_to_s3:
     needs: clear_s3_bucket
     runs-on: ubuntu-latest
@@ -81,30 +62,76 @@ jobs:
           git pull
 
       - name: Upload HTML to S3
-        uses: jakejarvis/s3-sync-action@master
+        uses: eggionick/s3-deploy@v4
         with:
-          args: --follow-symlinks --delete
+          folder: build
+          bucket: orcid-qa-public-page
+          bucket-region: 'us-east-1'
+          dist-id: 'E3AOMNP9201N9Z'
+          invalidation: /
+          delete-removed: true
+          no-cache: true
+          private: true
+          files-to-include: '{.*/**,**}'
         env:
-          AWS_S3_BUCKET: orcid-qa-public-page
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: 'us-east-1'  
-          SOURCE_DIR: 'dist'
+          AWS_REGION: 'us-east-1'
+  # clear_s3_bucket:
+  #   needs: clone_post
+  #   runs-on: ubuntu-latest
 
-  cloudfront_invalidation:
-    needs: upload_to_s3
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v3
 
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: us-east-1 
+  #     - name: Configure AWS credentials
+  #       uses: aws-actions/configure-aws-credentials@v1
+  #       with:
+  #         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  #         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  #         aws-region: us-east-1
 
-      - name: Invalidate CloudFront cache
-        run: |
-          aws cloudfront create-invalidation --distribution-id E3AOMNP9201N9Z --paths "/*"
+  #     - name: Empty S3 Bucket
+  #       run: |
+  #         aws s3 rm s3://orcid-qa-public-page --recursive
+
+  # upload_to_s3:
+  #   needs: clear_s3_bucket
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout repository
+  #       uses: actions/checkout@v3
+        
+  #     - name: Get recent changes
+  #       run: |
+  #         git pull
+
+  #     - name: Upload HTML to S3
+  #       uses: jakejarvis/s3-sync-action@master
+  #       with:
+  #         args: --follow-symlinks --delete
+  #       env:
+  #         AWS_S3_BUCKET: orcid-qa-public-page
+  #         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  #         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  #         AWS_REGION: 'us-east-1'  
+  #         SOURCE_DIR: 'dist'
+
+  # cloudfront_invalidation:
+    # needs: upload_to_s3
+    # runs-on: ubuntu-latest
+    # steps:
+    #   - name: Checkout code
+    #     uses: actions/checkout@v2
+
+    #   - name: Configure AWS credentials
+    #     uses: aws-actions/configure-aws-credentials@v1
+    #     with:
+    #       aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+    #       aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    #       aws-region: us-east-1 
+
+    #   - name: Invalidate CloudFront cache
+    #     run: |
+    #       aws cloudfront create-invalidation --distribution-id E3AOMNP9201N9Z --paths "/*"
