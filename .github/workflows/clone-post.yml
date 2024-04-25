@@ -51,7 +51,7 @@ jobs:
           fi
 
   upload_to_s3:
-    needs: clear_s3_bucket
+    needs: clone_post
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
