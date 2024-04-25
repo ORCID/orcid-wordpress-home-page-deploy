@@ -64,7 +64,7 @@ jobs:
       - name: Upload HTML to S3
         uses: reggionick/s3-deploy@v4
         with:
-          folder: build
+          folder: dist
           bucket: orcid-qa-public-page
           bucket-region: 'us-east-1'
           dist-id: 'E3AOMNP9201N9Z'
