@@ -62,7 +62,7 @@ jobs:
           git pull
 
       - name: Upload HTML to S3
-        uses: eggionick/s3-deploy@v4
+        uses: reggionick/s3-deploy@v4
         with:
           folder: build
           bucket: orcid-qa-public-page
