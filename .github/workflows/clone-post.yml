@@ -33,7 +33,12 @@ jobs:
       
       - name: Run cloning script
         run: python wordpress-cloning-script.py ${{ inputs.environment }} ${{ inputs.postID }} ${{ secrets.WORDPRESS_USERNAME }} ${{ secrets.WORDPRESS_PASSWORD }}
-      
+
+      - name: Configure git user
+        run: |
+          git config user.name 'GitHub Actions'
+          git config user.email 'actions@github.com'
+          
       - name: Commit and push changes
         id: commit_changes
         run: |
