@@ -52,6 +52,8 @@ jobs:
             git push;
             echo "::set-output name=should_run::true"
             fi
+      - name: Debug outputs
+        run: echo "Should run next job: ${{ needs.commit_changes.outputs.should_run }}"
 
   release_new_version:
     runs-on: ubuntu-latest
