@@ -38,7 +38,7 @@ jobs:
         run: |
           git config user.name 'GitHub Actions'
           git config user.email 'actions@github.com'
-          
+
       - name: Commit and push changes
         id: commit_changes
         run: |
@@ -50,6 +50,7 @@ jobs:
           else
             git commit -m "Cloned WordPress post ${{ github.event.inputs.postID }} for environment ${{ github.event.inputs.environment }}"
             git push;
+            echo "::set-output name=should_run::true"
             fi
 
   release_new_version:
