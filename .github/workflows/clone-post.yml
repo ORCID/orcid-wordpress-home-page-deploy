@@ -56,7 +56,7 @@ jobs:
   release_new_version:
     runs-on: ubuntu-latest
     needs: clone_post
-    if: needs.check_changes.outputs.should_run == 'true'
+    if: needs.commit_changes.outputs.should_run == 'true'
     steps:
       - name: Exit if no relevant changes
         run: echo "Exiting because there are no changes in src" && exit 0
@@ -99,7 +99,7 @@ jobs:
           prerelease: false
   
   upload_to_s3:
-    if: needs.check_changes.outputs.should_run == 'true'
+    if: needs.commit_changes.outputs.should_run == 'true'
     needs: release_new_version
     runs-on: ubuntu-latest
     steps:
