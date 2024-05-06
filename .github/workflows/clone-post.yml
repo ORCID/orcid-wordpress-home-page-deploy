@@ -54,6 +54,7 @@ jobs:
         id: get_version
         run: |
           git checkout main
+          git pull
           TAG=$(git describe --tags `git rev-list --tags --max-count=1`)
           echo "Current version tag: $TAG"
           echo "::set-output name=version::${TAG}"
