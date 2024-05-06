@@ -47,7 +47,7 @@ jobs:
             git push;
             fi
 
-  release-new-version:
+  release_new_version:
     runs-on: ubuntu-latest
     needs: clone_post
     if: needs.check_changes.outputs.should_run == 'true'
@@ -94,7 +94,7 @@ jobs:
   
   upload_to_s3:
     if: needs.check_changes.outputs.should_run == 'true'
-    needs: release-new-version
+    needs: release_new_version
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
