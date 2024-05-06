@@ -57,6 +57,7 @@ jobs:
         run: echo "Exiting because there are no changes in src" && exit 0
 
       - name: Get the current version tag
+        if: needs.check_changes.outputs.should_run == 'true'
         id: get_version
         run: |
           git checkout main
@@ -66,6 +67,7 @@ jobs:
           echo "::set-output name=version::${TAG}"
 
       - name: Calculate new version
+        if: needs.check_changes.outputs.should_run == 'true'
         id: new_version
         run: |
           CURRENT_VERSION=${{ steps.get_version.outputs.version }}
@@ -78,6 +80,7 @@ jobs:
           echo "::set-output name=new_version::$NEW_VERSION"
 
       - name: Create and push tag
+        if: needs.check_changes.outputs.should_run == 'true'
         run: |
           NEW_TAG=${{ steps.new_version.outputs.new_version }}
           git tag $NEW_TAG
