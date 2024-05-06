@@ -53,6 +53,7 @@ jobs:
       - name: Get the current version tag
         id: get_version
         run: |
+          git checkout main
           TAG=$(git describe --tags `git rev-list --tags --max-count=1`)
           echo "Current version tag: $TAG"
           echo "::set-output name=version::${TAG}"
