@@ -30,20 +30,10 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install requests
-
-
-  release-new-version:
-    runs-on: ubuntu-latest
-    needs: clone_post
-    steps:
+      
       - name: Run cloning script
         run: python wordpress-cloning-script.py ${{ inputs.environment }} ${{ inputs.postID }} ${{ secrets.WORDPRESS_USERNAME }} ${{ secrets.WORDPRESS_PASSWORD }}
-
-      - name: Configure git user
-        run: |
-          git config user.name 'GitHub Actions'
-          git config user.email 'actions@github.com'
-
+      
       - name: Commit and push changes
         id: commit_changes
         run: |
@@ -57,12 +47,15 @@ jobs:
             git push;
             fi
 
+  release-new-version:
+    runs-on: ubuntu-latest
+    needs: clone_post
+    if: needs.check_changes.outputs.should_run == 'true'
+    steps:
       - name: Exit if no relevant changes
-        if: steps.commit_changes.outputs.should_run == 'false'
         run: echo "Exiting because there are no changes in src" && exit 0
 
       - name: Get the current version tag
-        if: needs.check_changes.outputs.should_run == 'true'
         id: get_version
         run: |
           git checkout main
@@ -72,7 +65,6 @@ jobs:
           echo "::set-output name=version::${TAG}"
 
       - name: Calculate new version
-        if: needs.check_changes.outputs.should_run == 'true'
         id: new_version
         run: |
           CURRENT_VERSION=${{ steps.get_version.outputs.version }}
@@ -85,14 +77,12 @@ jobs:
           echo "::set-output name=new_version::$NEW_VERSION"
 
       - name: Create and push tag
-        if: needs.check_changes.outputs.should_run == 'true'
         run: |
           NEW_TAG=${{ steps.new_version.outputs.new_version }}
           git tag $NEW_TAG
           git push origin $NEW_TAG
 
       - name: Create GitHub release
-        if: needs.check_changes.outputs.should_run == 'true'
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
