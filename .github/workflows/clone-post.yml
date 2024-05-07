@@ -70,8 +70,8 @@ jobs:
     steps:
       - name: Debug output
         run: |
-          echo steps.commit-changes.outputs.should-run: ${{ steps.commit-changes.outputs.should-run }}
-          echo needs.commit-changes.outputs.should-run: ${{ needs.commit-changes.outputs.should-run }}
+          echo steps.commit-changes.outputs.should-run: ${{ steps.clone-post.outputs.should-run }}
+          echo needs.commit-changes.outputs.should-run: ${{ needs.clone-post.outputs.should-run }}
         env:
           GITHUB_OUTPUT: ${{ github.workspace }}/output.txt
         continue-on-error: true
