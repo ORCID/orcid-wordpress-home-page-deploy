@@ -66,7 +66,7 @@ jobs:
   release_new_version:
     runs-on: ubuntu-latest
     needs: clone-post
-    if: steps.clone-post.outputs.should-run == 'true'
+    if: needs.clone-post.outputs.should-run == 'true'
     steps:
       - name: Exit if no relevant changes
         run: echo "Exiting because there are no changes in src" && exit 0
