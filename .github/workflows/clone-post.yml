@@ -68,45 +68,54 @@ jobs:
     needs: clone-post
     if: needs.clone-post.outputs.should-run == true
     steps:
-      - name: Exit if no relevant changes
-        run: echo "Exiting because there are no changes in src" && exit 0
-
-      - name: Get the current version tag
-        id: get_version
+      - name: Debug output
         run: |
-          git checkout main
-          git pull
-          TAG=$(git describe --tags `git rev-list --tags --max-count=1`)
-          echo "Current version tag: $TAG"
-          echo "::set-output name=version::${TAG}"
-
-      - name: Calculate new version
-        id: new_version
-        run: |
-          CURRENT_VERSION=${{ steps.get_version.outputs.version }}
-          MAJOR=$(echo $CURRENT_VERSION | cut -d'.' -f1)
-          MINOR=$(echo $CURRENT_VERSION | cut -d'.' -f2)
-          PATCH=$(echo $CURRENT_VERSION | cut -d'.' -f3)
-          NEW_PATCH=$((PATCH + 1))
-          NEW_VERSION="${MAJOR}.${MINOR}.${NEW_PATCH}"
-          echo "New version: $NEW_VERSION"
-          echo "::set-output name=new_version::$NEW_VERSION"
-
-      - name: Create and push tag
-        run: |
-          NEW_TAG=${{ steps.new_version.outputs.new_version }}
-          git tag $NEW_TAG
-          git push origin $NEW_TAG
-
-      - name: Create GitHub release
-        uses: actions/create-release@v1
+          echo steps.commit-changes.outputs.should-run: ${{ steps.commit-changes.outputs.should-run }}
+          echo needs.commit-changes.outputs.should-run: ${{ needs.commit-changes.outputs.should-run }}
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ steps.new_version.outputs.new_version }}
-          release_name: Release ${{ steps.new_version.outputs.new_version }}
-          draft: false
-          prerelease: false
+          GITHUB_OUTPUT: ${{ github.workspace }}/output.txt
+        continue-on-error: true
+        shell: bash
+
+      # - name: Exit if no relevant changes
+      #   run: echo "Exiting because there are no changes in src" && exit 0
+
+      # - name: Get the current version tag
+      #   id: get_version
+      #   run: |
+      #     git checkout main
+      #     git pull
+      #     TAG=$(git describe --tags `git rev-list --tags --max-count=1`)
+      #     echo "Current version tag: $TAG"
+      #     echo "::set-output name=version::${TAG}"
+
+      # - name: Calculate new version
+      #   id: new_version
+      #   run: |
+      #     CURRENT_VERSION=${{ steps.get_version.outputs.version }}
+      #     MAJOR=$(echo $CURRENT_VERSION | cut -d'.' -f1)
+      #     MINOR=$(echo $CURRENT_VERSION | cut -d'.' -f2)
+      #     PATCH=$(echo $CURRENT_VERSION | cut -d'.' -f3)
+      #     NEW_PATCH=$((PATCH + 1))
+      #     NEW_VERSION="${MAJOR}.${MINOR}.${NEW_PATCH}"
+      #     echo "New version: $NEW_VERSION"
+      #     echo "::set-output name=new_version::$NEW_VERSION"
+
+      # - name: Create and push tag
+      #   run: |
+      #     NEW_TAG=${{ steps.new_version.outputs.new_version }}
+      #     git tag $NEW_TAG
+      #     git push origin $NEW_TAG
+
+      # - name: Create GitHub release
+      #   uses: actions/create-release@v1
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   with:
+      #     tag_name: ${{ steps.new_version.outputs.new_version }}
+      #     release_name: Release ${{ steps.new_version.outputs.new_version }}
+      #     draft: false
+      #     prerelease: false
           
   
   upload_to_s3:
