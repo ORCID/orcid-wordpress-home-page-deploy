@@ -46,12 +46,20 @@ jobs:
           # Check if there are any changes
           if git diff --staged --quiet; then
             echo "No changes to commit."
-            echo "::set-output name=should_run::false"
+            echo "should_run='false'" >> "$GITHUB_OUTPUT"
           else
             git commit -m "Cloned WordPress post ${{ github.event.inputs.postID }} for environment ${{ github.event.inputs.environment }}"
             git push;
-            echo "::set-output name=should_run::true"
+            echo "should_run='true'" >> "$GITHUB_OUTPUT"
             fi
+      - name: Debug output
+        run: |
+          cat "$GITHUB_OUTPUT"
+          echo "should_run: $should_run"
+        env:
+          GITHUB_OUTPUT: ${{ github.workspace }}/output.txt
+        continue-on-error: true
+        shell: bash
 
   release_new_version:
     runs-on: ubuntu-latest
@@ -97,6 +105,7 @@ jobs:
           release_name: Release ${{ steps.new_version.outputs.new_version }}
           draft: false
           prerelease: false
+          
   
   upload_to_s3:
     if: needs.commit_changes.outputs.should_run == 'true'
