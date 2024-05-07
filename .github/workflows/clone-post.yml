@@ -15,8 +15,10 @@ on:
         default: "25163"
 
 jobs:
-  clone_post:
+  clone-post:
     runs-on: ubuntu-latest
+    outputs:
+      handle: ${{ steps.commit-changes.outputs.should-run }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -40,7 +42,7 @@ jobs:
           git config user.email 'actions@github.com'
 
       - name: Commit and push changes
-        id: commit_changes
+        id: commit-changes
         run: |
           git add .
           # Check if there are any changes
@@ -55,7 +57,7 @@ jobs:
       - name: Debug output
         run: |
           echo "$Github_output file contents: " && cat "$GITHUB_OUTPUT"
-          echo needs.commit_changes.outputs.should-run: ${{ steps.commit_changes.outputs.should-run }}
+          echo needs.commit-changes.outputs.should-run: ${{ steps.commit-changes.outputs.should-run }}
         env:
           GITHUB_OUTPUT: ${{ github.workspace }}/output.txt
         continue-on-error: true
@@ -63,8 +65,8 @@ jobs:
 
   release_new_version:
     runs-on: ubuntu-latest
-    needs: clone_post
-    if: steps.commit_changes.outputs.should-run == 'true'
+    needs: clone-post
+    if: steps.clone-post.outputs.should-run == 'true'
     steps:
       - name: Exit if no relevant changes
         run: echo "Exiting because there are no changes in src" && exit 0
