@@ -54,8 +54,8 @@ jobs:
             fi
       - name: Debug output
         run: |
-          cat "$GITHUB_OUTPUT"
-          echo "should_run: $should_run"
+          echo "$Github_output file contents: " && cat "$GITHUB_OUTPUT"
+          echo needs.commit_changes.outputs.should_run: ${{ needs.commit_changes.outputs.should_run }}
         env:
           GITHUB_OUTPUT: ${{ github.workspace }}/output.txt
         continue-on-error: true
