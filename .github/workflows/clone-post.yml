@@ -3,11 +3,11 @@ name: Clone And QA Deploy WordPress Post
 on:
   workflow_dispatch:
     inputs:
-      environment:
-        required: true
-        type: string
-        description: "The deployment environment (QA, PROD)"
-        default: "QA"
+      # environment:
+      #   required: true
+      #   type: string
+      #   description: "The deployment environment (QA, PROD)"
+      #   default: "QA"
       postID:
         required: true
         type: string
@@ -43,10 +43,10 @@ jobs:
           pip install requests beautifulsoup4 tqdm
       
       - name: Run cloning html script
-        run: python wordpress-cloning-html-script.py ${{ inputs.environment }} ${{ inputs.postID }} ${{ secrets.WORDPRESS_USERNAME }} ${{ secrets.WORDPRESS_PASSWORD }}
+        run: python wordpress-cloning-html-script.py QA ${{ inputs.postID }} ${{ secrets.WORDPRESS_USERNAME }} ${{ secrets.WORDPRESS_PASSWORD }}
 
       - name: Run cloning css script
-        run: python wordpress-cloning-css-script.py ${{ inputs.environment }} ${{ secrets.WORDPRESS_USERNAME }} ${{ secrets.WORDPRESS_PASSWORD }}
+        run: python wordpress-cloning-css-script.py QA ${{ secrets.WORDPRESS_USERNAME }} ${{ secrets.WORDPRESS_PASSWORD }}
 
       - name: Run PurgeCSS
         run: npm run purgecss
@@ -55,7 +55,7 @@ jobs:
         run: npm run grunt
 
       - name: Run cloning css script
-        run: python wordpress-cloning-img-script.py ${{ inputs.environment }} ${{ secrets.WORDPRESS_USERNAME }} ${{ secrets.WORDPRESS_PASSWORD }}
+        run: python wordpress-cloning-img-script.py QA ${{ secrets.WORDPRESS_USERNAME }} ${{ secrets.WORDPRESS_PASSWORD }}
 
       - name: Configure git user
         run: |
@@ -71,7 +71,7 @@ jobs:
             echo "No changes to commit."
             echo "should-run=false" >> "$GITHUB_OUTPUT"
           else
-            git commit -m "Cloned WordPress post ${{ github.event.inputs.postID }} for environment ${{ github.event.inputs.environment }}"
+            git commit -m "Cloned WordPress post ${{ github.event.inputs.postID }} for environment QA"
             git push;
             echo "should-run=true" >> "$GITHUB_OUTPUT"
             fi
