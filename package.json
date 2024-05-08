@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "grunt": "grunt",
-    "purgecss": "purgecss"
+    "purgecss": "purgecss --config ./purgecss.config.js"
   },
   "repository": {
     "type": "git",

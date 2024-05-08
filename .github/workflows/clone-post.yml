@@ -48,12 +48,14 @@ jobs:
       - name: Run cloning css script
         run: python wordpress-cloning-css-script.py ${{ inputs.environment }} ${{ secrets.WORDPRESS_USERNAME }} ${{ secrets.WORDPRESS_PASSWORD }}
 
-
       - name: Run PurgeCSS
-        run: npm run purgecss -- --css dist/combined_styles.css --content dist/index.html --output dist
+        run: npm run purgecss
 
       - name: Mix HTML and CSS in a single file
         run: npm run grunt
+
+      - name: Run cloning css script
+        run: python wordpress-cloning-img-script.py ${{ inputs.environment }} ${{ secrets.WORDPRESS_USERNAME }} ${{ secrets.WORDPRESS_PASSWORD }}
 
       - name: Configure git user
         run: |

@@ -19,14 +19,19 @@ def main(environment, post_id, wordpreess_staggin_username, wordpreess_staggin_p
     # Make the request with or without authentication based on the environment
     response = requests.get(f"{base_url}wp-json/wp/v2/pages/{post_id}", headers=headers, auth=auth)
 
-    print(f"Fetching post {post_id} from {base_url}wp-json/wp/v2/posts/{post_id}")
-    if response.status_code == 200:
-        html_content = response.json()["content"]["rendered"]
-        with open(f"dist/index.html", "w") as file:
+    with open(f"dist/index.html", "w") as file:
+        file.write("<doctype html><html><head><link rel=\"stylesheet\" href=\"./combined_styles.css\"></head><body>")
+
+        if response.status_code == 200:
+            html_content = response.json()["content"]["rendered"]
             file.write(html_content)
-        print(f"Successfully cloned post {post_id} to {post_id}.html")
-    else:
-        print(f"Failed to fetch post: {response}")
+            print(f"Successfully cloned post {post_id} to {post_id}.html")
+        else:
+            print(f"Failed to fetch post: {response}")
+    
+        file.write("</body></html>")
+
+
 
 if __name__ == "__main__":
     print(sys.argv)
