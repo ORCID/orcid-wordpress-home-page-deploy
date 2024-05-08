@@ -8,7 +8,7 @@ module.exports = function(grunt) {
                 options: {
                 },
                 files: {
-                    'dist/index.html': 'dist/index.html'
+                    'dist/inline-index.html': 'dist/index.html'
                 }
             }
         }
