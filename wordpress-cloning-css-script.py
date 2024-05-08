@@ -10,7 +10,10 @@ def clone_css_files(environment, wordpress_staggin_username, wordpress_staggin_p
     css_urls = [
         f"{base_url}wp-content/themes/orcid-outreach-pro/style.css",
         f"{base_url}wp-includes/css/dist/block-library/style.css",
-        f"{base_url}wp-content/plugins/genesis-blocks/dist/style-blocks.build.css"
+        f"{base_url}wp-content/plugins/genesis-blocks/dist/style-blocks.build.css",
+        f"{base_url}wp-content/uploads/theplus_gutenberg/theplus-post-25163.min.css",
+        f"{base_url}wp-content/uploads/theplus_gutenberg/plus-global.css",
+        f"{base_url}wp-content/uploads/theplus_gutenberg/plus-css-25163.css",
     ]
     
     # Set up authentication if not in production environment
