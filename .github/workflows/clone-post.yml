@@ -68,6 +68,8 @@ jobs:
     needs: clone-post
     if: needs.clone-post.outputs.should-run == 'true'
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
       - name: Exit if no relevant changes
         run: echo "Exiting because there are no changes in src" && exit 0
 
