@@ -81,9 +81,9 @@ jobs:
         run: |
           git checkout main
           git pull
-          TAG=$(git describe --tags `git rev-list --tags --max-count=1`)
-          echo "Current version tag: $TAG"
-          echo "::set-output name=version::${TAG}"
+          TAG=$(git tag --sort=-version:refname | head -n 1)
+          echo "Current version tag:" $TAG
+          echo "version=${TAG}" >> "$GITHUB_OUTPUT"
 
       - name: Calculate new version
         id: new_version
