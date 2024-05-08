@@ -52,7 +52,7 @@ jobs:
       - name: Run PurgeCSS
         run: npm run purgecss -- --css dist/combined_styles.css --content dist/index.html --output dist
 
-      -- name: Mix HTML and CSS in a single file
+      - name: Mix HTML and CSS in a single file
         run: npm run grunt
 
       - name: Configure git user
