@@ -24,7 +24,7 @@ def clone_css_files(environment, wordpress_staggin_username, wordpress_staggin_p
     }
 
    # Open file to write CSS content
-    with open('combined_styles.css', 'w') as file:
+    with open('dist/combined_styles.css', 'w') as file:
         for url in css_urls:
             response = requests.get(url, headers=headers, auth=auth)
             if response.status_code == 200:
@@ -33,7 +33,7 @@ def clone_css_files(environment, wordpress_staggin_username, wordpress_staggin_p
                 print(f"Successfully added CSS from {url} to combined_styles.css")
             else:
                 print(f"Failed to fetch {url}: HTTP {response.status_code}")
-                
+
 if __name__ == "__main__":
     print(sys.argv)
     if len(sys.argv) != 4:
