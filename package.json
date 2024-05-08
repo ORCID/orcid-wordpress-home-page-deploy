@@ -1,0 +1,26 @@
+{
+  "name": "orcid-wordpress-home-page-deploy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "grunt": "grunt",
+    "purgecss": "purgecss"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ORCID/orcid-wordpress-home-page-deploy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ORCID/orcid-wordpress-home-page-deploy/issues"
+  },
+  "homepage": "https://github.com/ORCID/orcid-wordpress-home-page-deploy#readme",
+  "devDependencies": {
+    "grunt": "^1.6.1",
+    "grunt-inline-css": "^1.0.0",
+    "purgecss": "^6.0.0"
+  }
+}
