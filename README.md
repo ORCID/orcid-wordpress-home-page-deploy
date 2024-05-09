@@ -14,8 +14,11 @@ The purpose of this repository is to provide a straightforward method for both t
 - Navigate to [Clone And QA Deploy WordPress Post](https://github.com/ORCID/orcid-wordpress-home-page-deploy/actions/workflows/clone-post.yml)
 - Click on "Run workflow"
   - Select environment = `QA` and select the WordPress page that needs to be deployed (default is `25163`)
+  - <img src="https://github.com/ORCID/orcid-wordpress-home-page-deploy/assets/2119626/9ace3faa-5a6f-42d3-803e-af65e196d1a8" height="200">
 
-![image](https://github.com/ORCID/orcid-wordpress-home-page-deploy/assets/2119626/9ace3faa-5a6f-42d3-803e-af65e196d1a8)
+<div style="border:1px solid #ccc; padding:10px; margin-bottom:10px;">
+    <strong>Note:</strong> Provide more info to users that might not know how to get the page id from the wordpress page they want to publish. 
+</div>
 
 ## Prod Deployment -- WIP ---
 
@@ -23,7 +26,7 @@ The purpose of this repository is to provide a straightforward method for both t
     - Navigate to [Clone And QA Deploy WordPress Post](https://github.com/ORCID/orcid-wordpress-home-page-deploy/actions/workflows/clone-post.yml)
     - Click on "Run workflow"
     - Select environment = `QA` and select the WordPress page that needs to be deployed (default is `25163`)
-    - ![image](https://github.com/ORCID/orcid-wordpress-home-page-deploy/assets/2119626/9ace3faa-5a6f-42d3-803e-af65e196d1a8)
+    - <img src="https://github.com/ORCID/orcid-wordpress-home-page-deploy/assets/2119626/9ace3faa-5a6f-42d3-803e-af65e196d1a8" height="200">
 
 2. Update the fallback S3 bucket:
     - Verify the default machine is working as expected: navigate to `orcid.org?home-page-force=s3-a`.
