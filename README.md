@@ -17,7 +17,7 @@ The purpose of this repository is to provide a straightforward method for both t
 
 ![image](https://github.com/ORCID/orcid-wordpress-home-page-deploy/assets/2119626/9ace3faa-5a6f-42d3-803e-af65e196d1a8)
 
-## Prod Deployment
+## Prod Deployment -- WIP ---
 
 1. Verify info.orcid.org clone on QA:
     - Navigate to [Clone And QA Deploy WordPress Post](https://github.com/ORCID/orcid-wordpress-home-page-deploy/actions/workflows/clone-post.yml)
@@ -27,7 +27,7 @@ The purpose of this repository is to provide a straightforward method for both t
 
 2. Update the fallback S3 bucket:
     - Verify the default machine is working as expected: navigate to `orcid.org?home-page-force=s3-a`.
-    - Navigate to the GitHub action <WIP>
+    - Navigate to the GitHub action -- WIP ---
     - Click on "Run workflow"
     - Select environment = `prod-s3-b` and select the GitHub version to release.
       - Please verify the version to be deployed has already been checked and approved on QA.
@@ -35,7 +35,7 @@ The purpose of this repository is to provide a straightforward method for both t
 
 3. Update the default S3 bucket:
     - Verify the fallback machine is working as expected: navigate to `orcid.org?home-page-force=s3-b`.
-    - Navigate to the GitHub action <WIP>
+    - Navigate to the GitHub action -- WIP ---
     - Click on "Run workflow"
     - Select environment = `prod-s3-a` and select the GitHub version to release.
       - Please verify the version to be deployed has already been checked and approved on QA.
@@ -43,4 +43,4 @@ The purpose of this repository is to provide a straightforward method for both t
 
 ## Rollback Deployment
 
-- WIP
+-- WIP ---
