@@ -16,9 +16,11 @@ The purpose of this repository is to provide a straightforward method for both t
   - Select environment = `QA` and select the WordPress page that needs to be deployed (default is `25163`)
   - <img src="https://github.com/ORCID/orcid-wordpress-home-page-deploy/assets/2119626/9ace3faa-5a6f-42d3-803e-af65e196d1a8" height="200">
 
-<div style="border:1px solid #ccc; padding:10px; margin-bottom:10px;">
-    <strong>Note:</strong> Provide more info to users that might not know how to get the page id from the wordpress page they want to publish. 
-</div>
+```
+Note: 
+TODO: Provide more info to users that might not know how to get the page id 
+from the wordpress page they want to publish. 
+```
 
 ## Prod Deployment -- WIP ---
 
