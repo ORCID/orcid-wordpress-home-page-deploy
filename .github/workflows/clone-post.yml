@@ -43,7 +43,7 @@ jobs:
           pip install requests beautifulsoup4 tqdm
       
       - name: Run cloning html script
-        run: python wordpress-cloning-html-script.py ${{ inputs.environment }} ${{ inputs.postID }} ${{ secrets.WORDPRESS_USERNAME }} ${{ secrets.WORDPRESS_PASSWORD }}
+        run: python wordpress-cloning-html-script.py ${{ inputs.environment }} ${{ inputs.postID }} ${{ secrets.WORDPRESS_USERNAME }} ${{ secrets.WORDPRESS_PASSWORD }} true
 
       - name: Run cloning css script
         run: python wordpress-cloning-css-script.py ${{ inputs.environment }} ${{ secrets.WORDPRESS_USERNAME }} ${{ secrets.WORDPRESS_PASSWORD }}
