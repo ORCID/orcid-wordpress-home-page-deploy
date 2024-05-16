@@ -1,122 +1,197 @@
-<doctype html="" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;"><html style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-family: sans-serif; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;"><head><style>
-a:focus {
-  outline: thin dotted;
-}
-a:active,
-a:hover {
-  outline: 0;
-}
-a:hover,
-a:focus {
-  color: var(--brand-primary-darkest);
-}
-a:active {
-  font-weight: 600;
-}
-@media only screen and (max-width: 1180px) {
-  .content {
-    width: 630px;
-  }
-}
-@media only screen and (max-width: 1023px) {
-  .content {
-    width: 100%;
-  }
-}
-@media only screen and (max-width: 480px) {
-  .content {
-    padding: 30px;
-  }
-}
-@keyframes turn-on-visibility {
-  0% {
-    opacity: 0;
-  }
+<doctype html><html><head><link rel="stylesheet" href="./combined_styles.css"></head><body>
+<div class="wp-block-genesis-blocks-gb-container gb-block-container"><div class="gb-container-inside"><div class="gb-container-content">
+<h2 class="wp-block-heading" id="h-background"><strong>Background</strong></h2>
 
-  to {
-    opacity: 1;
-  }
-}
-@keyframes turn-off-visibility {
-  0% {
-    opacity: 1;
-    visibility: visible;
-  }
 
-  99% {
-    opacity: 0;
-    visibility: visible;
-  }
 
-  to {
-    opacity: 0;
-    visibility: hidden;
-  }
-}
-@keyframes lightbox-zoom-in {
-  0% {
-    transform: translate(calc((-100vw + var(--wp--lightbox-scrollbar-width))/2 + var(--wp--lightbox-initial-left-position)), calc(-50vh + var(--wp--lightbox-initial-top-position))) scale(var(--wp--lightbox-scale));
-  }
+<p>As stated in our <a href="https://info.orcid.org/code-of-conduct/" target="_blank" rel="noreferrer noopener">Code of Conduct</a>, ORCID is committed to honest, ethical, and lawful conduct, and compliance with applicable laws, rules and regulations. ORCID expects all its employees and partners to practice honesty and integrity in fulfilling their responsibilities and to act in accordance with all applicable laws, regulations and ORCID policies.&nbsp; This Whistleblower Policy provides a means for individuals to report concerns covered by this policy without the fear of retaliation and for such reports to be handled in a professional and thorough manner.&nbsp;</p>
 
-  to {
-    transform: translate(-50%, -50%) scale(1);
-  }
-}
-@keyframes lightbox-zoom-out {
-  0% {
-    transform: translate(-50%, -50%) scale(1);
-    visibility: visible;
-  }
 
-  99% {
-    visibility: visible;
-  }
 
-  to {
-    transform: translate(calc((-100vw + var(--wp--lightbox-scrollbar-width))/2 + var(--wp--lightbox-initial-left-position)), calc(-50vh + var(--wp--lightbox-initial-top-position))) scale(var(--wp--lightbox-scale));
-    visibility: hidden;
-  }
-}
-@keyframes overlay-menu__fade-in-animation {
-  0% {
-    opacity: 0;
-    transform: translateY(.5em);
-  }
+<h2 class="wp-block-heading" id="h-who-and-what-is-covered-by-this-policy"><strong>Who and What is Covered by This Policy</strong></h2>
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-@font-face {
-  font-family: "FontAwesome";
-  font-display: block;
-  src: url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-brands-400.eot"),
-		url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-brands-400.eot?#iefix") format("embedded-opentype"),
-		url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-brands-400.woff2") format("woff2"),
-		url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-brands-400.woff") format("woff"),
-		url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-brands-400.ttf") format("truetype"),
-		url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-brands-400.svg#fontawesome") format("svg");}
-@font-face {
-  font-family: "FontAwesome";
-  font-display: block;
-  src: url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-solid-900.eot"),
-		url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"),
-		url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-solid-900.woff2") format("woff2"),
-		url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-solid-900.woff") format("woff"),
-		url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-solid-900.ttf") format("truetype"),
-		url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-solid-900.svg#fontawesome") format("svg");}
-@font-face {
-  font-family: "FontAwesome";
-  font-display: block;
-  src: url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-regular-400.eot"),
-		url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-regular-400.eot?#iefix") format("embedded-opentype"),
-		url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-regular-400.woff2") format("woff2"),
-		url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-regular-400.woff") format("woff"),
-		url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-regular-400.ttf") format("truetype"),
-		url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-regular-400.svg#fontawesome") format("svg");
-  unicode-range: U+F004-F005,U+F007,U+F017,U+F022,U+F024,U+F02E,U+F03E,U+F044,U+F057-F059,U+F06E,U+F070,U+F075,U+F07B-F07C,U+F080,U+F086,U+F089,U+F094,U+F09D,U+F0A0,U+F0A4-F0A7,U+F0C5,U+F0C7-F0C8,U+F0E0,U+F0EB,U+F0F3,U+F0F8,U+F0FE,U+F111,U+F118-F11A,U+F11C,U+F133,U+F144,U+F146,U+F14A,U+F14D-F14E,U+F150-F152,U+F15B-F15C,U+F164-F165,U+F185-F186,U+F191-F192,U+F1AD,U+F1C1-F1C9,U+F1CD,U+F1D8,U+F1E3,U+F1EA,U+F1F6,U+F1F9,U+F20A,U+F247-F249,U+F24D,U+F254-F25B,U+F25D,U+F267,U+F271-F274,U+F279,U+F28B,U+F28D,U+F2B5-F2B6,U+F2B9,U+F2BB,U+F2BD,U+F2C1-F2C2,U+F2D0,U+F2D2,U+F2DC,U+F2ED,U+F328,U+F358-F35B,U+F3A5,U+F3D1,U+F410,U+F4AD;}
-</style></head><body style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0; background-color: rgb(250, 250, 250); color: rgba(0, 0, 0, .9); font-family: 'Noto Sans', sans-serif; font-size: 16px; font-weight: normal; line-height: 1.55;">
-<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;">Translations on this site are automated using <a href="https://gtranslate.io" rel="noreferrer noopener" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; color: rgb(8, 92, 119);" target="_blank">G|Translate</a>. G|Translate is a plugin that uses Google Neural Machine Translations (GNMT). Though human translations will always be the most accurate, GNMT is a remarkable improvement over any standard machine translation available. </p>
-<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;">Though G|Translate is a self-learning, continually improving system, you may find mistranslations that make it difficult to understand the meaning the surrounding content. If you spot any such errors please <a href="https://support.orcid.org/hc/en-us/requests/new" rel="noreferrer noopener" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; color: rgb(8, 92, 119);" target="_blank">let us know</a> – we welcome any feedback from our community to improve!</p>
-</body></html></doctype>
+
+
+<p>Under this policy, ORCID’s directors, officers, current employees, contractors, and volunteers are required to report in good faith any action or suspected action taken by or within ORCID that is illegal, fraudulent or in violation of any applicable ORCID policy or any activity, policy or practice of ORCID that the individual reasonably believes poses a specific danger to public health or safety. Former employees are also encouraged to report any concerns and shall be protected from retaliation by ORCID. Concerns may include, but are not limited to:</p>
+
+
+
+<ul>
+<li>violations of national, state, or local laws or regulations;</li>
+
+
+
+<li>financial wrongdoing (including circumvention of internal controls or violation of ORCID’s accounting policies, providing false information to, or withholding material information from, ORCID’s auditors, or supplying false or misleading information on ORCID’s tax returns; as well as money laundering, tax evasion, or other financial crimes);</li>
+
+
+
+<li>payment for services that are not rendered or goods that are not delivered; theft; embezzlement; official or commercial bribery or trading in influence; kickbacks or use of ORCID’s property, resources, or authority for personal gain or other non-ORCID related purposes; and</li>
+
+
+
+<li>destroying, altering, concealing or falsifying a document in connection with a litigation, regulatory filing, or investigation.</li>
+</ul>
+
+
+
+<p>This policy is not a vehicle for reporting personnel-related matters, violations of applicable human resource policies, problems with co-workers or supervisors, or for reporting issues related to alleged workplace discrimination or sexual or any other form of unlawful harassment, all of which should be dealt with in accordance with ORCID’s other applicable policies.</p>
+
+
+
+<h2 class="wp-block-heading" id="h-good-faith-nbsp"><strong>Good Faith&nbsp;</strong></h2>
+
+
+
+<p>Individuals who report concerns must exercise sound judgment and reasonably believe in good faith that the information disclosed relates to conduct covered by this policy.&nbsp; Any person who intentionally files a false report may be subject to discipline, up to and including termination from employment or other relationship with ORCID.&nbsp;</p>
+
+
+
+<h2 class="wp-block-heading" id="h-when-and-how-to-report-concerns-nbsp"><strong>When and How to Report Concerns&nbsp;</strong></h2>
+
+
+
+<p>Individuals should report concerns as soon as practicable to their supervisor (if a current employee) or to the Executive Director. Individuals may also report any concerns directly to the Audit and Risk Committee Chair (the “Committee Chair”) and should always do so if the concern relates to the Executive Director. The current Committee Chair is listed on <a href="https://info.orcid.org/our-governance/audit-committee/" target="_blank" rel="noreferrer noopener"></a><a href="https://info.orcid.org/our-governance/audit-committee/" target="_blank" rel="noreferrer noopener">ORCID’s website</a><a href="https://info.orcid.org/our-governance/audit-committee/" target="_blank" rel="noreferrer noopener"></a>. All persons who receive concerns pursuant to this Policy shall promptly inform the Executive Director (or the Committee Chair if the concern involves the Executive Director) of such report.&nbsp; The Executive Director shall inform the Committee Chair of concerns reported to them.&nbsp;</p>
+
+
+
+<p>Reports of concerns may also be made via our Confidential Reporting Line, which is enabled across a number of platforms, including:</p>
+
+
+
+<ul>
+<li><strong>Website</strong>: <a href="https://report.syntrio.com/orcid" target="_blank" rel="noreferrer noopener"></a><a href="https://report.syntrio.com/orcid" target="_blank" rel="noreferrer noopener">https://report.syntrio.com/orcid</a><a href="https://report.syntrio.com/orcid" target="_blank" rel="noreferrer noopener"></a></li>
+
+
+
+<li><strong>Anonymous Reporting App</strong>: Detailed app instructions download <a href="https://www.lighthouse-services.com/documents/Using%20the%20Lighthouse%20Anonymous%20Reporting%20App.docx" target="_blank" rel="noreferrer noopener"></a><a href="https://www.lighthouse-services.com/documents/Using%20the%20Lighthouse%20Anonymous%20Reporting%20App.docx" target="_blank" rel="noreferrer noopener">here</a><a href="https://www.lighthouse-services.com/documents/Using%20the%20Lighthouse%20Anonymous%20Reporting%20App.docx" target="_blank" rel="noreferrer noopener"></a>. Note keyword: orcid </li>
+
+
+
+<li><strong>Toll-Free Telephone</strong>:&nbsp;&nbsp;
+<ul>
+<li>North America Direct Dial
+<ul>
+<li>English-speaking USA and Canada: 833-759-7400 </li>
+
+
+
+<li>Spanish-speaking USA and Canada: 800-216-1288&nbsp;&nbsp;</li>
+
+
+
+<li>French-speaking Canada: 855-725-0002&nbsp;&nbsp;&nbsp;</li>
+
+
+
+<li>Spanish-speaking Mexico: 800-681-5340&nbsp;&nbsp;</li>
+</ul>
+</li>
+
+
+
+<li>AT&amp;T USADirect for<a href="https://www.lighthouse-services.com/worldwide-access/" target="_blank" rel="noreferrer noopener"></a><a href="https://www.lighthouse-services.com/worldwide-access/" target="_blank" rel="noreferrer noopener"> world-wide access</a><a href="https://www.lighthouse-services.com/worldwide-access/" target="_blank" rel="noreferrer noopener"></a>
+<ul>
+<li>All other countries: 800-603-2869 (must dial country access code first click <a href="http://www.lighthouse-services.com/documentlink/International%20Toll-free%20Hotline%20Access%20Instructions.pdf" target="_blank" rel="noreferrer noopener"></a><a href="http://www.lighthouse-services.com/documentlink/International%20Toll-free%20Hotline%20Access%20Instructions.pdf" target="_blank" rel="noreferrer noopener">here</a><a href="http://www.lighthouse-services.com/documentlink/International%20Toll-free%20Hotline%20Access%20Instructions.pdf" target="_blank" rel="noreferrer noopener"></a> for access codes and dialing instructions)</li>
+
+
+
+<li><a href="https://www.business.att.com/collateral/access.html" target="_blank" rel="noreferrer noopener">International Access Codes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+
+
+
+<li><strong>E-mail</strong>: <a href="mailto:reports@syntrio.com" target="_blank" rel="noreferrer noopener"></a><a href="mailto:reports@syntrio.com" target="_blank" rel="noreferrer noopener"></a><a href="mailto:reports@syntrio.com" target="_blank" rel="noreferrer noopener">reports@syntrio.com</a><a href="mailto:reports@syntrio.com" target="_blank" rel="noreferrer noopener"></a> (must include “ORCID” with report)&nbsp;&nbsp;</li>
+
+
+
+<li><strong>Fax</strong>: (215) 689-3885 (must also include “ORCID with report)&nbsp;&nbsp;</li>
+</ul>
+
+
+
+<p>Reports related to this policy made through the Confidential Reporting Line will be delivered to the Committee Chair, who will share such reports with the Executive Director (unless the report relates to the Executive Director). Please note that it may be more difficult to fully investigate anonymous reports.&nbsp;&nbsp;</p>
+
+
+
+<h2 class="wp-block-heading" id="h-investigations"><strong>Investigations</strong></h2>
+
+
+
+<p>For each reported concern that is not submitted on an anonymous basis, an acknowledgement of receipt will be provided within seven days to the reporting person. The Executive Director shall promptly assess each concern on a preliminary basis to determine to what extent a further investigation is warranted and shall report their findings to the Committee Chair.</p>
+
+
+
+<p>If the Executive Director and the Committee Chair determine that a further investigation is needed, the Executive Director shall coordinate any resulting investigation in a manner the Executive Director and the Committee Chair deem appropriate (or as otherwise directed by the Audit and Risk Committee). The Executive Director shall inform the Audit and Risk Committee of findings of the investigation and take corrective action as the Audit and Risk Committee&nbsp; deems warranted, including, but not limited to, retaining external experts to conduct an internal investigation and reporting to law enforcement or other authorities.&nbsp; Those conducting the investigation may consult with any persons and/or professional advisers at their discretion.</p>
+
+
+
+<p>Any individual who is the subject of a reported concern may not be present at or participate in any deliberations, voting on or other resolution of the matter relating to the concern.&nbsp;In addition, a current employee who is also a member of the Board may not take part in any Board or committee deliberations or voting concerning the administration of this policy.&nbsp; Nothing in this policy shall prohibit ORCID from requesting that the individual who is the subject of the concern present background information or answer questions prior to the commencement of deliberations, voting or resolution.</p>
+
+
+
+<p>If the Executive Director is the subject of the report, the Committee Chair will undertake the responsibilities of the Executive Director under this section.&nbsp;&nbsp;&nbsp;</p>
+
+
+
+<p>If the Committee Chair is the subject of the report, the Board Chair will undertake the responsibilities of the Committee Chair under this section.&nbsp;&nbsp;</p>
+
+
+
+<h2 class="wp-block-heading" id="h-no-retaliation"><strong>No Retaliation</strong></h2>
+
+
+
+<p>ORCID will not take any retaliatory action against any individual who is subject to this policy and who reports a good faith concern in accordance with this policy, provides information or participates in an investigation of or implementation of corrective action relating to any such concern, or objects to or refuses to participate in any activity, policy or practice giving rise to such concern.&nbsp;Acts of retaliation should be reported immediately to the Executive Director (or the Committee Chair if the retaliation involves the Executive Director). Any person who retaliates against an individual who has reported a concern in accordance with this policy and in good faith may be subject to disciplinary action, up to and including termination of their employment or relationship with ORCID.</p>
+
+
+
+<p>Retaliatory action includes but is not limited to (i) intimidation, harassment and discrimination, (ii) taking adverse employment action, such as discharging, demoting, suspending, threatening, or otherwise affecting the current or future employment of any individual who is subject to this policy, and (iii) contacting immigration authorities about, or reporting the immigration status of, any individual who is subject to this policy or their family or household members, or threatening to do so.</p>
+
+
+
+<p>Notwithstanding anything contained in this policy to the contrary, this policy does not in any way modify the relationship between ORCID and its employees or contractors or create an employment contract.&nbsp; Furthermore, the right to be free of retaliation does not preclude ORCID from taking disciplinary action related to performance or other conduct.&nbsp;</p>
+
+
+
+<h2 class="wp-block-heading" id="h-confidentiality"><strong>Confidentiality</strong></h2>
+
+
+
+<p>ORCID takes seriously its responsibility to enforce this policy, and therefore encourages any person reporting a concern to identify themselves to facilitate ORCID’s investigation. The identity of the individual reporting a concern will be kept confidential to the extent possible, consistent with the need to conduct a thorough and complete investigation and to cooperate with law enforcement or regulatory authorities where appropriate.</p>
+
+
+
+<h2 class="wp-block-heading" id="h-distribution"><strong>Distribution</strong></h2>
+
+
+
+<p>This Policy shall be distributed to all directors, officers, current employees and independent contractors of ORCID, and to volunteers who provide substantial services to ORCID.&nbsp; ORCID may choose to satisfy this distribution requirement by posting this policy on its website.</p>
+
+
+
+<h2 class="wp-block-heading" id="h-records-and-reporting-to-board"><strong>Records and Reporting to Board</strong></h2>
+
+
+
+<p>Records relating to any reported concern and to the investigation and resolution thereof shall be maintained by ORCID for a period of seven years (or as otherwise required under ORCID’s record retention and disposal policies in effect from time to time, if any).&nbsp;</p>
+
+
+
+<p>On at least an annual basis, the Executive Director shall ensure that the Board is provided with a report identifying all concerns reported during the preceding year and their resolution.&nbsp; If the Executive Director is the subject of a concern, the Committee Chair shall be responsible for such reporting to the Board.&nbsp;</p>
+
+
+
+<p><em>If you have any questions about this policy, you should reach out to the Executive Director.&nbsp;</em></p>
+
+
+
+<p><em>ORCID reserves the right to amend this policy at any time.</em></p>
+
+
+
+<p><em>ORCID is committed to compliance with all regulations and laws in the countries where we operate. If any provision of this policy is inconsistent with controlling national or local law, such law will apply and will supersede this policy.</em></p>
+</div></div></div>
+</body></html>

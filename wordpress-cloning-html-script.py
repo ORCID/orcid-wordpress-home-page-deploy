@@ -36,7 +36,8 @@ def main(environment, post_id, wordpreess_staggin_username, wordpreess_staggin_p
     auth = None
     if environment != "PROD":
         auth = HTTPBasicAuth(wordpreess_staggin_username, wordpreess_staggin_password)
-
+    
+    print(f"Cloning post {post_id} from {base_url} to index{'' if language == '' else '-' + language}.html")
     # Make the request with or without authentication based on the environment
     response = requests.get(f"{base_url}wp-json/wp/v2/pages/{post_id}", headers=headers, auth=auth)
 

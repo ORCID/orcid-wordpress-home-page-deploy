@@ -1,5 +1,5 @@
 name: Homepage QA Deploy
-run-name: Deploy Wordpres ${{ inputs.environment }} -  ${{ inputs.postID }} by @${{ github.actor }}
+run-name: QA deploy Wordpres ${{ inputs.environment }} -  page ${{ inputs.postID }} by @${{ github.actor }}
 
 on:
   workflow_dispatch:
