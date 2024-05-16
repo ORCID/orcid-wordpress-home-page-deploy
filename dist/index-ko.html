@@ -1,4 +1,4 @@
-<doctype html style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;"><html style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-family: sans-serif; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;"><head><style>
+<doctype html style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: inherit;"><html style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: inherit; font-family: sans-serif; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;"><head><style>
 a:focus {
   outline: thin dotted;
 }
@@ -6,12 +6,64 @@ a:active,
 a:hover {
   outline: 0;
 }
-a:hover,
-a:focus {
-  color: var(--brand-primary-darkest);
-}
 a:active {
   font-weight: 600;
+}
+.wp-block-button__link,
+.wp-block-button {
+  background-color: var(--brand-secondary-darkest);
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  width: auto;
+  text-decoration: none;
+  margin-bottom: 0;
+  display: inline-block;
+  font-size: inherit;
+}
+.wp-block-button__link:hover {
+  color: #fff;
+  background-color: var(--brand-primary-dark);
+}
+.wp-block-button__link:active {
+  background-color: var(--brand-primary);
+  border-color: var(--brand-primary);
+  color: #fff;
+}
+.wp-block-button__link:focus {
+  border-color: var(--brand-primary);
+}
+.wp-block-button__link {
+  color: #fff !important;
+}
+.screen-reader-text:focus {
+  box-shadow: 0 0 2px 2px var(--brand-primary-lightest);
+  z-index: 100000;
+}
+.wp-block-button__link {
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  word-break: break-word;
+}
+@media (min-width:782px) {
+  .wp-block-columns {
+    flex-wrap: nowrap !important;
+  }
+}
+@media (max-width:781px) {
+  .wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column {
+    flex-basis: 100% !important;
+  }
+}
+@media (min-width:782px) {
+  .wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column {
+    flex-basis: 0;
+    flex-grow: 1;
+  }
 }
 @keyframes turn-on-visibility {
   0% {
@@ -62,6 +114,21 @@ a:active {
     visibility: hidden;
   }
 }
+@media (max-width:600px) {
+  .wp-block-media-text.is-stacked-on-mobile {
+    grid-template-columns: 100% !important;
+  }
+
+  .wp-block-media-text.is-stacked-on-mobile .wp-block-media-text__media {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .wp-block-media-text.is-stacked-on-mobile .wp-block-media-text__content {
+    grid-column: 1;
+    grid-row: 2;
+  }
+}
 @keyframes overlay-menu__fade-in-animation {
   0% {
     opacity: 0;
@@ -72,6 +139,69 @@ a:active {
     opacity: 1;
     transform: translateY(0);
   }
+}
+:where(p.has-text-color:not(.has-link-color)) a {
+  color: inherit;
+}
+.screen-reader-text:focus {
+  background-color: #ddd;
+  clip: auto !important;
+  -webkit-clip-path: none;
+  clip-path: none;
+  color: #444;
+  display: block;
+  font-size: 1em;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000;
+}
+.tpgb-tabs-nav .tpgb-tab-header.active,
+.tpgb-tabs-nav .tpgb-tab-header:hover {
+  color: #6f14f1;
+}
+.tpgb-tabs-content-wrapper .tpgb-tab-content.active {
+  display: block;
+  opacity: 1;
+  animation: fadeIn linear .3s;
+}
+@media (max-width:767px) {
+  .tab-view-horizontal .tpgb-tabs-wrapper.nav-one-by-one .tpgb-tabs-nav .tpgb-tab-li {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .tab-view-horizontal .tpgb-tabs-wrapper.nav-one-by-one .tpgb-tabs-nav {
+    display: block;
+    text-align: center;
+  }
+}
+.tpgb-block-3f14_25163 .tpgb-tabs-nav .tpgb-tab-header.active,
+.tpgb-block-3f14_25163 .tpgb-tabs-nav .tpgb-tab-header:hover {
+  color: #fffefe;
+}
+.tpgb-block-3f14_25163 .tpgb-tabs-wrapper .tpgb-tab-header.active {
+  opacity: 1;
+}
+.tpgb-block-3f14_25163 .tpgb-tabs-nav .tpgb-tab-header.active {
+  border-width: 0 0 3px;
+  border-style: solid;
+  border-color: #fe00ed;
+}
+.wp-block-button__link {
+  color: #fff;
+  background-color: #32373c;
+  border-radius: 9999px;
+  box-shadow: none;
+  text-decoration: none;
+  padding: calc(.667em + 2px) calc(1.333em + 2px);
+  font-size: 1.125em;
 }
 @font-face {
   font-family: "FontAwesome";
@@ -101,200 +231,4 @@ a:active {
 		url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-regular-400.ttf") format("truetype"),
 		url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-regular-400.svg#fontawesome") format("svg");
   unicode-range: U+F004-F005,U+F007,U+F017,U+F022,U+F024,U+F02E,U+F03E,U+F044,U+F057-F059,U+F06E,U+F070,U+F075,U+F07B-F07C,U+F080,U+F086,U+F089,U+F094,U+F09D,U+F0A0,U+F0A4-F0A7,U+F0C5,U+F0C7-F0C8,U+F0E0,U+F0EB,U+F0F3,U+F0F8,U+F0FE,U+F111,U+F118-F11A,U+F11C,U+F133,U+F144,U+F146,U+F14A,U+F14D-F14E,U+F150-F152,U+F15B-F15C,U+F164-F165,U+F185-F186,U+F191-F192,U+F1AD,U+F1C1-F1C9,U+F1CD,U+F1D8,U+F1E3,U+F1EA,U+F1F6,U+F1F9,U+F20A,U+F247-F249,U+F24D,U+F254-F25B,U+F25D,U+F267,U+F271-F274,U+F279,U+F28B,U+F28D,U+F2B5-F2B6,U+F2B9,U+F2BB,U+F2BD,U+F2C1-F2C2,U+F2D0,U+F2D2,U+F2DC,U+F2ED,U+F328,U+F358-F35B,U+F3A5,U+F3D1,U+F410,U+F4AD;}
-</style></head><body style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0; background-color: rgb(250, 250, 250); color: rgba(0, 0, 0, .9); font-family: 'Noto Sans', sans-serif; font-size: 16px; font-weight: normal; line-height: 1.55;">
-<div class="wp-block-genesis-blocks-gb-container gb-block-container" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0; position: relative; padding: 0;"><div class="gb-container-inside" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;"><div class="gb-container-content" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 auto; position: relative;">
-<h2 class="wp-block-heading" id="h-background" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-stretch: normal; font-style: normal; line-height: 1.4; letter-spacing: 0.5px; font-size: 32px; font-weight: 600;"><strong style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-weight: 700;">Background</strong></h2>
-
-
-
-<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;">As stated in our <a href="https://info.orcid.org/code-of-conduct/" target="_blank" rel="noreferrer noopener" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; color: rgb(8, 92, 119);">Code of Conduct</a>, ORCID is committed to honest, ethical, and lawful conduct, and compliance with applicable laws, rules and regulations. ORCID expects all its employees and partners to practice honesty and integrity in fulfilling their responsibilities and to act in accordance with all applicable laws, regulations and ORCID policies.&nbsp; This Whistleblower Policy provides a means for individuals to report concerns covered by this policy without the fear of retaliation and for such reports to be handled in a professional and thorough manner.&nbsp;</p>
-
-
-
-<h2 class="wp-block-heading" id="h-who-and-what-is-covered-by-this-policy" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-stretch: normal; font-style: normal; line-height: 1.4; letter-spacing: 0.5px; font-size: 32px; font-weight: 600;"><strong style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-weight: 700;">Who and What is Covered by This Policy</strong></h2>
-
-
-
-<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;">Under this policy, ORCID’s directors, officers, current employees, contractors, and volunteers are required to report in good faith any action or suspected action taken by or within ORCID that is illegal, fraudulent or in violation of any applicable ORCID policy or any activity, policy or practice of ORCID that the individual reasonably believes poses a specific danger to public health or safety. Former employees are also encouraged to report any concerns and shall be protected from retaliation by ORCID. Concerns may include, but are not limited to:</p>
-
-
-
-<ul style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; margin: 0 0 16px 32px; padding: 0; box-sizing: border-box;">
-<li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; list-style-type: none; margin-bottom: 8px;">violations of national, state, or local laws or regulations;</li>
-
-
-
-<li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; list-style-type: none; margin-bottom: 8px;">financial wrongdoing (including circumvention of internal controls or violation of ORCID’s accounting policies, providing false information to, or withholding material information from, ORCID’s auditors, or supplying false or misleading information on ORCID’s tax returns; as well as money laundering, tax evasion, or other financial crimes);</li>
-
-
-
-<li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; list-style-type: none; margin-bottom: 8px;">payment for services that are not rendered or goods that are not delivered; theft; embezzlement; official or commercial bribery or trading in influence; kickbacks or use of ORCID’s property, resources, or authority for personal gain or other non-ORCID related purposes; and</li>
-
-
-
-<li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; list-style-type: none; margin-bottom: 0;">destroying, altering, concealing or falsifying a document in connection with a litigation, regulatory filing, or investigation.</li>
-</ul>
-
-
-
-<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;">This policy is not a vehicle for reporting personnel-related matters, violations of applicable human resource policies, problems with co-workers or supervisors, or for reporting issues related to alleged workplace discrimination or sexual or any other form of unlawful harassment, all of which should be dealt with in accordance with ORCID’s other applicable policies.</p>
-
-
-
-<h2 class="wp-block-heading" id="h-good-faith-nbsp" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-stretch: normal; font-style: normal; line-height: 1.4; letter-spacing: 0.5px; font-size: 32px; font-weight: 600;"><strong style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-weight: 700;">Good Faith&nbsp;</strong></h2>
-
-
-
-<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;">Individuals who report concerns must exercise sound judgment and reasonably believe in good faith that the information disclosed relates to conduct covered by this policy.&nbsp; Any person who intentionally files a false report may be subject to discipline, up to and including termination from employment or other relationship with ORCID.&nbsp;</p>
-
-
-
-<h2 class="wp-block-heading" id="h-when-and-how-to-report-concerns-nbsp" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-stretch: normal; font-style: normal; line-height: 1.4; letter-spacing: 0.5px; font-size: 32px; font-weight: 600;"><strong style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-weight: 700;">When and How to Report Concerns&nbsp;</strong></h2>
-
-
-
-<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;">Individuals should report concerns as soon as practicable to their supervisor (if a current employee) or to the Executive Director. Individuals may also report any concerns directly to the Audit and Risk Committee Chair (the “Committee Chair”) and should always do so if the concern relates to the Executive Director. The current Committee Chair is listed on <a href="https://info.orcid.org/our-governance/audit-committee/" target="_blank" rel="noreferrer noopener" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; color: rgb(8, 92, 119);"></a><a href="https://info.orcid.org/our-governance/audit-committee/" target="_blank" rel="noreferrer noopener" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; color: rgb(8, 92, 119);">ORCID’s website</a><a href="https://info.orcid.org/our-governance/audit-committee/" target="_blank" rel="noreferrer noopener" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; color: rgb(8, 92, 119);"></a>. All persons who receive concerns pursuant to this Policy shall promptly inform the Executive Director (or the Committee Chair if the concern involves the Executive Director) of such report.&nbsp; The Executive Director shall inform the Committee Chair of concerns reported to them.&nbsp;</p>
-
-
-
-<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;">Reports of concerns may also be made via our Confidential Reporting Line, which is enabled across a number of platforms, including:</p>
-
-
-
-<ul style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; margin: 0 0 16px 32px; padding: 0; box-sizing: border-box;">
-<li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; list-style-type: none; margin-bottom: 8px;"><strong style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-weight: 700;">Website</strong>: <a href="https://report.syntrio.com/orcid" target="_blank" rel="noreferrer noopener" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; color: rgb(8, 92, 119);"></a><a href="https://report.syntrio.com/orcid" target="_blank" rel="noreferrer noopener" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; color: rgb(8, 92, 119);">https://report.syntrio.com/orcid</a><a href="https://report.syntrio.com/orcid" target="_blank" rel="noreferrer noopener" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; color: rgb(8, 92, 119);"></a></li>
-
-
-
-<li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; list-style-type: none; margin-bottom: 8px;"><strong style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-weight: 700;">Anonymous Reporting App</strong>: Detailed app instructions download <a href="https://www.lighthouse-services.com/documents/Using%20the%20Lighthouse%20Anonymous%20Reporting%20App.docx" target="_blank" rel="noreferrer noopener" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; color: rgb(8, 92, 119);"></a><a href="https://www.lighthouse-services.com/documents/Using%20the%20Lighthouse%20Anonymous%20Reporting%20App.docx" target="_blank" rel="noreferrer noopener" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; color: rgb(8, 92, 119);">here</a><a href="https://www.lighthouse-services.com/documents/Using%20the%20Lighthouse%20Anonymous%20Reporting%20App.docx" target="_blank" rel="noreferrer noopener" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; color: rgb(8, 92, 119);"></a>. Note keyword: orcid </li>
-
-
-
-<li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; list-style-type: none; margin-bottom: 8px;"><strong style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-weight: 700;">Toll-Free Telephone</strong>:&nbsp;&nbsp;
-<ul style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; margin: 0 0 16px 32px; padding: 0; box-sizing: border-box;">
-<li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; list-style-type: none; margin-bottom: 8px;">North America Direct Dial
-<ul style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; margin: 0 0 16px 32px; padding: 0; box-sizing: border-box;">
-<li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; list-style-type: none; margin-bottom: 8px;">English-speaking USA and Canada: 833-759-7400 </li>
-
-
-
-<li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; list-style-type: none; margin-bottom: 8px;">Spanish-speaking USA and Canada: 800-216-1288&nbsp;&nbsp;</li>
-
-
-
-<li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; list-style-type: none; margin-bottom: 8px;">French-speaking Canada: 855-725-0002&nbsp;&nbsp;&nbsp;</li>
-
-
-
-<li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; list-style-type: none; margin-bottom: 0;">Spanish-speaking Mexico: 800-681-5340&nbsp;&nbsp;</li>
-</ul>
-</li>
-
-
-
-<li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; list-style-type: none; margin-bottom: 0;">AT&amp;T USADirect for<a href="https://www.lighthouse-services.com/worldwide-access/" target="_blank" rel="noreferrer noopener" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; color: rgb(8, 92, 119);"></a><a href="https://www.lighthouse-services.com/worldwide-access/" target="_blank" rel="noreferrer noopener" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; color: rgb(8, 92, 119);"> world-wide access</a><a href="https://www.lighthouse-services.com/worldwide-access/" target="_blank" rel="noreferrer noopener" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; color: rgb(8, 92, 119);"></a>
-<ul style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; margin: 0 0 16px 32px; padding: 0; box-sizing: border-box;">
-<li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; list-style-type: none; margin-bottom: 8px;">All other countries: 800-603-2869 (must dial country access code first click <a href="http://www.lighthouse-services.com/documentlink/International%20Toll-free%20Hotline%20Access%20Instructions.pdf" target="_blank" rel="noreferrer noopener" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; color: rgb(8, 92, 119);"></a><a href="http://www.lighthouse-services.com/documentlink/International%20Toll-free%20Hotline%20Access%20Instructions.pdf" target="_blank" rel="noreferrer noopener" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; color: rgb(8, 92, 119);">here</a><a href="http://www.lighthouse-services.com/documentlink/International%20Toll-free%20Hotline%20Access%20Instructions.pdf" target="_blank" rel="noreferrer noopener" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; color: rgb(8, 92, 119);"></a> for access codes and dialing instructions)</li>
-
-
-
-<li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; list-style-type: none; margin-bottom: 0;"><a href="https://www.business.att.com/collateral/access.html" target="_blank" rel="noreferrer noopener" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; color: rgb(8, 92, 119);">International Access Codes</a></li>
-</ul>
-</li>
-</ul>
-</li>
-
-
-
-<li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; list-style-type: none; margin-bottom: 8px;"><strong style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-weight: 700;">E-mail</strong>: <a href="mailto:reports@syntrio.com" target="_blank" rel="noreferrer noopener" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; color: rgb(8, 92, 119);"></a><a href="mailto:reports@syntrio.com" target="_blank" rel="noreferrer noopener" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; color: rgb(8, 92, 119);"></a><a href="mailto:reports@syntrio.com" target="_blank" rel="noreferrer noopener" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; color: rgb(8, 92, 119);">reports@syntrio.com</a><a href="mailto:reports@syntrio.com" target="_blank" rel="noreferrer noopener" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; color: rgb(8, 92, 119);"></a> (must include “ORCID” with report)&nbsp;&nbsp;</li>
-
-
-
-<li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; list-style-type: none; margin-bottom: 0;"><strong style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-weight: 700;">Fax</strong>: (215) 689-3885 (must also include “ORCID with report)&nbsp;&nbsp;</li>
-</ul>
-
-
-
-<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;">Reports related to this policy made through the Confidential Reporting Line will be delivered to the Committee Chair, who will share such reports with the Executive Director (unless the report relates to the Executive Director). Please note that it may be more difficult to fully investigate anonymous reports.&nbsp;&nbsp;</p>
-
-
-
-<h2 class="wp-block-heading" id="h-investigations" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-stretch: normal; font-style: normal; line-height: 1.4; letter-spacing: 0.5px; font-size: 32px; font-weight: 600;"><strong style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-weight: 700;">Investigations</strong></h2>
-
-
-
-<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;">For each reported concern that is not submitted on an anonymous basis, an acknowledgement of receipt will be provided within seven days to the reporting person. The Executive Director shall promptly assess each concern on a preliminary basis to determine to what extent a further investigation is warranted and shall report their findings to the Committee Chair.</p>
-
-
-
-<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;">If the Executive Director and the Committee Chair determine that a further investigation is needed, the Executive Director shall coordinate any resulting investigation in a manner the Executive Director and the Committee Chair deem appropriate (or as otherwise directed by the Audit and Risk Committee). The Executive Director shall inform the Audit and Risk Committee of findings of the investigation and take corrective action as the Audit and Risk Committee&nbsp; deems warranted, including, but not limited to, retaining external experts to conduct an internal investigation and reporting to law enforcement or other authorities.&nbsp; Those conducting the investigation may consult with any persons and/or professional advisers at their discretion.</p>
-
-
-
-<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;">Any individual who is the subject of a reported concern may not be present at or participate in any deliberations, voting on or other resolution of the matter relating to the concern.&nbsp;In addition, a current employee who is also a member of the Board may not take part in any Board or committee deliberations or voting concerning the administration of this policy.&nbsp; Nothing in this policy shall prohibit ORCID from requesting that the individual who is the subject of the concern present background information or answer questions prior to the commencement of deliberations, voting or resolution.</p>
-
-
-
-<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;">If the Executive Director is the subject of the report, the Committee Chair will undertake the responsibilities of the Executive Director under this section.&nbsp;&nbsp;&nbsp;</p>
-
-
-
-<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;">If the Committee Chair is the subject of the report, the Board Chair will undertake the responsibilities of the Committee Chair under this section.&nbsp;&nbsp;</p>
-
-
-
-<h2 class="wp-block-heading" id="h-no-retaliation" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-stretch: normal; font-style: normal; line-height: 1.4; letter-spacing: 0.5px; font-size: 32px; font-weight: 600;"><strong style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-weight: 700;">No Retaliation</strong></h2>
-
-
-
-<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;">ORCID will not take any retaliatory action against any individual who is subject to this policy and who reports a good faith concern in accordance with this policy, provides information or participates in an investigation of or implementation of corrective action relating to any such concern, or objects to or refuses to participate in any activity, policy or practice giving rise to such concern.&nbsp;Acts of retaliation should be reported immediately to the Executive Director (or the Committee Chair if the retaliation involves the Executive Director). Any person who retaliates against an individual who has reported a concern in accordance with this policy and in good faith may be subject to disciplinary action, up to and including termination of their employment or relationship with ORCID.</p>
-
-
-
-<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;">Retaliatory action includes but is not limited to (i) intimidation, harassment and discrimination, (ii) taking adverse employment action, such as discharging, demoting, suspending, threatening, or otherwise affecting the current or future employment of any individual who is subject to this policy, and (iii) contacting immigration authorities about, or reporting the immigration status of, any individual who is subject to this policy or their family or household members, or threatening to do so.</p>
-
-
-
-<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;">Notwithstanding anything contained in this policy to the contrary, this policy does not in any way modify the relationship between ORCID and its employees or contractors or create an employment contract.&nbsp; Furthermore, the right to be free of retaliation does not preclude ORCID from taking disciplinary action related to performance or other conduct.&nbsp;</p>
-
-
-
-<h2 class="wp-block-heading" id="h-confidentiality" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-stretch: normal; font-style: normal; line-height: 1.4; letter-spacing: 0.5px; font-size: 32px; font-weight: 600;"><strong style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-weight: 700;">Confidentiality</strong></h2>
-
-
-
-<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;">ORCID takes seriously its responsibility to enforce this policy, and therefore encourages any person reporting a concern to identify themselves to facilitate ORCID’s investigation. The identity of the individual reporting a concern will be kept confidential to the extent possible, consistent with the need to conduct a thorough and complete investigation and to cooperate with law enforcement or regulatory authorities where appropriate.</p>
-
-
-
-<h2 class="wp-block-heading" id="h-distribution" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-stretch: normal; font-style: normal; line-height: 1.4; letter-spacing: 0.5px; font-size: 32px; font-weight: 600;"><strong style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-weight: 700;">Distribution</strong></h2>
-
-
-
-<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;">This Policy shall be distributed to all directors, officers, current employees and independent contractors of ORCID, and to volunteers who provide substantial services to ORCID.&nbsp; ORCID may choose to satisfy this distribution requirement by posting this policy on its website.</p>
-
-
-
-<h2 class="wp-block-heading" id="h-records-and-reporting-to-board" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-stretch: normal; font-style: normal; line-height: 1.4; letter-spacing: 0.5px; font-size: 32px; font-weight: 600;"><strong style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-weight: 700;">Records and Reporting to Board</strong></h2>
-
-
-
-<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;">Records relating to any reported concern and to the investigation and resolution thereof shall be maintained by ORCID for a period of seven years (or as otherwise required under ORCID’s record retention and disposal policies in effect from time to time, if any).&nbsp;</p>
-
-
-
-<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;">On at least an annual basis, the Executive Director shall ensure that the Board is provided with a report identifying all concerns reported during the preceding year and their resolution.&nbsp; If the Executive Director is the subject of a concern, the Committee Chair shall be responsible for such reporting to the Board.&nbsp;</p>
-
-
-
-<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;"><em style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;">If you have any questions about this policy, you should reach out to the Executive Director.&nbsp;</em></p>
-
-
-
-<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;"><em style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;">ORCID reserves the right to amend this policy at any time.</em></p>
-
-
-
-<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;"><em style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;">ORCID is committed to compliance with all regulations and laws in the countries where we operate. If any provision of this policy is inconsistent with controlling national or local law, such law will apply and will supersede this policy.</em></p>
-</div></div></div>
-</body></html></doctype>
+</style></head><body style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: inherit; margin: 0; background-color: rgb(250, 250, 250); color: rgba(0, 0, 0, .9); font-family: 'Noto Sans', sans-serif; font-size: 16px; font-weight: normal; line-height: 1.55;"></body></html></doctype>
