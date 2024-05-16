@@ -38,11 +38,7 @@ jobs:
 
       - name: Run clone and process script
         run: |
-          if [ "${{ inputs.environment }}" == "PROD" ]; then
             python wordpress-cloning-main.py ${{ inputs.environment }} ${{ inputs.postID }} ${{ secrets.WORDPRESS_USERNAME }} ${{ secrets.WORDPRESS_PASSWORD }} --commit
-          else
-            python wordpress-cloning-main.py ${{ inputs.environment }} ${{ inputs.postID }} ${{ secrets.WORDPRESS_USERNAME }} ${{ secrets.WORDPRESS_PASSWORD }}
-          fi
 
       - name: Debug output
         run: |
