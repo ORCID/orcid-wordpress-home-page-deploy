@@ -1,4 +1,4 @@
-name: Orcid PROD Deploy
+name: Homepage PROD Deploy
 
 on:
   workflow_dispatch:

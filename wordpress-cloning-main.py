@@ -52,10 +52,10 @@ def main():
     should_run = "false"
     if args.commit:
         configure_git_user()
-        should_run= commit_and_push_changes(args.post_id, args.environment)
+        should_run = commit_and_push_changes(args.post_id, args.environment)
     else:
         print("Skipping commit and push changes.")
-        should_run = "true"
+        should_run = "false"
     
     try:
         with open(os.getenv("GITHUB_OUTPUT", "/github/workspace/output.txt"), "a") as f:
