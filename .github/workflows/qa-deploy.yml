@@ -1,5 +1,5 @@
-name: Homepage QA Deploy (Environment: ${{ github.event.inputs.environment }})
-
+name: Homepage QA Deploy
+run-name: QA Deploy (Environment: ${{ github.event.inputs.environment }} Post ID: ${{ github.event.inputs.postID }})
 on:
   workflow_dispatch:
     inputs:
