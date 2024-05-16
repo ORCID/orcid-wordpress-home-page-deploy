@@ -15,8 +15,11 @@ def download_and_update_html(environment, wordpress_staging_username, wordpress_
 
     # Setup authentication if not in production environment
     auth = None
+    base_path = 'https://d3055hwma3riwo.cloudfront.net/'
     if environment != "PROD":
         auth = HTTPBasicAuth(wordpress_staging_username, wordpress_staging_password)
+        base_path = 'https://UPDATE_ME.cloudfront.net/'
+
 
     # Create directory for saving images if it does not exist
     if not os.path.exists(folder_path):
@@ -46,7 +49,7 @@ def download_and_update_html(environment, wordpress_staging_username, wordpress_
                 img_data.raw.decode_content = True
                 shutil.copyfileobj(img_data.raw, file)
             # Update the src attribute to the new local path
-            img['src'] = os.path.join('./', local_filename)
+            img['src'] = os.path.join(base_path, local_filename)
         
         # Get the srcset attribute of the image
         img_srcset = img.get('srcset')
@@ -66,7 +69,7 @@ def download_and_update_html(environment, wordpress_staging_username, wordpress_
                     img_data.raw.decode_content = True
                     shutil.copyfileobj(img_data.raw, file)
                 # Add the new srcset item to the list
-                new_srcset.append(f"{os.path.join('./', local_filename)} {size}")
+                new_srcset.append(f"{os.path.join(base_path, local_filename)} {size}")
             # Update the srcset attribute to the new local paths
             img['srcset'] = ', '.join(new_srcset)
 
