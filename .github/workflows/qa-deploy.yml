@@ -106,7 +106,7 @@ jobs:
   upload_stagin_wordpress_to_s3:
     needs: clone-post
     runs-on: ubuntu-latest
-    f: inputs.environment != 'PROD'
+    if: inputs.environment != 'PROD'
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -133,7 +133,7 @@ jobs:
           AWS_REGION: 'us-east-1'
 
   upload_prod_wordpress_to_s3:
-    needs: release_new_version
+    needs: release_prod_wordpress_new_version
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
