@@ -1,4 +1,4 @@
-name: Homepage QA Deploy
+name: Homepage QA Deploy (Environment: ${{ github.event.inputs.environment }})
 
 on:
   workflow_dispatch:
