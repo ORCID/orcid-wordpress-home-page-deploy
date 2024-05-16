@@ -18,7 +18,7 @@ jobs:
   clone-post:
     runs-on: ubuntu-latest
     outputs:
-      should-run: ${{ steps.commit-changes.outputs.should-run }}
+      should-run: ${{ steps.wordpress-cloning-main.outputs.should-run }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -37,6 +37,7 @@ jobs:
         run: npm install
 
       - name: Run clone and process script
+        id: wordpress-cloning-main
         run: |
           if [ "${{ inputs.environment }}" == "PROD" ]; then
             python wordpress-cloning-main.py ${{ inputs.environment }} ${{ inputs.postID }} ${{ secrets.WORDPRESS_USERNAME }} ${{ secrets.WORDPRESS_PASSWORD }} --commit
@@ -47,7 +48,7 @@ jobs:
       - name: Debug output
         run: |
           echo "$Github_output file contents: " && cat "$GITHUB_OUTPUT"
-          echo steps.commit-changes.outputs.should-run: ${{ steps.commit-changes.outputs.should-run }}
+          echo steps.wordpress-cloning-main.outputs.should-run: ${{ steps.wordpress-cloning-main.outputs.should-run }}
         env:
           GITHUB_OUTPUT: ${{ github.workspace }}/output.txt
         continue-on-error: true
