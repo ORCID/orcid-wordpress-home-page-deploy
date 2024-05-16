@@ -2,6 +2,8 @@ import sys
 import requests
 from requests.auth import HTTPBasicAuth
 from bs4 import BeautifulSoup
+import re
+
 
 def clone_css_files(environment, wordpress_staging_username, wordpress_staging_password):
     # Define the base URL based on the environment
@@ -16,7 +18,7 @@ def clone_css_files(environment, wordpress_staging_username, wordpress_staging_p
         f"{base_url}wp-content/uploads/theplus_gutenberg/plus-global.css",
         f"{base_url}wp-content/uploads/theplus_gutenberg/plus-css-25163.css",
         # f"{base_url}wp-content/plugins/elementor/assets/css/frontend-msie.min.css",
-        f"{base_url}test-homepage-test",  # Add HTML file URL here
+        f"{base_url}",  # Add HTML file URL here
     ]
     
     # Set up authentication if not in production environment
@@ -37,7 +39,15 @@ def clone_css_files(environment, wordpress_staging_username, wordpress_staging_p
                 response = requests.get(url, headers=headers, auth=auth)
                 if response.status_code == 200:
                     file.write(f"/* CSS from {url} */\n")
-                    file.write(response.text + "\n\n")
+                    data = response.text
+                    # Remove css issues on the original CSS
+                    data = re.sub(r'@charset "UTF-8";\s*', '', response.text)
+                    data = re.sub(r'\*/\s*/\* ROB 10/07/22', '/* ROB 10/07/22', data)
+
+                    # Remove the error with the original CSS
+                    print(f"Successfully added CSS from {url} to combined_styles.css")
+                    
+                    file.write(data + "\n\n")
                     print(f"Successfully added CSS from {url} to combined_styles.css")
                 else:
                     print(f"Failed to fetch {url}: HTTP {response.status_code}")
@@ -63,4 +73,6 @@ if __name__ == "__main__":
     env = sys.argv[1]
     wordpress_staging_username = sys.argv[2]
     wordpress_staging_password = sys.argv[3]
+
+
     clone_css_files(env, wordpress_staging_username, wordpress_staging_password)
