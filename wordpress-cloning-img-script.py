@@ -15,11 +15,12 @@ def download_and_update_html(environment, wordpress_staging_username, wordpress_
 
     # Setup authentication if not in production environment
     auth = None
-    base_path = 'https://d3055hwma3riwo.cloudfront.net/'
+    base_path = None
     if environment != "PROD":
         auth = HTTPBasicAuth(wordpress_staging_username, wordpress_staging_password)
-        base_path = 'https://UPDATE_ME.cloudfront.net/'
-
+        base_path = 'https://d3055hwma3riwo.cloudfront.net/'
+    else:
+        base_path = 'https://update-me.cloudfront.net/'
 
     # Create directory for saving images if it does not exist
     if not os.path.exists(folder_path):
