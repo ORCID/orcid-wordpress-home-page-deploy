@@ -1,4 +1,4 @@
-name: QA Deploy
+name: Orcid QA Deploy
 
 on:
   workflow_dispatch:
