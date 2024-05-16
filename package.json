@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "grunt": "grunt",
-    "purgecss": "purgecss --config ./purgecss.config.js"
+    "purgecss": "purgecss --config ./purgecss.config.js",
+    "juice": "node inline-css.js"
+
   },
   "repository": {
     "type": "git",
@@ -19,9 +20,7 @@
   },
   "homepage": "https://github.com/ORCID/orcid-wordpress-home-page-deploy#readme",
   "devDependencies": {
-    "grunt": "^1.6.1",
-    "grunt-concat-css": "^0.3.2",
-    "grunt-inline-css": "^1.0.0",
+    "juice": "^10.0.0",
     "purgecss": "^6.0.0"
   }
 }

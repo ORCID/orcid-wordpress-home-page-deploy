@@ -50,9 +50,9 @@ jobs:
 
       - name: Run PurgeCSS
         run: npm run purgecss
-
-      - name: Mix HTML and CSS in a single file
-        run: npm run grunt
+      
+      - name: Run Juice
+        run: npm run juice
 
       - name: Run cloning css script
         run: python wordpress-cloning-img-script.py ${{ inputs.environment }} ${{ secrets.WORDPRESS_USERNAME }} ${{ secrets.WORDPRESS_PASSWORD }}
