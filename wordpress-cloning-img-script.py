@@ -33,7 +33,7 @@ def download_and_update_html(environment, wordpress_staging_username, wordpress_
     for img in images:
         # Get the source attribute of the image
         img_url = img.get('src')
-        if img_url:  # Check if the image has a source URL
+        if img_url and (not img_url.startswith('data:image')):
             # Complete the URL if it's relative (not absolute link)
             full_img_url = img_url
             # Download the image
@@ -50,7 +50,7 @@ def download_and_update_html(environment, wordpress_staging_username, wordpress_
         
         # Get the srcset attribute of the image
         img_srcset = img.get('srcset')
-        if img_srcset:
+        if img_srcset and (not img_srcset.startswith('data:image')):
             new_srcset = []
             srcset_items = img_srcset.split(',')
             for item in srcset_items:
