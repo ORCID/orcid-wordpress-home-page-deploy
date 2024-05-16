@@ -2,13 +2,6 @@
 
 The purpose of this repository is to provide a straightforward method for both technical and non-technical users to deploy a clone of a WordPress page from https://info.qa.orcid.org/ and https://info.orcid.org/.
 
-## Homepage Update Workflow:
-
-1. Make all required updates on WordPress STAGIN (https://info.qa.orcid.org/).
-2. Follow the QA Deployment steps described below once the updates are done and tested on WordPress.
-3. Follow the PROD Deployment steps described below once the updates are done and tested on qa.orcid.org.
-4. Follow the Rollback PROD Deployment if something goes wrong or a previous version is needed.
-
 ## Homepage QA Deploy
 
 - Navigate to [Homepage QA Deploy](https://github.com/ORCID/orcid-wordpress-home-page-deploy/actions/workflows/qa-deploy.yml)
