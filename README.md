@@ -49,3 +49,14 @@ from the wordpress page they want to publish.
 ## Rollback Deployment
 
 -- WIP ---
+
+
+## Developers
+
+#### Cloning wordpress into QA: 
+
+Running the following command will run the clonning process on your local environment (This wont deploy the script into S3 or github releases)
+
+```
+python wordpress-cloning-main qa 25163 <qa-stagin-user-name> <qa-stagin-password>
+```

@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "purgecss": "purgecss --config ./purgecss.config.js",
-    "juice": "node inline-css.js"
+    "wordpress-cloning-purgecss-script": "purgecss --config ./wordpress-cloning-purgecss-script.js"
 
   },
   "repository": {

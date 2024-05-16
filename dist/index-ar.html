@@ -1,1 +1,234 @@
-<doctype html><html><head><link rel="stylesheet" href="./combined_styles.css"></head><body></body></html>
+<doctype html style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: inherit;"><html style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: inherit; font-family: sans-serif; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;"><head><style>
+a:focus {
+  outline: thin dotted;
+}
+a:active,
+a:hover {
+  outline: 0;
+}
+a:active {
+  font-weight: 600;
+}
+.wp-block-button__link,
+.wp-block-button {
+  background-color: var(--brand-secondary-darkest);
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  width: auto;
+  text-decoration: none;
+  margin-bottom: 0;
+  display: inline-block;
+  font-size: inherit;
+}
+.wp-block-button__link:hover {
+  color: #fff;
+  background-color: var(--brand-primary-dark);
+}
+.wp-block-button__link:active {
+  background-color: var(--brand-primary);
+  border-color: var(--brand-primary);
+  color: #fff;
+}
+.wp-block-button__link:focus {
+  border-color: var(--brand-primary);
+}
+.wp-block-button__link {
+  color: #fff !important;
+}
+.screen-reader-text:focus {
+  box-shadow: 0 0 2px 2px var(--brand-primary-lightest);
+  z-index: 100000;
+}
+.wp-block-button__link {
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  word-break: break-word;
+}
+@media (min-width:782px) {
+  .wp-block-columns {
+    flex-wrap: nowrap !important;
+  }
+}
+@media (max-width:781px) {
+  .wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column {
+    flex-basis: 100% !important;
+  }
+}
+@media (min-width:782px) {
+  .wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column {
+    flex-basis: 0;
+    flex-grow: 1;
+  }
+}
+@keyframes turn-on-visibility {
+  0% {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+@keyframes turn-off-visibility {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  99% {
+    opacity: 0;
+    visibility: visible;
+  }
+
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+@keyframes lightbox-zoom-in {
+  0% {
+    transform: translate(calc((-100vw + var(--wp--lightbox-scrollbar-width))/2 + var(--wp--lightbox-initial-left-position)), calc(-50vh + var(--wp--lightbox-initial-top-position))) scale(var(--wp--lightbox-scale));
+  }
+
+  to {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+@keyframes lightbox-zoom-out {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    visibility: visible;
+  }
+
+  99% {
+    visibility: visible;
+  }
+
+  to {
+    transform: translate(calc((-100vw + var(--wp--lightbox-scrollbar-width))/2 + var(--wp--lightbox-initial-left-position)), calc(-50vh + var(--wp--lightbox-initial-top-position))) scale(var(--wp--lightbox-scale));
+    visibility: hidden;
+  }
+}
+@media (max-width:600px) {
+  .wp-block-media-text.is-stacked-on-mobile {
+    grid-template-columns: 100% !important;
+  }
+
+  .wp-block-media-text.is-stacked-on-mobile .wp-block-media-text__media {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .wp-block-media-text.is-stacked-on-mobile .wp-block-media-text__content {
+    grid-column: 1;
+    grid-row: 2;
+  }
+}
+@keyframes overlay-menu__fade-in-animation {
+  0% {
+    opacity: 0;
+    transform: translateY(.5em);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+:where(p.has-text-color:not(.has-link-color)) a {
+  color: inherit;
+}
+.screen-reader-text:focus {
+  background-color: #ddd;
+  clip: auto !important;
+  -webkit-clip-path: none;
+  clip-path: none;
+  color: #444;
+  display: block;
+  font-size: 1em;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000;
+}
+.tpgb-tabs-nav .tpgb-tab-header.active,
+.tpgb-tabs-nav .tpgb-tab-header:hover {
+  color: #6f14f1;
+}
+.tpgb-tabs-content-wrapper .tpgb-tab-content.active {
+  display: block;
+  opacity: 1;
+  animation: fadeIn linear .3s;
+}
+@media (max-width:767px) {
+  .tab-view-horizontal .tpgb-tabs-wrapper.nav-one-by-one .tpgb-tabs-nav .tpgb-tab-li {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .tab-view-horizontal .tpgb-tabs-wrapper.nav-one-by-one .tpgb-tabs-nav {
+    display: block;
+    text-align: center;
+  }
+}
+.tpgb-block-3f14_25163 .tpgb-tabs-nav .tpgb-tab-header.active,
+.tpgb-block-3f14_25163 .tpgb-tabs-nav .tpgb-tab-header:hover {
+  color: #fffefe;
+}
+.tpgb-block-3f14_25163 .tpgb-tabs-wrapper .tpgb-tab-header.active {
+  opacity: 1;
+}
+.tpgb-block-3f14_25163 .tpgb-tabs-nav .tpgb-tab-header.active {
+  border-width: 0 0 3px;
+  border-style: solid;
+  border-color: #fe00ed;
+}
+.wp-block-button__link {
+  color: #fff;
+  background-color: #32373c;
+  border-radius: 9999px;
+  box-shadow: none;
+  text-decoration: none;
+  padding: calc(.667em + 2px) calc(1.333em + 2px);
+  font-size: 1.125em;
+}
+@font-face {
+  font-family: "FontAwesome";
+  font-display: block;
+  src: url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-brands-400.eot"),
+		url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-brands-400.eot?#iefix") format("embedded-opentype"),
+		url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-brands-400.woff2") format("woff2"),
+		url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-brands-400.woff") format("woff"),
+		url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-brands-400.ttf") format("truetype"),
+		url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-brands-400.svg#fontawesome") format("svg");}
+@font-face {
+  font-family: "FontAwesome";
+  font-display: block;
+  src: url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-solid-900.eot"),
+		url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"),
+		url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-solid-900.woff2") format("woff2"),
+		url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-solid-900.woff") format("woff"),
+		url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-solid-900.ttf") format("truetype"),
+		url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-solid-900.svg#fontawesome") format("svg");}
+@font-face {
+  font-family: "FontAwesome";
+  font-display: block;
+  src: url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-regular-400.eot"),
+		url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-regular-400.eot?#iefix") format("embedded-opentype"),
+		url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-regular-400.woff2") format("woff2"),
+		url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-regular-400.woff") format("woff"),
+		url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-regular-400.ttf") format("truetype"),
+		url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-regular-400.svg#fontawesome") format("svg");
+  unicode-range: U+F004-F005,U+F007,U+F017,U+F022,U+F024,U+F02E,U+F03E,U+F044,U+F057-F059,U+F06E,U+F070,U+F075,U+F07B-F07C,U+F080,U+F086,U+F089,U+F094,U+F09D,U+F0A0,U+F0A4-F0A7,U+F0C5,U+F0C7-F0C8,U+F0E0,U+F0EB,U+F0F3,U+F0F8,U+F0FE,U+F111,U+F118-F11A,U+F11C,U+F133,U+F144,U+F146,U+F14A,U+F14D-F14E,U+F150-F152,U+F15B-F15C,U+F164-F165,U+F185-F186,U+F191-F192,U+F1AD,U+F1C1-F1C9,U+F1CD,U+F1D8,U+F1E3,U+F1EA,U+F1F6,U+F1F9,U+F20A,U+F247-F249,U+F24D,U+F254-F25B,U+F25D,U+F267,U+F271-F274,U+F279,U+F28B,U+F28D,U+F2B5-F2B6,U+F2B9,U+F2BB,U+F2BD,U+F2C1-F2C2,U+F2D0,U+F2D2,U+F2DC,U+F2ED,U+F328,U+F358-F35B,U+F3A5,U+F3D1,U+F410,U+F4AD;}
+</style></head><body style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: inherit; margin: 0; background-color: rgb(250, 250, 250); color: rgba(0, 0, 0, .9); font-family: 'Noto Sans', sans-serif; font-size: 16px; font-weight: normal; line-height: 1.55;"></body></html></doctype>
