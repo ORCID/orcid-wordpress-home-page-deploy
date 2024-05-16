@@ -1,0 +1,38 @@
+name: Orcid Prod Deploy
+
+on:
+  workflow_dispatch:
+    inputs:
+      postID:
+        required: true
+        type: string
+        description: "The release to deploy"
+
+jobs:
+  upload_to_s3:
+    needs: clone-post
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        
+      - name: Get recent changes
+        run: |
+          git pull
+
+      - name: Upload HTML to S3
+        uses: reggionick/s3-deploy@v4
+        with:
+          folder: dist
+          bucket: orcid-qa-public-page
+          bucket-region: 'us-east-1'
+          dist-id: 'E3AOMNP9201N9Z'
+          invalidation: /
+          delete-removed: true
+          no-cache: true
+          private: true
+          files-to-include: '{.*/**,**}'
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: 'us-east-1'
