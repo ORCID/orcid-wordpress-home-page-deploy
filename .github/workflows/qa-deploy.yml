@@ -43,7 +43,7 @@ jobs:
           else
             python wordpress-cloning-main.py ${{ inputs.environment }} ${{ inputs.postID }} ${{ secrets.WORDPRESS_USERNAME }} ${{ secrets.WORDPRESS_PASSWORD }}
           fi
-          
+
       - name: Debug output
         run: |
           echo "$Github_output file contents: " && cat "$GITHUB_OUTPUT"
@@ -53,7 +53,7 @@ jobs:
         continue-on-error: true
         shell: bash
   
-  release_new_version:
+  release_prod_wordpress_new_version:
     runs-on: ubuntu-latest
     needs: clone-post
     if: inputs.environment== 'PROD' && needs.clone-post.outputs.should-run == 'true'
@@ -103,9 +103,37 @@ jobs:
           draft: false
           prerelease: false
           
-  
-  upload_to_s3:
+  upload_stagin_wordpress_to_s3:
     needs: clone-post
+    runs-on: ubuntu-latest
+    f: inputs.environment != 'PROD'
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        
+      - name: Get recent changes
+        run: |
+          git pull
+
+      - name: Upload HTML to S3
+        uses: reggionick/s3-deploy@v4
+        with:
+          folder: dist
+          bucket: orcid-qa-public-page
+          bucket-region: 'us-east-1'
+          dist-id: 'E3AOMNP9201N9Z'
+          invalidation: /
+          delete-removed: true
+          no-cache: true
+          private: true
+          files-to-include: '{.*/**,**}'
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: 'us-east-1'
+
+  upload_prod_wordpress_to_s3:
+    needs: release_new_version
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
