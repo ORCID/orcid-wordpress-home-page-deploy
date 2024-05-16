@@ -100,7 +100,7 @@ jobs:
           
   
   upload_to_s3:
-    needs: clone-post
+    needs: release_new_version
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
