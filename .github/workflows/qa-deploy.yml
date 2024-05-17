@@ -1,5 +1,5 @@
 name: Homepage QA Deploy
-run-name: QA deploy Wordpres ${{ inputs.environment }} -  page ${{ inputs.postID }} by @${{ github.actor }}
+run-name: QA deploy WordPress ${{ inputs.environment }} - page ${{ inputs.postID }} by @${{ github.actor }}
 
 on:
   workflow_dispatch:
@@ -7,8 +7,8 @@ on:
       environment:
         required: true
         type: string
-        description: "Wordpress environment (STAGIN, PROD)"
-        default: "STAGIN"
+        description: "WordPress environment (STAGING, PROD)"
+        default: "STAGING"
       postID:
         required: true
         type: string
@@ -19,7 +19,9 @@ jobs:
   clone-post:
     runs-on: ubuntu-latest
     outputs:
+      script-success: ${{ steps.wordpress-cloning-main.outputs.success }}
       should-run: ${{ steps.wordpress-cloning-main.outputs.should-run }}
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -32,7 +34,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-         node-version: '18'
+          node-version: '18'
 
       - name: Install node dependencies
         run: npm install
@@ -40,24 +42,39 @@ jobs:
       - name: Run clone and process script
         id: wordpress-cloning-main
         run: |
+          set -e
           if [ "${{ inputs.environment }}" == "PROD" ]; then
             python wordpress-cloning-main.py ${{ inputs.environment }} ${{ inputs.postID }} ${{ secrets.WORDPRESS_USERNAME }} ${{ secrets.WORDPRESS_PASSWORD }} --commit
           else
             python wordpress-cloning-main.py ${{ inputs.environment }} ${{ inputs.postID }} ${{ secrets.WORDPRESS_USERNAME }} ${{ secrets.WORDPRESS_PASSWORD }}
           fi
+        continue-on-error: true
+
+      - name: Check script result
+        id: check-script-result
+        run: echo "success=$?" >> $GITHUB_ENV
+
+      - name: Capture Python script output
+        if: always()
+        id: capture-output
+        run: |
+          echo "script_output=$(cat output.txt)" >> $GITHUB_ENV
 
       - name: Debug output
+        if: always()
         run: |
-          echo "$Github_output file contents: " && cat "$GITHUB_OUTPUT"
+          echo "$GITHUB_OUTPUT file contents: " && cat "$GITHUB_OUTPUT"
           echo steps.wordpress-cloning-main.outputs.should-run: ${{ steps.wordpress-cloning-main.outputs.should-run }}
         env:
           GITHUB_OUTPUT: ${{ github.workspace }}/output.txt
-        continue-on-error: true
-        shell: bash
 
-      - name: Upload Wordpress Staging HTML to S3
+      - name: Set output based on script success
+        if: always()
+        run: echo "::set-output name=success::$SUCCESS"
+
+      - name: Upload WordPress Staging HTML to S3
         uses: reggionick/s3-deploy@v4
-        if: inputs.environment != 'PROD'
+        if: ${{ inputs.environment != 'PROD' && steps.check-script-result.outputs.success == '0' }}
         with:
           folder: dist
           bucket: orcid-qa-public-page
@@ -76,7 +93,7 @@ jobs:
   release_prod_wordpress_new_version:
     runs-on: ubuntu-latest
     needs: clone-post
-    if: inputs.environment== 'PROD' && needs.clone-post.outputs.should-run == 'true'
+    if: inputs.environment== 'PROD' && needs.clone-post.outputs.should-run == 'true' && steps.check-script-result.outputs.success == '0'
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
