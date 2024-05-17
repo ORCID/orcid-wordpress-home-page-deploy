@@ -19,8 +19,7 @@ jobs:
   clone-post:
     runs-on: ubuntu-latest
     outputs:
-      script-success: ${{ steps.check-script-result.outputs.success }}
-      should-run: ${{ steps.wordpress-cloning-main.outputs.should-run }}
+      script-success: ${{ steps.wordpress-cloning-main.outputs.script-success }}
 
     steps:
       - name: Checkout repository
@@ -42,51 +41,21 @@ jobs:
       - name: Run clone and process script
         id: wordpress-cloning-main
         run: |
-          set -e
-          if [ "${{ inputs.environment }}" == "PROD" ]; then
-            python wordpress-cloning-main.py ${{ inputs.environment }} ${{ inputs.postID }} ${{ secrets.WORDPRESS_USERNAME }} ${{ secrets.WORDPRESS_PASSWORD }} --commit
-          else
             python wordpress-cloning-main.py ${{ inputs.environment }} ${{ inputs.postID }} ${{ secrets.WORDPRESS_USERNAME }} ${{ secrets.WORDPRESS_PASSWORD }}
-          fi
         continue-on-error: true
-
-      - name: Check script result
-        id: check-script-result
-        run: |
-          if [ -f output.txt ]; then
-            if grep -q "Error:" output.txt; then
-              echo "success=0" >> $GITHUB_ENV
-            else
-              echo "success=1" >> $GITHUB_ENV
-            fi
-          else
-            echo "success=0" >> $GITHUB_ENV
-        continue-on-error: true
-
-      - name: Capture Python script output
-        if: always()
-        id: capture-output
-        run: |
-          if [ -f output.txt ]; then
-            echo "script_output=$(cat output.txt)" >> $GITHUB_ENV
-          fi
-
-      - name: Debug output
-        if: always()
-        run: |
-          echo "$GITHUB_OUTPUT file contents: " && cat "$GITHUB_OUTPUT"
-          echo "Script success: ${{ env.success }}"
-          if [ -f output.txt ]; then cat output.txt; fi
         env:
-          GITHUB_OUTPUT: ${{ github.workspace }}/output.txt
+          GITHUB_OUTPUT: ${{ github.output }}
+          GITHUB_STEP_SUMMARY: ${{ github.step_summary }}
 
-      - name: Set output based on script success
-        if: always()
-        run: echo "::set-output name=success::$SUCCESS"
+      - name: Check script success
+        if: steps.wordpress-cloning-main.outputs.script-success == 'false'
+        run: |
+          echo "Script failed, raising an error."
+          exit 1
 
       - name: Upload WordPress Staging HTML to S3
         uses: reggionick/s3-deploy@v4
-        if: ${{ inputs.environment != 'PROD' && env.success == '1' }}
+        if: ${{ inputs.environment != 'PROD' }}
         with:
           folder: dist
           bucket: orcid-qa-public-page
@@ -101,11 +70,12 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: 'us-east-1'
+
   
   release_prod_wordpress_new_version:
     runs-on: ubuntu-latest
     needs: clone-post
-    if: inputs.environment == 'PROD' && needs.clone-post.outputs.should-run == 'true' && needs.clone-post.outputs.success == '1'
+    if: inputs.environment == 'PROD' && needs.clone-post.outputs.script-success == 'true'
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3

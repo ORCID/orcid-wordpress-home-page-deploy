@@ -3,6 +3,7 @@ import sys
 import os
 from pathlib import Path
 import argparse
+from github_writer import GitHubWriter
 
 def install_dependencies():
     subprocess.check_call([sys.executable, "-m", "pip", "install", "--upgrade", "pip"])
@@ -23,7 +24,6 @@ def commit_and_push_changes(post_id, environment):
     run_command("git add .")
     result = subprocess.run("git diff --staged --quiet", shell=True)
     if result.returncode == 0:
-        print("No changes to commit.")
         return "false"
     else:
         run_command(f"git commit -m 'Cloned WordPress post {post_id} for environment {environment}'")
@@ -38,31 +38,54 @@ def main():
     parser.add_argument("post_id", type=str, help="The WordPress post ID to clone.")
     parser.add_argument("wordpress_username", type=str, help="WordPress username.")
     parser.add_argument("wordpress_password", type=str, help="WordPress password.")
-    parser.add_argument("--commit", action="store_true", help="Commit and push changes to GitHub.")
 
     args = parser.parse_args()
 
+    writer = GitHubWriter()
+    
+
+    writer.write_summary("## Variables\n")
+    writer.write_summary(f"Environment: {args.environment}\n")
+    writer.write_summary(f"Post ID: {args.post_id}\n")
+
     install_dependencies()
+
+    writer.write_summary("## HTML cloning script executed.\n")
     run_script("wordpress-cloning-html-script.py", args.environment, args.post_id, args.wordpress_username, args.wordpress_password, "true")
+    
+    writer.write_summary("## CSS cloning script executed.\n")
     run_script("wordpress-cloning-css-script.py", args.environment, args.wordpress_username, args.wordpress_password)
+    
+    writer.write_summary("## PurgeCSS script executed.\n")
     run_command("npm run wordpress-cloning-purgecss-script")
+    
+    writer.write_summary("## Inline CSS script executed.\n")
     run_command("node wordpress-cloning-inlinecss-script.js")
+    
+    writer.write_summary("## Image cloning script executed.\n")
     run_script("wordpress-cloning-img-script.py", args.environment, args.wordpress_username, args.wordpress_password)
 
-    should_run = "false"
-    if args.commit:
+    writer.write_summary("## Version control changes \n")
+    if args.environment == 'PROD':
         configure_git_user()
-        should_run = commit_and_push_changes(args.post_id, args.environment)
+
+        try:
+            changes_commmited = commit_and_push_changes(args.post_id, args.environment)
+            if (changes_commmited == "true"):
+                writer.write_summary(f"- Changes committed and pushed for post {args.post_id} in environment {args.environment}.\n")
+            else:
+                writer.write_summary("- No changes found when compare to the last run.\n")
+                writer.write_output("script-succes", "false")
+
+        except Exception as e:
+            writer.write_summary(f"- Error occurred while trying to commit and push changes. Error: {e}\n")
+            writer.write_output("script-succes", "false")
+
     else:
-        print("Skipping commit and push changes.")
-        should_run = "false"
+        writer.write_summary("- Skipping commit and push changes for not PROD environments\n")
+        writer.write_output("script-succes", script_succes)
+
     
-    try:
-        with open(os.getenv("GITHUB_OUTPUT", "/github/workspace/output.txt"), "a") as f:
-            f.write(f"should-run={should_run}\n")
-    except:
-        print("Not running in GitHub Actions.")
-        sys.exit(1)
 
 if __name__ == "__main__":
     main()
