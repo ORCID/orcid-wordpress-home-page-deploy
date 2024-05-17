@@ -28,7 +28,7 @@ def download_and_update_html(environment, wordpress_staging_username, wordpress_
     output_log = []
 
     def log(message):
-        print(message)
+        print("output: ", message)
         with open("output.txt", "w") as f:
             f.write(message + "\n")
 
