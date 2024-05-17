@@ -29,7 +29,8 @@ def download_and_update_html(environment, wordpress_staging_username, wordpress_
 
     def log(message):
         print(message)
-        output_log.append(message)
+        with open("output.txt", "w") as f:
+            f.write(message + "\n")
 
     # Open and read the local HTML file
     with open(f"dist/index.html", "r") as file:
