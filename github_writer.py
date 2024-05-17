@@ -5,6 +5,8 @@ class GitHubWriter:
     def __init__(self):
         self.step_summary_path = os.getenv('GITHUB_STEP_SUMMARY')
         self.output_path = os.getenv('GITHUB_OUTPUT')
+        print('self.output_path', self.output_path)
+        print('self.step_summary_path', self.step_summary_path)
 
     def write_summary(self, content):
         if self.step_summary_path:

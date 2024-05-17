@@ -38,6 +38,7 @@ def main():
     parser.add_argument("post_id", type=str, help="The WordPress post ID to clone.")
     parser.add_argument("wordpress_username", type=str, help="WordPress username.")
     parser.add_argument("wordpress_password", type=str, help="WordPress password.")
+    parser.add_argument("--dry-run", action="store_true", help="Commit and push changes to GitHub.")
 
     args = parser.parse_args()
 
@@ -57,7 +58,7 @@ def main():
     run_script("wordpress-cloning-css-script.py", args.environment, args.wordpress_username, args.wordpress_password)
     
     writer.write_summary("## PurgeCSS script executed.\n")
-    run_command("npm run wordpress-cloning-purgecss-script")
+    run_command("node wordpress-cloning-purgecss-script.js")
     
     writer.write_summary("## Inline CSS script executed.\n")
     run_command("node wordpress-cloning-inlinecss-script.js")
@@ -66,7 +67,7 @@ def main():
     run_script("wordpress-cloning-img-script.py", args.environment, args.wordpress_username, args.wordpress_password)
 
     writer.write_summary("## Version control changes \n")
-    if args.environment == 'PROD':
+    if args.environment == 'PROD' and args.dry_run == False:
         configure_git_user()
 
         try:
@@ -81,10 +82,14 @@ def main():
             writer.write_summary(f"- Error occurred while trying to commit and push changes. Error: {e}\n")
             writer.write_output("script-succes", "false")
 
+    elif args.dry_run == True:
+        writer.write_summary("- Skipping commit and push changes for dry-run\n")
+        writer.write_output("script-succes", "true")
+
     else:
         writer.write_summary("- Skipping commit and push changes for not PROD environments\n")
-        writer.write_output("script-succes", script_succes)
-
+        writer.write_output("script-succes", "true")
+    
     
 
 if __name__ == "__main__":

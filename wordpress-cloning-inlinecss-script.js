@@ -1,5 +1,6 @@
 const juice = require('juice');
-const fs = require('fs').promises;  // Using the promise-based version of fs
+const fs = require('fs').promises;
+const GitHubWriter = require('./github_writer');
 
 // List of HTML files to be updated
 const htmlFiles = [
@@ -20,7 +21,8 @@ const htmlFiles = [
   'dist/index-zh-TW.html'
 ];
 
-// Function to inline CSS and write file
+const writer = new GitHubWriter();
+
 const inlineCssAndWriteFile = async (htmlFile) => {
   try {
     const inlinedHtml = await new Promise((resolve, reject) => {
@@ -34,16 +36,22 @@ const inlineCssAndWriteFile = async (htmlFile) => {
     });
 
     await fs.writeFile(htmlFile, inlinedHtml, 'utf8');
-    console.log(`CSS inlined successfully for file ${htmlFile}`);
+    await writer.writeSummary(`- CSS inlined successfully for file ${htmlFile}\n`);
   } catch (error) {
-    console.error(error);
+    await writer.writeSummary(`- ${error}\n`);
+    throw error;
   }
 };
 
-// Process each file in series
 const processFiles = async () => {
-  for (const htmlFile of htmlFiles) {
-    await inlineCssAndWriteFile(htmlFile);
+  try {
+    for (const htmlFile of htmlFiles) {
+      await inlineCssAndWriteFile(htmlFile);
+    }
+    await writer.writeOutput('script-success', 'true');
+  } catch (error) {
+    await writer.writeOutput('script-success', 'false');
+    process.exit(1);
   }
 };
 

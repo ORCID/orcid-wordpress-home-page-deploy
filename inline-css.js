@@ -35,7 +35,6 @@ htmlFiles.forEach(htmlFile => {
           console.error(`Error writing file ${htmlFile}: ${err}`);
           return;
         }
-        console.log(`CSS inlined successfully for file ${htmlFile}`);
       });
     });
   

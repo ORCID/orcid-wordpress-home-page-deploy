@@ -3,10 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "wordpress-cloning-purgecss-script": "purgecss --config ./wordpress-cloning-purgecss-script.js"
-
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ORCID/orcid-wordpress-home-page-deploy.git"
@@ -21,5 +18,8 @@
   "devDependencies": {
     "juice": "^10.0.0",
     "purgecss": "^6.0.0"
+  },
+  "dependencies": {
+    "line-reader": "^0.4.0"
   }
 }
