@@ -61,7 +61,7 @@ def clone_css_files(environment, wordpress_staging_username, wordpress_staging_p
                         message = f"Failed to fetch {url}: HTTP {response.status_code}"
                         writer.write_summary(f"- {message}\n")
             except requests.exceptions.RequestException as e:
-                message = f"Error occurred while trying to download {url}. Error: {e}"
+                message = f"🚨 Error occurred while trying to download {url}. \n Error: {e}"
                 writer.write_summary(f"- {message}\n")
 
 

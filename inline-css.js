@@ -25,14 +25,14 @@ htmlFiles.forEach(htmlFile => {
 
     juice.juiceFile(htmlFile, {}, (err, inlinedHtml) => {
       if (err) {
-        console.error(`Error inlining CSS for file ${htmlFile}: ${err}`);
+        console.error(`🚨 Error inlining CSS for file ${htmlFile}: ${err}`);
         return;
       }
 
 
       fs.writeFile(htmlFile, inlinedHtml, 'utf8', err => {
         if (err) {
-          console.error(`Error writing file ${htmlFile}: ${err}`);
+          console.error(`🚨 Error writing file ${htmlFile}: ${err}`);
           return;
         }
       });
