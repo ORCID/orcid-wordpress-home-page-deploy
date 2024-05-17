@@ -18,7 +18,7 @@ def clone_css_files(environment, wordpress_staging_username, wordpress_staging_p
         f"{base_url}wp-content/uploads/theplus_gutenberg/plus-global.css",
         f"{base_url}wp-content/uploads/theplus_gutenberg/plus-css-25163.css",
         # f"{base_url}wp-content/plugins/elementor/assets/css/frontend-msie.min.css",
-        f"{base_url}",  # Add HTML file URL here
+        f"{base_url}/wp-content/themes/orcid-outreach-pro/homepage.css"
     ]
     
     # Set up authentication if not in production environment
