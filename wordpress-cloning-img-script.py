@@ -37,20 +37,24 @@ def download_and_update_html(environment, wordpress_staging_username, wordpress_
     for img in images:
         # Get the source attribute of the image
         img_url = img.get('src')
-        if img_url and (not img_url.startswith('data:image')):
-            # Complete the URL if it's relative (not absolute link)
-            full_img_url = img_url
-            # Download the image
-            img_data = requests.get(full_img_url, stream=True, headers=headers, auth=auth)
-            # Define the new local filename
-            local_filename = os.path.basename(img_url)
-            # Save the image locally
-            local_filepath = os.path.join(folder_path, local_filename)
-            with open(local_filepath, 'wb') as file:
-                img_data.raw.decode_content = True
-                shutil.copyfileobj(img_data.raw, file)
-            # Update the src attribute to the new local path
-            img['src'] = os.path.join(base_path, local_filename)
+        try:
+            if img_url and (not img_url.startswith('data:image')):
+                # Complete the URL if it's relative (not absolute link)
+                full_img_url = img_url
+                # Download the image
+                img_data = requests.get(full_img_url, stream=True, headers=headers, auth=auth)
+                # Define the new local filename
+                local_filename = os.path.basename(img_url)
+                # Save the image locally
+                local_filepath = os.path.join(folder_path, local_filename)
+                with open(local_filepath, 'wb') as file:
+                    img_data.raw.decode_content = True
+                    shutil.copyfileobj(img_data.raw, file)
+                # Update the src attribute to the new local path
+                img['src'] = os.path.join(base_path, local_filename)
+        except requests.exceptions.RequestException as e:
+            print(f"Error occurred while trying to download {img_url}. Error: {e}")
+            raise
         
         # Get the srcset attribute of the image
         img_srcset = img.get('srcset')
