@@ -93,7 +93,7 @@ jobs:
   release_prod_wordpress_new_version:
     runs-on: ubuntu-latest
     needs: clone-post
-    if: inputs.environment== 'PROD' && needs.clone-post.outputs.should-run == 'true' && steps.check-script-result.outputs.success == '0'
+    if: inputs.environment== 'PROD' && needs.clone-post.outputs.should-run == 'true' && needs.clone-post.outputs.success == '0'
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
