@@ -19,7 +19,7 @@ jobs:
   clone-post:
     runs-on: ubuntu-latest
     outputs:
-      script-success: ${{ steps.wordpress-cloning-main.outputs.success }}
+      script-success: ${{ steps.check-script-result.outputs.success }}
       should-run: ${{ steps.wordpress-cloning-main.outputs.should-run }}
 
     steps:
@@ -52,19 +52,31 @@ jobs:
 
       - name: Check script result
         id: check-script-result
-        run: echo "success=$?" >> $GITHUB_ENV
+        run: |
+          if [ -f output.txt ]; then
+            if grep -q "Error:" output.txt; then
+              echo "success=0" >> $GITHUB_ENV
+            else
+              echo "success=1" >> $GITHUB_ENV
+            fi
+          else
+            echo "success=0" >> $GITHUB_ENV
+        continue-on-error: true
 
       - name: Capture Python script output
         if: always()
         id: capture-output
         run: |
-          echo "script_output=$(cat output.txt)" >> $GITHUB_ENV
+          if [ -f output.txt ]; then
+            echo "script_output=$(cat output.txt)" >> $GITHUB_ENV
+          fi
 
       - name: Debug output
         if: always()
         run: |
           echo "$GITHUB_OUTPUT file contents: " && cat "$GITHUB_OUTPUT"
-          echo steps.wordpress-cloning-main.outputs.should-run: ${{ steps.wordpress-cloning-main.outputs.should-run }}
+          echo "Script success: ${{ env.success }}"
+          if [ -f output.txt ]; then cat output.txt; fi
         env:
           GITHUB_OUTPUT: ${{ github.workspace }}/output.txt
 
@@ -74,7 +86,7 @@ jobs:
 
       - name: Upload WordPress Staging HTML to S3
         uses: reggionick/s3-deploy@v4
-        if: ${{ inputs.environment != 'PROD' && steps.check-script-result.outputs.success == '0' }}
+        if: ${{ inputs.environment != 'PROD' && env.success == '1' }}
         with:
           folder: dist
           bucket: orcid-qa-public-page
@@ -93,15 +105,13 @@ jobs:
   release_prod_wordpress_new_version:
     runs-on: ubuntu-latest
     needs: clone-post
-    if: inputs.environment== 'PROD' && needs.clone-post.outputs.should-run == 'true' && needs.clone-post.outputs.success == '0'
+    if: inputs.environment == 'PROD' && needs.clone-post.outputs.should-run == 'true' && needs.clone-post.outputs.success == '1'
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
           fetch-tags: true
-      - name: Exit if no relevant changes
-        run: echo "Exiting because there are no changes in src" && exit 0
 
       - name: Get the current version tag
         id: get_version
