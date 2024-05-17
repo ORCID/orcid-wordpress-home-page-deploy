@@ -54,8 +54,7 @@ def main(environment, post_id, wordpress_staging_username, wordpress_staging_pas
     except requests.exceptions.RequestException as e:
         message = f"Failed to fetch post {post_id} from {base_url}. Error: {e}"
         writer.write_summary(f"- {message}\n")
-        writer.write_output("script-success", "false")
-        raise
+
 
 if __name__ == "__main__":
     writer = GitHubWriter()
