@@ -55,7 +55,7 @@ def download_and_update_html(environment, wordpress_staging_username, wordpress_
                 img['src'] = os.path.join(base_path, local_filename)
                 writer.write_summary(f"- Downloaded and updated image: {img_url} -> {img['src']}\n")
         except requests.exceptions.RequestException as e:
-            writer.write_summary(f"- Error occurred while trying to download {img_url}. Error: {e}\n")
+            writer.write_summary(f"- Error occurred while trying to download {img_url}. \n Error: {e}\n")
             raise
 
         # Get the srcset attribute of the image
@@ -80,7 +80,7 @@ def download_and_update_html(environment, wordpress_staging_username, wordpress_
                     new_srcset.append(f"{os.path.join(base_path, local_filename)} {size}")
                     writer.write_summary(f"- Downloaded and updated srcset image: {url} -> {os.path.join(base_path, local_filename)}\n")
                 except requests.exceptions.RequestException as e:
-                    writer.write_summary(f"- Error occurred while trying to download srcset image {url}. Error: {e}\n")
+                    writer.write_summary(f"- Error occurred while trying to download srcset image {url}. \n Error: {e}\n")
                     raise
             # Update the srcset attribute to the new local paths
             img['srcset'] = ', '.join(new_srcset)

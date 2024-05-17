@@ -82,7 +82,7 @@ def main():
                 writer.write_output("script-succes", "false")
 
         except Exception as e:
-            writer.write_summary(f"- Error occurred while trying to commit and push changes. Error: {e}\n")
+            writer.write_summary(f"- Error occurred while trying to commit and push changes. \n Error: {e}\n")
             writer.write_output("script-succes", "false")
 
     elif args.dry_run == True:
