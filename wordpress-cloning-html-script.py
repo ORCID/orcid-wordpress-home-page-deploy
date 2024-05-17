@@ -1,3 +1,4 @@
+from pathlib import Path
 import sys
 import requests
 from requests.auth import HTTPBasicAuth
@@ -52,8 +53,11 @@ def main(environment, post_id, wordpress_staging_username, wordpress_staging_pas
         writer.write_summary(f"- {message}\n")
 
     except requests.exceptions.RequestException as e:
-        message = f"Failed to fetch post {post_id} from {base_url}. Error: {e}"
+        message = f"🚨 Failed to fetch post {post_id} from {base_url}. Error: {e}"
         writer.write_summary(f"- {message}\n")
+        if environment == "PROD":
+            writer.write_output("script-success", "false")
+            sys.exit(1)
 
 
 if __name__ == "__main__":

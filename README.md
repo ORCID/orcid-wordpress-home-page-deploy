@@ -42,15 +42,16 @@ Deploy the info.orcid.org page on orcid.org
 Running the following command will run the cloning process on your local environment (This won't deploy to S3, commit, or do GitHub releases)
 
 ```
-## STAGIN EXAMPLE
-python3 wordpress-cloning-main.py STAGIN 25163 <orcid-staging-user> <orcid-staging-password>
-## PROD EXAMPLE
-python3 wordpress-cloning-main.py PROD 27308 <orcid-staging-user> <orcid-staging-password>
+export GITHUB_OUTPUT="./dist/output"     
+export GITHUB_STEP_SUMMARY="./dist/summary"
+python3 wordpress-cloning-main.py PROD 27308 orcidstaging fb8dd998
 ```
 
 If changes need to be committed run (This won't deploy to S3, or create a GitHub releases)
 
 ```
-python3 wordpress-cloning-main.py qa 25163 <orcid-staging-user> <orcid-staging-password> --commit
+export GITHUB_OUTPUT="./dist/output"     
+export GITHUB_STEP_SUMMARY="./dist/summary"
+python3 wordpress-cloning-main.py PROD 27308 orcidstaging fb8dd998
 ```
 -- WIP 👷‍♂️ ---

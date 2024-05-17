@@ -40,6 +40,11 @@ def main():
     parser.add_argument("wordpress_password", type=str, help="WordPress password.")
     parser.add_argument("--dry-run", action="store_true", help="Commit and push changes to GitHub.")
 
+    run_command("rm -rf dist")
+    Path("dist").mkdir(parents=True, exist_ok=True)
+    
+    install_dependencies()
+
     args = parser.parse_args()
 
     writer = GitHubWriter()
@@ -49,21 +54,19 @@ def main():
     writer.write_summary(f"Environment: {args.environment}\n")
     writer.write_summary(f"Post ID: {args.post_id}\n")
 
-    install_dependencies()
-
-    writer.write_summary("## HTML cloning script executed.\n")
+    writer.write_summary("## HTML cloning script:\n")
     run_script("wordpress-cloning-html-script.py", args.environment, args.post_id, args.wordpress_username, args.wordpress_password, "true")
     
-    writer.write_summary("## CSS cloning script executed.\n")
+    writer.write_summary("## CSS cloning script:.\n")
     run_script("wordpress-cloning-css-script.py", args.environment, args.wordpress_username, args.wordpress_password)
     
-    writer.write_summary("## PurgeCSS script executed.\n")
+    writer.write_summary("## PurgeCSS script:\n")
     run_command("node wordpress-cloning-purgecss-script.js")
     
-    writer.write_summary("## Inline CSS script executed.\n")
+    writer.write_summary("## Inline CSS script:\n")
     run_command("node wordpress-cloning-inlinecss-script.js")
     
-    writer.write_summary("## Image cloning script executed.\n")
+    writer.write_summary("## Image cloning script:\n")
     run_script("wordpress-cloning-img-script.py", args.environment, args.wordpress_username, args.wordpress_password)
 
     writer.write_summary("## Version control changes \n")
