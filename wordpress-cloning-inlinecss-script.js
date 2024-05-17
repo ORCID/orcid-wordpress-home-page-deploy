@@ -46,7 +46,12 @@ const inlineCssAndWriteFile = async (htmlFile) => {
 const processFiles = async () => {
   try {
     for (const htmlFile of htmlFiles) {
-      await inlineCssAndWriteFile(htmlFile);
+      try {
+        await inlineCssAndWriteFile(htmlFile);
+      } catch (error) {
+        await writer.writeSummary(`- Failed to inline file ${htmlFile} does not exist\n`);
+        continue;
+      }
     }
     await writer.writeOutput('script-success', 'true');
   } catch (error) {

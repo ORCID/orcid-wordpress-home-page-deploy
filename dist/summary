@@ -21,10 +21,10 @@ Post ID: 27308
 - Successfully added CSS from https://info.orcid.org/wp-content/themes/orcid-outreach-pro/style.css to combined_styles.css
 - Successfully added CSS from https://info.orcid.org/wp-includes/css/dist/block-library/style.css to combined_styles.css
 - Successfully added CSS from https://info.orcid.org/wp-content/plugins/genesis-blocks/dist/style-blocks.build.css to combined_styles.css
-- Failed to fetch https://info.orcid.org/wp-content/uploads/theplus_gutenberg/theplus-post-25163.min.css: HTTP 404
+- 🚨 Failed to fetch  https://info.orcid.org/wp-content/uploads/theplus_gutenberg/theplus-post-25163.min.css: HTTP 404
 - Successfully added CSS from https://info.orcid.org/wp-content/uploads/theplus_gutenberg/plus-global.css to combined_styles.css
-- Failed to fetch https://info.orcid.org/wp-content/uploads/theplus_gutenberg/plus-css-25163.css: HTTP 404
-- Failed to fetch https://info.orcid.org/wp-content/themes/orcid-outreach-pro/homepage.css: HTTP 404
+- 🚨 Failed to fetch  https://info.orcid.org/wp-content/uploads/theplus_gutenberg/plus-css-25163.css: HTTP 404
+- 🚨 Failed to fetch  https://info.orcid.org/wp-content/themes/orcid-outreach-pro/homepage.css: HTTP 404
 - Successfully added inline CSS from HTML https://info.orcid.org/ to combined_styles.css
 ## PurgeCSS script:
 - Initial number of lines: 6410

@@ -80,10 +80,13 @@ def main():
             else:
                 writer.write_summary("- No changes found when compare to the last run.\n")
                 writer.write_output("script-succes", "false")
+                raise
 
         except Exception as e:
             writer.write_summary(f"- 🚨 Error occurred while trying to commit and push changes. \n Error: {e}\n")
             writer.write_output("script-succes", "false")
+            raise
+            
 
     elif args.dry_run == True:
         writer.write_summary("- Skipping commit and push changes for dry-run\n")

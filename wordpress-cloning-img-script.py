@@ -53,9 +53,10 @@ def download_and_update_html(environment, wordpress_staging_username, wordpress_
                     shutil.copyfileobj(img_data.raw, file)
                 # Update the src attribute to the new local path
                 img['src'] = os.path.join(base_path, local_filename)
-                writer.write_summary(f"- Downloaded and updated image: {img_url} -> {img['src']}\n")
+                writer.write_summary(f"- Successfully downloaded and updated image: {img_url} -> {img['src']}\n")
         except requests.exceptions.RequestException as e:
             writer.write_summary(f"- 🚨 Error occurred while trying to download {img_url}. \n Error: {e}\n")
+            writer.write_output("script-succes", "false")
             raise
 
         # Get the srcset attribute of the image
@@ -78,9 +79,10 @@ def download_and_update_html(environment, wordpress_staging_username, wordpress_
                         shutil.copyfileobj(img_data.raw, file)
                     # Add the new srcset item to the list
                     new_srcset.append(f"{os.path.join(base_path, local_filename)} {size}")
-                    writer.write_summary(f"- Downloaded and updated srcset image: {url} -> {os.path.join(base_path, local_filename)}\n")
+                    writer.write_summary(f"- Successfully downloaded and updated srcset image: {url} -> {os.path.join(base_path, local_filename)}\n")
                 except requests.exceptions.RequestException as e:
                     writer.write_summary(f"- 🚨 Error occurred while trying to download srcset image {url}. \n Error: {e}\n")
+                    writer.write_output("script-succes", "false")
                     raise
             # Update the srcset attribute to the new local paths
             img['srcset'] = ', '.join(new_srcset)
@@ -88,7 +90,7 @@ def download_and_update_html(environment, wordpress_staging_username, wordpress_
     # Write the updated HTML to a new file
     with open(f"dist/index.html", 'w') as file:
         file.write(str(soup))
-    writer.write_summary("- HTML file updated successfully.\n")
+    writer.write_summary("- Successfully updated {file}\n")
 
 if __name__ == "__main__":
     writer = GitHubWriter()
