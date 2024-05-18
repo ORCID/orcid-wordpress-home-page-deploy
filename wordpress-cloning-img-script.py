@@ -113,7 +113,6 @@ if __name__ == "__main__":
         wordpress_staging_username = sys.argv[2]
         wordpress_staging_password = sys.argv[3]
         download_and_update_html(env, wordpress_staging_username, wordpress_staging_password)
-        writer.write_summary("wordpress-cloning-img-script executed successfully.\n")
         writer.write_output("script-success", "true")
     except Exception as e:
         writer.write_summary(f"Error: {str(e)}\n")

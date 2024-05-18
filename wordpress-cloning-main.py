@@ -49,10 +49,14 @@ def main():
 
     writer = GitHubWriter()
     
+    print("## Cloning Wordpress HomePage:\n")
 
-    writer.write_summary("## Variables\n")
-    writer.write_summary(f"Environment: {args.environment}\n")
-    writer.write_summary(f"Post ID: {args.post_id}\n")
+    # Print the markdown table
+    print("## Running arguments:\n")
+    print("| Variable      | Value         |")
+    print("| ------------- | ------------- |")
+    print(f"| Environment   | {environment} |")
+    print(f"| Post ID       | {post_id}     |")
 
     writer.write_summary("## HTML cloning script:\n")
     run_script("wordpress-cloning-html-script.py", args.environment, args.post_id, args.wordpress_username, args.wordpress_password, "true")
