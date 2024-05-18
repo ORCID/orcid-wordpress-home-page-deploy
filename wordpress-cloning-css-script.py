@@ -44,7 +44,7 @@ def clone_css_files(environment, wordpress_staging_username, wordpress_staging_p
                         message = f"Successfully added CSS from {url} to combined_styles.css"
                         writer.write_summary(f"- {message}\n")
                     else:
-                        message = f"🚨 Failed to fetch  {url}: HTTP {response.status_code}"
+                        message = f"Skipping  {url}: HTTP {response.status_code}"
                         writer.write_summary(f"- {message}\n")
                 else:
                     response = requests.get(url, headers=headers, auth=auth)
@@ -58,11 +58,12 @@ def clone_css_files(environment, wordpress_staging_username, wordpress_staging_p
                         message = f"Successfully added inline CSS from HTML {url} to combined_styles.css"
                         writer.write_summary(f"- {message}\n")
                     else:
-                        message = f"🚨 Failed to fetch  {url}: HTTP {response.status_code}"
+                        message = f"Skipping  {url}: HTTP {response.status_code}"
                         writer.write_summary(f"- {message}\n")
             except requests.exceptions.RequestException as e:
-                message = f"🚨 Error occurred while trying to download {url}. \n Error: {e}"
+                message = f"Skipping {url}. \n Error: {e}"
                 writer.write_summary(f"- {message}\n")
+                
 
 
 if __name__ == "__main__":

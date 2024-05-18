@@ -21,10 +21,10 @@ Post ID: 27308
 - Successfully added CSS from https://info.orcid.org/wp-content/themes/orcid-outreach-pro/style.css to combined_styles.css
 - Successfully added CSS from https://info.orcid.org/wp-includes/css/dist/block-library/style.css to combined_styles.css
 - Successfully added CSS from https://info.orcid.org/wp-content/plugins/genesis-blocks/dist/style-blocks.build.css to combined_styles.css
-- 🚨 Failed to fetch  https://info.orcid.org/wp-content/uploads/theplus_gutenberg/theplus-post-25163.min.css: HTTP 404
+- Skipping  https://info.orcid.org/wp-content/uploads/theplus_gutenberg/theplus-post-25163.min.css: HTTP 404
 - Successfully added CSS from https://info.orcid.org/wp-content/uploads/theplus_gutenberg/plus-global.css to combined_styles.css
-- 🚨 Failed to fetch  https://info.orcid.org/wp-content/uploads/theplus_gutenberg/plus-css-25163.css: HTTP 404
-- 🚨 Failed to fetch  https://info.orcid.org/wp-content/themes/orcid-outreach-pro/homepage.css: HTTP 404
+- Skipping  https://info.orcid.org/wp-content/uploads/theplus_gutenberg/plus-css-25163.css: HTTP 404
+- Skipping  https://info.orcid.org/wp-content/themes/orcid-outreach-pro/homepage.css: HTTP 404
 - Successfully added inline CSS from HTML https://info.orcid.org/ to combined_styles.css
 ## PurgeCSS script:
 - Initial number of lines: 6410
@@ -46,7 +46,21 @@ Post ID: 27308
 - CSS inlined successfully for file dist/index-zh-CN.html
 - CSS inlined successfully for file dist/index-zh-TW.html
 ## Image cloning script:
-- HTML file updated successfully.
+- Successfully updated dist/index.html
+- Successfully updated dist/index-ar.html
+- Successfully updated dist/index-cs.html
+- Successfully updated dist/index-de.html
+- Successfully updated dist/index-es.html
+- Successfully updated dist/index-fr.html
+- Successfully updated dist/index-it.html
+- Successfully updated dist/index-ja.html
+- Successfully updated dist/index-ko.html
+- Successfully updated dist/index-pl.html
+- Successfully updated dist/index-pt.html
+- Successfully updated dist/index-ru.html
+- Successfully updated dist/index-tr.html
+- Successfully updated dist/index-zh-CN.html
+- Successfully updated dist/index-zh-TW.html
 wordpress-cloning-img-script executed successfully.
 ## Version control changes 
 - Skipping commit and push changes for dry-run
