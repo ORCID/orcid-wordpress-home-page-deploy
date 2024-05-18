@@ -41,7 +41,7 @@ def clone_css_files(environment, wordpress_staging_username, wordpress_staging_p
                         data = re.sub(r'@charset "UTF-8";\s*', '', data)
                         data = re.sub(r'\*/\s*/\* ROB 10/07/22', '/* ROB 10/07/22', data)
                         file.write(data + "\n\n")
-                        message = f"Successfully added CSS from {url} to combined_styles.css"
+                        message = f"Successfully added CSS from {url}"
                         writer.write_summary(f"- {message}\n")
                     else:
                         message = f"Skipping  {url}: HTTP {response.status_code}"
@@ -55,7 +55,7 @@ def clone_css_files(environment, wordpress_staging_username, wordpress_staging_p
                             if style and style.string:
                                 file.write("/* Inline CSS from HTML */\n")
                                 file.write(style.string.strip() + "\n\n")
-                        message = f"Successfully added inline CSS from HTML {url} to combined_styles.css"
+                        message = f"Successfully added inline CSS from HTML {url}"
                         writer.write_summary(f"- {message}\n")
                     else:
                         message = f"Skipping  {url}: HTTP {response.status_code}"
