@@ -49,7 +49,7 @@ def main():
 
     writer = GitHubWriter()
     
-    writer.write_summary("# Cloning Wordpress HomePage:\n")
+    writer.write_summary("# Cloning Wordpress HomePage Summary:\n")
 
     # Print the markdown table
     writer.write_summary("## Running arguments:\n")
