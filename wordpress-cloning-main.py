@@ -55,8 +55,8 @@ def main():
     print("## Running arguments:\n")
     print("| Variable      | Value         |")
     print("| ------------- | ------------- |")
-    print(f"| Environment   | {environment} |")
-    print(f"| Post ID       | {post_id}     |")
+    print(f"| Environment   | {args.environment} |")
+    print(f"| Post ID       | {args.post_id}     |")
 
     writer.write_summary("## HTML cloning script:\n")
     run_script("wordpress-cloning-html-script.py", args.environment, args.post_id, args.wordpress_username, args.wordpress_password, "true")
