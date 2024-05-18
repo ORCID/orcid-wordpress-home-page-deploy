@@ -54,13 +54,13 @@ def main(environment, post_id, wordpress_staging_username, wordpress_staging_pas
 
     except requests.exceptions.RequestException as e:
         if environment == "PROD":
-            message = f"Failed to fetch  post {post_id} from {base_url}. \n Error: {e}"
+            message = f"Failed to fetch  post {post_id} for language {language}. \n Error: {e}"
             writer.write_summary(f"- {message}\n")
             writer.write_output("script-success", "false")
             sys.exit(1)
         else:
             writer.write_output("script-success", "false")
-            message = f"Skipping  post {post_id} from {base_url}. \n Error: {e}"
+            message = f"Skipping  post {post_id} for language {language}. \n Error: {e}"
             writer.write_summary(f"- {message}\n")
             
 

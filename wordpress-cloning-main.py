@@ -61,7 +61,7 @@ def main():
     writer.write_summary("## HTML cloning script:\n")
     run_script("wordpress-cloning-html-script.py", args.environment, args.post_id, args.wordpress_username, args.wordpress_password, "true")
     
-    writer.write_summary("## CSS cloning script:.\n")
+    writer.write_summary("## CSS cloning script:\n")
     run_script("wordpress-cloning-css-script.py", args.environment, args.wordpress_username, args.wordpress_password)
     
     writer.write_summary("## PurgeCSS script:\n")
