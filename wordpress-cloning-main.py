@@ -53,10 +53,10 @@ def main():
 
     # Print the markdown table
     writer.write_summary("## Running arguments:\n")
-    writer.write_summary("| Variable      | Value         |")
-    writer.write_summary("| ------------- | ------------- |")
-    writer.write_summary(f"| Environment   | {args.environment} |")
-    writer.write_summary(f"| Post ID       | {args.post_id}     |")
+    writer.write_summary("| Variable      | Value         | \n")
+    writer.write_summary("| ------------- | ------------- | \n")
+    writer.write_summary(f"| Environment   | {args.environment} | \n")
+    writer.write_summary(f"| Post ID       | {args.post_id}     | \n")
 
     writer.write_summary("## HTML cloning script:\n")
     run_script("wordpress-cloning-html-script.py", args.environment, args.post_id, args.wordpress_username, args.wordpress_password, "true")
