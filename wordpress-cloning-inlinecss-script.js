@@ -28,7 +28,7 @@ const inlineCssAndWriteFile = async (htmlFile) => {
     const inlinedHtml = await new Promise((resolve, reject) => {
       juice.juiceFile(htmlFile, {}, (err, result) => {
         if (err) {
-          reject(`Skipping inlining CSS for file ${htmlFile}: ${err}`);
+          reject(`Skipping inlining CSS for file ${htmlFile}: \n ${err}`);
         } else {
           resolve(result);
         }
