@@ -5,12 +5,13 @@ on:
   workflow_dispatch:
     inputs:
       version:
+        type: string
         description: 'Tag version to deploy'
         required: true
         default: 'v1.0.0'
       environment:
         description: 'Deployment environment'
-        required: true>
+        required: true
         default: 'default'
         type: choice
         options:
