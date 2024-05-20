@@ -6,7 +6,6 @@ on:
     inputs:
       environment:
         required: true
-        type: string
         description: "WordPress environment (STAGING, PROD)"
         default: "STAGING"
         options:
