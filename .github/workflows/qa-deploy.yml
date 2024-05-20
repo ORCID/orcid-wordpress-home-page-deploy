@@ -6,8 +6,8 @@ on:
     inputs:
       environment:
         required: true
-        description: "WordPress environment (STAGING, PROD)"
-        default: "STAGING"
+        description: "WordPress environment"
+        type: choice
         options:
           - STAGING
           - PROD

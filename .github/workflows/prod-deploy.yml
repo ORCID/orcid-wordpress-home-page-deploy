@@ -9,12 +9,13 @@ on:
         required: true
         default: 'v1.0.0'
       environment:
-        description: 'Deployment environment (fallback or default)'
+        description: 'Deployment environment'
         required: true>
         default: 'default'
+        type: choice
         options:
-          - fallback
-          - default
+          - FALLBACK
+          - PROD
 
 jobs:
   version-switch:
