@@ -1,32 +1,57 @@
-name: Homepage PROD Deploy
+name: 'PROD deploy version'
+run-name: 'PROD deploy version ${{ inputs.environment }} to ${{ inputs.postID }} by @${{ github.actor }}'
 
 on:
   workflow_dispatch:
     inputs:
-      postID:
+      version:
+        description: 'Tag version to deploy'
         required: true
-        type: string
-        description: "The release to deploy"
+        default: 'v1.0.0'
+      environment:
+        description: 'Deployment environment (fallback or default)'
+        required: true>
+        default: 'default'
+        options:
+          - fallback
+          - default
 
 jobs:
-  upload_to_s3:
-    needs: clone-post
+  version-switch:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-        
-      - name: Get recent changes
+
+      - name: Switch to specific tag
         run: |
-          git pull
+          git fetch --tags
+          git checkout ${{ github.event.inputs.version }}
+
+  upload_prod_wordpress_to_prod_s3:
+    needs: version-switch
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set environment variables
+        run: |
+          if [ "${{ github.event.inputs.environment }}" == "fallback" ]; then
+            echo "AWS_BUCKET=${{ secrets.PROD_AWS_BUCKET }}" >> $GITHUB_ENV
+            echo "CLOUDFRONT_DIST_ID=${{ secrets.PROD_CLOUDFRONT_DIST_ID }}" >> $GITHUB_ENV
+          else
+            echo "AWS_BUCKET=${{ secrets.FALLBACK_AWS_BUCKET }}" >> $GITHUB_ENV
+            echo "CLOUDFRONT_DIST_ID=${{ secrets.FALLBACK_CLOUDFRONT_DIST_ID }}" >> $GITHUB_ENV
+          fi
 
       - name: Upload HTML to S3
         uses: reggionick/s3-deploy@v4
         with:
           folder: dist
-          bucket: orcid-qa-public-page
-          bucket-region: 'us-east-1'
-          dist-id: 'E3AOMNP9201N9Z'
+          bucket: ${{ env.AWS_BUCKET }}
+          bucket-region: ${{ secrets.AWS_REGION }}
+          dist-id: ${{ env.CLOUDFRONT_DIST_ID }}
           invalidation: /
           delete-removed: true
           no-cache: true
@@ -35,4 +60,4 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: 'us-east-1'
+          AWS_REGION: ${{ secrets.AWS_REGION }}

@@ -9,6 +9,9 @@ on:
         type: string
         description: "WordPress environment (STAGING, PROD)"
         default: "STAGING"
+        options:
+          - STAGING
+          - PROD
       postID:
         required: true
         type: string
