@@ -1,5 +1,5 @@
 name: 'PROD deploy version'
-run-name: 'PROD deploy version ${{ inputs.environment }} to ${{ inputs.postID }} by @${{ github.actor }}'
+run-name: 'PROD deploy version ${{ inputs.version }} to {{ inputs.environment }} by @${{ github.actor }}'
 
 on:
   workflow_dispatch:
@@ -8,7 +8,7 @@ on:
         type: string
         description: 'Tag version to deploy'
         required: true
-        default: 'v1.0.0'
+        default: 'v0.1.0'
       environment:
         description: 'Deployment environment'
         required: true

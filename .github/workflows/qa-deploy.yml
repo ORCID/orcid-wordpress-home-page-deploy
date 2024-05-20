@@ -137,9 +137,9 @@ jobs:
         uses: reggionick/s3-deploy@v4
         with:
           folder: dist
-          bucket: orcid-qa-public-page
-          bucket-region: 'us-east-1'
-          dist-id: 'E3AOMNP9201N9Z'
+          bucket: ${{secrets.PROD_AWS_BUCKET}}
+          bucket-region: ${{ secrets.AWS_REGION }}
+          dist-id: ${{secrets.PROD_CLOUDFRONT_DIST_ID}}
           invalidation: /
           delete-removed: true
           no-cache: true
