@@ -137,9 +137,9 @@ jobs:
         uses: reggionick/s3-deploy@v4
         with:
           folder: dist
-          bucket: ${{secrets.PROD_AWS_BUCKET}}
+          bucket: ${{secrets.QA_AWS_BUCKET}}
           bucket-region: ${{ secrets.AWS_REGION }}
-          dist-id: ${{secrets.PROD_CLOUDFRONT_DIST_ID}}
+          dist-id: ${{secrets.QA_CLOUDFRONT_DIST_ID}}
           invalidation: /
           delete-removed: true
           no-cache: true

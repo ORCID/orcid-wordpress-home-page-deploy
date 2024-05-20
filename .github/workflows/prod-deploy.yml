@@ -1,5 +1,5 @@
 name: 'PROD deploy version'
-run-name: 'PROD deploy version ${{ inputs.version }} to {{ inputs.environment }} by @${{ github.actor }}'
+run-name: 'PROD deploy version ${{ inputs.version }} to ${{ inputs.environment }} by @${{ github.actor }}'
 
 on:
   workflow_dispatch:
