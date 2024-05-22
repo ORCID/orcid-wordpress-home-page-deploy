@@ -19,23 +19,17 @@ on:
           - PROD
 
 jobs:
-  version-switch:
+  upload_prod_wordpress_to_prod_s3:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-
+        
       - name: Switch to specific tag
         run: |
           git fetch --tags
           git checkout ${{ github.event.inputs.version }}
 
-  upload_prod_wordpress_to_prod_s3:
-    needs: version-switch
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
 
       - name: Set environment variables
         run: |
