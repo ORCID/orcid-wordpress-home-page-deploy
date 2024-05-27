@@ -18,7 +18,7 @@ class GitHubWriter:
         if self.step_summary_path:
             with open(self.step_summary_path, 'a') as f:
                 f.write(content)
-                f.write('\n ⚠️ WARNING: This error will fail for a prod build ⚠️\n')
+                f.write('⚠️ WARNING: This error will fail for a prod build ⚠️\n')
 
         if env == "PROD":
             self.write_output("script-success", "false")

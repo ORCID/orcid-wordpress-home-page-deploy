@@ -17,7 +17,7 @@ def download_image_if_not_exists(full_img_url, local_filepath, headers, auth, en
             with open(local_filepath, 'wb') as file:
                 img_data.raw.decode_content = True
                 shutil.copyfileobj(img_data.raw, file)
-            writer.write_summary(f"- Successfully downloaded image: {full_img_url}")
+            writer.write_summary(f"- Successfully downloaded image: {full_img_url} \n")
         except requests.exceptions.MissingSchema:
             writer.write_summary_and_fail_on_prod(f"- Please use a full URL for  {full_img_url}. \n", env)
         except Exception as e:
@@ -112,7 +112,6 @@ def download_and_update_html(environment, wordpress_staging_username, wordpress_
 
         with open(html_file, 'w') as file:
             file.write(str(soup))
-        writer.write_summary(f"- Successfully updated {html_file}\n")
 
 def extract_urls_from_style(style):
     urls = []
