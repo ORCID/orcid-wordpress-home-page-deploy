@@ -44,7 +44,7 @@ def main(environment, post_id, wordpress_staging_username, wordpress_staging_pas
         response.raise_for_status()
 
         with open(file_path, "w") as file:
-            file.write("<!doctype html><html><head><link rel=\"stylesheet\" href=\"./combined_styles.css\"></head><body>")
+            file.write("<!doctype html><html><head><link rel=\"stylesheet\" href=\"./combined_styles.css\"></head><body class=\"homepage\">")
             html_content = response.json()["content"]["rendered"]
             file.write(html_content)
             file.write("</body></html>")
@@ -53,15 +53,8 @@ def main(environment, post_id, wordpress_staging_username, wordpress_staging_pas
         writer.write_summary(f"- {message}\n")
 
     except requests.exceptions.RequestException as e:
-        if environment == "PROD":
-            message = f"Failed to fetch  post {post_id} for language {language}. \n Error: {e}"
-            writer.write_summary(f"- {message}\n")
-            writer.write_output("script-success", "false")
-            sys.exit(1)
-        else:
-            writer.write_output("script-success", "false")
-            message = f"Skipping  post {post_id} for language {language}. \n Error: {e}"
-            writer.write_summary(f"- {message}\n")
+        message = f"Failed to fetch  post {post_id} for language {language}. \n Error: {e}"
+        writer.write_summary_and_fail_on_prod(f"- {message}\n", env)
             
 
 
