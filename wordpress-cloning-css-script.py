@@ -11,6 +11,7 @@ def clone_css_files(environment, wordpress_staging_username, wordpress_staging_p
     base_url = "https://info.qa.orcid.org/" if environment != "PROD" else "https://info.orcid.org/"
     
     css_urls = [
+        f"{base_url}",  # This will clone the inline CSS on wordpress
         f"{base_url}wp-content/themes/orcid-outreach-pro/style.css",
         f"{base_url}wp-includes/css/dist/block-library/style.css",
         f"{base_url}wp-content/plugins/genesis-blocks/dist/style-blocks.build.css",
@@ -19,7 +20,7 @@ def clone_css_files(environment, wordpress_staging_username, wordpress_staging_p
         f"{base_url}wp-content/uploads/theplus_gutenberg/plus-css-25163.css",
         f"{base_url}wp-content/themes/orcid-outreach-pro/homepage.css",
         f"{base_url}wp-content/themes/orcid-outreach-pro/style.css",
-        f"{base_url}",  # This will clone the inline CSS on wordpress
+        f"{base_url}wp-content/uploads/maxmegamenu/style.css",
     ]
     
     auth = None
@@ -31,23 +32,10 @@ def clone_css_files(environment, wordpress_staging_username, wordpress_staging_p
     }
 
 
-    with open('dist/combined_styles.css', 'w') as file:
+    with open('dist/combined_styles.css', 'w') as file:      
         for url in css_urls:
             try:
-                if url.endswith('.css'):
-                    response = requests.get(url, headers=headers, auth=auth)
-                    if response.status_code == 200:
-                        file.write(f"/* CSS from {url} */\n")
-                        data = response.text
-                        data = re.sub(r'@charset "UTF-8";\s*', '', data)
-                        data = re.sub(r'\*/\s*/\* ROB 10/07/22', '/* ROB 10/07/22', data)
-                        file.write(data + "\n\n")
-                        message = f"Successfully added CSS from {url}"
-                        writer.write_summary(f"- {message}\n")
-                    else:
-                        message = f"Skipping  {url}: HTTP {response.status_code}"
-                        writer.write_summary(f"- {message}\n")
-                else:
+                if not url.endswith('.css'):
                     response = requests.get(url, headers=headers, auth=auth)
                     if response.status_code == 200:
                         soup = BeautifulSoup(response.text, 'html.parser')
@@ -61,6 +49,20 @@ def clone_css_files(environment, wordpress_staging_username, wordpress_staging_p
                     else:
                         message = f"Skipping  {url}: HTTP {response.status_code}"
                         writer.write_summary(f"- {message}\n")
+                else:
+                    response = requests.get(url, headers=headers, auth=auth)
+                    if response.status_code == 200:
+                        file.write(f"/* CSS from {url} */\n")
+                        data = response.text
+                        data = re.sub(r'@charset "UTF-8";\s*', '', data)
+                        data = re.sub(r'\*/\s*/\* ROB 10/07/22', '/* ROB 10/07/22', data)
+                        file.write(data + "\n\n")
+                        message = f"Successfully added CSS from {url}"
+                        writer.write_summary(f"- {message}\n")
+                    else:
+                        message = f"Skipping  {url}: HTTP {response.status_code}"
+                        writer.write_summary(f"- {message}\n")
+
             except requests.exceptions.RequestException as e:
                 message = f"Skipping {url}. \n Error: {e}"
                 writer.write_summary(f"- {message}\n")
