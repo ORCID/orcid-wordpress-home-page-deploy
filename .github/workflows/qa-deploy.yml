@@ -111,9 +111,6 @@ jobs:
         with:
           python-version: '3.8'
 
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-
       - name: Inject version, commit, and push changes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
