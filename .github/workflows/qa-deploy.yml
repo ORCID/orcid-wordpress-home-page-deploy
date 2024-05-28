@@ -115,7 +115,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ENVIRONMENT: ${{ inputs.environment }}
-        run: python inject_version_and_commit.py ${{ steps.new_version.outputs.new_version }}
+        run: python wordpress-cloning-version-update.py ${{ steps.new_version.outputs.new_version }}
 
       - name: Create and push tag
         run: |
