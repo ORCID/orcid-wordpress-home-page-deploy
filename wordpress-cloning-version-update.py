@@ -2,6 +2,7 @@ import json
 import os
 import sys
 import subprocess
+
 from github_writer import GitHubWriter
 
 # Get the version from the command line arguments
