@@ -215,9 +215,7 @@ HTML5 Reset
 
 /* Baseline Normalize
 	normalize.css v2.1.3 | MIT License | git.io/normalize
---------------------------------------------- */
-
-section{display:block}html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}a{background:transparent}a:focus{outline:thin dotted}a:active,a:hover{outline:0}strong{font-weight:700}code{font-family:monospace,serif;font-size:1em;background-color:#fff;}
+--------------------------------------------- */html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}a{background:transparent}a:focus{outline:thin dotted}a:active,a:hover{outline:0}
 
 /* Additional wrap for code blocks so they don't spill over FAQ borders*/
 
@@ -297,10 +295,6 @@ p {
 	padding: 0;
 }
 
-strong {
-	font-weight: 700;
-}
-
 /* LISTS - DEFAULT
 Ordered and unordered */
 
@@ -335,21 +329,9 @@ DOWNLOAD LINKS (.wp-block-file)
 /* Headings
 --------------------------------------------- */
 
-
-h2 {
-	font-stretch: normal;
-	font-style: normal;
-	line-height: 1.4;
-	letter-spacing: 0.5px;
-}
-
 /* Heading 1 - Large headings mostly used for page titles */
 
 /* Heading 2 - Commonly used sub-heading within page content */
-h2 {
-	font-size: 32px;
-	font-weight: 600;
-}
 
 /* Heading 3 - Sub-headings within sections */
 
@@ -451,11 +433,6 @@ Structure and Layout
 /* Column Classes
 	Link: http://twitter.github.io/bootstrap/assets/css/bootstrap-responsive.css
 --------------------------------------------- */
-
-.first {
-	clear: both;
-	margin-left: 0;
-}
 
 
 /*
@@ -801,9 +778,6 @@ Content Area
 /* Example code blocks */
 
 /* Remove the background color from the code text examples */
-code {
-	background-color: transparent;
-}
 
 /* Entry Meta
 --------------------------------------------- */
@@ -957,7 +931,6 @@ ul{
 }
 
 /* CSS from https://info.orcid.org/wp-content/plugins/genesis-blocks/dist/style-blocks.build.css */
-.gb-block-container{margin:0;position:relative;padding:0}.gb-block-container .gb-container-content{margin:0 auto;position:relative}.right{text-align:right}
 
 
 /* CSS from https://info.orcid.org/wp-content/uploads/theplus_gutenberg/plus-global.css */
@@ -1110,9 +1083,7 @@ HTML5 Reset
 
 /* Baseline Normalize
 	normalize.css v2.1.3 | MIT License | git.io/normalize
---------------------------------------------- */
-
-section{display:block}html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}a{background:transparent}a:focus{outline:thin dotted}a:active,a:hover{outline:0}strong{font-weight:700}code{font-family:monospace,serif;font-size:1em;background-color:#fff;}
+--------------------------------------------- */html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}a{background:transparent}a:focus{outline:thin dotted}a:active,a:hover{outline:0}
 
 /* Additional wrap for code blocks so they don't spill over FAQ borders*/
 
@@ -1192,10 +1163,6 @@ p {
 	padding: 0;
 }
 
-strong {
-	font-weight: 700;
-}
-
 /* LISTS - DEFAULT
 Ordered and unordered */
 
@@ -1230,21 +1197,9 @@ DOWNLOAD LINKS (.wp-block-file)
 /* Headings
 --------------------------------------------- */
 
-
-h2 {
-	font-stretch: normal;
-	font-style: normal;
-	line-height: 1.4;
-	letter-spacing: 0.5px;
-}
-
 /* Heading 1 - Large headings mostly used for page titles */
 
 /* Heading 2 - Commonly used sub-heading within page content */
-h2 {
-	font-size: 32px;
-	font-weight: 600;
-}
 
 /* Heading 3 - Sub-headings within sections */
 
@@ -1346,11 +1301,6 @@ Structure and Layout
 /* Column Classes
 	Link: http://twitter.github.io/bootstrap/assets/css/bootstrap-responsive.css
 --------------------------------------------- */
-
-.first {
-	clear: both;
-	margin-left: 0;
-}
 
 
 /*
@@ -1696,9 +1646,6 @@ Content Area
 /* Example code blocks */
 
 /* Remove the background color from the code text examples */
-code {
-	background-color: transparent;
-}
 
 /* Entry Meta
 --------------------------------------------- */
