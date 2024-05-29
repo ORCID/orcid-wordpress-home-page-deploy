@@ -215,7 +215,9 @@ HTML5 Reset
 
 /* Baseline Normalize
 	normalize.css v2.1.3 | MIT License | git.io/normalize
---------------------------------------------- */html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}a{background:transparent}a:focus{outline:thin dotted}a:active,a:hover{outline:0}
+--------------------------------------------- */
+
+main{display:block}html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}a{background:transparent}a:focus{outline:thin dotted}a:active,a:hover{outline:0}strong{font-weight:700}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}small{font-size:80%}
 
 /* Additional wrap for code blocks so they don't spill over FAQ borders*/
 
@@ -295,6 +297,10 @@ p {
 	padding: 0;
 }
 
+strong {
+	font-weight: 700;
+}
+
 /* LISTS - DEFAULT
 Ordered and unordered */
 
@@ -318,9 +324,37 @@ li:last-of-type {
 
 /* BLOCKQUOTES */
 
+blockquote {
+color: var(--brand-secondary-dark);
+display: block;
+border-width: var(--space-quarter) 0;
+border-style: solid;
+border-color: var(--ui-background);
+padding: 1.5em 0 0.5em;
+margin: 1.5em 0;
+position: relative;
+}
+
 /* Add quote mark before the blockquote */
+blockquote::before {
+content: '\201C';
+position: absolute;
+top: 0em;
+left: 50%;
+transform: translate(-50%, -50%);
+background: #fff;
+width: var(--space-oct);
+height: var(--space-quad);
+font: 6em/1.08em 'PT Sans', sans-serif;
+color: var(--brand-secondary-dark);
+text-align: center;
+	
+}
 
 /* Keep citations simple */
+cite {
+	font-style: normal;
+}
 
 /* ---------------------------------------------
 DOWNLOAD LINKS (.wp-block-file)
@@ -329,11 +363,27 @@ DOWNLOAD LINKS (.wp-block-file)
 /* Headings
 --------------------------------------------- */
 
+
+h2,
+h3 {
+	font-stretch: normal;
+	font-style: normal;
+	line-height: 1.4;
+	letter-spacing: 0.5px;
+}
+
 /* Heading 1 - Large headings mostly used for page titles */
 
 /* Heading 2 - Commonly used sub-heading within page content */
+h2 {
+	font-size: 32px;
+	font-weight: 600;
+}
 
 /* Heading 3 - Sub-headings within sections */
+h3 {
+	font-size: 24px;
+}
 
 /* There's no real need or benefit in styling these lower headings individually */
 
@@ -925,12 +975,36 @@ ul{
   }
 }
 
+:where(p.has-text-color:not(.has-link-color)) a{
+  color:inherit;
+}
+
+.wp-block-quote{
+  box-sizing:border-box;
+}
+
+.wp-block-quote{
+  overflow-wrap:break-word;
+}
+.wp-block-quote>cite{
+  display:block;
+}
+
+.wp-block-separator{
+  border:none;
+  border-top:2px solid;
+}
+
 :root{
   --wp--preset--font-size--normal:16px;
   --wp--preset--font-size--huge:42px;
 }
 
-/* CSS from https://info.orcid.org/wp-content/plugins/genesis-blocks/dist/style-blocks.build.css */
+.has-text-align-center{
+  text-align:center;
+}
+
+/* CSS from https://info.orcid.org/wp-content/plugins/genesis-blocks/dist/style-blocks.build.css */.center{text-align:center}
 
 
 /* CSS from https://info.orcid.org/wp-content/uploads/theplus_gutenberg/plus-global.css */
@@ -1083,7 +1157,9 @@ HTML5 Reset
 
 /* Baseline Normalize
 	normalize.css v2.1.3 | MIT License | git.io/normalize
---------------------------------------------- */html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}a{background:transparent}a:focus{outline:thin dotted}a:active,a:hover{outline:0}
+--------------------------------------------- */
+
+main{display:block}html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}a{background:transparent}a:focus{outline:thin dotted}a:active,a:hover{outline:0}strong{font-weight:700}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}small{font-size:80%}
 
 /* Additional wrap for code blocks so they don't spill over FAQ borders*/
 
@@ -1163,6 +1239,10 @@ p {
 	padding: 0;
 }
 
+strong {
+	font-weight: 700;
+}
+
 /* LISTS - DEFAULT
 Ordered and unordered */
 
@@ -1186,9 +1266,37 @@ li:last-of-type {
 
 /* BLOCKQUOTES */
 
+blockquote {
+color: var(--brand-secondary-dark);
+display: block;
+border-width: var(--space-quarter) 0;
+border-style: solid;
+border-color: var(--ui-background);
+padding: 1.5em 0 0.5em;
+margin: 1.5em 0;
+position: relative;
+}
+
 /* Add quote mark before the blockquote */
+blockquote::before {
+content: '\201C';
+position: absolute;
+top: 0em;
+left: 50%;
+transform: translate(-50%, -50%);
+background: #fff;
+width: var(--space-oct);
+height: var(--space-quad);
+font: 6em/1.08em 'PT Sans', sans-serif;
+color: var(--brand-secondary-dark);
+text-align: center;
+	
+}
 
 /* Keep citations simple */
+cite {
+	font-style: normal;
+}
 
 /* ---------------------------------------------
 DOWNLOAD LINKS (.wp-block-file)
@@ -1197,11 +1305,27 @@ DOWNLOAD LINKS (.wp-block-file)
 /* Headings
 --------------------------------------------- */
 
+
+h2,
+h3 {
+	font-stretch: normal;
+	font-style: normal;
+	line-height: 1.4;
+	letter-spacing: 0.5px;
+}
+
 /* Heading 1 - Large headings mostly used for page titles */
 
 /* Heading 2 - Commonly used sub-heading within page content */
+h2 {
+	font-size: 32px;
+	font-weight: 600;
+}
 
 /* Heading 3 - Sub-headings within sections */
+h3 {
+	font-size: 24px;
+}
 
 /* There's no real need or benefit in styling these lower headings individually */
 
