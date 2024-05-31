@@ -1,5 +1,5 @@
-name: Homepage QA Deploy
-run-name: QA deploy WordPress ${{ inputs.environment }} - post ${{ inputs.postID }} by @${{ github.actor }}
+name: Homepage qa.orcid.org Deploy
+run-name: qa.orcid.org deploy WordPress ${{ inputs.environment }} - post ${{ inputs.postID }} by @${{ github.actor }}
 
 on:
   workflow_dispatch:

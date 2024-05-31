@@ -1,5 +1,5 @@
-name: 'Homepage PROD Deploy'
-run-name: 'PROD deploy version ${{ inputs.version }} to ${{ inputs.environment }} by @${{ github.actor }}'
+name: 'Homepage orcid.org Deploy'
+run-name: 'orcid.org deploy version ${{ inputs.version }} to ${{ inputs.environment }} by @${{ github.actor }}'
 
 on:
   workflow_dispatch:
