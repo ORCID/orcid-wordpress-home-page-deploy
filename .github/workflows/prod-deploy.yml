@@ -22,7 +22,6 @@ jobs:
 
   upload_prod_wordpress_to_qa_s3:
     environment: qa.orcid.org
-    needs: release_prod_wordpress_new_version
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
