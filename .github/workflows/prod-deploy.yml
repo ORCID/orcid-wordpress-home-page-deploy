@@ -1,4 +1,4 @@
-name: 'PROD Deploy'
+name: 'Homepage PROD Deploy'
 run-name: 'PROD deploy version ${{ inputs.version }} to ${{ inputs.environment }} by @${{ github.actor }}'
 
 on:
@@ -19,6 +19,38 @@ on:
           - PROD
 
 jobs:
+
+  upload_prod_wordpress_to_qa_s3:
+    environment: qa.orcid.org
+    needs: release_prod_wordpress_new_version
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        
+      - name: Switch to specific tag
+        run: |
+          git fetch --tags
+          git checkout ${{ github.event.inputs.version }}
+
+      - name: Upload HTML to S3
+        uses: reggionick/s3-deploy@v4
+        with:
+          folder: dist
+          bucket: ${{secrets.QA_AWS_BUCKET}}
+          bucket-region: ${{ secrets.AWS_REGION }}
+          dist-id: ${{secrets.QA_CLOUDFRONT_DIST_ID}}
+          invalidation: /
+          delete-removed: true
+          no-cache: true
+          private: true
+          files-to-include: '{.*/**,**}'
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: 'us-east-1'
+
+
   upload_prod_wordpress_to_prod_s3:
     runs-on: ubuntu-latest
     environment: orcid.org
