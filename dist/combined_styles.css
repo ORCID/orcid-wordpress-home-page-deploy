@@ -279,7 +279,11 @@ HTML5 Reset
 	normalize.css v2.1.3 | MIT License | git.io/normalize
 --------------------------------------------- */
 
+<<<<<<< HEAD
 figure{display:block}video{display:inline-block}html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}a{background:transparent}a:focus{outline:thin dotted}a:active,a:hover{outline:0}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}img{border:0}figure{margin:0}button{font-family:inherit;font-size:100%;margin:0}button{line-height:normal}button{text-transform:none}button{-webkit-appearance:button;cursor:pointer}button[disabled]{cursor:default}button::-moz-focus-inner{border:0;padding:0}
+=======
+main{display:block}html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}a{background:transparent}a:focus{outline:thin dotted}a:active,a:hover{outline:0}strong{font-weight:700}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}small{font-size:80%}
+>>>>>>> c047ba1483d4cb4ef272f1cd9bfed5bc5950475f
 
 /* Additional wrap for code blocks so they don't spill over FAQ borders*/
 
@@ -438,8 +442,12 @@ DOWNLOAD LINKS (.wp-block-file)
 
 
 h2,
+<<<<<<< HEAD
 h3,
 h4 {
+=======
+h3 {
+>>>>>>> c047ba1483d4cb4ef272f1cd9bfed5bc5950475f
 	font-stretch: normal;
 	font-style: normal;
 	line-height: 1.4;
@@ -1287,14 +1295,18 @@ ul.has-background{
   }
 }
 
+<<<<<<< HEAD
 p.has-background{
   padding:1.25em 2.375em;
 }
 
+=======
+>>>>>>> c047ba1483d4cb4ef272f1cd9bfed5bc5950475f
 :where(p.has-text-color:not(.has-link-color)) a{
   color:inherit;
 }
 
+<<<<<<< HEAD
 .wp-block-post-excerpt__excerpt{
   margin-bottom:0;
   margin-top:0;
@@ -1364,6 +1376,17 @@ p.has-background{
   .wp-block-post-template-is-layout-grid.wp-block-post-template-is-layout-grid.wp-block-post-template-is-layout-grid.wp-block-post-template-is-layout-grid{
     grid-template-columns:1fr;
   }
+=======
+.wp-block-quote{
+  box-sizing:border-box;
+}
+
+.wp-block-quote{
+  overflow-wrap:break-word;
+}
+.wp-block-quote>cite{
+  display:block;
+>>>>>>> c047ba1483d4cb4ef272f1cd9bfed5bc5950475f
 }
 
 .wp-block-separator{
@@ -1371,6 +1394,7 @@ p.has-background{
   border-top:2px solid;
 }
 
+<<<<<<< HEAD
 .wp-block-spacer{
   clear:both;
 }
@@ -1378,6 +1402,8 @@ p.has-background{
   cursor:pointer;
 }
 
+=======
+>>>>>>> c047ba1483d4cb4ef272f1cd9bfed5bc5950475f
 :root{
   --wp--preset--font-size--normal:16px;
   --wp--preset--font-size--huge:42px;
@@ -1387,8 +1413,16 @@ html :where(img[class*=wp-image-]){
   max-width:100%;
 }
 
+<<<<<<< HEAD
 /* CSS from https://info.qa.orcid.org/wp-content/plugins/genesis-blocks/dist/style-blocks.build.css */
 .gb-block-container{margin:0;position:relative;padding:0}@media only screen and (min-width: 768px){.gb-block-container.alignwide .gb-container-inside,.gb-block-container.alignwide .gb-container-inside{max-width:80%;margin:0 auto}}.gb-block-container .gb-container-image-wrap{position:absolute;top:0;right:0;left:0;height:100%;z-index:0}.gb-block-container .gb-container-image{object-fit:cover;height:100%;width:100%;transition:.3s ease}.gb-block-container .gb-container-content{margin:0 auto;position:relative}.gb-block-container .gb-container-image:not(.has-background-dim){opacity:0}.gb-block-container .has-background-dim{opacity:.5}.gb-block-container .has-background-dim-20{opacity:.2}.center{text-align:center}.wp-block-image{margin-bottom:1.2em}
+=======
+.has-text-align-center{
+  text-align:center;
+}
+
+/* CSS from https://info.orcid.org/wp-content/plugins/genesis-blocks/dist/style-blocks.build.css */.center{text-align:center}
+>>>>>>> c047ba1483d4cb4ef272f1cd9bfed5bc5950475f
 
 
 /* CSS from https://info.qa.orcid.org/wp-content/uploads/theplus_gutenberg/theplus-post-25422.min.css */
@@ -1823,7 +1857,11 @@ HTML5 Reset
 	normalize.css v2.1.3 | MIT License | git.io/normalize
 --------------------------------------------- */
 
+<<<<<<< HEAD
 figure{display:block}video{display:inline-block}html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}a{background:transparent}a:focus{outline:thin dotted}a:active,a:hover{outline:0}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}img{border:0}figure{margin:0}button{font-family:inherit;font-size:100%;margin:0}button{line-height:normal}button{text-transform:none}button{-webkit-appearance:button;cursor:pointer}button[disabled]{cursor:default}button::-moz-focus-inner{border:0;padding:0}
+=======
+main{display:block}html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}a{background:transparent}a:focus{outline:thin dotted}a:active,a:hover{outline:0}strong{font-weight:700}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}small{font-size:80%}
+>>>>>>> c047ba1483d4cb4ef272f1cd9bfed5bc5950475f
 
 /* Additional wrap for code blocks so they don't spill over FAQ borders*/
 
@@ -1982,8 +2020,12 @@ DOWNLOAD LINKS (.wp-block-file)
 
 
 h2,
+<<<<<<< HEAD
 h3,
 h4 {
+=======
+h3 {
+>>>>>>> c047ba1483d4cb4ef272f1cd9bfed5bc5950475f
 	font-stretch: normal;
 	font-style: normal;
 	line-height: 1.4;
