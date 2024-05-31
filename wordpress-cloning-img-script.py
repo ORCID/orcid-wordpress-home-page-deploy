@@ -7,23 +7,38 @@ import shutil
 from requests.auth import HTTPBasicAuth
 from github_writer import GitHubWriter
 
-def download_image_if_not_exists(full_img_url, local_filepath, headers, auth, env):
+def download_image_if_not_exists(full_img_url, local_filepath, headers, auth, env, writer):
+    # Add https protocol if missing
+    if full_img_url.startswith("//"):
+        full_img_url = "https:" + full_img_url
+    elif not full_img_url.startswith(("http://", "https://")):
+        full_img_url = "https://" + full_img_url
+
     if not os.path.exists(local_filepath):
         try:
             img_data = requests.get(full_img_url, stream=True, headers=headers, auth=auth)
             if img_data.status_code != 200:
                 writer.write_summary_and_fail_on_prod(f"- 🚨 Failed to download image: {full_img_url}, status code: {img_data.status_code}\n", env)
-     
+                return
             with open(local_filepath, 'wb') as file:
                 img_data.raw.decode_content = True
                 shutil.copyfileobj(img_data.raw, file)
             writer.write_summary(f"- Successfully downloaded image: {full_img_url} \n")
         except requests.exceptions.MissingSchema:
-            writer.write_summary_and_fail_on_prod(f"- Please use a full URL for  {full_img_url}. \n", env)
+            writer.write_summary_and_fail_on_prod(f"- Please use a full URL for {full_img_url}. \n", env)
         except Exception as e:
-            writer.write_summary_and_fail(f"Error: {str(e)}\n", env)
+            writer.write_summary_and_fail_on_prod(f"Error: {str(e)}\n", env)
 
-
+def extract_urls_from_style(style):
+    urls = []
+    start = style.find('url(')
+    while start != -1:
+        start += 4  # Skip 'url('
+        end = style.find(')', start)
+        url = style[start:end].strip('\'"')
+        urls.append(url)
+        start = style.find('url(', end)
+    return urls
 
 def download_and_update_html(environment, wordpress_staging_username, wordpress_staging_password):
     writer = GitHubWriter()
@@ -34,7 +49,6 @@ def download_and_update_html(environment, wordpress_staging_username, wordpress_
 
     folder_path = './dist/assets'
     base_path = './assets'
-
 
     # Setup authentication if not in production environment
     auth = None
@@ -74,15 +88,15 @@ def download_and_update_html(environment, wordpress_staging_username, wordpress_
 
         images = soup.find_all('img')
         elements_with_style = soup.find_all(style=True)
+        header_styles = soup.find_all('style')
 
         for img in images:
             img_url = img.get('src')
             if img_url and (not img_url.startswith('data:image')):
                 local_filename = os.path.basename(img_url)
                 local_filepath = os.path.join(folder_path, local_filename)
-                download_image_if_not_exists(img_url, local_filepath, headers, auth, environment)
+                download_image_if_not_exists(img_url, local_filepath, headers, auth, environment, writer)
                 img['src'] = os.path.join(base_path, local_filename)
-    
 
             img_srcset = img.get('srcset')
             if img_srcset and (not img_srcset.startswith('data:image')):
@@ -92,7 +106,7 @@ def download_and_update_html(environment, wordpress_staging_username, wordpress_
                     url, size = item.strip().split(' ')
                     local_filename = os.path.basename(url)
                     local_filepath = os.path.join(folder_path, local_filename)
-                    download_image_if_not_exists(url, local_filepath, headers, auth, environment)
+                    download_image_if_not_exists(url, local_filepath, headers, auth, environment, writer)
                     new_srcset.append(f"{os.path.join(base_path, local_filename)} {size}")
 
                 img['srcset'] = ', '.join(new_srcset)
@@ -104,26 +118,27 @@ def download_and_update_html(environment, wordpress_staging_username, wordpress_
                 for url in urls:
                     local_filename = os.path.basename(url)
                     local_filepath = os.path.join(folder_path, local_filename)
-                    download_image_if_not_exists(url, local_filepath, headers, auth, environment)
+                    download_image_if_not_exists(url, local_filepath, headers, auth, environment, writer)
                     new_url = os.path.join(base_path, local_filename)
                     style = style.replace(url, new_url)
- 
+
                 element['style'] = style
+
+        for style_tag in header_styles:
+            style_content = style_tag.string
+            if style_content and 'url(' in style_content:
+                urls = extract_urls_from_style(style_content)
+                for url in urls:
+                    local_filename = os.path.basename(url)
+                    local_filepath = os.path.join(folder_path, local_filename)
+                    download_image_if_not_exists(url, local_filepath, headers, auth, environment, writer)
+                    new_url = os.path.join(base_path, local_filename)
+                    style_content = style_content.replace(url, new_url)
+
+                style_tag.string.replace_with(style_content)
 
         with open(html_file, 'w') as file:
             file.write(str(soup))
-
-def extract_urls_from_style(style):
-    urls = []
-    start = style.find('url(')
-    while start != -1:
-        start += 4  # Skip 'url('
-        end = style.find(')', start)
-        url = style[start:end].strip('\'"')
-        urls.append(url)
-        start = style.find('url(', end)
-    print('urls:', urls)
-    return urls
 
 if __name__ == "__main__":
     writer = GitHubWriter()

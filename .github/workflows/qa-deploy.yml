@@ -1,5 +1,5 @@
 name: Homepage QA Deploy
-run-name: QA deploy WordPress ${{ inputs.environment }} - page ${{ inputs.postID }} by @${{ github.actor }}
+run-name: QA deploy WordPress ${{ inputs.environment }} - post ${{ inputs.postID }} by @${{ github.actor }}
 
 on:
   workflow_dispatch:
@@ -14,8 +14,8 @@ on:
       postID:
         required: true
         type: string
-        description: "The ID of the page to clone"
-        default: "25163"
+        description: "Wordpress post id to clone"
+        default: "25422"
 
 jobs:
   clone-post:

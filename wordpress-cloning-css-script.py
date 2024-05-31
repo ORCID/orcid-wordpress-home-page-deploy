@@ -11,16 +11,18 @@ def clone_css_files(environment, wordpress_staging_username, wordpress_staging_p
     base_url = "https://info.qa.orcid.org/" if environment != "PROD" else "https://info.orcid.org/"
     
     css_urls = [
+        f"{base_url}homepage-as-post",
         f"{base_url}",  # This will clone the inline CSS on wordpress
         f"{base_url}wp-content/themes/orcid-outreach-pro/style.css",
         f"{base_url}wp-includes/css/dist/block-library/style.css",
         f"{base_url}wp-content/plugins/genesis-blocks/dist/style-blocks.build.css",
-        f"{base_url}wp-content/uploads/theplus_gutenberg/theplus-post-25163.min.css",
+        f"{base_url}wp-content/uploads/theplus_gutenberg/theplus-post-25422.min.css",
         f"{base_url}wp-content/uploads/theplus_gutenberg/plus-global.css",
-        f"{base_url}wp-content/uploads/theplus_gutenberg/plus-css-25163.css",
+        f"{base_url}wp-content/uploads/theplus_gutenberg/plus-css-25422.css",
         f"{base_url}wp-content/themes/orcid-outreach-pro/homepage.css",
         f"{base_url}wp-content/themes/orcid-outreach-pro/style.css",
         f"{base_url}wp-content/uploads/maxmegamenu/style.css",
+        
     ]
     
     auth = None

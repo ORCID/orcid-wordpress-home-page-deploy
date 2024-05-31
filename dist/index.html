@@ -1,32 +1,78 @@
 <!DOCTYPE html>
 <html style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-family: sans-serif; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;"><head><style>
+.wp-block-button__link {
+  color: #fff;
+  background-color: #32373c;
+  border-radius: 9999px;
+  box-shadow: none;
+  text-decoration: none;
+  padding: calc(.667em + 2px) calc(1.333em + 2px);
+  font-size: 1.125em;
+}
 @font-face {
   font-family: "FontAwesome";
   font-display: block;
-  src: url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-brands-400.eot"),
-		url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-brands-400.eot?#iefix") format("embedded-opentype"),
-		url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-brands-400.woff2") format("woff2"),
-		url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-brands-400.woff") format("woff"),
-		url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-brands-400.ttf") format("truetype"),
-		url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-brands-400.svg#fontawesome") format("svg");}
+  src: url("./assets/fa-brands-400.eot"),
+		url("./assets/fa-brands-400.eot?#iefix") format("embedded-opentype"),
+		url("./assets/fa-brands-400.woff2") format("woff2"),
+		url("./assets/fa-brands-400.woff") format("woff"),
+		url("./assets/fa-brands-400.ttf") format("truetype"),
+		url("./assets/fa-brands-400.svg#fontawesome") format("svg");}
 @font-face {
   font-family: "FontAwesome";
   font-display: block;
-  src: url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-solid-900.eot"),
-		url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-solid-900.eot?#iefix") format("embedded-opentype"),
-		url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-solid-900.woff2") format("woff2"),
-		url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-solid-900.woff") format("woff"),
-		url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-solid-900.ttf") format("truetype"),
-		url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-solid-900.svg#fontawesome") format("svg");}
+  src: url("./assets/fa-solid-900.eot"),
+		url("./assets/fa-solid-900.eot?#iefix") format("embedded-opentype"),
+		url("./assets/fa-solid-900.woff2") format("woff2"),
+		url("./assets/fa-solid-900.woff") format("woff"),
+		url("./assets/fa-solid-900.ttf") format("truetype"),
+		url("./assets/fa-solid-900.svg#fontawesome") format("svg");}
 @font-face {
   font-family: "FontAwesome";
   font-display: block;
-  src: url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-regular-400.eot"),
-		url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-regular-400.eot?#iefix") format("embedded-opentype"),
-		url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-regular-400.woff2") format("woff2"),
-		url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-regular-400.woff") format("woff"),
-		url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-regular-400.ttf") format("truetype"),
-		url("https://use.fontawesome.com/releases/v5.15.4/webfonts/fa-regular-400.svg#fontawesome") format("svg");
+  src: url("./assets/fa-regular-400.eot"),
+		url("./assets/fa-regular-400.eot?#iefix") format("embedded-opentype"),
+		url("./assets/fa-regular-400.woff2") format("woff2"),
+		url("./assets/fa-regular-400.woff") format("woff"),
+		url("./assets/fa-regular-400.ttf") format("truetype"),
+		url("./assets/fa-regular-400.svg#fontawesome") format("svg");
+  unicode-range: U+F004-F005,U+F007,U+F017,U+F022,U+F024,U+F02E,U+F03E,U+F044,U+F057-F059,U+F06E,U+F070,U+F075,U+F07B-F07C,U+F080,U+F086,U+F089,U+F094,U+F09D,U+F0A0,U+F0A4-F0A7,U+F0C5,U+F0C7-F0C8,U+F0E0,U+F0EB,U+F0F3,U+F0F8,U+F0FE,U+F111,U+F118-F11A,U+F11C,U+F133,U+F144,U+F146,U+F14A,U+F14D-F14E,U+F150-F152,U+F15B-F15C,U+F164-F165,U+F185-F186,U+F191-F192,U+F1AD,U+F1C1-F1C9,U+F1CD,U+F1D8,U+F1E3,U+F1EA,U+F1F6,U+F1F9,U+F20A,U+F247-F249,U+F24D,U+F254-F25B,U+F25D,U+F267,U+F271-F274,U+F279,U+F28B,U+F28D,U+F2B5-F2B6,U+F2B9,U+F2BB,U+F2BD,U+F2C1-F2C2,U+F2D0,U+F2D2,U+F2DC,U+F2ED,U+F328,U+F358-F35B,U+F3A5,U+F3D1,U+F410,U+F4AD;}
+.wp-block-button__link {
+  color: #fff;
+  background-color: #32373c;
+  border-radius: 9999px;
+  box-shadow: none;
+  text-decoration: none;
+  padding: calc(.667em + 2px) calc(1.333em + 2px);
+  font-size: 1.125em;
+}
+@font-face {
+  font-family: "FontAwesome";
+  font-display: block;
+  src: url("./assets/fa-brands-400.eot"),
+		url("./assets/fa-brands-400.eot?#iefix") format("embedded-opentype"),
+		url("./assets/fa-brands-400.woff2") format("woff2"),
+		url("./assets/fa-brands-400.woff") format("woff"),
+		url("./assets/fa-brands-400.ttf") format("truetype"),
+		url("./assets/fa-brands-400.svg#fontawesome") format("svg");}
+@font-face {
+  font-family: "FontAwesome";
+  font-display: block;
+  src: url("./assets/fa-solid-900.eot"),
+		url("./assets/fa-solid-900.eot?#iefix") format("embedded-opentype"),
+		url("./assets/fa-solid-900.woff2") format("woff2"),
+		url("./assets/fa-solid-900.woff") format("woff"),
+		url("./assets/fa-solid-900.ttf") format("truetype"),
+		url("./assets/fa-solid-900.svg#fontawesome") format("svg");}
+@font-face {
+  font-family: "FontAwesome";
+  font-display: block;
+  src: url("./assets/fa-regular-400.eot"),
+		url("./assets/fa-regular-400.eot?#iefix") format("embedded-opentype"),
+		url("./assets/fa-regular-400.woff2") format("woff2"),
+		url("./assets/fa-regular-400.woff") format("woff"),
+		url("./assets/fa-regular-400.ttf") format("truetype"),
+		url("./assets/fa-regular-400.svg#fontawesome") format("svg");
   unicode-range: U+F004-F005,U+F007,U+F017,U+F022,U+F024,U+F02E,U+F03E,U+F044,U+F057-F059,U+F06E,U+F070,U+F075,U+F07B-F07C,U+F080,U+F086,U+F089,U+F094,U+F09D,U+F0A0,U+F0A4-F0A7,U+F0C5,U+F0C7-F0C8,U+F0E0,U+F0EB,U+F0F3,U+F0F8,U+F0FE,U+F111,U+F118-F11A,U+F11C,U+F133,U+F144,U+F146,U+F14A,U+F14D-F14E,U+F150-F152,U+F15B-F15C,U+F164-F165,U+F185-F186,U+F191-F192,U+F1AD,U+F1C1-F1C9,U+F1CD,U+F1D8,U+F1E3,U+F1EA,U+F1F6,U+F1F9,U+F20A,U+F247-F249,U+F24D,U+F254-F25B,U+F25D,U+F267,U+F271-F274,U+F279,U+F28B,U+F28D,U+F2B5-F2B6,U+F2B9,U+F2BB,U+F2BD,U+F2C1-F2C2,U+F2D0,U+F2D2,U+F2DC,U+F2ED,U+F328,U+F358-F35B,U+F3A5,U+F3D1,U+F410,U+F4AD;}
 a:focus {
   outline: thin dotted;
@@ -35,12 +81,75 @@ a:active,
 a:hover {
   outline: 0;
 }
-a:hover,
-a:focus {
-  color: var(--brand-primary-darkest);
+button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
 }
 a:active {
   font-weight: 600;
+}
+button:hover,
+.button:hover,
+.wp-block-button__link:hover {
+  color: #fff;
+  background-color: var(--brand-primary-dark);
+}
+button:active,
+.button:active,
+.wp-block-button__link:active {
+  background-color: var(--brand-primary);
+  border-color: var(--brand-primary);
+  color: #fff;
+}
+button:focus,
+.button:focus,
+.wp-block-button__link:focus {
+  border-color: var(--brand-primary);
+}
+.wp-block-button__link,
+button:visited {
+  color: #fff !important;
+}
+.signin:hover {
+  color: #fff;
+}
+.signin:visited {
+  color: #fff;
+}
+.signin:active {
+  color: #fff;
+}
+@media only screen and (max-width: 860px) {
+  .entry {
+    box-shadow: none;
+  }
+}
+.wp-block-button__link {
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  word-break: break-word;
+}
+@media (min-width:782px) {
+  .wp-block-columns {
+    flex-wrap: nowrap !important;
+  }
+}
+@media (max-width:781px) {
+  .wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column {
+    flex-basis: 100% !important;
+  }
+}
+@media (min-width:782px) {
+  .wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column {
+    flex-basis: 0;
+    flex-grow: 1;
+  }
+
+  .wp-block-columns:not(.is-not-stacked-on-mobile)>.wp-block-column[style*=flex-basis] {
+    flex-grow: 0;
+  }
 }
 @keyframes turn-on-visibility {
   0% {
@@ -91,6 +200,21 @@ a:active {
     visibility: hidden;
   }
 }
+@media (max-width:600px) {
+  .wp-block-media-text.is-stacked-on-mobile {
+    grid-template-columns: 100% !important;
+  }
+
+  .wp-block-media-text.is-stacked-on-mobile .wp-block-media-text__media {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .wp-block-media-text.is-stacked-on-mobile .wp-block-media-text__content {
+    grid-column: 1;
+    grid-row: 2;
+  }
+}
 @keyframes overlay-menu__fade-in-animation {
   0% {
     opacity: 0;
@@ -102,6 +226,60 @@ a:active {
     transform: translateY(0);
   }
 }
+:where(p.has-text-color:not(.has-link-color)) a {
+  color: inherit;
+}
+.wp-block-post-excerpt__more-link {
+  display: inline-block;
+}
+@media (max-width:600px) {
+  .wp-block-post-template-is-layout-grid.wp-block-post-template-is-layout-grid.wp-block-post-template-is-layout-grid.wp-block-post-template-is-layout-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .gb-block-container.alignwide .gb-container-inside,
+.gb-block-container.alignwide .gb-container-inside {
+    max-width: 80%;
+    margin: 0 auto;
+  }
+}
+.tpgb-tabs-nav .tpgb-tab-header.active,
+.tpgb-tabs-nav .tpgb-tab-header:hover {
+  color: #6f14f1;
+}
+.tpgb-tabs-content-wrapper .tpgb-tab-content.active {
+  display: block;
+  opacity: 1;
+  animation: fadeIn linear .3s;
+}
+@media (max-width:767px) {
+  .tab-view-horizontal .tpgb-tabs-wrapper.nav-one-by-one .tpgb-tabs-nav .tpgb-tab-li {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .tab-view-horizontal .tpgb-tabs-wrapper.nav-one-by-one .tpgb-tabs-nav {
+    display: block;
+    text-align: center;
+  }
+}
+.tpgb-block-3f14_25422 .tpgb-tabs-nav .tpgb-tab-header.active,
+.tpgb-block-3f14_25422 .tpgb-tabs-nav .tpgb-tab-header:hover {
+  color: #fffefe;
+}
+.tpgb-block-3f14_25422 .tpgb-tabs-wrapper .tpgb-tab-header.active {
+  opacity: 1;
+}
+.homepage .tpgb-tab-header.active {
+  border-bottom: fuchsia 2px solid;
+  padding-bottom: 5em;
+}
+.homepage .three-column-articles .wp-block-post-excerpt__more-link {
+  color: var(--brand-primary);
+}
 a:focus {
   outline: thin dotted;
 }
@@ -109,78 +287,618 @@ a:active,
 a:hover {
   outline: 0;
 }
-a:hover,
-a:focus {
-  color: var(--brand-primary-darkest);
+button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
 }
 a:active {
   font-weight: 600;
 }
-@media only screen and (min-width: 841px) {}
-@media only screen and (min-width: 841px) {}
-@media only screen and (min-width: 841px) {}
-@media only screen and (min-width: 841px) {}
+button:hover,
+.button:hover,
+.wp-block-button__link:hover {
+  color: #fff;
+  background-color: var(--brand-primary-dark);
+}
+button:active,
+.button:active,
+.wp-block-button__link:active {
+  background-color: var(--brand-primary);
+  border-color: var(--brand-primary);
+  color: #fff;
+}
+button:focus,
+.button:focus,
+.wp-block-button__link:focus {
+  border-color: var(--brand-primary);
+}
+.wp-block-button__link,
+button:visited {
+  color: #fff !important;
+}
+.signin:hover {
+  color: #fff;
+}
+.signin:visited {
+  color: #fff;
+}
+.signin:active {
+  color: #fff;
+}
+@media only screen and (max-width: 860px) {
+  .entry {
+    box-shadow: none;
+  }
+}
+@media only screen and (min-width: 769px) {
+  #mega-menu-wrap-secondary {
+    background: white;
+  }
+}
+#mega-menu-wrap-secondary #mega-menu-secondary a.mega-menu-link {
+  cursor: pointer;
+  display: inline;
+}
+#mega-menu-wrap-secondary #mega-menu-secondary li.mega-menu-item a.mega-menu-link:before {
+  display: inline-block;
+  font: inherit;
+  font-family: dashicons;
+  position: static;
+  margin: 0 6px 0 0px;
+  vertical-align: top;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: inherit;
+  background: transparent;
+  height: auto;
+  width: auto;
+  top: auto;
+}
+@media only screen and (min-width: 769px) {
+  #mega-menu-wrap-secondary #mega-menu-secondary > li.mega-menu-item > a.mega-menu-link:hover,
+#mega-menu-wrap-secondary #mega-menu-secondary > li.mega-menu-item > a.mega-menu-link:focus {
+    background: rgba(255, 255, 255, 0);
+    color: #447405;
+    font-weight: normal;
+    text-decoration: none;
+    border-color: #fff;
+  }
+}
+#mega-menu-wrap-secondary #mega-menu-secondary > li.mega-menu-item > a.mega-menu-link {
+  line-height: 40px;
+  height: 40px;
+  padding: 0px 10px 0px 10px;
+  vertical-align: baseline;
+  width: auto;
+  display: block;
+  color: #003449;
+  text-transform: none;
+  text-decoration: none;
+  text-align: left;
+  background: rgba(0, 0, 0, 0);
+  border: 0;
+  border-radius: 0;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: normal;
+  outline: none;
+}
+@media only screen and (max-width: 768px) {
+  #mega-menu-wrap-secondary #mega-menu-secondary > li.mega-menu-item {
+    display: list-item;
+    margin: 0;
+    clear: both;
+    border: 0;
+  }
+
+  #mega-menu-wrap-secondary #mega-menu-secondary > li.mega-menu-item > a.mega-menu-link {
+    border-radius: 0;
+    border: 0;
+    margin: 0;
+    line-height: 40px;
+    height: 40px;
+    padding: 0 10px;
+    background: transparent;
+    text-align: left;
+    color: #ffffff;
+    font-size: 14px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  #mega-menu-wrap-secondary:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+@media only screen and (max-width: 768px) {
+  #mega-menu-wrap-secondary .mega-menu-toggle {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+  }
+}
+@media only screen and (max-width: 768px) {
+  #mega-menu-wrap-secondary .mega-menu-toggle + #mega-menu-secondary {
+    background: #222;
+    padding: 0px 0px 0px 0px;
+    display: none;
+  }
+}
+#mega-menu-wrap-secondary #mega-menu-secondary li#mega-menu-item-25392 > a.mega-menu-link:before {
+  content: "";
+  background-image: url("./assets/iD-icon-1-20x20.png");
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  vertical-align: middle;
+}
+@media (-webkit-min-device-pixel-ratio: 2) {
+  #mega-menu-wrap-secondary #mega-menu-secondary li#mega-menu-item-25392 > a.mega-menu-link:before {
+    background-image: url("./assets/iD-icon-1-40x40.png");
+  }
+}
+@media only screen and (max-width: 768px) {
+  #mega-menu-wrap-secondary #mega-menu-secondary li#mega-menu-item-25392 > a.mega-menu-link:before {
+    background-size: 20px 20px;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+  }
+}
+#mega-menu-wrap-secondary #mega-menu-secondary li#mega-menu-item-25393 > a.mega-menu-link:before {
+  content: "";
+  background-image: url("./assets/troubleshoot_FILL0_wght400_GRAD0_opsz24-1-20x20.png");
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  vertical-align: middle;
+}
+@media (-webkit-min-device-pixel-ratio: 2) {
+  #mega-menu-wrap-secondary #mega-menu-secondary li#mega-menu-item-25393 > a.mega-menu-link:before {
+    background-image: url("./assets/troubleshoot_FILL0_wght400_GRAD0_opsz24-1.png");
+  }
+}
+@media only screen and (max-width: 768px) {
+  #mega-menu-wrap-secondary #mega-menu-secondary li#mega-menu-item-25393 > a.mega-menu-link:before {
+    background-size: 20px 20px;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+  }
+}
+#mega-menu-wrap-secondary #mega-menu-secondary li#mega-menu-item-25394 > a.mega-menu-link:before {
+  content: "";
+  background-image: url("./assets/loyalty_FILL0_wght400_GRAD0_opsz24-1-20x20.png");
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  vertical-align: middle;
+}
+@media (-webkit-min-device-pixel-ratio: 2) {
+  #mega-menu-wrap-secondary #mega-menu-secondary li#mega-menu-item-25394 > a.mega-menu-link:before {
+    background-image: url("./assets/loyalty_FILL0_wght400_GRAD0_opsz24-1-40x40.png");
+  }
+}
+@media only screen and (max-width: 768px) {
+  #mega-menu-wrap-secondary #mega-menu-secondary li#mega-menu-item-25394 > a.mega-menu-link:before {
+    background-size: 20px 20px;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+  }
+}
+#mega-menu-wrap-secondary #mega-menu-secondary li#mega-menu-item-25395 > a.mega-menu-link:before {
+  content: "";
+  background-image: url("./assets/school_FILL0_wght400_GRAD0_opsz24-1-20x20.png");
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  vertical-align: middle;
+}
+@media (-webkit-min-device-pixel-ratio: 2) {
+  #mega-menu-wrap-secondary #mega-menu-secondary li#mega-menu-item-25395 > a.mega-menu-link:before {
+    background-image: url("./assets/school_FILL0_wght400_GRAD0_opsz24-1-40x40.png");
+  }
+}
+@media only screen and (max-width: 768px) {
+  #mega-menu-wrap-secondary #mega-menu-secondary li#mega-menu-item-25395 > a.mega-menu-link:before {
+    background-size: 20px 20px;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+  }
+}
+#mega-menu-wrap-secondary #mega-menu-secondary li#mega-menu-item-25396 > a.mega-menu-link:before {
+  content: "";
+  background-image: url("./assets/query_stats_FILL0_wght400_GRAD0_opsz24-1-20x20.png");
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  vertical-align: middle;
+}
+@media (-webkit-min-device-pixel-ratio: 2) {
+  #mega-menu-wrap-secondary #mega-menu-secondary li#mega-menu-item-25396 > a.mega-menu-link:before {
+    background-image: url("./assets/query_stats_FILL0_wght400_GRAD0_opsz24-1-40x40.png");
+  }
+}
+@media only screen and (max-width: 768px) {
+  #mega-menu-wrap-secondary #mega-menu-secondary li#mega-menu-item-25396 > a.mega-menu-link:before {
+    background-size: 20px 20px;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+  }
+}
+#mega-menu-wrap-secondary #mega-menu-secondary li#mega-menu-item-25397 > a.mega-menu-link:before {
+  content: "";
+  background-image: url("./assets/account_balance_FILL0_wght400_GRAD0_opsz24-1-20x20.png");
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  vertical-align: middle;
+}
+@media (-webkit-min-device-pixel-ratio: 2) {
+  #mega-menu-wrap-secondary #mega-menu-secondary li#mega-menu-item-25397 > a.mega-menu-link:before {
+    background-image: url("./assets/account_balance_FILL0_wght400_GRAD0_opsz24-1-40x40.png");
+  }
+}
+@media only screen and (max-width: 768px) {
+  #mega-menu-wrap-secondary #mega-menu-secondary li#mega-menu-item-25397 > a.mega-menu-link:before {
+    background-size: 20px 20px;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+  }
+}
 </style></head><body class="homepage" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0; background-color: rgb(250, 250, 250); color: rgba(0, 0, 0, .9); font-family: 'Noto Sans', sans-serif; font-size: 16px; font-weight: normal; line-height: 1.55;">
-<div class="wp-block-genesis-blocks-gb-container gb-block-container" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0; position: relative; padding: 0;"><div class="gb-container-inside" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;"><div class="gb-container-content" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 auto; position: relative;"><h2 class="wp-block-heading" id="h-background" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-stretch: normal; font-style: normal; line-height: 1.4; letter-spacing: 0.5px; font-size: 32px; font-weight: 600;"><strong style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-weight: 700;">Background</strong></h2>
-<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;">As stated in our <a href="https://info.orcid.org/code-of-conduct/" rel="noreferrer noopener" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; color: rgb(8, 92, 119);" target="_blank">Code of Conduct</a>, ORCID is committed to honest, ethical, and lawful conduct, and compliance with applicable laws, rules and regulations. ORCID expects all its employees and partners to practice honesty and integrity in fulfilling their responsibilities and to act in accordance with all applicable laws, regulations and ORCID policies.  This Whistleblower Policy provides a means for individuals to report concerns covered by this policy without the fear of retaliation and for such reports to be handled in a professional and thorough manner. </p>
-<h2 class="wp-block-heading" id="h-who-and-what-is-covered-by-this-policy" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-stretch: normal; font-style: normal; line-height: 1.4; letter-spacing: 0.5px; font-size: 32px; font-weight: 600;"><strong style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-weight: 700;">Who and What is Covered by This Policy</strong></h2>
-<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;">Under this policy, ORCID’s directors, officers, current employees, contractors, and volunteers are required to report in good faith any action or suspected action taken by or within ORCID that is illegal, fraudulent or in violation of any applicable ORCID policy or any activity, policy or practice of ORCID that the individual reasonably believes poses a specific danger to public health or safety. Former employees are also encouraged to report any concerns and shall be protected from retaliation by ORCID. Concerns may include, but are not limited to:</p>
-<ul style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 16px 32px; padding: 0;">
-<li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; list-style-type: none; margin-bottom: 8px;">violations of national, state, or local laws or regulations;</li>
-<li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; list-style-type: none; margin-bottom: 8px;">financial wrongdoing (including circumvention of internal controls or violation of ORCID’s accounting policies, providing false information to, or withholding material information from, ORCID’s auditors, or supplying false or misleading information on ORCID’s tax returns; as well as money laundering, tax evasion, or other financial crimes);</li>
-<li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; list-style-type: none; margin-bottom: 8px;">payment for services that are not rendered or goods that are not delivered; theft; embezzlement; official or commercial bribery or trading in influence; kickbacks or use of ORCID’s property, resources, or authority for personal gain or other non-ORCID related purposes; and</li>
-<li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; list-style-type: none; margin-bottom: 0;">destroying, altering, concealing or falsifying a document in connection with a litigation, regulatory filing, or investigation.</li>
-</ul>
-<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;">This policy is not a vehicle for reporting personnel-related matters, violations of applicable human resource policies, problems with co-workers or supervisors, or for reporting issues related to alleged workplace discrimination or sexual or any other form of unlawful harassment, all of which should be dealt with in accordance with ORCID’s other applicable policies.</p>
-<h2 class="wp-block-heading" id="h-good-faith-nbsp" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-stretch: normal; font-style: normal; line-height: 1.4; letter-spacing: 0.5px; font-size: 32px; font-weight: 600;"><strong style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-weight: 700;">Good Faith </strong></h2>
-<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;">Individuals who report concerns must exercise sound judgment and reasonably believe in good faith that the information disclosed relates to conduct covered by this policy.  Any person who intentionally files a false report may be subject to discipline, up to and including termination from employment or other relationship with ORCID. </p>
-<h2 class="wp-block-heading" id="h-when-and-how-to-report-concerns-nbsp" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-stretch: normal; font-style: normal; line-height: 1.4; letter-spacing: 0.5px; font-size: 32px; font-weight: 600;"><strong style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-weight: 700;">When and How to Report Concerns </strong></h2>
-<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;">Individuals should report concerns as soon as practicable to their supervisor (if a current employee) or to the Executive Director. Individuals may also report any concerns directly to the Audit and Risk Committee Chair (the “Committee Chair”) and should always do so if the concern relates to the Executive Director. The current Committee Chair is listed on <a href="https://info.orcid.org/our-governance/audit-committee/" rel="noreferrer noopener" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; color: rgb(8, 92, 119);" target="_blank"></a><a href="https://info.orcid.org/our-governance/audit-committee/" rel="noreferrer noopener" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; color: rgb(8, 92, 119);" target="_blank">ORCID’s website</a><a href="https://info.orcid.org/our-governance/audit-committee/" rel="noreferrer noopener" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; color: rgb(8, 92, 119);" target="_blank"></a>. All persons who receive concerns pursuant to this Policy shall promptly inform the Executive Director (or the Committee Chair if the concern involves the Executive Director) of such report.  The Executive Director shall inform the Committee Chair of concerns reported to them. </p>
-<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;">Reports of concerns may also be made via our Confidential Reporting Line, which is enabled across a number of platforms, including:</p>
-<ul style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 16px 32px; padding: 0;">
-<li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; list-style-type: none; margin-bottom: 8px;"><strong style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-weight: 700;">Website</strong>: <a href="https://report.syntrio.com/orcid" rel="noreferrer noopener" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; color: rgb(8, 92, 119);" target="_blank"></a><a href="https://report.syntrio.com/orcid" rel="noreferrer noopener" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; color: rgb(8, 92, 119);" target="_blank">https://report.syntrio.com/orcid</a><a href="https://report.syntrio.com/orcid" rel="noreferrer noopener" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; color: rgb(8, 92, 119);" target="_blank"></a></li>
-<li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; list-style-type: none; margin-bottom: 8px;"><strong style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-weight: 700;">Anonymous Reporting App</strong>: Detailed app instructions download <a href="https://www.lighthouse-services.com/documents/Using%20the%20Lighthouse%20Anonymous%20Reporting%20App.docx" rel="noreferrer noopener" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; color: rgb(8, 92, 119);" target="_blank"></a><a href="https://www.lighthouse-services.com/documents/Using%20the%20Lighthouse%20Anonymous%20Reporting%20App.docx" rel="noreferrer noopener" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; color: rgb(8, 92, 119);" target="_blank">here</a><a href="https://www.lighthouse-services.com/documents/Using%20the%20Lighthouse%20Anonymous%20Reporting%20App.docx" rel="noreferrer noopener" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; color: rgb(8, 92, 119);" target="_blank"></a>. Note keyword: orcid </li>
-<li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; list-style-type: none; margin-bottom: 8px;"><strong style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-weight: 700;">Toll-Free Telephone</strong>:  
-<ul style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 16px 32px; padding: 0;">
-<li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; list-style-type: none; margin-bottom: 8px;">North America Direct Dial
-<ul style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 16px 32px; padding: 0;">
-<li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; list-style-type: none; margin-bottom: 8px;">English-speaking USA and Canada: 833-759-7400 </li>
-<li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; list-style-type: none; margin-bottom: 8px;">Spanish-speaking USA and Canada: 800-216-1288  </li>
-<li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; list-style-type: none; margin-bottom: 8px;">French-speaking Canada: 855-725-0002   </li>
-<li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; list-style-type: none; margin-bottom: 0;">Spanish-speaking Mexico: 800-681-5340  </li>
-</ul>
-</li>
-<li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; list-style-type: none; margin-bottom: 0;">AT&amp;T USADirect for<a href="https://www.lighthouse-services.com/worldwide-access/" rel="noreferrer noopener" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; color: rgb(8, 92, 119);" target="_blank"></a><a href="https://www.lighthouse-services.com/worldwide-access/" rel="noreferrer noopener" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; color: rgb(8, 92, 119);" target="_blank"> world-wide access</a><a href="https://www.lighthouse-services.com/worldwide-access/" rel="noreferrer noopener" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; color: rgb(8, 92, 119);" target="_blank"></a>
-<ul style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 16px 32px; padding: 0;">
-<li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; list-style-type: none; margin-bottom: 8px;">All other countries: 800-603-2869 (must dial country access code first click <a href="http://www.lighthouse-services.com/documentlink/International%20Toll-free%20Hotline%20Access%20Instructions.pdf" rel="noreferrer noopener" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; color: rgb(8, 92, 119);" target="_blank"></a><a href="http://www.lighthouse-services.com/documentlink/International%20Toll-free%20Hotline%20Access%20Instructions.pdf" rel="noreferrer noopener" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; color: rgb(8, 92, 119);" target="_blank">here</a><a href="http://www.lighthouse-services.com/documentlink/International%20Toll-free%20Hotline%20Access%20Instructions.pdf" rel="noreferrer noopener" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; color: rgb(8, 92, 119);" target="_blank"></a> for access codes and dialing instructions)</li>
-<li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; list-style-type: none; margin-bottom: 0;"><a href="https://www.business.att.com/collateral/access.html" rel="noreferrer noopener" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; color: rgb(8, 92, 119);" target="_blank">International Access Codes</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; list-style-type: none; margin-bottom: 8px;"><strong style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-weight: 700;">E-mail</strong>: <a href="mailto:reports@syntrio.com" rel="noreferrer noopener" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; color: rgb(8, 92, 119);" target="_blank"></a><a href="mailto:reports@syntrio.com" rel="noreferrer noopener" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; color: rgb(8, 92, 119);" target="_blank"></a><a href="mailto:reports@syntrio.com" rel="noreferrer noopener" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; color: rgb(8, 92, 119);" target="_blank">reports@syntrio.com</a><a href="mailto:reports@syntrio.com" rel="noreferrer noopener" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; color: rgb(8, 92, 119);" target="_blank"></a> (must include “ORCID” with report)  </li>
-<li style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; list-style-type: none; margin-bottom: 0;"><strong style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-weight: 700;">Fax</strong>: (215) 689-3885 (must also include “ORCID with report)  </li>
-</ul>
-<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;">Reports related to this policy made through the Confidential Reporting Line will be delivered to the Committee Chair, who will share such reports with the Executive Director (unless the report relates to the Executive Director). Please note that it may be more difficult to fully investigate anonymous reports.  </p>
-<h2 class="wp-block-heading" id="h-investigations" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-stretch: normal; font-style: normal; line-height: 1.4; letter-spacing: 0.5px; font-size: 32px; font-weight: 600;"><strong style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-weight: 700;">Investigations</strong></h2>
-<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;">For each reported concern that is not submitted on an anonymous basis, an acknowledgement of receipt will be provided within seven days to the reporting person. The Executive Director shall promptly assess each concern on a preliminary basis to determine to what extent a further investigation is warranted and shall report their findings to the Committee Chair.</p>
-<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;">If the Executive Director and the Committee Chair determine that a further investigation is needed, the Executive Director shall coordinate any resulting investigation in a manner the Executive Director and the Committee Chair deem appropriate (or as otherwise directed by the Audit and Risk Committee). The Executive Director shall inform the Audit and Risk Committee of findings of the investigation and take corrective action as the Audit and Risk Committee  deems warranted, including, but not limited to, retaining external experts to conduct an internal investigation and reporting to law enforcement or other authorities.  Those conducting the investigation may consult with any persons and/or professional advisers at their discretion.</p>
-<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;">Any individual who is the subject of a reported concern may not be present at or participate in any deliberations, voting on or other resolution of the matter relating to the concern. In addition, a current employee who is also a member of the Board may not take part in any Board or committee deliberations or voting concerning the administration of this policy.  Nothing in this policy shall prohibit ORCID from requesting that the individual who is the subject of the concern present background information or answer questions prior to the commencement of deliberations, voting or resolution.</p>
-<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;">If the Executive Director is the subject of the report, the Committee Chair will undertake the responsibilities of the Executive Director under this section.   </p>
-<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;">If the Committee Chair is the subject of the report, the Board Chair will undertake the responsibilities of the Committee Chair under this section.  </p>
-<h2 class="wp-block-heading" id="h-no-retaliation" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-stretch: normal; font-style: normal; line-height: 1.4; letter-spacing: 0.5px; font-size: 32px; font-weight: 600;"><strong style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-weight: 700;">No Retaliation</strong></h2>
-<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;">ORCID will not take any retaliatory action against any individual who is subject to this policy and who reports a good faith concern in accordance with this policy, provides information or participates in an investigation of or implementation of corrective action relating to any such concern, or objects to or refuses to participate in any activity, policy or practice giving rise to such concern. Acts of retaliation should be reported immediately to the Executive Director (or the Committee Chair if the retaliation involves the Executive Director). Any person who retaliates against an individual who has reported a concern in accordance with this policy and in good faith may be subject to disciplinary action, up to and including termination of their employment or relationship with ORCID.</p>
-<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;">Retaliatory action includes but is not limited to (i) intimidation, harassment and discrimination, (ii) taking adverse employment action, such as discharging, demoting, suspending, threatening, or otherwise affecting the current or future employment of any individual who is subject to this policy, and (iii) contacting immigration authorities about, or reporting the immigration status of, any individual who is subject to this policy or their family or household members, or threatening to do so.</p>
-<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;">Notwithstanding anything contained in this policy to the contrary, this policy does not in any way modify the relationship between ORCID and its employees or contractors or create an employment contract.  Furthermore, the right to be free of retaliation does not preclude ORCID from taking disciplinary action related to performance or other conduct. </p>
-<h2 class="wp-block-heading" id="h-confidentiality" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-stretch: normal; font-style: normal; line-height: 1.4; letter-spacing: 0.5px; font-size: 32px; font-weight: 600;"><strong style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-weight: 700;">Confidentiality</strong></h2>
-<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;">ORCID takes seriously its responsibility to enforce this policy, and therefore encourages any person reporting a concern to identify themselves to facilitate ORCID’s investigation. The identity of the individual reporting a concern will be kept confidential to the extent possible, consistent with the need to conduct a thorough and complete investigation and to cooperate with law enforcement or regulatory authorities where appropriate.</p>
-<h2 class="wp-block-heading" id="h-distribution" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-stretch: normal; font-style: normal; line-height: 1.4; letter-spacing: 0.5px; font-size: 32px; font-weight: 600;"><strong style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-weight: 700;">Distribution</strong></h2>
-<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;">This Policy shall be distributed to all directors, officers, current employees and independent contractors of ORCID, and to volunteers who provide substantial services to ORCID.  ORCID may choose to satisfy this distribution requirement by posting this policy on its website.</p>
-<h2 class="wp-block-heading" id="h-records-and-reporting-to-board" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-stretch: normal; font-style: normal; line-height: 1.4; letter-spacing: 0.5px; font-size: 32px; font-weight: 600;"><strong style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-weight: 700;">Records and Reporting to Board</strong></h2>
-<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;">Records relating to any reported concern and to the investigation and resolution thereof shall be maintained by ORCID for a period of seven years (or as otherwise required under ORCID’s record retention and disposal policies in effect from time to time, if any). </p>
-<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;">On at least an annual basis, the Executive Director shall ensure that the Board is provided with a report identifying all concerns reported during the preceding year and their resolution.  If the Executive Director is the subject of a concern, the Committee Chair shall be responsible for such reporting to the Board. </p>
-<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;"><em style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;">If you have any questions about this policy, you should reach out to the Executive Director. </em></p>
-<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;"><em style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;">ORCID reserves the right to amend this policy at any time.</em></p>
-<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;"><em style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;">ORCID is committed to compliance with all regulations and laws in the countries where we operate. If any provision of this policy is inconsistent with controlling national or local law, such law will apply and will supersede this policy.</em></p>
+<div class="wp-block-genesis-blocks-gb-container gb-block-container" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0; position: relative; padding: 0; background-color: #003449;"><div class="gb-container-inside" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;"><div class="gb-container-image-wrap" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; position: absolute; top: 0; right: 0; left: 0; height: 100%; z-index: 0;"><img alt="" class="gb-container-image has-background-dim-20 has-background-dim" decoding="async" src="./assets/ORCID_video3_character1.jpg" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; border: 0; max-width: 100%; object-fit: cover; height: 100%; width: 100%; transition: .3s ease; opacity: .2;"/></div><div class="gb-container-content" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 auto; position: relative;"><div class="tpgb-tabs-tours tpgb-block-3f14_25422 tab-view-horizontal" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 14px 0 0;"><div class="tpgb-tabs-wrapper tpgb-relative-block tpex- nav-one-by-one" data-tab-default="1" data-tab-hover="no" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; position: relative; display: block; width: 100%;"><div class="tpgb-tabs-nav-wrapper text-center" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; text-align: center; display: block;"><div class="tpgb-tabs-nav tpgb-trans-linear normal-width-icon full-width" role="tablist" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; transition: all .3s linear; position: relative; width: auto; padding: 0; list-style: none; margin: 0; display: flex; justify-content: flex-start; align-items: center; border-width: 0 0 2px; border-style: solid; border-color: #83c1fa; background-color: #003449;"><div class="tpgb-tab-li" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex: 1 1 auto; cursor: pointer; display: flex; justify-content: center; align-items: center; text-align: center;"><div aria-controls="tpag-tab-content-3f14_254221" class="tpgb-tab-header tpgb-trans-linear active" data-tab="1" id="tpag-tab-title-3f14_254221" role="tab" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; transition: all .3s linear; position: relative; font-weight: 500; line-height: 29px; cursor: pointer; outline: 0; width: 100%; font-size: 16px; border-width: 0 0 2px; border-style: solid; border-color: transparent; border-bottom: fuchsia 2px solid; padding-bottom: 5em; color: #fffefe; -webkit-transform: scale(1); -moz-transform: scale(1); -ms-transform: scale(1); -o-transform: scale(1); transform: scale(1); opacity: 1; padding: 15px; margin-top: 0;"><span style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; vertical-align: middle;">Researchers</span></div></div><div class="tpgb-tab-li" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex: 1 1 auto; cursor: pointer; display: flex; justify-content: center; align-items: center; text-align: center;"><div aria-controls="tpag-tab-content-3f14_254222" class="tpgb-tab-header tpgb-trans-linear" data-tab="2" id="tpag-tab-title-3f14_254222" role="tab" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; transition: all .3s linear; position: relative; font-weight: 500; line-height: 29px; cursor: pointer; outline: 0; width: 100%; color: #8ec2db; opacity: .58; -webkit-transform: scale(1); -moz-transform: scale(1); -ms-transform: scale(1); -o-transform: scale(1); transform: scale(1); font-size: 16px; border-width: 0 0 2px; border-style: solid; border-color: transparent; padding: 15px; margin-top: 1px;"><span style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; vertical-align: middle;">Universities &amp; Research Institutes</span></div></div><div class="tpgb-tab-li" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex: 1 1 auto; cursor: pointer; display: flex; justify-content: center; align-items: center; text-align: center;"><div aria-controls="tpag-tab-content-3f14_254223" class="tpgb-tab-header tpgb-trans-linear" data-tab="3" id="tpag-tab-title-3f14_254223" role="tab" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; transition: all .3s linear; position: relative; font-weight: 500; line-height: 29px; cursor: pointer; outline: 0; width: 100%; color: #8ec2db; opacity: .58; -webkit-transform: scale(1); -moz-transform: scale(1); -ms-transform: scale(1); -o-transform: scale(1); transform: scale(1); font-size: 16px; border-width: 0 0 2px; border-style: solid; border-color: transparent; padding: 15px; margin-top: 1px;"><span style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; vertical-align: middle;">Publishers</span></div></div><div class="tpgb-tab-li" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex: 1 1 auto; cursor: pointer; display: flex; justify-content: center; align-items: center; text-align: center;"><div aria-controls="tpag-tab-content-3f14_254224" class="tpgb-tab-header tpgb-trans-linear" data-tab="4" id="tpag-tab-title-3f14_254224" role="tab" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; transition: all .3s linear; position: relative; font-weight: 500; line-height: 29px; cursor: pointer; outline: 0; width: 100%; color: #8ec2db; opacity: .58; -webkit-transform: scale(1); -moz-transform: scale(1); -ms-transform: scale(1); -o-transform: scale(1); transform: scale(1); font-size: 16px; border-width: 0 0 2px; border-style: solid; border-color: transparent; padding: 15px; margin-top: 1px;"><span style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; vertical-align: middle;">Vendors &amp; Service Providers</span></div></div><div class="tpgb-tab-li" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex: 1 1 auto; cursor: pointer; display: flex; justify-content: center; align-items: center; text-align: center;"><div aria-controls="tpag-tab-content-3f14_254225" class="tpgb-tab-header tpgb-trans-linear" data-tab="5" id="tpag-tab-title-3f14_254225" role="tab" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; transition: all .3s linear; position: relative; font-weight: 500; line-height: 29px; cursor: pointer; outline: 0; width: 100%; color: #8ec2db; opacity: .58; -webkit-transform: scale(1); -moz-transform: scale(1); -ms-transform: scale(1); -o-transform: scale(1); transform: scale(1); font-size: 16px; border-width: 0 0 2px; border-style: solid; border-color: transparent; padding: 15px; margin-top: 1px;"><span style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; vertical-align: middle;">Government &amp; Policy Makers</span></div></div><div class="tpgb-tab-li" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex: 1 1 auto; cursor: pointer; display: flex; justify-content: center; align-items: center; text-align: center;"><div aria-controls="tpag-tab-content-3f14_254226" class="tpgb-tab-header tpgb-trans-linear" data-tab="6" id="tpag-tab-title-3f14_254226" role="tab" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; transition: all .3s linear; position: relative; font-weight: 500; line-height: 29px; cursor: pointer; outline: 0; width: 100%; color: #8ec2db; opacity: .58; -webkit-transform: scale(1); -moz-transform: scale(1); -ms-transform: scale(1); -o-transform: scale(1); transform: scale(1); font-size: 16px; border-width: 0 0 2px; border-style: solid; border-color: transparent; padding: 15px; margin-top: 1px;"><span style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; vertical-align: middle;">Funders &amp; Facilities</span></div></div></div></div><div class="tpgb-tabs-content-wrapper tpgb-trans-linear" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; transition: all .3s linear; margin: 14px 14px 0; padding: 2em 3em 8em;"><div class="tab-mobile-title active text-center" data-tab="1" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; text-align: center; display: none; padding: 10px; cursor: pointer;"><span style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;">Researchers</span></div><div class="tab-mobile-title text-center" data-tab="2" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; text-align: center; display: none; padding: 10px; cursor: pointer;"><span style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;">Universities &amp; Research Institutes</span></div><div class="tab-mobile-title text-center" data-tab="3" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; text-align: center; display: none; padding: 10px; cursor: pointer;"><span style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;">Publishers</span></div><div class="tab-mobile-title text-center" data-tab="4" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; text-align: center; display: none; padding: 10px; cursor: pointer;"><span style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;">Vendors &amp; Service Providers</span></div><div class="tab-mobile-title text-center" data-tab="5" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; text-align: center; display: none; padding: 10px; cursor: pointer;"><span style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;">Government &amp; Policy Makers</span></div><div class="tab-mobile-title text-center" data-tab="6" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; text-align: center; display: none; padding: 10px; cursor: pointer;"><span style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;">Funders &amp; Facilities</span></div>
+<div class="tpgb-tab-content active" data-tab="1" role="tabpanel" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; position: relative; width: 100%; color: #888; font-size: 15px; line-height: 22px; display: block; opacity: 1; animation: fadeIn linear .3s;">
+<p class="tabbed-block-content has-white-color has-text-color has-link-color wp-elements-b2e2c3b79763065485f3aed71dd2b61c" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 32px 0 32px 0; color: #ffffff;">ORCID is community-built and governed by a Board of Directors representative of our membership with wide stakeholder representation. Our day to day operations are supported by a dedicated and knowledgeable professional staff.</p>
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-4 wp-block-columns-is-layout-flex" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: flex; margin-bottom: 0; gap: 2em; row-gap: 2em; column-gap: 2em; align-items: normal; flex-wrap: wrap;">
+<div class="wp-block-column tabbed-block-inner-column is-layout-flow wp-block-column-is-layout-flow" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex-grow: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; margin: 0; border-radius: 8px; border: 2px solid rgba(255, 255, 255, 0.30); background: rgba(0, 0, 0, 0.30); padding: 16px; flex-direction: column; align-items: flex-start;">
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-1 wp-block-columns-is-layout-flex" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: flex; margin-bottom: 0; gap: 2em; row-gap: 2em; column-gap: 2em; align-items: normal; flex-wrap: wrap;">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex-grow: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; margin: 0; flex-basis: 34%;">
+<figure class="wp-block-image size-full is-resized is-style-default" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: block; margin: 0; margin-bottom: 1.2em;"><img alt="" class="wp-image-25384" decoding="async" height="auto" src="./assets/Asset-1-1.png" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; border: 0; box-sizing: border-box; max-width: 100%; vertical-align: bottom; width: 53px; height: auto;" width="53"/></figure>
+</div>
+</div>
+<h4 class="wp-block-heading has-white-color has-text-color has-link-color wp-elements-20877527797a0858c6b930afaabb5b18" id="h-small-punchy-title" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-stretch: normal; font-style: normal; line-height: 1.4; letter-spacing: 0.5px; font-size: 16px; color: #ffffff;">Small punchy title</h4>
+<p class="has-white-color has-text-color has-link-color wp-elements-4c076067a0fa63fbf3f1d49f3e72352d" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0; color: #ffffff;">Lorem ipsum dolor sit amet consectetur. Amet eu lobortis varius habitasse. Commodo eget adipiscing cursus nec.</p>
+<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center;">
+<div class="wp-block-button" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background-color: rgb(0, 52, 73); border-radius: 4px; color: #fff; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; width: auto; text-decoration: none; margin-bottom: 0; font-size: inherit; display: inline-block; margin: 0;"><a class="wp-block-button__link wp-element-button" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; box-shadow: none; padding: calc(.667em + 2px) calc(1.333em + 2px); box-sizing: border-box; text-align: center; word-break: break-word; background-color: rgb(0, 52, 73); border-radius: 4px; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; width: auto; margin-bottom: 0; display: inline-block; font-size: inherit; text-decoration: none; color: #fff;">Button</a></div>
+</div>
+</div>
+<div class="wp-block-column tabbed-block-inner-column is-layout-flow wp-block-column-is-layout-flow" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex-grow: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; margin: 0; border-radius: 8px; border: 2px solid rgba(255, 255, 255, 0.30); background: rgba(0, 0, 0, 0.30); padding: 16px; flex-direction: column; align-items: flex-start;">
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-2 wp-block-columns-is-layout-flex" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: flex; margin-bottom: 0; gap: 2em; row-gap: 2em; column-gap: 2em; align-items: normal; flex-wrap: wrap;">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex-grow: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; margin: 0; flex-basis: 34%;">
+<figure class="wp-block-image size-full is-resized is-style-default" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: block; margin: 0; margin-bottom: 1.2em;"><img alt="" class="wp-image-25384" decoding="async" height="auto" src="./assets/Asset-1-1.png" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; border: 0; box-sizing: border-box; max-width: 100%; vertical-align: bottom; width: 53px; height: auto;" width="53"/></figure>
+</div>
+</div>
+<h4 class="wp-block-heading has-white-color has-text-color has-link-color wp-elements-733825ad88c07b52819e7b86adc7af63" id="h-small-punchy-title-0" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-stretch: normal; font-style: normal; line-height: 1.4; letter-spacing: 0.5px; font-size: 16px; color: #ffffff;">Small punchy title</h4>
+<p class="has-white-color has-text-color has-link-color wp-elements-4c076067a0fa63fbf3f1d49f3e72352d" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0; color: #ffffff;">Lorem ipsum dolor sit amet consectetur. Amet eu lobortis varius habitasse. Commodo eget adipiscing cursus nec.</p>
+<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center;">
+<div class="wp-block-button" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background-color: rgb(0, 52, 73); border-radius: 4px; color: #fff; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; width: auto; text-decoration: none; margin-bottom: 0; font-size: inherit; display: inline-block; margin: 0;"><a class="wp-block-button__link wp-element-button" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; box-shadow: none; padding: calc(.667em + 2px) calc(1.333em + 2px); box-sizing: border-box; text-align: center; word-break: break-word; background-color: rgb(0, 52, 73); border-radius: 4px; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; width: auto; margin-bottom: 0; display: inline-block; font-size: inherit; text-decoration: none; color: #fff;">Button</a></div>
+</div>
+</div>
+<div class="wp-block-column tabbed-block-inner-column is-layout-flow wp-block-column-is-layout-flow" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex-grow: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; margin: 0; border-radius: 8px; border: 2px solid rgba(255, 255, 255, 0.30); background: rgba(0, 0, 0, 0.30); padding: 16px; flex-direction: column; align-items: flex-start;">
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-3 wp-block-columns-is-layout-flex" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: flex; margin-bottom: 0; gap: 2em; row-gap: 2em; column-gap: 2em; align-items: normal; flex-wrap: wrap;">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex-grow: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; margin: 0; flex-basis: 34%;">
+<figure class="wp-block-image size-full is-resized is-style-default" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: block; margin: 0; margin-bottom: 1.2em;"><img alt="" class="wp-image-25384" decoding="async" height="auto" src="./assets/Asset-1-1.png" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; border: 0; box-sizing: border-box; max-width: 100%; vertical-align: bottom; width: 53px; height: auto;" width="53"/></figure>
+</div>
+</div>
+<h4 class="wp-block-heading has-white-color has-text-color has-link-color wp-elements-e30c8780be69b52954160697043cf015" id="h-small-punchy-title-1" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-stretch: normal; font-style: normal; line-height: 1.4; letter-spacing: 0.5px; font-size: 16px; color: #ffffff;">Small punchy title</h4>
+<p class="has-white-color has-text-color has-link-color wp-elements-4c076067a0fa63fbf3f1d49f3e72352d" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0; color: #ffffff;">Lorem ipsum dolor sit amet consectetur. Amet eu lobortis varius habitasse. Commodo eget adipiscing cursus nec.</p>
+<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center;">
+<div class="wp-block-button" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background-color: rgb(0, 52, 73); border-radius: 4px; color: #fff; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; width: auto; text-decoration: none; margin-bottom: 0; font-size: inherit; display: inline-block; margin: 0;"><a class="wp-block-button__link wp-element-button" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; box-shadow: none; padding: calc(.667em + 2px) calc(1.333em + 2px); box-sizing: border-box; text-align: center; word-break: break-word; background-color: rgb(0, 52, 73); border-radius: 4px; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; width: auto; margin-bottom: 0; display: inline-block; font-size: inherit; text-decoration: none; color: #fff;">Button</a></div>
+</div>
+</div>
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex-grow: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; margin: 0;"></div>
+</div>
+</div>
+<div class="tpgb-tab-content" data-tab="2" role="tabpanel" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; position: relative; width: 100%; color: #888; font-size: 15px; line-height: 22px; display: none; opacity: 0;">
+<p class="has-white-color has-text-color has-link-color wp-elements-a5233f235d3591084df53eb2218a6e59" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0; color: #ffffff;">An ORCID consortium is a group of not-for-profit organizations that work together to accelerate adoption of ORCID services and resources in national and regional contexts.</p>
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-8 wp-block-columns-is-layout-flex" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: flex; margin-bottom: 0; gap: 2em; row-gap: 2em; column-gap: 2em; align-items: normal; flex-wrap: wrap;">
+<div class="wp-block-column tabbed-block-inner-column is-layout-flow wp-block-column-is-layout-flow" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex-grow: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; margin: 0; border-radius: 8px; border: 2px solid rgba(255, 255, 255, 0.30); background: rgba(0, 0, 0, 0.30); padding: 16px; flex-direction: column; align-items: flex-start;">
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-5 wp-block-columns-is-layout-flex" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: flex; margin-bottom: 0; gap: 2em; row-gap: 2em; column-gap: 2em; align-items: normal; flex-wrap: wrap;">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex-grow: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; margin: 0; flex-basis: 34%;">
+<figure class="wp-block-image size-full is-style-default" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: block; margin: 0; margin-bottom: 1.2em;"><img alt="" class="wp-image-25384" decoding="async" height="auto" src="./assets/Asset-1-1.png" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; border: 0; box-sizing: border-box; height: auto; max-width: 100%; vertical-align: bottom;"/></figure>
+</div>
+</div>
+<h4 class="wp-block-heading has-white-color has-text-color has-link-color wp-elements-69a5f072a9e1d2ec76fd2191e19448b3" id="h-small-punchy-title-2" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-stretch: normal; font-style: normal; line-height: 1.4; letter-spacing: 0.5px; font-size: 16px; color: #ffffff;">Small punchy title</h4>
+<p class="has-white-color has-text-color has-link-color wp-elements-4c076067a0fa63fbf3f1d49f3e72352d" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0; color: #ffffff;">Lorem ipsum dolor sit amet consectetur. Amet eu lobortis varius habitasse. Commodo eget adipiscing cursus nec.</p>
+<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center;">
+<div class="wp-block-button" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background-color: rgb(0, 52, 73); border-radius: 4px; color: #fff; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; width: auto; text-decoration: none; margin-bottom: 0; font-size: inherit; display: inline-block; margin: 0;"><a class="wp-block-button__link wp-element-button" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; box-shadow: none; padding: calc(.667em + 2px) calc(1.333em + 2px); box-sizing: border-box; text-align: center; word-break: break-word; background-color: rgb(0, 52, 73); border-radius: 4px; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; width: auto; margin-bottom: 0; display: inline-block; font-size: inherit; text-decoration: none; color: #fff;">Button</a></div>
+</div>
+</div>
+<div class="wp-block-column tabbed-block-inner-column is-layout-flow wp-block-column-is-layout-flow" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex-grow: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; margin: 0; border-radius: 8px; border: 2px solid rgba(255, 255, 255, 0.30); background: rgba(0, 0, 0, 0.30); padding: 16px; flex-direction: column; align-items: flex-start;">
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-6 wp-block-columns-is-layout-flex" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: flex; margin-bottom: 0; gap: 2em; row-gap: 2em; column-gap: 2em; align-items: normal; flex-wrap: wrap;">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex-grow: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; margin: 0; flex-basis: 34%;">
+<figure class="wp-block-image size-full is-resized is-style-default" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: block; margin: 0; margin-bottom: 1.2em;"><img alt="" class="wp-image-25384" decoding="async" height="auto" src="./assets/Asset-1-1.png" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; border: 0; box-sizing: border-box; max-width: 100%; vertical-align: bottom; width: 53px; height: auto;" width="53"/></figure>
+</div>
+</div>
+<h4 class="wp-block-heading has-white-color has-text-color has-link-color wp-elements-d18795ea8a8d8057623b9bffd0ad7537" id="h-small-punchy-title-3" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-stretch: normal; font-style: normal; line-height: 1.4; letter-spacing: 0.5px; font-size: 16px; color: #ffffff;">Small punchy title</h4>
+<p class="has-white-color has-text-color has-link-color wp-elements-4c076067a0fa63fbf3f1d49f3e72352d" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0; color: #ffffff;">Lorem ipsum dolor sit amet consectetur. Amet eu lobortis varius habitasse. Commodo eget adipiscing cursus nec.</p>
+<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center;">
+<div class="wp-block-button" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background-color: rgb(0, 52, 73); border-radius: 4px; color: #fff; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; width: auto; text-decoration: none; margin-bottom: 0; font-size: inherit; display: inline-block; margin: 0;"><a class="wp-block-button__link wp-element-button" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; box-shadow: none; padding: calc(.667em + 2px) calc(1.333em + 2px); box-sizing: border-box; text-align: center; word-break: break-word; background-color: rgb(0, 52, 73); border-radius: 4px; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; width: auto; margin-bottom: 0; display: inline-block; font-size: inherit; text-decoration: none; color: #fff;">Button</a></div>
+</div>
+</div>
+<div class="wp-block-column tabbed-block-inner-column is-layout-flow wp-block-column-is-layout-flow" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex-grow: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; margin: 0; border-radius: 8px; border: 2px solid rgba(255, 255, 255, 0.30); background: rgba(0, 0, 0, 0.30); padding: 16px; flex-direction: column; align-items: flex-start;">
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-7 wp-block-columns-is-layout-flex" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: flex; margin-bottom: 0; gap: 2em; row-gap: 2em; column-gap: 2em; align-items: normal; flex-wrap: wrap;">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex-grow: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; margin: 0; flex-basis: 34%;">
+<figure class="wp-block-image size-full is-resized is-style-default" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: block; margin: 0; margin-bottom: 1.2em;"><img alt="" class="wp-image-25384" decoding="async" height="auto" src="./assets/Asset-1-1.png" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; border: 0; box-sizing: border-box; max-width: 100%; vertical-align: bottom; width: 53px; height: auto;" width="53"/></figure>
+</div>
+</div>
+<h4 class="wp-block-heading has-white-color has-text-color has-link-color wp-elements-b72492495c5a32c3712639914279a9a3" id="h-small-punchy-title-4" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-stretch: normal; font-style: normal; line-height: 1.4; letter-spacing: 0.5px; font-size: 16px; color: #ffffff;">Small punchy title</h4>
+<p class="has-white-color has-text-color has-link-color wp-elements-4c076067a0fa63fbf3f1d49f3e72352d" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0; color: #ffffff;">Lorem ipsum dolor sit amet consectetur. Amet eu lobortis varius habitasse. Commodo eget adipiscing cursus nec.</p>
+</div>
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex-grow: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; margin: 0;"></div>
+</div>
+</div>
+<div class="tpgb-tab-content" data-tab="3" role="tabpanel" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; position: relative; width: 100%; color: #888; font-size: 15px; line-height: 22px; display: none; opacity: 0;">
+<p class="has-white-color has-text-color has-link-color wp-elements-bde5ff56a918842f7b61235b00140896" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0; color: #ffffff;">ORCID membership is open to any organization interested in supporting our work, adopting ORCID services and data within their systems, adding trusted information to their researchers’ or users’ ORCID records, or participating in our governance.</p>
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-12 wp-block-columns-is-layout-flex" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: flex; margin-bottom: 0; gap: 2em; row-gap: 2em; column-gap: 2em; align-items: normal; flex-wrap: wrap;">
+<div class="wp-block-column tabbed-block-inner-column is-layout-flow wp-block-column-is-layout-flow" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex-grow: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; margin: 0; border-radius: 8px; border: 2px solid rgba(255, 255, 255, 0.30); background: rgba(0, 0, 0, 0.30); padding: 16px; flex-direction: column; align-items: flex-start;">
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-9 wp-block-columns-is-layout-flex" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: flex; margin-bottom: 0; gap: 2em; row-gap: 2em; column-gap: 2em; align-items: normal; flex-wrap: wrap;">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex-grow: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; margin: 0; flex-basis: 34%;">
+<figure class="wp-block-image size-full is-resized is-style-default" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: block; margin: 0; margin-bottom: 1.2em;"><img alt="" class="wp-image-25384" decoding="async" height="auto" src="./assets/Asset-1-1.png" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; border: 0; box-sizing: border-box; max-width: 100%; vertical-align: bottom; width: 53px; height: auto;" width="53"/></figure>
+</div>
+</div>
+<h4 class="wp-block-heading has-white-color has-text-color has-link-color wp-elements-aa0c456cfd9245238f7f96dd044817bd" id="h-small-punchy-title-5" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-stretch: normal; font-style: normal; line-height: 1.4; letter-spacing: 0.5px; font-size: 16px; color: #ffffff;">Small punchy title</h4>
+<p class="has-white-color has-text-color has-link-color wp-elements-4c076067a0fa63fbf3f1d49f3e72352d" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0; color: #ffffff;">Lorem ipsum dolor sit amet consectetur. Amet eu lobortis varius habitasse. Commodo eget adipiscing cursus nec.</p>
+<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center;">
+<div class="wp-block-button" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background-color: rgb(0, 52, 73); border-radius: 4px; color: #fff; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; width: auto; text-decoration: none; margin-bottom: 0; font-size: inherit; display: inline-block; margin: 0;"><a class="wp-block-button__link wp-element-button" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; box-shadow: none; padding: calc(.667em + 2px) calc(1.333em + 2px); box-sizing: border-box; text-align: center; word-break: break-word; background-color: rgb(0, 52, 73); border-radius: 4px; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; width: auto; margin-bottom: 0; display: inline-block; font-size: inherit; text-decoration: none; color: #fff;">Button</a></div>
+</div>
+</div>
+<div class="wp-block-column tabbed-block-inner-column is-layout-flow wp-block-column-is-layout-flow" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex-grow: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; margin: 0; border-radius: 8px; border: 2px solid rgba(255, 255, 255, 0.30); background: rgba(0, 0, 0, 0.30); padding: 16px; flex-direction: column; align-items: flex-start;">
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-10 wp-block-columns-is-layout-flex" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: flex; margin-bottom: 0; gap: 2em; row-gap: 2em; column-gap: 2em; align-items: normal; flex-wrap: wrap;">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex-grow: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; margin: 0; flex-basis: 34%;">
+<figure class="wp-block-image size-full is-resized is-style-default" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: block; margin: 0; margin-bottom: 1.2em;"><img alt="" class="wp-image-25384" decoding="async" height="auto" src="./assets/Asset-1-1.png" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; border: 0; box-sizing: border-box; max-width: 100%; vertical-align: bottom; width: 53px; height: auto;" width="53"/></figure>
+</div>
+</div>
+<h4 class="wp-block-heading has-white-color has-text-color has-link-color wp-elements-1bea97997e511cdec976fa744795b581" id="h-small-punchy-title-6" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-stretch: normal; font-style: normal; line-height: 1.4; letter-spacing: 0.5px; font-size: 16px; color: #ffffff;">Small punchy title</h4>
+<p class="has-white-color has-text-color has-link-color wp-elements-4c076067a0fa63fbf3f1d49f3e72352d" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0; color: #ffffff;">Lorem ipsum dolor sit amet consectetur. Amet eu lobortis varius habitasse. Commodo eget adipiscing cursus nec.</p>
+<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center;">
+<div class="wp-block-button" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background-color: rgb(0, 52, 73); border-radius: 4px; color: #fff; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; width: auto; text-decoration: none; margin-bottom: 0; font-size: inherit; display: inline-block; margin: 0;"><a class="wp-block-button__link wp-element-button" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; box-shadow: none; padding: calc(.667em + 2px) calc(1.333em + 2px); box-sizing: border-box; text-align: center; word-break: break-word; background-color: rgb(0, 52, 73); border-radius: 4px; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; width: auto; margin-bottom: 0; display: inline-block; font-size: inherit; text-decoration: none; color: #fff;">Button</a></div>
+</div>
+</div>
+<div class="wp-block-column tabbed-block-inner-column is-layout-flow wp-block-column-is-layout-flow" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex-grow: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; margin: 0; border-radius: 8px; border: 2px solid rgba(255, 255, 255, 0.30); background: rgba(0, 0, 0, 0.30); padding: 16px; flex-direction: column; align-items: flex-start;">
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-11 wp-block-columns-is-layout-flex" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: flex; margin-bottom: 0; gap: 2em; row-gap: 2em; column-gap: 2em; align-items: normal; flex-wrap: wrap;">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex-grow: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; margin: 0; flex-basis: 34%;">
+<figure class="wp-block-image size-full is-resized is-style-default" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: block; margin: 0; margin-bottom: 1.2em;"><img alt="" class="wp-image-25384" decoding="async" height="auto" src="./assets/Asset-1-1.png" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; border: 0; box-sizing: border-box; max-width: 100%; vertical-align: bottom; width: 53px; height: auto;" width="53"/></figure>
+</div>
+</div>
+<h4 class="wp-block-heading has-white-color has-text-color has-link-color wp-elements-5a5a37a7b95ccdd36fc33f7ab8dbdf89" id="h-small-punchy-title-7" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-stretch: normal; font-style: normal; line-height: 1.4; letter-spacing: 0.5px; font-size: 16px; color: #ffffff;">Small punchy title</h4>
+<p class="has-white-color has-text-color has-link-color wp-elements-4c076067a0fa63fbf3f1d49f3e72352d" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0; color: #ffffff;">Lorem ipsum dolor sit amet consectetur. Amet eu lobortis varius habitasse. Commodo eget adipiscing cursus nec.</p>
+</div>
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex-grow: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; margin: 0;"></div>
+</div>
+</div>
+<div class="tpgb-tab-content" data-tab="4" role="tabpanel" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; position: relative; width: 100%; color: #888; font-size: 15px; line-height: 22px; display: none; opacity: 0;">
+<p class="has-white-color has-text-color has-link-color wp-elements-4621ef3c36a44ca6dedd7e7e3ce52313" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0; color: #ffffff;">The ORCID Global Participation Program is an initiative to improve equity of access to interconnected research infrastructure, and is made possible by our generous partners.</p>
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-16 wp-block-columns-is-layout-flex" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: flex; margin-bottom: 0; gap: 2em; row-gap: 2em; column-gap: 2em; align-items: normal; flex-wrap: wrap;">
+<div class="wp-block-column tabbed-block-inner-column is-layout-flow wp-block-column-is-layout-flow" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex-grow: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; margin: 0; border-radius: 8px; border: 2px solid rgba(255, 255, 255, 0.30); background: rgba(0, 0, 0, 0.30); padding: 16px; flex-direction: column; align-items: flex-start;">
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-13 wp-block-columns-is-layout-flex" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: flex; margin-bottom: 0; gap: 2em; row-gap: 2em; column-gap: 2em; align-items: normal; flex-wrap: wrap;">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex-grow: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; margin: 0; flex-basis: 34%;">
+<figure class="wp-block-image size-full is-resized is-style-default" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: block; margin: 0; margin-bottom: 1.2em;"><img alt="" class="wp-image-25384" decoding="async" height="auto" src="./assets/Asset-1-1.png" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; border: 0; box-sizing: border-box; max-width: 100%; vertical-align: bottom; width: 53px; height: auto;" width="53"/></figure>
+</div>
+</div>
+<h4 class="wp-block-heading has-white-color has-text-color has-link-color wp-elements-d97b6ddae4eefd6fadf3b4b62671b4d5" id="h-small-punchy-title-8" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-stretch: normal; font-style: normal; line-height: 1.4; letter-spacing: 0.5px; font-size: 16px; color: #ffffff;">Small punchy title</h4>
+<p class="has-white-color has-text-color has-link-color wp-elements-4c076067a0fa63fbf3f1d49f3e72352d" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0; color: #ffffff;">Lorem ipsum dolor sit amet consectetur. Amet eu lobortis varius habitasse. Commodo eget adipiscing cursus nec.</p>
+<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center;">
+<div class="wp-block-button" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background-color: rgb(0, 52, 73); border-radius: 4px; color: #fff; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; width: auto; text-decoration: none; margin-bottom: 0; font-size: inherit; display: inline-block; margin: 0;"><a class="wp-block-button__link wp-element-button" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; box-shadow: none; padding: calc(.667em + 2px) calc(1.333em + 2px); box-sizing: border-box; text-align: center; word-break: break-word; background-color: rgb(0, 52, 73); border-radius: 4px; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; width: auto; margin-bottom: 0; display: inline-block; font-size: inherit; text-decoration: none; color: #fff;">Button</a></div>
+</div>
+</div>
+<div class="wp-block-column tabbed-block-inner-column is-layout-flow wp-block-column-is-layout-flow" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex-grow: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; margin: 0; border-radius: 8px; border: 2px solid rgba(255, 255, 255, 0.30); background: rgba(0, 0, 0, 0.30); padding: 16px; flex-direction: column; align-items: flex-start;">
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-14 wp-block-columns-is-layout-flex" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: flex; margin-bottom: 0; gap: 2em; row-gap: 2em; column-gap: 2em; align-items: normal; flex-wrap: wrap;">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex-grow: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; margin: 0; flex-basis: 34%;">
+<figure class="wp-block-image size-full is-resized is-style-default" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: block; margin: 0; margin-bottom: 1.2em;"><img alt="" class="wp-image-25384" decoding="async" height="auto" src="./assets/Asset-1-1.png" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; border: 0; box-sizing: border-box; max-width: 100%; vertical-align: bottom; width: 53px; height: auto;" width="53"/></figure>
+</div>
+</div>
+<h4 class="wp-block-heading has-white-color has-text-color has-link-color wp-elements-44c2eb8032ea75a63e896d1b80340fc9" id="h-small-punchy-title-9" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-stretch: normal; font-style: normal; line-height: 1.4; letter-spacing: 0.5px; font-size: 16px; color: #ffffff;">Small punchy title</h4>
+<p class="has-white-color has-text-color has-link-color wp-elements-4c076067a0fa63fbf3f1d49f3e72352d" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0; color: #ffffff;">Lorem ipsum dolor sit amet consectetur. Amet eu lobortis varius habitasse. Commodo eget adipiscing cursus nec.</p>
+<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center;">
+<div class="wp-block-button" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background-color: rgb(0, 52, 73); border-radius: 4px; color: #fff; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; width: auto; text-decoration: none; margin-bottom: 0; font-size: inherit; display: inline-block; margin: 0;"><a class="wp-block-button__link wp-element-button" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; box-shadow: none; padding: calc(.667em + 2px) calc(1.333em + 2px); box-sizing: border-box; text-align: center; word-break: break-word; background-color: rgb(0, 52, 73); border-radius: 4px; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; width: auto; margin-bottom: 0; display: inline-block; font-size: inherit; text-decoration: none; color: #fff;">Button</a></div>
+</div>
+</div>
+<div class="wp-block-column tabbed-block-inner-column is-layout-flow wp-block-column-is-layout-flow" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex-grow: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; margin: 0; border-radius: 8px; border: 2px solid rgba(255, 255, 255, 0.30); background: rgba(0, 0, 0, 0.30); padding: 16px; flex-direction: column; align-items: flex-start;">
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-15 wp-block-columns-is-layout-flex" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: flex; margin-bottom: 0; gap: 2em; row-gap: 2em; column-gap: 2em; align-items: normal; flex-wrap: wrap;">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex-grow: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; margin: 0; flex-basis: 34%;">
+<figure class="wp-block-image size-full is-resized is-style-default" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: block; margin: 0; margin-bottom: 1.2em;"><img alt="" class="wp-image-25384" decoding="async" height="auto" src="./assets/Asset-1-1.png" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; border: 0; box-sizing: border-box; max-width: 100%; vertical-align: bottom; width: 53px; height: auto;" width="53"/></figure>
+</div>
+</div>
+<h4 class="wp-block-heading has-white-color has-text-color has-link-color wp-elements-7388f5561974d1a0d01697061cc8b0a1" id="h-small-punchy-title-10" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-stretch: normal; font-style: normal; line-height: 1.4; letter-spacing: 0.5px; font-size: 16px; color: #ffffff;">Small punchy title</h4>
+<p class="has-white-color has-text-color has-link-color wp-elements-4c076067a0fa63fbf3f1d49f3e72352d" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0; color: #ffffff;">Lorem ipsum dolor sit amet consectetur. Amet eu lobortis varius habitasse. Commodo eget adipiscing cursus nec.</p>
+</div>
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex-grow: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; margin: 0;"></div>
+</div>
+</div>
+<div class="tpgb-tab-content" data-tab="5" role="tabpanel" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; position: relative; width: 100%; color: #888; font-size: 15px; line-height: 22px; display: none; opacity: 0;">
+<p class="has-white-color has-text-color has-link-color wp-elements-4199c5cae91b2dca7e07be9cc4682d3d" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0; color: #ffffff;">Actively engaging with our community helps us better understand and respond to the needs of our users. Here are our active community groups.</p>
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-20 wp-block-columns-is-layout-flex" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: flex; margin-bottom: 0; gap: 2em; row-gap: 2em; column-gap: 2em; align-items: normal; flex-wrap: wrap;">
+<div class="wp-block-column tabbed-block-inner-column is-layout-flow wp-block-column-is-layout-flow" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex-grow: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; margin: 0; border-radius: 8px; border: 2px solid rgba(255, 255, 255, 0.30); background: rgba(0, 0, 0, 0.30); padding: 16px; flex-direction: column; align-items: flex-start;">
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-17 wp-block-columns-is-layout-flex" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: flex; margin-bottom: 0; gap: 2em; row-gap: 2em; column-gap: 2em; align-items: normal; flex-wrap: wrap;">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex-grow: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; margin: 0; flex-basis: 34%;">
+<figure class="wp-block-image size-full is-resized is-style-default" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: block; margin: 0; margin-bottom: 1.2em;"><img alt="" class="wp-image-25384" decoding="async" height="auto" src="./assets/Asset-1-1.png" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; border: 0; box-sizing: border-box; max-width: 100%; vertical-align: bottom; width: 53px; height: auto;" width="53"/></figure>
+</div>
+</div>
+<h4 class="wp-block-heading has-white-color has-text-color has-link-color wp-elements-e5fc15662c6563f0e386f3bc1b98017e" id="h-small-punchy-title-11" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-stretch: normal; font-style: normal; line-height: 1.4; letter-spacing: 0.5px; font-size: 16px; color: #ffffff;">Small punchy title</h4>
+<p class="has-white-color has-text-color has-link-color wp-elements-4c076067a0fa63fbf3f1d49f3e72352d" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0; color: #ffffff;">Lorem ipsum dolor sit amet consectetur. Amet eu lobortis varius habitasse. Commodo eget adipiscing cursus nec.</p>
+<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center;">
+<div class="wp-block-button" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background-color: rgb(0, 52, 73); border-radius: 4px; color: #fff; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; width: auto; text-decoration: none; margin-bottom: 0; font-size: inherit; display: inline-block; margin: 0;"><a class="wp-block-button__link wp-element-button" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; box-shadow: none; padding: calc(.667em + 2px) calc(1.333em + 2px); box-sizing: border-box; text-align: center; word-break: break-word; background-color: rgb(0, 52, 73); border-radius: 4px; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; width: auto; margin-bottom: 0; display: inline-block; font-size: inherit; text-decoration: none; color: #fff;">Button</a></div>
+</div>
+</div>
+<div class="wp-block-column tabbed-block-inner-column is-layout-flow wp-block-column-is-layout-flow" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex-grow: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; margin: 0; border-radius: 8px; border: 2px solid rgba(255, 255, 255, 0.30); background: rgba(0, 0, 0, 0.30); padding: 16px; flex-direction: column; align-items: flex-start;">
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-18 wp-block-columns-is-layout-flex" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: flex; margin-bottom: 0; gap: 2em; row-gap: 2em; column-gap: 2em; align-items: normal; flex-wrap: wrap;">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex-grow: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; margin: 0; flex-basis: 34%;">
+<figure class="wp-block-image size-full is-resized is-style-default" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: block; margin: 0; margin-bottom: 1.2em;"><img alt="" class="wp-image-25384" decoding="async" height="auto" src="./assets/Asset-1-1.png" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; border: 0; box-sizing: border-box; max-width: 100%; vertical-align: bottom; width: 53px; height: auto;" width="53"/></figure>
+</div>
+</div>
+<h4 class="wp-block-heading has-white-color has-text-color has-link-color wp-elements-5fc528a85360d5fe0701412b6569146a" id="h-small-punchy-title-12" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-stretch: normal; font-style: normal; line-height: 1.4; letter-spacing: 0.5px; font-size: 16px; color: #ffffff;">Small punchy title</h4>
+<p class="has-white-color has-text-color has-link-color wp-elements-4c076067a0fa63fbf3f1d49f3e72352d" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0; color: #ffffff;">Lorem ipsum dolor sit amet consectetur. Amet eu lobortis varius habitasse. Commodo eget adipiscing cursus nec.</p>
+<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center;">
+<div class="wp-block-button" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background-color: rgb(0, 52, 73); border-radius: 4px; color: #fff; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; width: auto; text-decoration: none; margin-bottom: 0; font-size: inherit; display: inline-block; margin: 0;"><a class="wp-block-button__link wp-element-button" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; box-shadow: none; padding: calc(.667em + 2px) calc(1.333em + 2px); box-sizing: border-box; text-align: center; word-break: break-word; background-color: rgb(0, 52, 73); border-radius: 4px; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; width: auto; margin-bottom: 0; display: inline-block; font-size: inherit; text-decoration: none; color: #fff;">Button</a></div>
+</div>
+</div>
+<div class="wp-block-column tabbed-block-inner-column is-layout-flow wp-block-column-is-layout-flow" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex-grow: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; margin: 0; border-radius: 8px; border: 2px solid rgba(255, 255, 255, 0.30); background: rgba(0, 0, 0, 0.30); padding: 16px; flex-direction: column; align-items: flex-start;">
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-19 wp-block-columns-is-layout-flex" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: flex; margin-bottom: 0; gap: 2em; row-gap: 2em; column-gap: 2em; align-items: normal; flex-wrap: wrap;">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex-grow: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; margin: 0; flex-basis: 34%;">
+<figure class="wp-block-image size-full is-resized is-style-default" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: block; margin: 0; margin-bottom: 1.2em;"><img alt="" class="wp-image-25384" decoding="async" height="auto" src="./assets/Asset-1-1.png" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; border: 0; box-sizing: border-box; max-width: 100%; vertical-align: bottom; width: 53px; height: auto;" width="53"/></figure>
+</div>
+</div>
+<h4 class="wp-block-heading has-white-color has-text-color has-link-color wp-elements-1db8e4620cfc168efbf311e256476fa7" id="h-small-punchy-title-13" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-stretch: normal; font-style: normal; line-height: 1.4; letter-spacing: 0.5px; font-size: 16px; color: #ffffff;">Small punchy title</h4>
+<p class="has-white-color has-text-color has-link-color wp-elements-4c076067a0fa63fbf3f1d49f3e72352d" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0; color: #ffffff;">Lorem ipsum dolor sit amet consectetur. Amet eu lobortis varius habitasse. Commodo eget adipiscing cursus nec.</p>
+<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center;">
+<div class="wp-block-button" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background-color: rgb(0, 52, 73); border-radius: 4px; color: #fff; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; width: auto; text-decoration: none; margin-bottom: 0; font-size: inherit; display: inline-block; margin: 0;"><a class="wp-block-button__link wp-element-button" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; box-shadow: none; padding: calc(.667em + 2px) calc(1.333em + 2px); box-sizing: border-box; text-align: center; word-break: break-word; background-color: rgb(0, 52, 73); border-radius: 4px; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; width: auto; margin-bottom: 0; display: inline-block; font-size: inherit; text-decoration: none; color: #fff;">Button</a></div>
+</div>
+</div>
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex-grow: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; margin: 0;"></div>
+</div>
+</div>
+<div class="tpgb-tab-content" data-tab="6" role="tabpanel" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; position: relative; width: 100%; color: #888; font-size: 15px; line-height: 22px; display: none; opacity: 0;">
+<p class="has-white-color has-text-color has-link-color wp-elements-9dc73415fd57c09b12ec1584942d4b6a" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0; color: #ffffff;">ORCID works with a variety of partners to promote the use, knowledge, and benefits of persistent identifiers with the ultimate goal of reducing administrative burden for researchers and helping organizations understand the impact of the research they facilitate or fund.</p>
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-24 wp-block-columns-is-layout-flex" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: flex; margin-bottom: 0; gap: 2em; row-gap: 2em; column-gap: 2em; align-items: normal; flex-wrap: wrap;">
+<div class="wp-block-column tabbed-block-inner-column is-layout-flow wp-block-column-is-layout-flow" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex-grow: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; margin: 0; border-radius: 8px; border: 2px solid rgba(255, 255, 255, 0.30); background: rgba(0, 0, 0, 0.30); padding: 16px; flex-direction: column; align-items: flex-start;">
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-21 wp-block-columns-is-layout-flex" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: flex; margin-bottom: 0; gap: 2em; row-gap: 2em; column-gap: 2em; align-items: normal; flex-wrap: wrap;">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex-grow: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; margin: 0; flex-basis: 34%;">
+<figure class="wp-block-image size-full is-resized is-style-default" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: block; margin: 0; margin-bottom: 1.2em;"><img alt="" class="wp-image-25384" decoding="async" height="auto" src="./assets/Asset-1-1.png" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; border: 0; box-sizing: border-box; max-width: 100%; vertical-align: bottom; width: 53px; height: auto;" width="53"/></figure>
+</div>
+</div>
+<h4 class="wp-block-heading has-white-color has-text-color has-link-color wp-elements-3210cf447b92e564824f05779c3040a4" id="h-small-punchy-title-14" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-stretch: normal; font-style: normal; line-height: 1.4; letter-spacing: 0.5px; font-size: 16px; color: #ffffff;">Small punchy title</h4>
+<p class="has-white-color has-text-color has-link-color wp-elements-4c076067a0fa63fbf3f1d49f3e72352d" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0; color: #ffffff;">Lorem ipsum dolor sit amet consectetur. Amet eu lobortis varius habitasse. Commodo eget adipiscing cursus nec.</p>
+<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center;">
+<div class="wp-block-button" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background-color: rgb(0, 52, 73); border-radius: 4px; color: #fff; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; width: auto; text-decoration: none; margin-bottom: 0; font-size: inherit; display: inline-block; margin: 0;"><a class="wp-block-button__link wp-element-button" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; box-shadow: none; padding: calc(.667em + 2px) calc(1.333em + 2px); box-sizing: border-box; text-align: center; word-break: break-word; background-color: rgb(0, 52, 73); border-radius: 4px; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; width: auto; margin-bottom: 0; display: inline-block; font-size: inherit; text-decoration: none; color: #fff;">Button</a></div>
+</div>
+</div>
+<div class="wp-block-column tabbed-block-inner-column is-layout-flow wp-block-column-is-layout-flow" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex-grow: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; margin: 0; border-radius: 8px; border: 2px solid rgba(255, 255, 255, 0.30); background: rgba(0, 0, 0, 0.30); padding: 16px; flex-direction: column; align-items: flex-start;">
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-22 wp-block-columns-is-layout-flex" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: flex; margin-bottom: 0; gap: 2em; row-gap: 2em; column-gap: 2em; align-items: normal; flex-wrap: wrap;">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex-grow: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; margin: 0; flex-basis: 34%;">
+<figure class="wp-block-image size-full is-resized is-style-default" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: block; margin: 0; margin-bottom: 1.2em;"><img alt="" class="wp-image-25384" decoding="async" height="auto" src="./assets/Asset-1-1.png" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; border: 0; box-sizing: border-box; max-width: 100%; vertical-align: bottom; width: 53px; height: auto;" width="53"/></figure>
+</div>
+</div>
+<h4 class="wp-block-heading has-white-color has-text-color has-link-color wp-elements-d18795ea8a8d8057623b9bffd0ad7537" id="h-small-punchy-title-3" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-stretch: normal; font-style: normal; line-height: 1.4; letter-spacing: 0.5px; font-size: 16px; color: #ffffff;">Small punchy title</h4>
+<p class="has-white-color has-text-color has-link-color wp-elements-4c076067a0fa63fbf3f1d49f3e72352d" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0; color: #ffffff;">Lorem ipsum dolor sit amet consectetur. Amet eu lobortis varius habitasse. Commodo eget adipiscing cursus nec.</p>
+<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center;">
+<div class="wp-block-button" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background-color: rgb(0, 52, 73); border-radius: 4px; color: #fff; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; width: auto; text-decoration: none; margin-bottom: 0; font-size: inherit; display: inline-block; margin: 0;"><a class="wp-block-button__link wp-element-button" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; box-shadow: none; padding: calc(.667em + 2px) calc(1.333em + 2px); box-sizing: border-box; text-align: center; word-break: break-word; background-color: rgb(0, 52, 73); border-radius: 4px; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; width: auto; margin-bottom: 0; display: inline-block; font-size: inherit; text-decoration: none; color: #fff;">Button</a></div>
+</div>
+</div>
+<div class="wp-block-column tabbed-block-inner-column is-layout-flow wp-block-column-is-layout-flow" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex-grow: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; margin: 0; border-radius: 8px; border: 2px solid rgba(255, 255, 255, 0.30); background: rgba(0, 0, 0, 0.30); padding: 16px; flex-direction: column; align-items: flex-start;">
+<div class="wp-block-columns is-layout-flex wp-container-core-columns-is-layout-23 wp-block-columns-is-layout-flex" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: flex; margin-bottom: 0; gap: 2em; row-gap: 2em; column-gap: 2em; align-items: normal; flex-wrap: wrap;">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex-grow: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; margin: 0; flex-basis: 34%;">
+<figure class="wp-block-image size-full is-resized is-style-default" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: block; margin: 0; margin-bottom: 1.2em;"><img alt="" class="wp-image-25384" decoding="async" height="auto" src="./assets/Asset-1-1.png" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; border: 0; box-sizing: border-box; max-width: 100%; vertical-align: bottom; width: 53px; height: auto;" width="53"/></figure>
+</div>
+</div>
+<h4 class="wp-block-heading has-white-color has-text-color has-link-color wp-elements-b72492495c5a32c3712639914279a9a3" id="h-small-punchy-title-4" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-stretch: normal; font-style: normal; line-height: 1.4; letter-spacing: 0.5px; font-size: 16px; color: #ffffff;">Small punchy title</h4>
+<p class="has-white-color has-text-color has-link-color wp-elements-4c076067a0fa63fbf3f1d49f3e72352d" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0; color: #ffffff;">Lorem ipsum dolor sit amet consectetur. Amet eu lobortis varius habitasse. Commodo eget adipiscing cursus nec.</p>
+</div>
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex-grow: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; margin: 0;"></div>
+</div>
+</div>
+</div></div></div></div></div></div>
+<div class="mega-menu-wrap" id="mega-menu-wrap-secondary" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; transition: none; box-shadow: none; background: none; border: 0; bottom: auto; box-sizing: border-box; clip: auto; color: #666; display: block; float: none; font-family: inherit; font-size: 14px; height: auto; left: auto; line-height: 1.7; list-style-type: none; margin: 0; min-height: auto; max-height: none; min-width: auto; max-width: none; opacity: 1; outline: none; overflow: visible; padding: 0; position: relative; pointer-events: auto; right: auto; text-align: left; text-decoration: none; text-indent: 0; text-transform: none; transform: none; top: auto; vertical-align: baseline; visibility: inherit; width: auto; word-wrap: break-word; white-space: normal; border-radius: 0; clear: both;"><div class="mega-menu-toggle" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: none; z-index: 1; cursor: pointer; background: #222; border-radius: 2px 2px 2px 2px; line-height: 40px; height: 40px; text-align: left; user-select: none; -webkit-tap-highlight-color: transparent; outline: none; white-space: nowrap;"><div class="mega-toggle-blocks-left" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: -webkit-flex; display: flex; -ms-flex-preferred-size: 33.33%; -webkit-flex-basis: 33.33%; flex-basis: 33.33%; -webkit-box-flex: 1; -ms-flex: 1; -webkit-flex: 1; flex: 1; -webkit-box-pack: start; -ms-flex-pack: start; -webkit-justify-content: flex-start; justify-content: flex-start;"></div><div class="mega-toggle-blocks-center" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: -webkit-flex; display: flex; -ms-flex-preferred-size: 33.33%; -webkit-flex-basis: 33.33%; flex-basis: 33.33%; -webkit-box-pack: center; -ms-flex-pack: center; -webkit-justify-content: center; justify-content: center;"></div><div class="mega-toggle-blocks-right" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: -webkit-flex; display: flex; -ms-flex-preferred-size: 33.33%; -webkit-flex-basis: 33.33%; flex-basis: 33.33%; -webkit-box-flex: 1; -ms-flex: 1; -webkit-flex: 1; flex: 1; -webkit-box-pack: end; -ms-flex-pack: end; -webkit-justify-content: flex-end; justify-content: flex-end;"><div class="mega-toggle-block mega-menu-toggle-animated-block mega-toggle-block-0" id="mega-toggle-block-0" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: -webkit-box; display: -ms-flexbox; display: -webkit-flex; display: flex; height: 100%; outline: 0; -webkit-align-self: center; -ms-flex-item-align: center; align-self: center; -ms-flex-negative: 0; -webkit-flex-shrink: 0; flex-shrink: 0; cursor: pointer; margin-right: 6px; margin-left: 6px;"><button aria-expanded="false" aria-label="Toggle Menu" class="mega-toggle-animated mega-toggle-animated-slider" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-family: inherit; line-height: normal; -webkit-appearance: button; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; border-radius: 4px; letter-spacing: 0.5px; width: auto; text-decoration: none; margin-bottom: 0; font-size: inherit; padding: 0; display: -webkit-box; display: -ms-flexbox; display: -webkit-flex; display: flex; cursor: pointer; transition-property: opacity, filter; transition-duration: 0.15s; transition-timing-function: linear; font: inherit; color: inherit; text-transform: none; background-color: transparent; border: 0; margin: 0; overflow: visible; transform: scale(0.8); align-self: center; outline: 0; background: none;" type="button">
+<span class="mega-toggle-animated-box" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; width: 40px; height: 24px; display: inline-block; position: relative; outline: 0;">
+<span class="mega-toggle-animated-inner" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: block; margin-top: -2px; width: 40px; height: 4px; background-color: #ddd; border-radius: 4px; position: absolute; transition-property: transform; transition-duration: 0.15s; transition-timing-function: ease; top: 2px;"></span>
+</span>
+</button></div></div></div><ul class="mega-menu max-mega-menu mega-menu-horizontal mega-no-js" data-breakpoint="768" data-document-click="collapse" data-effect="fade_up" data-effect-mobile="disabled" data-effect-speed="200" data-effect-speed-mobile="0" data-event="click" data-hover-intent-interval="100" data-hover-intent-timeout="300" data-mobile-force-width="false" data-mobile-state="collapse_all" data-overlay-desktop="false" data-overlay-mobile="false" data-second-click="go" data-unbind="false" data-vertical-behaviour="accordion" id="mega-menu-secondary" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; transition: none; border-radius: 0; box-shadow: none; background: none; border: 0; bottom: auto; box-sizing: border-box; clip: auto; color: #666; display: block; float: none; font-family: inherit; font-size: 14px; height: auto; left: auto; line-height: 1.7; list-style-type: none; margin: 0; min-height: auto; max-height: none; min-width: auto; max-width: none; opacity: 1; outline: none; overflow: visible; position: relative; pointer-events: auto; right: auto; text-decoration: none; text-indent: 0; text-transform: none; transform: none; top: auto; vertical-align: baseline; visibility: inherit; width: auto; word-wrap: break-word; white-space: normal; text-align: center; padding: 32px 16px 32px 16px;"><li class="mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-align-bottom-left mega-menu-flyout mega-has-icon mega-icon-left mega-menu-item-25392" id="mega-menu-item-25392" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; margin-bottom: 8px; transition: none; border-radius: 0; box-shadow: none; background: none; border: 0; bottom: auto; box-sizing: border-box; clip: auto; color: #666; float: none; font-family: inherit; font-size: 14px; left: auto; line-height: 1.7; list-style-type: none; min-height: auto; max-height: none; min-width: auto; max-width: none; opacity: 1; outline: none; overflow: visible; padding: 0; position: relative; pointer-events: auto; right: auto; text-align: left; text-decoration: none; text-indent: 0; text-transform: none; transform: none; top: auto; visibility: inherit; width: auto; word-wrap: break-word; white-space: normal; margin: 0 8px 0 0; display: inline-block; height: auto; vertical-align: middle;"><a class="mega-custom-icon mega-menu-link" href="https://orcid.org/signin" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: none; box-shadow: none; bottom: auto; box-sizing: border-box; clip: auto; float: none; left: auto; list-style-type: none; margin: 0; min-height: auto; max-height: none; min-width: auto; max-width: none; opacity: 1; overflow: visible; position: relative; pointer-events: auto; right: auto; text-indent: 0; transform: none; top: auto; visibility: inherit; word-wrap: break-word; white-space: normal; cursor: pointer; line-height: 40px; height: 40px; padding: 0px 10px 0px 10px; vertical-align: baseline; width: auto; display: block; color: #003449; text-transform: none; text-decoration: none; text-align: left; background: rgba(0, 0, 0, 0); border: 0; border-radius: 0; font-family: inherit; font-size: 14px; font-weight: normal; outline: none;" tabindex="0">Get your ORCID iD and record</a></li><li class="mega-menu-item mega-menu-item-type-custom mega-menu-item-object-custom mega-align-bottom-left mega-menu-flyout mega-has-icon mega-icon-left mega-menu-item-25393" id="mega-menu-item-25393" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; margin-bottom: 8px; transition: none; border-radius: 0; box-shadow: none; background: none; border: 0; bottom: auto; box-sizing: border-box; clip: auto; color: #666; float: none; font-family: inherit; font-size: 14px; left: auto; line-height: 1.7; list-style-type: none; min-height: auto; max-height: none; min-width: auto; max-width: none; opacity: 1; outline: none; overflow: visible; padding: 0; position: relative; pointer-events: auto; right: auto; text-align: left; text-decoration: none; text-indent: 0; text-transform: none; transform: none; top: auto; visibility: inherit; width: auto; word-wrap: break-word; white-space: normal; margin: 0 8px 0 0; display: inline-block; height: auto; vertical-align: middle;"><a class="mega-custom-icon mega-menu-link" href="https://support.orcid.org/hc/en-us/" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: none; box-shadow: none; bottom: auto; box-sizing: border-box; clip: auto; float: none; left: auto; list-style-type: none; margin: 0; min-height: auto; max-height: none; min-width: auto; max-width: none; opacity: 1; overflow: visible; position: relative; pointer-events: auto; right: auto; text-indent: 0; transform: none; top: auto; visibility: inherit; word-wrap: break-word; white-space: normal; cursor: pointer; line-height: 40px; height: 40px; padding: 0px 10px 0px 10px; vertical-align: baseline; width: auto; display: block; color: #003449; text-transform: none; text-decoration: none; text-align: left; background: rgba(0, 0, 0, 0); border: 0; border-radius: 0; font-family: inherit; font-size: 14px; font-weight: normal; outline: none;" tabindex="0">Troubleshoot my record</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-align-bottom-left mega-menu-flyout mega-has-icon mega-icon-left mega-menu-item-25394" id="mega-menu-item-25394" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; margin-bottom: 8px; transition: none; border-radius: 0; box-shadow: none; background: none; border: 0; bottom: auto; box-sizing: border-box; clip: auto; color: #666; float: none; font-family: inherit; font-size: 14px; left: auto; line-height: 1.7; list-style-type: none; min-height: auto; max-height: none; min-width: auto; max-width: none; opacity: 1; outline: none; overflow: visible; padding: 0; position: relative; pointer-events: auto; right: auto; text-align: left; text-decoration: none; text-indent: 0; text-transform: none; transform: none; top: auto; visibility: inherit; width: auto; word-wrap: break-word; white-space: normal; margin: 0 8px 0 0; display: inline-block; height: auto; vertical-align: middle;"><a class="mega-custom-icon mega-menu-link" href="https://info.qa.orcid.org/membership/" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: none; box-shadow: none; bottom: auto; box-sizing: border-box; clip: auto; float: none; left: auto; list-style-type: none; margin: 0; min-height: auto; max-height: none; min-width: auto; max-width: none; opacity: 1; overflow: visible; position: relative; pointer-events: auto; right: auto; text-indent: 0; transform: none; top: auto; visibility: inherit; word-wrap: break-word; white-space: normal; cursor: pointer; line-height: 40px; height: 40px; padding: 0px 10px 0px 10px; vertical-align: baseline; width: auto; display: block; color: #003449; text-transform: none; text-decoration: none; text-align: left; background: rgba(0, 0, 0, 0); border: 0; border-radius: 0; font-family: inherit; font-size: 14px; font-weight: normal; outline: none;" tabindex="0">Discover our member benefits</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-align-bottom-left mega-menu-flyout mega-has-icon mega-icon-left mega-menu-item-25395" id="mega-menu-item-25395" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; margin-bottom: 8px; transition: none; border-radius: 0; box-shadow: none; background: none; border: 0; bottom: auto; box-sizing: border-box; clip: auto; color: #666; float: none; font-family: inherit; font-size: 14px; left: auto; line-height: 1.7; list-style-type: none; min-height: auto; max-height: none; min-width: auto; max-width: none; opacity: 1; outline: none; overflow: visible; padding: 0; position: relative; pointer-events: auto; right: auto; text-align: left; text-decoration: none; text-indent: 0; text-transform: none; transform: none; top: auto; visibility: inherit; width: auto; word-wrap: break-word; white-space: normal; margin: 0 8px 0 0; display: inline-block; height: auto; vertical-align: middle;"><a class="mega-custom-icon mega-menu-link" href="https://info.qa.orcid.org/membership/" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: none; box-shadow: none; bottom: auto; box-sizing: border-box; clip: auto; float: none; left: auto; list-style-type: none; margin: 0; min-height: auto; max-height: none; min-width: auto; max-width: none; opacity: 1; overflow: visible; position: relative; pointer-events: auto; right: auto; text-indent: 0; transform: none; top: auto; visibility: inherit; word-wrap: break-word; white-space: normal; cursor: pointer; line-height: 40px; height: 40px; padding: 0px 10px 0px 10px; vertical-align: baseline; width: auto; display: block; color: #003449; text-transform: none; text-decoration: none; text-align: left; background: rgba(0, 0, 0, 0); border: 0; border-radius: 0; font-family: inherit; font-size: 14px; font-weight: normal; outline: none;" tabindex="0">Adopt ORCID at my institution</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-align-bottom-left mega-menu-flyout mega-has-icon mega-icon-left mega-menu-item-25396" id="mega-menu-item-25396" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; margin-bottom: 8px; transition: none; border-radius: 0; box-shadow: none; background: none; border: 0; bottom: auto; box-sizing: border-box; clip: auto; color: #666; float: none; font-family: inherit; font-size: 14px; left: auto; line-height: 1.7; list-style-type: none; min-height: auto; max-height: none; min-width: auto; max-width: none; opacity: 1; outline: none; overflow: visible; padding: 0; position: relative; pointer-events: auto; right: auto; text-align: left; text-decoration: none; text-indent: 0; text-transform: none; transform: none; top: auto; visibility: inherit; width: auto; word-wrap: break-word; white-space: normal; margin: 0 8px 0 0; display: inline-block; height: auto; vertical-align: middle;"><a class="mega-custom-icon mega-menu-link" href="https://info.qa.orcid.org/documentation/api-tutorials/api-tutorial-read-data-on-a-record/" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: none; box-shadow: none; bottom: auto; box-sizing: border-box; clip: auto; float: none; left: auto; list-style-type: none; margin: 0; min-height: auto; max-height: none; min-width: auto; max-width: none; opacity: 1; overflow: visible; position: relative; pointer-events: auto; right: auto; text-indent: 0; transform: none; top: auto; visibility: inherit; word-wrap: break-word; white-space: normal; cursor: pointer; line-height: 40px; height: 40px; padding: 0px 10px 0px 10px; vertical-align: baseline; width: auto; display: block; color: #003449; text-transform: none; text-decoration: none; text-align: left; background: rgba(0, 0, 0, 0); border: 0; border-radius: 0; font-family: inherit; font-size: 14px; font-weight: normal; outline: none;" tabindex="0">Get data from ORCID</a></li><li class="mega-menu-item mega-menu-item-type-post_type mega-menu-item-object-page mega-align-bottom-left mega-menu-flyout mega-has-icon mega-icon-left mega-menu-item-25397" id="mega-menu-item-25397" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; margin-bottom: 0; transition: none; border-radius: 0; box-shadow: none; background: none; border: 0; bottom: auto; box-sizing: border-box; clip: auto; color: #666; float: none; font-family: inherit; font-size: 14px; left: auto; line-height: 1.7; list-style-type: none; min-height: auto; max-height: none; min-width: auto; max-width: none; opacity: 1; outline: none; overflow: visible; padding: 0; position: relative; pointer-events: auto; right: auto; text-align: left; text-decoration: none; text-indent: 0; text-transform: none; transform: none; top: auto; visibility: inherit; width: auto; word-wrap: break-word; white-space: normal; margin: 0 8px 0 0; display: inline-block; height: auto; vertical-align: middle;"><a class="mega-custom-icon mega-menu-link" href="https://info.qa.orcid.org/documentation/api-tutorials/api-tutorial-add-and-update-data-on-an-orcid-record/" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: none; box-shadow: none; bottom: auto; box-sizing: border-box; clip: auto; float: none; left: auto; list-style-type: none; margin: 0; min-height: auto; max-height: none; min-width: auto; max-width: none; opacity: 1; overflow: visible; position: relative; pointer-events: auto; right: auto; text-indent: 0; transform: none; top: auto; visibility: inherit; word-wrap: break-word; white-space: normal; cursor: pointer; line-height: 40px; height: 40px; padding: 0px 10px 0px 10px; vertical-align: baseline; width: auto; display: block; color: #003449; text-transform: none; text-decoration: none; text-align: left; background: rgba(0, 0, 0, 0); border: 0; border-radius: 0; font-family: inherit; font-size: 14px; font-weight: normal; outline: none;" tabindex="0">Add institutional data to ORCID</a></li></ul></div>
+<div class="wp-block-genesis-blocks-gb-container impact-feature gb-block-container" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; position: relative; padding: 32px; margin: 16px; background-color: #a6ce39;"><div class="gb-container-inside" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;"><div class="gb-container-image-wrap" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; position: absolute; top: 0; right: 0; left: 0; height: 100%; z-index: 0;"><img alt="" class="gb-container-image has-background-dim-20 has-background-dim" decoding="async" src="./assets/ORCID_Sc_4.jpg" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; border: 0; max-width: 100%; object-fit: cover; height: 100%; width: 100%; transition: .3s ease; opacity: .2;"/></div><div class="gb-container-content" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 auto; position: relative;">
+<div class="wp-block-columns impact-feature is-layout-flex wp-container-core-columns-is-layout-25 wp-block-columns-is-layout-flex" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: flex; margin-bottom: 0; padding: 32px; margin: 16px; gap: 2em; row-gap: 2em; column-gap: 2em; align-items: normal; flex-wrap: wrap;">
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex-grow: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; margin: 0; flex-basis: 40%;">
+<h2 class="wp-block-heading" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-stretch: normal; font-style: normal; line-height: 1.4; letter-spacing: 0.5px; font-size: 32px; font-weight: 600;">Lorem ipsum dolor sit amet, consectetur adipiscing elit</h2>
+<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;">Lorem ipsum dolor sit amet consectetur. Cras aliquam dolor blandit ut aliquam sit nunc. Pellentesque nunc nunc volutpat nullam. Pulvinar magna magna quam turpis tortor felis enim. Eget ac urna justo et quis diam dignissim id proin. Aliquam eu et habitasse amet justo donec. Id placerat sit elementum donec et.</p>
+<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center;">
+<div class="wp-block-button" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background-color: rgb(0, 52, 73); border-radius: 4px; color: #fff; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; width: auto; text-decoration: none; margin-bottom: 0; font-size: inherit; display: inline-block; margin: 0;"><a class="wp-block-button__link wp-element-button" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; box-shadow: none; padding: calc(.667em + 2px) calc(1.333em + 2px); box-sizing: border-box; text-align: center; word-break: break-word; background-color: rgb(0, 52, 73); border-radius: 4px; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; width: auto; text-decoration: none; margin-bottom: 0; display: inline-block; font-size: inherit; color: #fff;">do a thing</a></div>
+</div>
+</div>
+<div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex-grow: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; margin: 0; flex-basis: 66.66%;"></div>
+</div>
+<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center;"></div>
 </div></div></div>
+<div class="wp-block-columns alignwide two-column-features is-layout-flex wp-container-core-columns-is-layout-26 wp-block-columns-is-layout-flex" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: flex; gap: 2em; row-gap: 2em; column-gap: 2em; margin-bottom: 0; align-items: normal; flex-wrap: wrap;">
+<div class="wp-block-column workflows has-white-background-color has-text-color has-background has-link-color wp-elements-ebc972a3156326d343ec64074d04764f is-layout-flow wp-block-column-is-layout-flow" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex-grow: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; margin: 0; color: #000000; padding-top: 2em; padding-right: 2em; padding-bottom: 2em; padding-left: 2em; background-color: #ffffff;">
+<p class="metadata-pre" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; color: rgba(69, 44, 68, 1); background-color: rgba(220, 205, 219, 1); font-size: 12px; font-style: normal; font-weight: 500; line-height: 18px; letter-spacing: 2px; width: fit-content; padding: 1px;">METADATA PRE</p>
+<h2 class="wp-block-heading" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-stretch: normal; font-style: normal; line-height: 1.4; letter-spacing: 0.5px; font-size: 32px; font-weight: 600;">Lorem ipsum dolor sit amet consectetur</h2>
+<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;">Lorem ipsum dolor sit amet consectetur. Eget lacus laoreet tempus ornare. Libero bibendum risus at tincidunt vestibulum. Faucibus sed consectetur sed lorem. Scelerisque risus quam id condimentum neque sagittis dictumst.<br style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;"/><br style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;"/>Vel sodales vestibulum orci risus pellentesque praesent in bibendum. Risus senectus viverra volutpat pellentesque at. Congue dignissim mattis nulla felis posuere nisl diam id. Ipsum tincidunt a tempus habitant hendrerit risus id tellus. Varius ornare eget turpis integer.</p>
+<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center;">
+<div class="wp-block-button" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background-color: rgb(0, 52, 73); border-radius: 4px; color: #fff; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; width: auto; text-decoration: none; margin-bottom: 0; font-size: inherit; display: inline-block; margin: 0;"><a class="wp-block-button__link wp-element-button" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; box-shadow: none; padding: calc(.667em + 2px) calc(1.333em + 2px); box-sizing: border-box; text-align: center; word-break: break-word; background-color: rgb(0, 52, 73); border-radius: 4px; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; width: auto; text-decoration: none; margin-bottom: 0; display: inline-block; font-size: inherit; color: #fff;">Button</a></div>
+</div>
+</div>
+<div class="wp-block-column use-cases has-link-color wp-elements-c24ed87e7e3ca3d741ae636fdb86ff93 is-layout-flow wp-block-column-is-layout-flow" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex-grow: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; margin: 0; padding-top: 2em; padding-right: 2em; padding-bottom: 2em; padding-left: 2em;">
+<p class="metadata-pre" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; color: rgba(69, 44, 68, 1); background-color: rgba(220, 205, 219, 1); font-size: 12px; font-style: normal; font-weight: 500; line-height: 18px; letter-spacing: 2px; width: fit-content; padding: 1px;">METADATA PRE</p>
+<h2 class="wp-block-heading" id="family" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-stretch: normal; font-style: normal; line-height: 1.4; letter-spacing: 0.5px; font-size: 32px; font-weight: 600;">Lorem ipsum dolor sit amet consectetur</h2>
+<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;">Lorem ipsum dolor sit amet consectetur. Eget lacus laoreet tempus ornare. Libero bibendum risus at tincidunt vestibulum. Faucibus sed consectetur sed lorem. Scelerisque risus quam id condimentum neque sagittis dictumst.<br style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;"/><br style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;"/>Vel sodales vestibulum orci risus pellentesque praesent in bibendum. Risus senectus viverra volutpat pellentesque at. Congue dignissim mattis nulla felis posuere nisl diam id. Ipsum tincidunt a tempus habitant hendrerit risus id tellus. Varius ornare eget turpis integer.</p>
+<div class="wp-block-buttons is-layout-flex wp-block-buttons-is-layout-flex" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center;">
+<div class="wp-block-button" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background-color: rgb(0, 52, 73); border-radius: 4px; color: #fff; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; width: auto; text-decoration: none; margin-bottom: 0; font-size: inherit; display: inline-block; margin: 0;"><a class="wp-block-button__link wp-element-button" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; box-shadow: none; padding: calc(.667em + 2px) calc(1.333em + 2px); box-sizing: border-box; text-align: center; word-break: break-word; background-color: rgb(0, 52, 73); border-radius: 4px; cursor: pointer; text-transform: uppercase; letter-spacing: 0.5px; width: auto; text-decoration: none; margin-bottom: 0; display: inline-block; font-size: inherit; color: #fff;">Button</a></div>
+</div>
+</div>
+</div>
+<div class="wp-block-columns boxout-feature is-layout-flex wp-container-core-columns-is-layout-27 wp-block-columns-is-layout-flex" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: flex; margin-bottom: 0; margin: 16px; gap: 2em; row-gap: 2em; column-gap: 2em; align-items: normal; flex-wrap: wrap;">
+<div class="wp-block-column boxout-feature-lhs is-layout-flow wp-block-column-is-layout-flow" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex-grow: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; margin: 0; padding: 32px; background-image: url('./assets/riccardo-gazzin-DTo9I7pEPBo-unsplash-duotone2.png'); background-repeat: no-repeat; background-size: cover; color: white;">
+<p class="metadata-pre" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; color: rgba(69, 44, 68, 1); background-color: rgba(220, 205, 219, 1); font-size: 12px; font-style: normal; font-weight: 500; line-height: 18px; letter-spacing: 2px; width: fit-content; padding: 1px;">METADATA PRE</p>
+<h2 class="wp-block-heading" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-stretch: normal; font-style: normal; line-height: 1.4; letter-spacing: 0.5px; font-size: 32px; font-weight: 600;">Lorem ipsum dolor sit amet consectetur</h2>
+<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;">Lorem ipsum dolor sit amet consectetur. Eget lacus laoreet tempus ornare. Libero bibendum risus at tincidunt vestibulum. Faucibus sed consectetur sed lorem. Scelerisque risus quam id condimentum neque sagittis dictumst.<br style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;"/><br style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;"/>Vel sodales vestibulum orci risus pellentesque praesent in bibendum. Risus senectus viverra volutpat pellentesque at. Congue dignissim mattis nulla felis posuere nisl diam id. Ipsum tincidunt a tempus habitant hendrerit risus id tellus. Varius ornare eget turpis integer.</p>
+</div>
+<div class="wp-block-column boxout-feature-rhs is-layout-flow wp-block-column-is-layout-flow" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex-grow: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; margin: 0;">
+<div class="wp-block-media-text is-stacked-on-mobile boxout-feature-rhs-content" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; direction: ltr; display: grid; grid-template-rows: auto; background-color: rgb(250, 250, 250); padding: 16px; margin-bottom: 8px; grid-template-columns: 25% auto;"><figure class="wp-block-media-text__media" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: block; align-self: center; grid-column: 1; grid-row: 1; margin: 0;"><img alt="" class="wp-image-25120 size-full" decoding="async" height="auto" loading="lazy" sizes="(max-width: 1024px) 100vw, 1024px" src="./assets/20230627GovernmentPremium-1-1024x1024.png" srcset="./assets/20230627GovernmentPremium-1-1024x1024.png 1024w, ./assets/20230627GovernmentPremium-1-300x300.png 300w, ./assets/20230627GovernmentPremium-1-150x150.png 150w, ./assets/20230627GovernmentPremium-1-768x768.png 768w, ./assets/20230627GovernmentPremium-1-1536x1536.png 1536w, ./assets/20230627GovernmentPremium-1-600x600.png 600w, ./assets/20230627GovernmentPremium-1-1320x1320.png 1320w, ./assets/20230627GovernmentPremium-1.png 1611w" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; border: 0; height: auto; max-width: unset; vertical-align: middle; width: 100%;" width="1024"/></figure><div class="wp-block-media-text__content" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; align-self: center; direction: ltr; grid-column: 2; grid-row: 1; padding: 0 8%; word-break: break-word;">
+<h3 class="wp-block-heading" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-stretch: normal; font-style: normal; line-height: 1.4; letter-spacing: 0.5px; font-size: 24px;">Heading</h3>
+<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Habitasse platea dictumst quisque sagittis purus.</p>
+</div></div>
+<div class="wp-block-media-text has-media-on-the-right is-stacked-on-mobile boxout-feature-rhs-content" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; direction: ltr; display: grid; grid-template-rows: auto; background-color: rgb(250, 250, 250); padding: 16px; margin-bottom: 8px; grid-template-columns: auto 25%;"><div class="wp-block-media-text__content" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; align-self: center; direction: ltr; padding: 0 8%; word-break: break-word; grid-column: 1; grid-row: 1;">
+<h3 class="wp-block-heading" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-stretch: normal; font-style: normal; line-height: 1.4; letter-spacing: 0.5px; font-size: 24px;">Heading</h3>
+<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Habitasse platea dictumst quisque sagittis purus.</p>
+</div><figure class="wp-block-media-text__media" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: block; align-self: center; margin: 0; grid-column: 2; grid-row: 1;"><img alt="" class="wp-image-25120 size-full" decoding="async" height="auto" loading="lazy" sizes="(max-width: 1024px) 100vw, 1024px" src="./assets/20230627GovernmentPremium-1-1024x1024.png" srcset="./assets/20230627GovernmentPremium-1-1024x1024.png 1024w, ./assets/20230627GovernmentPremium-1-300x300.png 300w, ./assets/20230627GovernmentPremium-1-150x150.png 150w, ./assets/20230627GovernmentPremium-1-768x768.png 768w, ./assets/20230627GovernmentPremium-1-1536x1536.png 1536w, ./assets/20230627GovernmentPremium-1-600x600.png 600w, ./assets/20230627GovernmentPremium-1-1320x1320.png 1320w, ./assets/20230627GovernmentPremium-1.png 1611w" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; border: 0; height: auto; max-width: unset; vertical-align: middle; width: 100%;" width="1024"/></figure></div>
+</div>
+</div>
+<div class="wp-block-columns feature-title-benefits is-layout-flex wp-container-core-columns-is-layout-28 wp-block-columns-is-layout-flex" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: flex; margin-bottom: 0; background-color: rgb(245, 245, 245); margin: 16px; gap: 2em; row-gap: 2em; column-gap: 2em; align-items: normal; flex-wrap: wrap;">
+<div class="wp-block-column feature-title-benefits-lhs-column is-layout-flow wp-block-column-is-layout-flow" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex-grow: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; margin: 0; padding: 32px; flex-basis: 66.66%;">
+<p class="metadata-pre" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; color: rgba(69, 44, 68, 1); background-color: rgba(220, 205, 219, 1); font-size: 12px; font-style: normal; font-weight: 500; line-height: 18px; letter-spacing: 2px; width: fit-content; padding: 1px;">METADATA PRE</p>
+<h2 class="wp-block-heading" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-stretch: normal; font-style: normal; line-height: 1.4; letter-spacing: 0.5px; font-size: 32px; font-weight: 600;">Lorem ipsum dolor sit amet consectetur</h2>
+<p class="metadata-post" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0; color: rgba(0, 0, 0, 0.60); font-size: 14px; font-style: normal; font-weight: 400; line-height: 18px; letter-spacing: 0.5px;">METADATA POST</p>
+<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;">Lorem ipsum dolor sit amet consectetur. Eget lacus laoreet tempus ornare. Libero bibendum risus at tincidunt vestibulum. Faucibus sed consectetur sed lorem. Scelerisque risus quam id condimentum neque sagittis dictumst.<br style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;"/><br style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;"/>Vel sodales vestibulum orci risus pellentesque praesent in bibendum. Risus senectus viverra volutpat pellentesque at. Congue dignissim mattis nulla felis posuere nisl diam id. Ipsum tincidunt a tempus habitant hendrerit risus id tellus. Varius ornare eget turpis integer.</p>
+<div aria-hidden="true" class="wp-block-spacer" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; clear: both; height: 32px;"></div>
+<figure class="wp-block-embed is-type-video is-provider-vimeo wp-block-embed-vimeo wp-embed-aspect-16-9 wp-has-aspect-ratio" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: block; margin: 0; overflow-wrap: break-word;"><div class="wp-block-embed__wrapper" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; position: relative;">
+<iframe allow="autoplay; fullscreen; picture-in-picture; clipboard-write" frameborder="0" height="281" loading="lazy" src="https://player.vimeo.com/video/846975995?dnt=1&amp;app_id=122963" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; max-width: 100%;" title="I'm a Member, Now What? - Affiliation Manager" width="500"></iframe>
+</div></figure>
+</div>
+<div class="wp-block-column feature-title-benefits-rhs-column is-layout-flow wp-block-column-is-layout-flow" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; flex-grow: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; margin: 0; background-color: rgba(220, 205, 219, 0.20); padding: 0 32px; flex-basis: 33.33%;">
+<h3 class="wp-block-heading" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-stretch: normal; font-style: normal; line-height: 1.4; letter-spacing: 0.5px; font-size: 24px;">Panel Title</h3>
+<div class="wp-block-group feature-title-benefits-rhs-column-content" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; border-bottom: 2px rgb(250, 250, 250) solid;"><div class="wp-block-group__inner-container is-layout-constrained wp-block-group-is-layout-constrained" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;">
+<h4 class="wp-block-heading" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-stretch: normal; font-style: normal; line-height: 1.4; letter-spacing: 0.5px; font-size: 16px;">Heading</h4>
+<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;">Lorem ipsum dolor sit amet consectetur. Eget lacus laoreet tempus ornare. Libero bibendum risus at tincidunt vestibulum. Faucibus sed consectetur sed lorem. Scelerisque risus quam id condimentum neque sagittis dictumst.</p>
+</div></div>
+<div class="wp-block-group feature-title-benefits-rhs-column-content" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; border-bottom: 2px rgb(250, 250, 250) solid;"><div class="wp-block-group__inner-container is-layout-constrained wp-block-group-is-layout-constrained" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;">
+<h4 class="wp-block-heading" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-stretch: normal; font-style: normal; line-height: 1.4; letter-spacing: 0.5px; font-size: 16px;">Heading</h4>
+<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;">Lorem ipsum dolor sit amet consectetur. Eget lacus laoreet tempus ornare. Libero bibendum risus at tincidunt vestibulum. Faucibus sed consectetur sed lorem. Scelerisque risus quam id condimentum neque sagittis dictumst.</p>
+</div></div>
+<div class="wp-block-group feature-title-benefits-rhs-column-content" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; border-bottom: 2px rgb(250, 250, 250) solid;"><div class="wp-block-group__inner-container is-layout-constrained wp-block-group-is-layout-constrained" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;">
+<h4 class="wp-block-heading" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-stretch: normal; font-style: normal; line-height: 1.4; letter-spacing: 0.5px; font-size: 16px;">Heading</h4>
+<p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0;">Lorem ipsum dolor sit amet consectetur. Eget lacus laoreet tempus ornare.</p>
+</div></div>
+</div>
+</div>
+<div class="wp-block-query is-layout-flow wp-block-query-is-layout-flow" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;"><ul class="columns-3 three-column-articles wp-block-post-template is-layout-grid wp-container-core-post-template-is-layout-1 wp-block-post-template-is-layout-grid" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; grid-template-columns: repeat(3, minmax(0, 1fr)); list-style: none; margin-bottom: 0; margin-top: 0; max-width: 100%; background: none; display: grid; padding: 40px; background-color: rgb(0, 52, 73); color: white; margin: 16px; gap: 1.25em; font-size: 24px;"><li class="wp-block-post post-25422 post type-post status-publish format-standard category-blog entry" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; list-style-type: none; margin-bottom: 32px; margin: 0; list-style: none; padding: var;">
+<h2 class="wp-block-post-title" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; font-stretch: normal; font-style: normal; line-height: 1.4; letter-spacing: 0.5px; font-weight: 600; box-sizing: border-box; word-break: break-word; font-size: 24px;">Homepage as post</h2>
+<hr class="wp-block-separator has-alpha-channel-opacity is-style-default" style="-webkit-box-sizing: border-box; -moz-box-sizing: content-box; box-sizing: content-box; height: 0; border-top: 2px solid; border: 5px rgb(166, 206, 57) solid; width: 10%; text-align: left; margin-left: 0;"/>
+<div class="wp-block-post-excerpt" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-size: 16px;"><p class="wp-block-post-excerpt__excerpt" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0; margin-bottom: 0; margin-top: 0;">METADATA PRE Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur. Eget lacus laoreet tempus ornare. Libero bibendum risus at tincidunt vestibulum. Faucibus sed consectetur sed lorem. […]</p><p class="wp-block-post-excerpt__more-text" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0; margin-bottom: 0; margin-top: var(--wp--style--block-gap);"><a class="wp-block-post-excerpt__more-link" href="https://info.qa.orcid.org/homepage-as-post/" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; display: inline-block; color: rgb(166, 206, 57);">Read more…</a></p></div>
+</li><li class="wp-block-post post-24614 post type-post status-publish format-standard category-blog category-orcid-news tag-certified-service-provider tag-certified-service-provider-program tag-grant-management tag-institutional-repositories tag-integration tag-manuscript-information-systems tag-research-information-systems entry" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; list-style-type: none; margin-bottom: 32px; margin: 0; list-style: none; padding: var;">
+<h2 class="wp-block-post-title" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; font-stretch: normal; font-style: normal; line-height: 1.4; letter-spacing: 0.5px; font-weight: 600; box-sizing: border-box; word-break: break-word; font-size: 24px;">Upgraded ORCID Certified Service Provider program Now Available for Scholarly Services</h2>
+<hr class="wp-block-separator has-alpha-channel-opacity is-style-default" style="-webkit-box-sizing: border-box; -moz-box-sizing: content-box; box-sizing: content-box; height: 0; border-top: 2px solid; border: 5px rgb(166, 206, 57) solid; width: 10%; text-align: left; margin-left: 0;"/>
+<div class="wp-block-post-excerpt" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-size: 16px;"><p class="wp-block-post-excerpt__excerpt" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0; margin-bottom: 0; margin-top: 0;">We are excited to announce that our upgraded ORCID Certified Service Provider (CSP) program is now available to service providers with an ORCID integration! Certification is a free-of-charge service offered […]</p><p class="wp-block-post-excerpt__more-text" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0; margin-bottom: 0; margin-top: var(--wp--style--block-gap);"><a class="wp-block-post-excerpt__more-link" href="https://info.qa.orcid.org/upgraded-certified-service-provider-program-now-available/" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; display: inline-block; color: rgb(166, 206, 57);">Read more…</a></p></div>
+</li><li class="wp-block-post post-24478 post type-post status-publish format-standard category-blog category-product-interest-group category-product tag-professional-activities tag-ui tag-user-experience tag-user-interface entry" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; list-style-type: none; margin-bottom: 32px; margin: 0; list-style: none; padding: var;">
+<h2 class="wp-block-post-title" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; font-stretch: normal; font-style: normal; line-height: 1.4; letter-spacing: 0.5px; font-weight: 600; box-sizing: border-box; word-break: break-word; font-size: 24px;">New to the ORCID Record Interface—Professional Activities</h2>
+<hr class="wp-block-separator has-alpha-channel-opacity is-style-default" style="-webkit-box-sizing: border-box; -moz-box-sizing: content-box; box-sizing: content-box; height: 0; border-top: 2px solid; border: 5px rgb(166, 206, 57) solid; width: 10%; text-align: left; margin-left: 0;"/>
+<div class="wp-block-post-excerpt" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-size: 16px;"><p class="wp-block-post-excerpt__excerpt" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0; margin-bottom: 0; margin-top: 0;">Enabling transparent and trustworthy connections between researchers and their contributions and affiliations is at the center of ORCID’s mission. These connections allow researchers to not only be recognized for the […]</p><p class="wp-block-post-excerpt__more-text" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0; margin-bottom: 0; margin-top: var(--wp--style--block-gap);"><a class="wp-block-post-excerpt__more-link" href="https://info.qa.orcid.org/new-to-the-orcid-record-interface-professional-activities/" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; background: transparent; -webkit-transition: all 0.1s ease-in-out; -moz-transition: all 0.1s ease-in-out; -ms-transition: all 0.1s ease-in-out; -o-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; display: inline-block; color: rgb(166, 206, 57);">Read more…</a></p></div>
+</li></ul></div>
+<figure class="wp-block-pullquote pullquote" style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; display: block; margin: 0; font-size: 1.5em; line-height: 1.6; box-sizing: border-box; overflow-wrap: break-word; padding: 4em 0; text-align: center;"><blockquote style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: block; border-width: 2px 0; border-style: solid; border-color: rgb(224, 224, 224); position: relative; color: rgba(255, 255, 255, .9); font-family: 'Noto Sans'; font-size: 40px; font-style: normal; font-weight: 600; line-height: 60px; letter-spacing: 0.5px; background-color: rgba(204, 0, 86, 1); padding: 32px; border: 0; margin: 16px;"><p style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; margin: 0 0 24px; padding: 0; color: inherit; margin-top: 0;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><cite style="-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; font-style: normal; position: relative; color: inherit; font-size: 14px;">Qoute Attribution</cite></blockquote></figure>
 </body></html>

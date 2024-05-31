@@ -40,7 +40,7 @@ def main(environment, post_id, wordpress_staging_username, wordpress_staging_pas
     file_path = f"dist/index{'' if language == '' else '-' + language}.html"
 
     try:
-        response = requests.get(f"{base_url}wp-json/wp/v2/pages/{post_id}", headers=headers, auth=auth)
+        response = requests.get(f"{base_url}wp-json/wp/v2/posts/{post_id}", headers=headers, auth=auth)
         response.raise_for_status()
 
         with open(file_path, "w") as file:
