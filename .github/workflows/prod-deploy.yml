@@ -49,8 +49,11 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: 'us-east-1'
 
+      - name: Validate QA Deployment
+        run: |
+          python3 wordpress-prod-release-validation.py QA
 
-  upload_prod_wordpress_to_prod_s3:
+  upload_prod_wordpress_to_fallback_and_prod_s3:
     runs-on: ubuntu-latest
     environment: orcid.org
     needs: upload_prod_wordpress_to_qa_s3
@@ -63,16 +66,10 @@ jobs:
           git fetch --tags
           git checkout ${{ github.event.inputs.version }}
 
-
       - name: Set environment variables
         run: |
-          if [ "${{ github.event.inputs.environment }}" != "FALLBACK" ]; then
-            echo "AWS_BUCKET=${{ secrets.PROD_AWS_BUCKET }}" >> $GITHUB_ENV
-            echo "CLOUDFRONT_DIST_ID=${{ secrets.PROD_CLOUDFRONT_DIST_ID }}" >> $GITHUB_ENV
-          else
-            echo "AWS_BUCKET=${{ secrets.FALLBACK_AWS_BUCKET }}" >> $GITHUB_ENV
-            echo "CLOUDFRONT_DIST_ID=${{ secrets.FALLBACK_CLOUDFRONT_DIST_ID }}" >> $GITHUB_ENV
-          fi
+          echo "AWS_BUCKET=${{ secrets.FALLBACK_AWS_BUCKET }}" >> $GITHUB_ENV
+          echo "CLOUDFRONT_DIST_ID=${{ secrets.FALLBACK_CLOUDFRONT_DIST_ID }}" >> $GITHUB_ENV
 
       - name: Upload HTML to S3
         uses: reggionick/s3-deploy@v4
@@ -90,3 +87,34 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: 'us-east-1'
+
+      - name: Validate Fallback Deployment
+        run: |
+          python3 wordpress-prod-release-validation.py FALLBACK
+
+
+      - name: Set environment variables
+        run: |
+          echo "AWS_BUCKET=${{ secrets.PROD_AWS_BUCKET }}" >> $GITHUB_ENV
+          echo "CLOUDFRONT_DIST_ID=${{ secrets.PROD_CLOUDFRONT_DIST_ID }}" >> $GITHUB_ENV
+
+      - name: Upload HTML to S3
+        uses: reggionick/s3-deploy@v4
+        with:
+          folder: dist
+          bucket: ${{ env.AWS_BUCKET }}
+          bucket-region: ${{ secrets.AWS_REGION }}
+          dist-id: ${{ env.CLOUDFRONT_DIST_ID }}
+          invalidation: /
+          delete-removed: true
+          no-cache: true
+          private: true
+          files-to-include: '{.*/**,**}'
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: 'us-east-1'
+
+      - name: Validate Production Deployment
+        run: |
+          python3 wordpress-prod-release-validation.py PROD
