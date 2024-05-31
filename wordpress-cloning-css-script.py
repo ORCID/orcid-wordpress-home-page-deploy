@@ -20,7 +20,6 @@ def clone_css_files(environment, wordpress_staging_username, wordpress_staging_p
         f"{base_url}wp-content/uploads/theplus_gutenberg/plus-global.css",
         f"{base_url}wp-content/uploads/theplus_gutenberg/plus-css-25422.css",
         f"{base_url}wp-content/themes/orcid-outreach-pro/homepage.css",
-        f"{base_url}wp-content/themes/orcid-outreach-pro/style.css",
         f"{base_url}wp-content/uploads/maxmegamenu/style.css",
         
     ]
