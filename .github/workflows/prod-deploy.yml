@@ -21,6 +21,11 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: '3.x'
+          
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests beautifulsoup4
 
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -88,6 +93,11 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: 'us-east-1'
 
+      - name: Validate Fallback Deployment
+        run: |
+          python wordpress-prod-release-validation.py FALLBACK
+
+
   upload_prod_wordpress_to_prod_s3:
     runs-on: ubuntu-latest
     environment: orcid.org
@@ -107,9 +117,6 @@ jobs:
           git fetch --tags
           git checkout ${{ github.event.inputs.version }}
 
-      - name: Validate Fallback Deployment
-        run: |
-          python wordpress-prod-release-validation.py FALLBACK
 
 
       - name: Set environment variables
@@ -123,7 +130,7 @@ jobs:
           folder: dist
           bucket: ${{ env.AWS_BUCKET }}
           bucket-region: ${{ secrets.AWS_REGION }}
-          dist-id: ${{ env.CLOUDFRONT_DIST_ID }}
+          dist-id: ${{ env.CLOUDFRONT_DIST_ID }}p;loi k,
           invalidation: /
           delete-removed: true
           no-cache: true
