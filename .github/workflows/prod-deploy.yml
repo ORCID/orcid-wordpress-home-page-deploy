@@ -16,6 +16,12 @@ jobs:
     environment: qa.orcid.org
     runs-on: ubuntu-latest
     steps:
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
       - name: Checkout repository
         uses: actions/checkout@v3
         
@@ -46,10 +52,17 @@ jobs:
           python wordpress-prod-release-validation.py QA
 
   upload_prod_wordpress_to_fallback_s3:
+  
     runs-on: ubuntu-latest
     environment: orcid.org
     needs: upload_prod_wordpress_to_qa_s3
     steps:
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
       - name: Checkout repository
         uses: actions/checkout@v3
         
@@ -78,8 +91,14 @@ jobs:
   upload_prod_wordpress_to_prod_s3:
     runs-on: ubuntu-latest
     environment: orcid.org
-    needs: upload_prod_wordpress_to_qa_s3
+    needs: upload_prod_wordpress_to_fallback_s3
     steps:
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+          
       - name: Checkout repository
         uses: actions/checkout@v3
         
