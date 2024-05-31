@@ -21,6 +21,7 @@ on:
 jobs:
   upload_prod_wordpress_to_prod_s3:
     runs-on: ubuntu-latest
+    environment: orcid.org
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
