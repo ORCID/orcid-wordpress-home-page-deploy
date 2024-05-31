@@ -43,7 +43,7 @@ jobs:
 
       - name: Validate QA Deployment
         run: |
-          python3 wordpress-prod-release-validation.py QA
+          python wordpress-prod-release-validation.py QA
 
   upload_prod_wordpress_to_fallback_s3:
     runs-on: ubuntu-latest
@@ -90,7 +90,7 @@ jobs:
 
       - name: Validate Fallback Deployment
         run: |
-          python3 wordpress-prod-release-validation.py FALLBACK
+          python wordpress-prod-release-validation.py FALLBACK
 
 
       - name: Set environment variables
@@ -117,4 +117,4 @@ jobs:
 
       - name: Validate Production Deployment
         run: |
-          python3 wordpress-prod-release-validation.py PROD
+          python wordpress-prod-release-validation.py PROD
