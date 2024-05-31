@@ -10,8 +10,8 @@ const countLines = (filePath) => {
   return fileContent.split("\n").length;
 };
 
-const cssFilePath = "dist/combined_styles.css";
-const outputFilePath = "dist/combined_styles.css";
+const cssFilePath = "dist/wordpress-homepage.css";
+const outputFilePath = "dist/wordpress-homepage.css";
 
 (async () => {
   try {

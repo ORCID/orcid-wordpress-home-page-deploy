@@ -34,7 +34,7 @@ def clone_css_files(environment, wordpress_staging_username, wordpress_staging_p
     }
 
 
-    with open('dist/combined_styles.css', 'w') as file:      
+    with open('dist/wordpress-homepage.css', 'w') as file:      
         for url in css_urls:
             try:
                 if not url.endswith('.css'):

@@ -58,20 +58,23 @@ def main():
     writer.write_summary(f"| Environment   | {args.environment} | \n")
     writer.write_summary(f"| Post ID       | {args.post_id}     | \n")
 
+    writer.write_summary("## Clone JS script:\n")
+    run_script("wordpress-cloning-js-script.py", args.environment, args.wordpress_username, args.wordpress_password)
+
     writer.write_summary("## HTML cloning script:\n")
     run_script("wordpress-cloning-html-script.py", args.environment, args.post_id, args.wordpress_username, args.wordpress_password, "true")
     
     writer.write_summary("## CSS cloning script:\n")
     run_script("wordpress-cloning-css-script.py", args.environment, args.wordpress_username, args.wordpress_password)
     
-    writer.write_summary("## PurgeCSS script:\n")
+    writer.write_summary("## purgecss script:\n")
     run_command("node wordpress-cloning-purgecss-script.js")
     
-    writer.write_summary("## Inline CSS script:\n")
-    run_command("node wordpress-cloning-inlinecss-script.js")
-    
-    writer.write_summary("## Image cloning script:\n")
-    run_script("wordpress-cloning-img-script.py", args.environment, args.wordpress_username, args.wordpress_password)
+    writer.write_summary("## Clone images in HTML script:\n")
+    run_script("wordpress-cloning-img-in-html-script.py", args.environment, args.wordpress_username, args.wordpress_password)
+
+    writer.write_summary("## Clone images in CSS script:\n")
+    run_script("wordpress-cloning-img-in-css-script.py", args.environment, args.wordpress_username, args.wordpress_password)
 
     writer.write_summary("## Version control changes \n")
     if args.environment == 'PROD' and args.dry_run == False:
