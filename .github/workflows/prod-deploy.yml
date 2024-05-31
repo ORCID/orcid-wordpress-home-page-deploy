@@ -9,14 +9,6 @@ on:
         description: 'Tag version to deploy'
         required: true
         default: 'v0.1.0'
-      environment:
-        description: 'Deployment environment'
-        required: true
-        default: 'default'
-        type: choice
-        options:
-          - FALLBACK
-          - PROD
 
 jobs:
 
@@ -53,7 +45,7 @@ jobs:
         run: |
           python3 wordpress-prod-release-validation.py QA
 
-  upload_prod_wordpress_to_fallback_and_prod_s3:
+  upload_prod_wordpress_to_fallback_s3:
     runs-on: ubuntu-latest
     environment: orcid.org
     needs: upload_prod_wordpress_to_qa_s3
@@ -65,11 +57,6 @@ jobs:
         run: |
           git fetch --tags
           git checkout ${{ github.event.inputs.version }}
-
-      - name: Set environment variables
-        run: |
-          echo "AWS_BUCKET=${{ secrets.FALLBACK_AWS_BUCKET }}" >> $GITHUB_ENV
-          echo "CLOUDFRONT_DIST_ID=${{ secrets.FALLBACK_CLOUDFRONT_DIST_ID }}" >> $GITHUB_ENV
 
       - name: Upload HTML to S3
         uses: reggionick/s3-deploy@v4
@@ -87,6 +74,19 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: 'us-east-1'
+
+  upload_prod_wordpress_to_prod_s3:
+    runs-on: ubuntu-latest
+    environment: orcid.org
+    needs: upload_prod_wordpress_to_qa_s3
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        
+      - name: Switch to specific tag
+        run: |
+          git fetch --tags
+          git checkout ${{ github.event.inputs.version }}
 
       - name: Validate Fallback Deployment
         run: |
