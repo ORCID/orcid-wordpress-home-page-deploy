@@ -72,10 +72,8 @@ def download_and_update_html(environment, wordpress_staging_username, wordpress_
         for img in images:
             img_url = img.get('src')
             if img_url and (not img_url.startswith('data:image')):
-                local_filename = os.path.basename(img_url)
-                local_filepath = os.path.join(folder_path, local_filename)
-                download_image_if_not_exists(img_url, local_filepath, headers, auth, environment, writer)
-                img['src'] = os.path.join(base_path, local_filename)
+                sanitized_filepath = download_image_if_not_exists(img_url, headers, auth, environment, writer)
+                img['src'] = os.path.join(base_path, os.path.basename(sanitized_filepath))
 
             img_srcset = img.get('srcset')
             if img_srcset and (not img_srcset.startswith('data:image')):
@@ -83,10 +81,8 @@ def download_and_update_html(environment, wordpress_staging_username, wordpress_
                 srcset_items = img_srcset.split(',')
                 for item in srcset_items:
                     url, size = item.strip().split(' ')
-                    local_filename = os.path.basename(url)
-                    local_filepath = os.path.join(folder_path, local_filename)
-                    download_image_if_not_exists(url, local_filepath, headers, auth, environment, writer)
-                    new_srcset.append(f"{os.path.join(base_path, local_filename)} {size}")
+                    sanitized_filepath = download_image_if_not_exists(url, headers, auth, environment, writer)
+                    new_srcset.append(f"{os.path.join(base_path, os.path.basename(sanitized_filepath))} {size}")
 
                 img['srcset'] = ', '.join(new_srcset)
 
@@ -95,10 +91,8 @@ def download_and_update_html(environment, wordpress_staging_username, wordpress_
             if 'url(' in style:
                 urls = extract_urls_from_style(style)
                 for url in urls:
-                    local_filename = os.path.basename(url)
-                    local_filepath = os.path.join(folder_path, local_filename)
-                    download_image_if_not_exists(url, local_filepath, headers, auth, environment, writer)
-                    new_url = os.path.join(base_path, local_filename)
+                    sanitized_filepath = download_image_if_not_exists(url, headers, auth, environment, writer)
+                    new_url = os.path.join(base_path, os.path.basename(sanitized_filepath))
                     style = style.replace(url, new_url)
 
                 element['style'] = style
@@ -108,10 +102,8 @@ def download_and_update_html(environment, wordpress_staging_username, wordpress_
             if style_content and 'url(' in style_content:
                 urls = extract_urls_from_style(style_content)
                 for url in urls:
-                    local_filename = os.path.basename(url)
-                    local_filepath = os.path.join(folder_path, local_filename)
-                    download_image_if_not_exists(url, local_filepath, headers, auth, environment, writer)
-                    new_url = os.path.join(base_path, local_filename)
+                    sanitized_filepath = download_image_if_not_exists(url, headers, auth, environment, writer)
+                    new_url = os.path.join(base_path, os.path.basename(sanitized_filepath))
                     style_content = style_content.replace(url, new_url)
 
                 style_tag.string.replace_with(style_content)
