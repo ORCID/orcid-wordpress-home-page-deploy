@@ -1,13 +1,15 @@
 import requests
 from bs4 import BeautifulSoup
 import sys
+from urllib.parse import urljoin
+from github_writer import GitHubWriter
 
-def validate_assets(url):
+def validate_assets(url, github_writer, env):
     try:
         response = requests.get(url)
         response.raise_for_status()
     except requests.exceptions.RequestException as e:
-        print(f"Failed to fetch {url}: {e}", file=sys.stderr)
+        github_writer.write_summary_and_fail(f"Failed to fetch {url}: {e}", env)
         return False
 
     soup = BeautifulSoup(response.content, 'html.parser')
@@ -26,13 +28,14 @@ def validate_assets(url):
     
     all_assets_valid = True
     for asset in assets:
-        asset_url = url + asset if asset.startswith('/') else asset
+        asset_url = urljoin(url, asset)
         try:
             asset_response = requests.get(asset_url)
             asset_response.raise_for_status()
         except requests.exceptions.RequestException as e:
-            print(f"Failed to fetch asset {asset_url}: {e}", file=sys.stderr)
+            github_writer.write_summary(f"Failed to fetch asset {asset_url}: {e}", env)
             all_assets_valid = False
+            raise
 
     return all_assets_valid
 
@@ -53,11 +56,11 @@ def main():
         sys.exit(1)
 
     url = urls[env]
-    print(f"Validating assets for {env} environment at {url}...")
-    if validate_assets(url):
-        print(f"All assets are correctly loaded for {env} environment.")
+    github_writer = GitHubWriter()
+    if validate_assets(url, github_writer, env):
+        github_writer.write_summary(f"All assets are correctly loaded for {env} environment.")
     else:
-        print(f"Some assets failed to load for {env} environment.", file=sys.stderr)
+        github_writer.write_summary(f"Some assets failed to load for {env} environment.", env)
         sys.exit(1)
 
 if __name__ == "__main__":
