@@ -43,7 +43,7 @@ def main():
 
     env = sys.argv[1]
     urls = {
-        "QA": "https://d25yxmpntoa26z.cloudfront.net/index.html",
+        "QA": "https://d3055hwma3riwo.cloudfront.net/index.html",
         "FALLBACK": "https://d1kh89kum7j2ji.cloudfront.net/index.html",
         "PROD": "https://d25yxmpntoa26z.cloudfront.net/index.html"
     }
