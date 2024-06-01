@@ -139,7 +139,7 @@ jobs:
           folder: dist
           bucket: ${{ env.AWS_BUCKET }}
           bucket-region: ${{ secrets.AWS_REGION }}
-          dist-id: ${{ env.CLOUDFRONT_DIST_ID }}p;loi k,
+          dist-id: ${{ env.CLOUDFRONT_DIST_ID }}
           invalidation: /
           delete-removed: true
           no-cache: true
