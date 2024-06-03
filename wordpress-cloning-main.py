@@ -66,9 +66,12 @@ def main():
     
     writer.write_summary("## CSS cloning script:\n")
     run_script("wordpress-cloning-css-script.py", args.environment, args.wordpress_username, args.wordpress_password)
-    
+
     writer.write_summary("## purgecss script:\n")
     run_command("node wordpress-cloning-purgecss-script.js")
+
+    # writer.write_summary("## CSS prefixing:\n")
+    # run_script("wordpress-cloning-css-prefixer-script.py")
     
     writer.write_summary("## Clone images in HTML script:\n")
     run_script("wordpress-cloning-img-in-html-script.py", args.environment, args.wordpress_username, args.wordpress_password)
