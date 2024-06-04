@@ -51,7 +51,8 @@ def download_and_update_css(environment, wordpress_staging_username, wordpress_s
     urls = extract_urls_from_style(css_content)
     for url in urls:
         sanitized_filepath =download_image_if_not_exists(url, headers, auth, environment, writer)
-        css_content = css_content.replace(url, sanitized_filepath)
+        new_url = os.path.join(base_path, os.path.basename(sanitized_filepath))
+        css_content = css_content.replace(url, new_url)
 
     # Write the updated CSS content back to the file
     with open(css_file, 'w') as file:

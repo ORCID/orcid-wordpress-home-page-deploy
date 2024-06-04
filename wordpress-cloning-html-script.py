@@ -44,10 +44,10 @@ def main(environment, post_id, wordpress_staging_username, wordpress_staging_pas
         response.raise_for_status()
 
         with open(file_path, "w") as file:
-            file.write("<!doctype html><html><head><link rel=\"stylesheet\" href=\"./wordpress-homepage.css\"></head><body class=\"homepage\"> <script src=\"./wordpress-homepage.js\"></script>")
+            file.write("<!doctype html><html><head><link rel=\"stylesheet\" href=\"./wordpress-homepage.css\"></head><body class=\"homepage\" id=\"main\"> <script src=\"./wordpress-homepage.js\"></script><div >")
             html_content = response.json()["content"]["rendered"]
             file.write(html_content)
-            file.write("</body></html>")
+            file.write("</div></body></html>")
         
         message = f"Successfully cloned post {post_id} to {file_path}"
         writer.write_summary(f"- {message}\n")

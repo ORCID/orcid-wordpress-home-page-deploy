@@ -8,9 +8,9 @@ def process_rule(rule, writer):
             if selector.selectorText == ":root":
                 new_selector_list.append(selector.selectorText)
             elif selector.selectorText == "body":
-                new_selector_list.append(f"{selector.selectorText}.homepage")
+                new_selector_list.append(f"#main.homepage")
             elif selector.selectorText.startswith('.homepage'):
-                new_selector_list.append(f'body.homepage {selector.selectorText[len(".homepage"):]}')
+                new_selector_list.append(f'#main.homepage {selector.selectorText[len(".homepage"):]}')
             else:
                 new_selector_list.append(f'.homepage {selector.selectorText}')
         except Exception as e:
