@@ -6,7 +6,7 @@ def process_rule(rule, writer):
     for selector in rule.selectorList:
         try:
             if selector.selectorText == ":root":
-                new_selector_list.append(selector.selectorText)
+                new_selector_list.append(f'{selector.selectorText} .homepage')
             elif selector.selectorText == "body":
                 new_selector_list.append(f"#main.homepage")
             elif selector.selectorText.startswith('.homepage'):
