@@ -85,9 +85,9 @@ jobs:
         uses: reggionick/s3-deploy@v4
         with:
           folder: dist
-          bucket: ${{ env.AWS_BUCKET }}
+          bucket: ${{ env.FALLBACK_AWS_BUCKET }}
           bucket-region: ${{ secrets.AWS_REGION }}
-          dist-id: ${{ env.CLOUDFRONT_DIST_ID }}
+          dist-id: ${{ env.FALBACK_CLOUDFRONT_DIST_ID }}
           invalidation: /
           delete-removed: true
           no-cache: true
@@ -126,20 +126,15 @@ jobs:
         run: |
           git fetch --tags
           git checkout ${{ github.event.inputs.version }}
-          
- 
-      - name: Set environment variables
-        run: |
-          echo "AWS_BUCKET=${{ secrets.PROD_AWS_BUCKET }}" >> $GITHUB_ENV
-          echo "CLOUDFRONT_DIST_ID=${{ secrets.PROD_CLOUDFRONT_DIST_ID }}" >> $GITHUB_ENV
+        
 
       - name: Upload HTML to S3
         uses: reggionick/s3-deploy@v4
         with:
           folder: dist
-          bucket: ${{ env.AWS_BUCKET }}
+          bucket: ${{ env.PROD_AWS_BUCKET }}
           bucket-region: ${{ secrets.AWS_REGION }}
-          dist-id: ${{ env.CLOUDFRONT_DIST_ID }}
+          dist-id: ${{ env.PROD_CLOUDFRONT_DIST_ID }}
           invalidation: /
           delete-removed: true
           no-cache: true

@@ -47,7 +47,7 @@ def validate_assets(url, version, github_writer, env):
             break
         else:
             if attempt < max_retries - 1:
-                github_writer.write_summary(f"Version {version} not found. Retrying... ({attempt + 1}/{max_retries})", env)
+                github_writer.write_summary(f"Version {version} not found. Retrying... ({attempt + 1}/{max_retries})")
                 time.sleep(5)
                 response = fetch_url(session, url)
                 if not response:
