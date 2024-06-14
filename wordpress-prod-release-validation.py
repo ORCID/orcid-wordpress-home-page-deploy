@@ -1,14 +1,11 @@
 import requests
 from bs4 import BeautifulSoup, Comment
 import sys
-import logging
+import time
 from urllib.parse import urljoin
 from github_writer import GitHubWriter
 from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.util.retry import Retry
-
-# Configure logging
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 def create_session_with_retries():
     session = requests.Session()
@@ -23,7 +20,6 @@ def fetch_url(session, url):
         response.raise_for_status()
         return response
     except requests.exceptions.RequestException as e:
-        logging.error(f"Failed to fetch {url}: {e}")
         return None
 
 def validate_version(soup, version):
@@ -43,10 +39,24 @@ def validate_assets(url, version, github_writer, env):
         return False
 
     soup = BeautifulSoup(response.content, 'html.parser')
-
-    if not validate_version(soup, version):
-        github_writer.write_summary_and_fail(f"Version {version} not found in {url}.", env)
-        return False
+    
+    # Retry mechanism for validate_version
+    max_retries = 5
+    for attempt in range(max_retries):
+        if validate_version(soup, version):
+            break
+        else:
+            if attempt < max_retries - 1:
+                github_writer.write_summary(f"Version {version} not found. Retrying... ({attempt + 1}/{max_retries})", env)
+                time.sleep(5)
+                response = fetch_url(session, url)
+                if not response:
+                    github_writer.write_summary_and_fail(f"Failed to fetch {url}.", env)
+                    return False
+                soup = BeautifulSoup(response.content, 'html.parser')
+            else:
+                github_writer.write_summary_and_fail(f"Version {version} not found in {url} after {max_retries} attempts.", env)
+                return False
     
     # Collect all asset URLs
     assets = []
