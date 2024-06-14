@@ -39,17 +39,17 @@ jobs:
         uses: reggionick/s3-deploy@v4
         with:
           folder: dist
-          bucket: ${{secrets.QA_AWS_BUCKET}}
-          bucket-region: ${{ secrets.AWS_REGION }}
-          dist-id: ${{secrets.QA_CLOUDFRONT_DIST_ID}}
+          bucket: ${{env.QA_AWS_BUCKET}}
+          bucket-region: ${{ env.AWS_REGION }}
+          dist-id: ${{env.QA_CLOUDFRONT_DIST_ID}}
           invalidation: /
           delete-removed: true
           no-cache: true
           private: true
           files-to-include: '{.*/**,**}'
         env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_ACCESS_KEY_ID: ${{ env.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ env.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: 'us-east-1'
 
       - name: Validate QA Deployment
@@ -86,7 +86,7 @@ jobs:
         with:
           folder: dist
           bucket: ${{ env.FALLBACK_AWS_BUCKET }}
-          bucket-region: ${{ secrets.AWS_REGION }}
+          bucket-region: ${{ env.AWS_REGION }}
           dist-id: ${{ env.FALBACK_CLOUDFRONT_DIST_ID }}
           invalidation: /
           delete-removed: true
@@ -94,8 +94,8 @@ jobs:
           private: true
           files-to-include: '{.*/**,**}'
         env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_ACCESS_KEY_ID: ${{ env.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ env.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: 'us-east-1'
 
       - name: Validate Fallback Deployment
@@ -133,7 +133,7 @@ jobs:
         with:
           folder: dist
           bucket: ${{ env.PROD_AWS_BUCKET }}
-          bucket-region: ${{ secrets.AWS_REGION }}
+          bucket-region: ${{ env.AWS_REGION }}
           dist-id: ${{ env.PROD_CLOUDFRONT_DIST_ID }}
           invalidation: /
           delete-removed: true
@@ -141,8 +141,8 @@ jobs:
           private: true
           files-to-include: '{.*/**,**}'
         env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_ACCESS_KEY_ID: ${{ env.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ env.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: 'us-east-1'
 
       - name: Validate Production Deployment
