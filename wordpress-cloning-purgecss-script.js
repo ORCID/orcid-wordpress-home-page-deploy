@@ -25,12 +25,11 @@ const outputFilePath = "dist/wordpress-homepage.css";
       content: ["dist/index.html"],
       css: [cssFilePath],
       output: outputFilePath,
-      safelist: {
-        // standard: [/^is-/],
-        deep: [
-          /:where\(([^)]+)\)/, // This will match `:where` with any content inside the parentheses
-        ],
-      },
+      safelist: [
+          /:is/, // https://github.com/FullHuman/purgecss/issues/978
+          /:where/, // https://github.com/FullHuman/purgecss/issues/978
+          /:not/, // https://github.com/FullHuman/purgecss/issues/1197
+      ]
     });
 
     // Write the purged CSS to the output file
@@ -49,8 +48,8 @@ const outputFilePath = "dist/wordpress-homepage.css";
     // Write the report to the GitHub Actions job summary
     await gitHubWriter.writeSummary(report);
   } catch (error) {
-    gitHubWriter.writeSummary(`- ${error}\n`);
-    gitHubWriter.writeOutput("script-success", "false");
+    await gitHubWriter.writeSummary(`- ${error}\n`);
+    await gitHubWriter.writeOutput("script-success", "false");
     sys.exit(1);
   }
 })();
