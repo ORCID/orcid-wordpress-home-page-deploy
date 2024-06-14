@@ -61,12 +61,12 @@ jobs:
           echo "Script failed, raising an error."
           exit 1
 
-      - name: Upload WordPress Staging HTML to S3
+      - name: Upload HTML to S3
         uses: reggionick/s3-deploy@v4
         if: ${{ inputs.environment != 'PROD' }}
         with:
           folder: dist
-          bucket: orcid-qa-public-page
+          bucket: ${{secrets.QA_AWS_BUCKET}}
           bucket-region: ${{ secrets.AWS_REGION }}
           dist-id: ${{secrets.QA_CLOUDFRONT_DIST_ID}}
           invalidation: /
@@ -157,15 +157,15 @@ jobs:
         uses: reggionick/s3-deploy@v4
         with:
           folder: dist
-          bucket: ${{env.QA_AWS_BUCKET}}
+          bucket: ${{secrets.QA_AWS_BUCKET}}
           bucket-region: ${{ secrets.AWS_REGION }}
-          dist-id: ${{env.QA_CLOUDFRONT_DIST_ID}}
+          dist-id: ${{secrets.QA_CLOUDFRONT_DIST_ID}}
           invalidation: /
           delete-removed: true
           no-cache: true
           private: true
           files-to-include: '{.*/**,**}'
         env:
-          AWS_ACCESS_KEY_ID: ${{ env.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ env.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: ${{ env.AWS_REGION }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
