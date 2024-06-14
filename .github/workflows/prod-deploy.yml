@@ -25,7 +25,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests beautifulsoup4
+          pip install requests beautifulsoup4 urllib3
 
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -54,7 +54,7 @@ jobs:
 
       - name: Validate QA Deployment
         run: |
-          python wordpress-prod-release-validation.py QA
+          python wordpress-prod-release-validation.py QA ${{ github.event.inputs.version }}
 
   upload_prod_wordpress_to_fallback_s3:
   
@@ -71,7 +71,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests beautifulsoup4
+          pip install requests beautifulsoup4 urllib3
 
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -100,7 +100,7 @@ jobs:
 
       - name: Validate Fallback Deployment
         run: |
-          python wordpress-prod-release-validation.py FALLBACK
+          python wordpress-prod-release-validation.py FALLBACK ${{ github.event.inputs.version }}
 
 
   upload_prod_wordpress_to_prod_s3:
@@ -117,7 +117,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests beautifulsoup4
+          pip install requests beautifulsoup4 urllib3
           
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -152,4 +152,4 @@ jobs:
 
       - name: Validate Production Deployment
         run: |
-          python wordpress-prod-release-validation.py PROD
+          python wordpress-prod-release-validation.py PROD ${{ github.event.inputs.version }}
