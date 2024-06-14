@@ -40,7 +40,7 @@ jobs:
         with:
           folder: dist
           bucket: ${{env.QA_AWS_BUCKET}}
-          bucket-region: ${{ env.AWS_REGION }}
+          bucket-region: ${{ secrets.AWS_REGION }}
           dist-id: ${{env.QA_CLOUDFRONT_DIST_ID}}
           invalidation: /
           delete-removed: true
@@ -86,7 +86,7 @@ jobs:
         with:
           folder: dist
           bucket: ${{ env.FALLBACK_AWS_BUCKET }}
-          bucket-region: ${{ env.AWS_REGION }}
+          bucket-region: ${{ secrets.AWS_REGION }}
           dist-id: ${{ env.FALBACK_CLOUDFRONT_DIST_ID }}
           invalidation: /
           delete-removed: true
@@ -133,7 +133,7 @@ jobs:
         with:
           folder: dist
           bucket: ${{ env.PROD_AWS_BUCKET }}
-          bucket-region: ${{ env.AWS_REGION }}
+          bucket-region: ${{ secrets.AWS_REGION }}
           dist-id: ${{ env.PROD_CLOUDFRONT_DIST_ID }}
           invalidation: /
           delete-removed: true
