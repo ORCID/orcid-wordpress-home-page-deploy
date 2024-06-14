@@ -91,6 +91,12 @@ def main():
         "PROD": "https://d25yxmpntoa26z.cloudfront.net/index.html"
     }
 
+    next_environment_to_be_deployed = {
+        "QA": "FALLBACK",
+        "FALLBACK": "PROD",
+        "PROD": False
+    }
+
     if env not in urls:
         print(f"Unknown environment: {env}", file=sys.stderr)
         sys.exit(1)
@@ -99,7 +105,12 @@ def main():
     github_writer = GitHubWriter()
 
     if validate_assets(url, version, github_writer, env):
-        github_writer.write_summary(f"All assets are correctly loaded and version {version} is present. Please check the [env deployed homepage]({urls[env]}) for any issues.")
+        github_writer.write_summary(f"All assets are correctly loaded and version {version} is present for {env}.")
+        github_writer.write_summary(f"Please check the [{env} deployed homepage]({urls[env]}) for any issues.")
+        if next_environment_to_be_deployed[env]:
+            github_writer.write_summary(f"Once this deployed has been validated please pesss the button 'Review deployments' to deploy {next_environment_to_be_deployed[env]}.")
+        else:
+            github_writer.write_summary("All environments have been deployed.")
     else:
         github_writer.write_summary(f"Some assets failed to load or version {version} is missing for {env} environment.", env)
         sys.exit(1)
