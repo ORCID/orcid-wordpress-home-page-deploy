@@ -61,17 +61,17 @@
 @font-face {
     font-family: "FontAwesome";
     font-display: block;
-    src: url(assets/fa_brands_400.eot), url(assets/fa_brands_400.eot?#iefix) format("embedded-opentype"), url(assets/fa_brands_400.woff2) format("woff2"), url(assets/fa_brands_400.woff) format("woff"), url(assets/fa_brands_400.ttf) format("truetype"), url(assets/fa_brands_400.svg_fontawesome) format("svg")
+    src: url(./assets/fa_brands_400.eot), url(./assets/fa_brands_400.eot?#iefix) format("embedded-opentype"), url(./assets/fa_brands_400.woff2) format("woff2"), url(./assets/fa_brands_400.woff) format("woff"), url(./assets/fa_brands_400.ttf) format("truetype"), url(./assets/fa_brands_400.svg_fontawesome) format("svg")
     }
 @font-face {
     font-family: "FontAwesome";
     font-display: block;
-    src: url(assets/fa_solid_900.eot), url(assets/fa_solid_900.eot?#iefix) format("embedded-opentype"), url(assets/fa_solid_900.woff2) format("woff2"), url(assets/fa_solid_900.woff) format("woff"), url(assets/fa_solid_900.ttf) format("truetype"), url(assets/fa_solid_900.svg_fontawesome) format("svg")
+    src: url(./assets/fa_solid_900.eot), url(./assets/fa_solid_900.eot?#iefix) format("embedded-opentype"), url(./assets/fa_solid_900.woff2) format("woff2"), url(./assets/fa_solid_900.woff) format("woff"), url(./assets/fa_solid_900.ttf) format("truetype"), url(./assets/fa_solid_900.svg_fontawesome) format("svg")
     }
 @font-face {
     font-family: "FontAwesome";
     font-display: block;
-    src: url(assets/fa_regular_400.eot), url(assets/fa_regular_400.eot?#iefix) format("embedded-opentype"), url(assets/fa_regular_400.woff2) format("woff2"), url(assets/fa_regular_400.woff) format("woff"), url(assets/fa_regular_400.ttf) format("truetype"), url(assets/fa_regular_400.svg_fontawesome) format("svg");
+    src: url(./assets/fa_regular_400.eot), url(./assets/fa_regular_400.eot?#iefix) format("embedded-opentype"), url(./assets/fa_regular_400.woff2) format("woff2"), url(./assets/fa_regular_400.woff) format("woff"), url(./assets/fa_regular_400.ttf) format("truetype"), url(./assets/fa_regular_400.svg_fontawesome) format("svg");
     unicode-range: u+f004-f005, u+f007, u+f017, u+f022, u+f024, u+f02e, u+f03e, u+f044, u+f057-f059, u+f06e, u+f070, u+f075, u+f07b-f07c, u+f080, u+f086, u+f089, u+f094, u+f09d, u+f0a0, u+f0a4-f0a7, u+f0c5, u+f0c7-f0c8, u+f0e0, u+f0eb, u+f0f3, u+f0f8, u+f0fe, u+f111, u+f118-f11a, u+f11c, u+f133, u+f144, u+f146, u+f14a, u+f14d-f14e, u+f150-f152, u+f15b-f15c, u+f164-f165, u+f185-f186, u+f191-f192, u+f1ad, u+f1c1-f1c9, u+f1cd, u+f1d8, u+f1e3, u+f1ea, u+f1f6, u+f1f9, u+f20a, u+f247-f249, u+f24d, u+f254-f25b, u+f25d, u+f267, u+f271-f274, u+f279, u+f28b, u+f28d, u+f2b5-f2b6, u+f2b9, u+f2bb, u+f2bd, u+f2c1-f2c2, u+f2d0, u+f2d2, u+f2dc, u+f2ed, u+f328, u+f358-f35b, u+f3a5, u+f3d1, u+f410, u+f4ad
     }
 /* Inline CSS from HTML */
@@ -211,29 +211,17 @@
 @font-face {
     font-family: "FontAwesome";
     font-display: block;
-<<<<<<< HEAD
-    src: url(assets/fa_brands_400.eot), url(assets/fa_brands_400.eot?#iefix) format("embedded-opentype"), url(assets/fa_brands_400.woff2) format("woff2"), url(assets/fa_brands_400.woff) format("woff"), url(assets/fa_brands_400.ttf) format("truetype"), url(assets/fa_brands_400.svg_fontawesome) format("svg")
-=======
     src: url(./assets/fa_brands_400.eot), url(./assets/fa_brands_400.eot?#iefix) format("embedded-opentype"), url(./assets/fa_brands_400.woff2) format("woff2"), url(./assets/fa_brands_400.woff) format("woff"), url(./assets/fa_brands_400.ttf) format("truetype"), url(./assets/fa_brands_400.svg_fontawesome) format("svg")
->>>>>>> bafa631c89887b9e43f2c8165ed1147327bafc44
     }
 @font-face {
     font-family: "FontAwesome";
     font-display: block;
-<<<<<<< HEAD
-    src: url(assets/fa_solid_900.eot), url(assets/fa_solid_900.eot?#iefix) format("embedded-opentype"), url(assets/fa_solid_900.woff2) format("woff2"), url(assets/fa_solid_900.woff) format("woff"), url(assets/fa_solid_900.ttf) format("truetype"), url(assets/fa_solid_900.svg_fontawesome) format("svg")
-=======
     src: url(./assets/fa_solid_900.eot), url(./assets/fa_solid_900.eot?#iefix) format("embedded-opentype"), url(./assets/fa_solid_900.woff2) format("woff2"), url(./assets/fa_solid_900.woff) format("woff"), url(./assets/fa_solid_900.ttf) format("truetype"), url(./assets/fa_solid_900.svg_fontawesome) format("svg")
->>>>>>> bafa631c89887b9e43f2c8165ed1147327bafc44
     }
 @font-face {
     font-family: "FontAwesome";
     font-display: block;
-<<<<<<< HEAD
-    src: url(assets/fa_regular_400.eot), url(assets/fa_regular_400.eot?#iefix) format("embedded-opentype"), url(assets/fa_regular_400.woff2) format("woff2"), url(assets/fa_regular_400.woff) format("woff"), url(assets/fa_regular_400.ttf) format("truetype"), url(assets/fa_regular_400.svg_fontawesome) format("svg");
-=======
     src: url(./assets/fa_regular_400.eot), url(./assets/fa_regular_400.eot?#iefix) format("embedded-opentype"), url(./assets/fa_regular_400.woff2) format("woff2"), url(./assets/fa_regular_400.woff) format("woff"), url(./assets/fa_regular_400.ttf) format("truetype"), url(./assets/fa_regular_400.svg_fontawesome) format("svg");
->>>>>>> bafa631c89887b9e43f2c8165ed1147327bafc44
     unicode-range: u+f004-f005, u+f007, u+f017, u+f022, u+f024, u+f02e, u+f03e, u+f044, u+f057-f059, u+f06e, u+f070, u+f075, u+f07b-f07c, u+f080, u+f086, u+f089, u+f094, u+f09d, u+f0a0, u+f0a4-f0a7, u+f0c5, u+f0c7-f0c8, u+f0e0, u+f0eb, u+f0f3, u+f0f8, u+f0fe, u+f111, u+f118-f11a, u+f11c, u+f133, u+f144, u+f146, u+f14a, u+f14d-f14e, u+f150-f152, u+f15b-f15c, u+f164-f165, u+f185-f186, u+f191-f192, u+f1ad, u+f1c1-f1c9, u+f1cd, u+f1d8, u+f1e3, u+f1ea, u+f1f6, u+f1f9, u+f20a, u+f247-f249, u+f24d, u+f254-f25b, u+f25d, u+f267, u+f271-f274, u+f279, u+f28b, u+f28d, u+f2b5-f2b6, u+f2b9, u+f2bb, u+f2bd, u+f2c1-f2c2, u+f2d0, u+f2d2, u+f2dc, u+f2ed, u+f328, u+f358-f35b, u+f3a5, u+f3d1, u+f410, u+f4ad
     }
 /* Inline CSS from HTML */
@@ -1512,58 +1500,34 @@ This workaround will remain in place until the underlying issue in purgecss is r
     padding-left: 50px
     }
 #main.homepage .inpage-nav-one {
-<<<<<<< HEAD
-    background-image: url(assets/iD_icon_1-b2beec997a.png);
-=======
     background-image: url(./assets/iD_icon_1.png);
->>>>>>> bafa631c89887b9e43f2c8165ed1147327bafc44
     background-repeat: no-repeat;
     background-position: left;
     padding-left: 5px
     }
 #main.homepage .inpage-nav-two {
-<<<<<<< HEAD
-    background-image: url(assets/troubleshoot_FILL0_wght400_GRAD0_opsz24_1-d2177e088a.png);
-=======
     background-image: url(./assets/troubleshoot_FILL0_wght400_GRAD0_opsz24_1.png);
->>>>>>> bafa631c89887b9e43f2c8165ed1147327bafc44
     background-repeat: no-repeat;
     background-position: left;
     size: 40px
     }
 #main.homepage .inpage-nav-three {
-<<<<<<< HEAD
-    background-image: url(assets/loyalty_FILL0_wght400_GRAD0_opsz24_1-e06dc7e109.png);
-=======
     background-image: url(./assets/loyalty_FILL0_wght400_GRAD0_opsz24_1.png);
->>>>>>> bafa631c89887b9e43f2c8165ed1147327bafc44
     background-repeat: no-repeat;
     background-position: left
     }
 #main.homepage .inpage-nav-four {
-<<<<<<< HEAD
-    background-image: url(assets/account_balance_FILL0_wght400_GRAD0_opsz24_1-effe82fd6a.png);
-=======
     background-image: url(./assets/account_balance_FILL0_wght400_GRAD0_opsz24_1.png);
->>>>>>> bafa631c89887b9e43f2c8165ed1147327bafc44
     background-repeat: no-repeat;
     background-position: left
     }
 #main.homepage .inpage-nav-five {
-<<<<<<< HEAD
-    background-image: url(assets/query_stats_FILL0_wght400_GRAD0_opsz24_1-0acfa86fb6.png);
-=======
     background-image: url(./assets/query_stats_FILL0_wght400_GRAD0_opsz24_1.png);
->>>>>>> bafa631c89887b9e43f2c8165ed1147327bafc44
     background-repeat: no-repeat;
     background-position: left
     }
 #main.homepage .inpage-nav-six {
-<<<<<<< HEAD
-    background-image: url(assets/workspace_premium_40dp_FILL0_wght400_GRAD0_opsz40_e1719393775406-4f6eb745ef.png);
-=======
     background-image: url(./assets/workspace_premium_40dp_FILL0_wght400_GRAD0_opsz40_e1719393775406.png);
->>>>>>> bafa631c89887b9e43f2c8165ed1147327bafc44
     background-repeat: no-repeat;
     background-position: left
     }
@@ -1574,11 +1538,7 @@ This workaround will remain in place until the underlying issue in purgecss is r
 /* Tabbed Header Block */
 /* ------------------- */
 #main.homepage .tabbed-hero-block {
-<<<<<<< HEAD
-    background-image: url(assets/riccardo_gazzin_DTo9I7pEPBo_unsplash_duotone2-3e8e9dbb41.png)
-=======
     background-image: url(./assets/riccardo_gazzin_DTo9I7pEPBo_unsplash_duotone2.png)
->>>>>>> bafa631c89887b9e43f2c8165ed1147327bafc44
     }
 /* tabbed header block column style */
 #main.homepage .tabbed-block-inner-column {
@@ -1594,11 +1554,7 @@ This workaround will remain in place until the underlying issue in purgecss is r
 #main.homepage .tpgb-tabs-content-wrapper .tpgb-tab-content {
     padding: var(--space-quad) var(--space-quad) var(--space) var(--space-quad);
     width: auto;
-<<<<<<< HEAD
-    background-image: url(assets/Sofia_Blank_Record_hero_gradient_2-1af5e8cd3c.png);
-=======
     background-image: url(./assets/Sofia_Blank_Record_hero_gradient_2.png);
->>>>>>> bafa631c89887b9e43f2c8165ed1147327bafc44
     background-repeat: no-repeat;
     background-size: cover
     }
