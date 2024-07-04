@@ -1,6 +1,6 @@
-const fs = require("fs");
-const { PurgeCSS } = require("purgecss");
-const GitHubWriter = require("./github_writer");
+import fs from "fs";
+import { PurgeCSS } from "purgecss";
+import GitHubWriter from "./github_writer.js";
 
 const gitHubWriter = new GitHubWriter();
 

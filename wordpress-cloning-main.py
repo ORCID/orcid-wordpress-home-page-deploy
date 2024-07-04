@@ -43,6 +43,7 @@ def main():
     run_command("rm -rf dist")
     Path("dist").mkdir(parents=True, exist_ok=True)
     
+    
     install_dependencies()
 
     args = parser.parse_args()
@@ -106,8 +107,10 @@ def main():
     else:
         writer.write_summary("- Skipping commit and push changes for not PROD environments\n")
         writer.write_output("script-succes", "true")
-    
-    
+
+    writer.write_summary("## Fingerprint assets:\n")
+    subprocess.run(['npm', 'run', 'gulp'], check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
 
 if __name__ == "__main__":
     main()

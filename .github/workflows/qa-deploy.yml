@@ -1,16 +1,16 @@
 name: Homepage qa.orcid.org Deploy
-run-name: qa.orcid.org deploy WordPress ${{ inputs.environment }} - post ${{ inputs.postID }} by @${{ github.actor }}
+run-name: qa.orcid.org deploy WordPress - post ${{ inputs.postID }} by @${{ github.actor }} - createArtifact: ${{ inputs.createArtifact }}
 
 on:
   workflow_dispatch:
     inputs:
-      environment:
+      createArtifact:
         required: true
-        description: "WordPress environment"
+        description: "Create a versioned artifact?"
         type: choice
         options:
-          - STAGING
-          - PROD
+          - 'true'
+          - 'false'
       postID:
         required: true
         type: string
@@ -49,7 +49,7 @@ jobs:
       - name: Run clone and process script
         id: wordpress-cloning-main
         run: |
-            python wordpress-cloning-main.py ${{ inputs.environment }} ${{ inputs.postID }} ${{ secrets.WORDPRESS_USERNAME }} ${{ secrets.WORDPRESS_PASSWORD }}
+            python wordpress-cloning-main.py STAGING ${{ inputs.postID }} ${{ secrets.WORDPRESS_USERNAME }} ${{ secrets.WORDPRESS_PASSWORD }}
         continue-on-error: true
         env:
           GITHUB_OUTPUT: ${{ github.output }}
@@ -63,7 +63,7 @@ jobs:
 
       - name: Upload HTML to S3
         uses: reggionick/s3-deploy@v4
-        if: ${{ inputs.environment != 'PROD' }}
+        if: ${{ inputs.createArtifact != 'true' }}
         with:
           folder: dist
           bucket: ${{secrets.QA_AWS_BUCKET}}
@@ -84,7 +84,7 @@ jobs:
     environment: qa.orcid.org
     runs-on: ubuntu-latest
     needs: clone-post
-    if: inputs.environment == 'PROD' && needs.clone-post.outputs.script-success == 'true'
+    if: inputs.createArtifact == 'true' && needs.clone-post.outputs.script-success == 'true'
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -121,7 +121,7 @@ jobs:
       - name: Inject version, commit, and push changes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ENVIRONMENT: ${{ inputs.environment }}
+          ENVIRONMENT: 'STAGING'
         run: python wordpress-cloning-version-update.py ${{ steps.new_version.outputs.new_version }}
 
       - name: Create and push tag
