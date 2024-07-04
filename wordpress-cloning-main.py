@@ -82,7 +82,7 @@ def main():
     run_script("wordpress-cloning-css-prefixer-script.py")
 
     writer.write_summary("## Version control changes \n")
-    if args.environment == 'PROD' and args.dry_run == False:
+    if args.dry_run == False:
         configure_git_user()
 
         try:
@@ -104,9 +104,6 @@ def main():
         writer.write_summary("- Skipping commit and push changes for dry-run\n")
         writer.write_output("script-succes", "true")
 
-    else:
-        writer.write_summary("- Skipping commit and push changes for not PROD environments\n")
-        writer.write_output("script-succes", "true")
 
     writer.write_summary("## Fingerprint assets:\n")
     subprocess.run(['npm', 'run', 'gulp'], check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)

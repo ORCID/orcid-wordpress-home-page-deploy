@@ -50,7 +50,11 @@ jobs:
       - name: Run clone and process script
         id: wordpress-cloning-main
         run: |
+          if [ "${{ inputs.createArtifact }}" == 'true' ]; then
+            python wordpress-cloning-main.py STAGING ${{ inputs.postID }} ${{ secrets.WORDPRESS_USERNAME }} ${{ secrets.WORDPRESS_PASSWORD }} --dry-run
+          else
             python wordpress-cloning-main.py STAGING ${{ inputs.postID }} ${{ secrets.WORDPRESS_USERNAME }} ${{ secrets.WORDPRESS_PASSWORD }}
+          fi
         continue-on-error: true
         env:
           GITHUB_OUTPUT: ${{ github.output }}
