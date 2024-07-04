@@ -1,6 +1,6 @@
 # Orcid WordPress Homepage Deployment
 
-The purpose of this repository is to provide a straightforward method for both technical and non-technical users to deploy a clone of a WordPress post from https://info.qa.orcid.org/ and https://info.orcid.org/.
+The purpose of this repository is to provide a straightforward method for both technical and non-technical users to deploy a clone of a WordPress post from https://info.qa.orcid.org/
 
 ## Homepage QA Deploy
 
@@ -8,32 +8,38 @@ Deploy the info.qa.orcid.org page on qa.orcid.org:
 
   -  Navigate to [Homepage QA Deploy](https://github.com/ORCID/orcid-wordpress-home-page-deploy/actions/workflows/qa-deploy.yml)
   -  Click on "Run workflow"
-  -  Select environment = `STAGIN` and select the WordPress post that needs to be deployed (default is `25163`)
-    <img src="https://github.com/ORCID/orcid-wordpress-home-page-deploy/assets/2119626/4c42594c-94a6-44fb-870a-624c9faf2b2a" height="200">
+  -  Select `Create a versioned artifact? = false`  and select the WordPress post that needs to be deployed (default is `25422`)
+<img width="340" alt="image" src="https://github.com/ORCID/orcid-wordpress-home-page-deploy/assets/2119626/77e361a1-c683-4dda-ae83-6840d1467ae3">
 
-```
-Note: 
-TODO: Provide more info to users who might not know how to get the post id 
-from the WordPress post they want to publish. 
-```
 
 ## Homepage PROD Deploy
 
-Deploy the info.orcid.org page on orcid.org
-
-1.  Before deploying it to prod, verify the info.orcid.org post on qa.orcid.org
+1.  Before deploying it to prod run a QA release that will create a versioned artifact
     - Navigate to [Homepage QA Deploy](https://github.com/ORCID/orcid-wordpress-home-page-deploy/actions/workflows/qa-deploy.yml)
     - Click on "Run workflow"
-    - Select environment = `PROD` and select the Prod WordPress post that needs to be deployed
+    - Select `Create a versioned artifact? = true` and select the Prod WordPress post that needs to be deployed (default is 25422)
+    - The created artifact is now published on qa.orcid.org. Please make sure with your team that this is approved for production before continuing. 
 
-2. Deploy the info.orcid.org page to prod:
+2. Deploy the version of this artifact to production
    - Navigate to [Homepage PROD Deploy](https://github.com/ORCID/orcid-wordpress-home-page-deploy/actions/workflows/prod-deploy.yml)
-   - -- WIP 👷‍♂️ ---
+   - Click on "Run workflow"
+   - And run the latest version displayed on the [(release list page) ](https://github.com/ORCID/orcid-wordpress-home-page-deploy/releases).
+   - The release will occur in three stages: a release to QA (for a final review), a release to the production-fallback machine, and a release to the production machine.
+   - Before the fallback-production and production releases, you will be asked to review the previous release. You will need to approve this to continue. As show on the following image:
+   - <img width="1416" alt="image" src="https://github.com/ORCID/orcid-wordpress-home-page-deploy/assets/2119626/eb120157-8ae3-4712-9cca-6eef01c0aa5a">
+
+
+3. Document the date this release version was put up on production
+   - Navigate to the release list version, click "Edit," and add a note about the release date for the production version. This information will provide better context for identifying the last stable version if a rollback is necessary. <img width="1132" alt="image" src="https://github.com/ORCID/orcid-wordpress-home-page-deploy/assets/2119626/fca8b496-fc47-43b6-8998-0346b284ae95">
+
+
 
 
 ## Rollback Deployment
 
--- WIP 👷‍♂️ ---
+   - Navigate to [Homepage PROD Deploy](https://github.com/ORCID/orcid-wordpress-home-page-deploy/actions/workflows/prod-deploy.yml)
+   - Click on "Run workflow"
+   - And run the version you want to deploy to production [(see the full list on versioned artifacts apps) ](https://github.com/ORCID/orcid-wordpress-home-page-deploy/releases)
 
 ## Developers
 
@@ -44,14 +50,6 @@ Running the following command will run the cloning process on your local environ
 ```
 export GITHUB_OUTPUT="./dist/output"     
 export GITHUB_STEP_SUMMARY="./dist/summary"
-python3 wordpress-cloning-main.py PROD 27308 orcidstaging fb8dd998
+python3 wordpress-cloning-main.py STAGE 25422 orcidstaging fb8dd998 --dry-run
 ```
 
-If changes need to be committed run (This won't deploy to S3, or create a GitHub releases)
-
-```
-export GITHUB_OUTPUT="./dist/output"     
-export GITHUB_STEP_SUMMARY="./dist/summary"
-python3 wordpress-cloning-main.py PROD 27308 orcidstaging fb8dd998
-```
--- WIP 👷‍♂️ ---
