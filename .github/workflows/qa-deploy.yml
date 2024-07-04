@@ -1,5 +1,6 @@
 name: Homepage qa.orcid.org Deploy
-run-name: qa.orcid.org deploy WordPress - post ${{ inputs.postID }} by @${{ github.actor }} - createArtifact: ${{ inputs.createArtifact }}
+run-name: qa.orcid.org deploy WordPress ${{ inputs.environment }} - post ${{ inputs.postID }} createArtifact @${{ inputs.createArtifact }}
+
 
 on:
   workflow_dispatch:
