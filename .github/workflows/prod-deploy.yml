@@ -41,8 +41,6 @@ jobs:
           folder: dist
           bucket: ${{secrets.QA_AWS_BUCKET}}
           bucket-region: ${{ secrets.AWS_REGION }}
-          dist-id: ${{secrets.QA_CLOUDFRONT_DIST_ID}}
-          invalidation: /
           delete-removed: true
           no-cache: true
           private: true
@@ -87,8 +85,6 @@ jobs:
           folder: dist
           bucket: ${{ secrets.FALLBACK_AWS_BUCKET }}
           bucket-region: ${{ secrets.AWS_REGION }}
-          dist-id: ${{ secrets.FALBACK_CLOUDFRONT_DIST_ID }}
-          invalidation: /
           delete-removed: true
           no-cache: true
           private: true
@@ -134,8 +130,6 @@ jobs:
           folder: dist
           bucket: ${{ secrets.PROD_AWS_BUCKET }}
           bucket-region: ${{ secrets.AWS_REGION }}
-          dist-id: ${{ secrets.PROD_CLOUDFRONT_DIST_ID }}
-          invalidation: /
           delete-removed: true
           no-cache: true
           private: true

@@ -86,9 +86,9 @@ def main():
     env = sys.argv[1]
     version = sys.argv[2]
     urls = {
-        "QA": "https://d3055hwma3riwo.cloudfront.net/index.html",
-        "FALLBACK": "https://d1kh89kum7j2ji.cloudfront.net/index.html",
-        "PROD": "https://d25yxmpntoa26z.cloudfront.net/index.html"
+        "QA": "https://homepage-qa.orcid.org/index.html",
+        "FALLBACK": "https://homepage-fallback.orcid.org/index.html",
+        "PROD": "https://homepage-prod.orcid.org/index.html"
     }
 
     next_environment_to_be_deployed = {
