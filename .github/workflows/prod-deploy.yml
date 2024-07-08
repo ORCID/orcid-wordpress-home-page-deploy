@@ -39,7 +39,7 @@ jobs:
         uses: reggionick/s3-deploy@v4
         with:
           folder: dist
-          bucket: ${{secrets.QA_AWS_BUCKET}}
+          bucket: ${{vars.QA_AWS_BUCKET}}
           bucket-region: ${{ secrets.AWS_REGION }}
           delete-removed: true
           no-cache: true
@@ -83,7 +83,7 @@ jobs:
         uses: reggionick/s3-deploy@v4
         with:
           folder: dist
-          bucket: ${{ secrets.FALLBACK_AWS_BUCKET }}
+          bucket: ${{ vars.FALLBACK_AWS_BUCKET }}
           bucket-region: ${{ secrets.AWS_REGION }}
           delete-removed: true
           no-cache: true
@@ -128,7 +128,7 @@ jobs:
         uses: reggionick/s3-deploy@v4
         with:
           folder: dist
-          bucket: ${{ secrets.PROD_AWS_BUCKET }}
+          bucket: ${{ vars.PROD_AWS_BUCKET }}
           bucket-region: ${{ secrets.AWS_REGION }}
           delete-removed: true
           no-cache: true
