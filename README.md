@@ -43,7 +43,7 @@ Deploy the info.qa.orcid.org page on qa.orcid.org:
 
 ## Developers
 
-#### Cloning WordPress:
+#### Cloning WordPress Locally:
 
 Running the following command will run the cloning process on your local environment (This won't deploy to S3, commit, or do GitHub releases)
 
@@ -53,3 +53,6 @@ export GITHUB_STEP_SUMMARY="./dist/summary"
 python3 wordpress-cloning-main.py STAGE 25422 orcidstaging fb8dd998 --dry-run
 ```
 
+#### Are you adding a new CSS stylesheet to WordPress?
+
+If you add a new stylesheet to WordPress, you will need to update the file [wordpress-cloning-css-script.py](https://github.com/ORCID/orcid-wordpress-home-page-deploy/blob/main/wordpress-cloning-css-script.py). This will make the cloning script to include the new stylesheet in the css output file.
