@@ -27,6 +27,7 @@ def download_js_files(environment, wordpress_staging_username, wordpress_staging
         f"{base_url}wp-includes/js/jquery/jquery.min.js",
         f"{base_url}wp-includes/js/jquery/jquery-migrate.min.js",
         f"{base_url}wp-content/uploads/theplus_gutenberg/theplus-post-25422.min.js",
+        f"{base_url}/wp-content/plugins/so-widgets-bundle/widgets/tabs/js/tabs.min.js",
         # Add more JS URLs as needed
     ]
 
