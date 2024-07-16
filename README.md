@@ -56,3 +56,7 @@ python3 wordpress-cloning-main.py STAGE 25422 orcidstaging fb8dd998 --dry-run
 #### Are you adding a new CSS stylesheet to WordPress?
 
 If you add a new stylesheet to WordPress, you will need to update the file [wordpress-cloning-css-script.py](https://github.com/ORCID/orcid-wordpress-home-page-deploy/blob/main/wordpress-cloning-css-script.py). This will make the cloning script to include the new stylesheet in the css output file.
+
+#### Are you adding a new JS stylesheet to WordPress?
+
+If you add WordPress pluggin or new JS file that needs to be clone, you will need to update the file [wordpress-cloning-js-script.py](https://github.com/ORCID/orcid-wordpress-home-page-deploy/blob/main/wordpress-cloning-js-script.py).
