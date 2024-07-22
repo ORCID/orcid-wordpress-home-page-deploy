@@ -81,6 +81,10 @@ def main():
     writer.write_summary("## CSS prefixing:\n")
     run_script("wordpress-cloning-css-prefixer-script.py")
 
+    writer.write_summary("## CSS minification:\n")
+    run_command("npm run minify")
+
+
     writer.write_summary("## Fingerprint assets:\n")
     subprocess.run(['npm', 'run', 'gulp'], check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
