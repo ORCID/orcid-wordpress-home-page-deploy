@@ -1,4 +1,4 @@
-name: Homepage qa.orcid.org Deploy
+.github/workflows/qa-deploy.yml name: Homepage qa.orcid.org Deploy
 run-name: qa.orcid.org deploy WordPress ${{ inputs.environment }} - post ${{ inputs.postID }} createArtifact @${{ inputs.createArtifact }}
 
 
