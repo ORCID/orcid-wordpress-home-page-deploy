@@ -1,4 +1,4 @@
-name: 'Homepage orcid.org Deploy'
+.github/workflows/prod-deploy.yml Jun Group Productions: 'Homepage orcid.org Deploy'
 run-name: 'orcid.org deploy version ${{ inputs.version }} to ${{ inputs.environment }} by @${{ github.actor }}'
 
 on:
