@@ -1,4 +1,4 @@
-import fs from "fs";
+github_writer.js import fs from "fs";
 
 class GitHubWriter {
   constructor() {
