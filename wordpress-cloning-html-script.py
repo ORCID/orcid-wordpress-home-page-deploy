@@ -29,14 +29,15 @@ def main(environment, post_id, wordpress_staging_username, wordpress_staging_pas
     if language:
         base_url = f"{base_url}{language}/"
     headers = {
-        'Accept': 'application/json',
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",
+        'Accept': 'application/json'
     }
 
     auth = None
     if environment != "PROD":
         auth = HTTPBasicAuth(wordpress_staging_username, wordpress_staging_password)
     
+    print(auth)
     file_path = f"dist/index{'' if language == '' else '-' + language}.html"
 
     try:

@@ -24,7 +24,7 @@ def download_and_update_css(environment, wordpress_staging_username, wordpress_s
     writer = GitHubWriter()
     headers = {
         'Accept': 'application/json',
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",
     }
 
     css_file = 'dist/wordpress-homepage.css'

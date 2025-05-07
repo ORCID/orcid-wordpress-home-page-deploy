@@ -45,6 +45,37 @@ Deploy the info.qa.orcid.org page on qa.orcid.org:
 
 #### Cloning WordPress Locally:
 
+1- Create a new virtual environment
+
+In the project directory:
+
+```
+python3 -m venv myenv
+```
+
+2- Activate the environment
+
+```
+source myenv/bin/activate  # macOS/Linux
+```
+or
+
+```
+myenv\Scripts\activate     # Windows
+```
+
+3- Install dependencies
+
+```
+pip install -r requirements.txt
+```
+
+4- Activate the environment
+
+```
+source myenv/bin/activate
+```
+
 Running the following command will run the cloning process on your local environment (This won't deploy to S3, commit, or do GitHub releases)
 
 ```

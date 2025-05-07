@@ -37,7 +37,7 @@ def download_js_files(environment, wordpress_staging_username, wordpress_staging
         auth = HTTPBasicAuth(wordpress_staging_username, wordpress_staging_password)
 
     headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",
     }
 
     with open('dist/wordpress-homepage.js', 'w') as file:
