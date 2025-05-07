@@ -70,18 +70,13 @@ myenv\Scripts\activate     # Windows
 pip install -r requirements.txt
 ```
 
-4- Activate the environment
-
-```
-source myenv/bin/activate
-```
 
 Running the following command will run the cloning process on your local environment (This won't deploy to S3, commit, or do GitHub releases)
 
 ```
 export GITHUB_OUTPUT="./dist/output"     
 export GITHUB_STEP_SUMMARY="./dist/summary"
-python3 wordpress-cloning-main.py STAGE 25422 orcidstaging fb8dd998 --dry-run
+python3 wordpress-cloning-main.py STAGE 25422 <USER_NAME> <PASSWORD> --dry-run
 ```
 
 #### Are you adding a new CSS stylesheet to WordPress?
