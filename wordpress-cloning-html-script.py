@@ -37,7 +37,6 @@ def main(environment, post_id, wordpress_staging_username, wordpress_staging_pas
     if environment != "PROD":
         auth = HTTPBasicAuth(wordpress_staging_username, wordpress_staging_password)
     
-    print(auth)
     file_path = f"dist/index{'' if language == '' else '-' + language}.html"
 
     try:
