@@ -21,7 +21,7 @@ def fetch_and_write_js(url, file, headers, auth, writer):
 def download_js_files(environment, wordpress_staging_username, wordpress_staging_password):
     writer = GitHubWriter()
 
-    base_url = "https://info.qa.orcid.org/" if environment != "PROD" else "https://info.orcid.org/"
+    base_url = "https://orcidhomepage1.wpenginepowered.com/" if environment != "PROD" else "https://info.orcid.org/"
     
     # List of JS URLs to fetch
     js_urls = [

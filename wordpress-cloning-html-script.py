@@ -25,7 +25,7 @@ language_dict = {
 
 def main(environment, post_id, wordpress_staging_username, wordpress_staging_password, language):
     writer = GitHubWriter()
-    base_url = "https://info.qa.orcid.org/" if environment != "PROD" else "https://info.orcid.org/"
+    base_url = "https://orcidhomepage1.wpenginepowered.com/" if environment != "PROD" else "https://info.orcid.org/"
     if language:
         base_url = f"{base_url}{language}/"
     headers = {

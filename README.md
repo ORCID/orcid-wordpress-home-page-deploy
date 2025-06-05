@@ -1,6 +1,6 @@
 # Orcid WordPress Homepage Deployment
 
-The purpose of this repository is to provide a straightforward method for both technical and non-technical users to deploy a clone of a WordPress post from https://info.qa.orcid.org/
+The purpose of this repository is to provide a straightforward method for both technical and non-technical users to deploy a clone of a WordPress post from https://orcidhomepage1.wpenginepowered.com/
 
 ## Homepage QA Deploy
 
@@ -76,7 +76,7 @@ Running the following command will run the cloning process on your local environ
 ```
 export GITHUB_OUTPUT="./dist/output"     
 export GITHUB_STEP_SUMMARY="./dist/summary"
-python3 wordpress-cloning-main.py STAGE 25422 <USER_NAME> <PASSWORD> --dry-run
+python3 wordpress-cloning-main.py STAGE 25422 orcidhomepage1 377e0ed1 --dry-run
 ```
 
 #### Are you adding a new CSS stylesheet to WordPress?

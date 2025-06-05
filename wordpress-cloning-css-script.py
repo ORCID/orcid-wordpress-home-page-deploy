@@ -8,7 +8,7 @@ from github_writer import GitHubWriter
 def clone_css_files(environment, wordpress_staging_username, wordpress_staging_password):
     writer = GitHubWriter()
 
-    base_url = "https://info.qa.orcid.org/" if environment != "PROD" else "https://info.orcid.org/"
+    base_url = "https://orcidhomepage1.wpenginepowered.com/" if environment != "PROD" else "https://info.orcid.org/"
     
     css_urls = [
         f"{base_url}homepage-as-post",
