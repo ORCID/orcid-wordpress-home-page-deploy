@@ -1,6 +1,6 @@
 {
   "name": "orcid-wordpress-home-page-deploy",
-  "version": "v0.1.75",
+  "version": "v0.1.76",
   "description": "",
   "main": "index.js",
   "type": "module",
