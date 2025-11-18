@@ -28,6 +28,7 @@ def download_js_files(environment, wordpress_staging_username, wordpress_staging
         f"{base_url}wp-includes/js/jquery/jquery.min.js",
         f"{base_url}wp-includes/js/jquery/jquery-migrate.min.js",
         f"{base_url}/wp-content/plugins/so-widgets-bundle/widgets/tabs/js/tabs.min.js",
+        f"{base_url}/wp-content/plugins/advanced-tabs-block/build/global/global.js",
         # Add more JS URLs as needed
     ]
 
