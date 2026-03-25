@@ -31,6 +31,8 @@ def download_js_files(environment, wordpress_staging_username, wordpress_staging
         f"{base_url}/wp-content/plugins/advanced-tabs-block/build/global/global.js",
         f"{base_url}/plugins/advanced-tabs-block/build/blocks/tab/index.js",
         f"{base_url}/wp-content/plugins/advanced-tabs-block/build/blocks/tabs/view.js",
+        f"{base_url}wp-content/themes/genesis/lib/js/menu/superfish.min.js?ver=1.7.10",
+        f"{base_url}/wp-content/themes/genesis/lib/js/menu/superfish.args.min.js?ver=3.6.0",
         
         # Add more JS URLs as needed
     ]
