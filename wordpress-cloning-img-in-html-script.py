@@ -28,6 +28,8 @@ def download_and_update_html(environment, wordpress_staging_username, wordpress_
 
     folder_path = './dist/assets'
     base_path = './assets'
+    base_url_root = "https://orcidhomepage1.wpenginepowered.com/" if environment != "PROD" else "https://info.orcid.org/"
+    processed_urls = set()
 
     # Setup authentication if not in production environment
     auth = None
@@ -57,10 +59,36 @@ def download_and_update_html(environment, wordpress_staging_username, wordpress_
         'dist/index-zh-TW.html'
     ]
 
+    def _base_url_for_html_file(html_file: str) -> str:
+        filename = os.path.basename(html_file)
+        if filename == "index.html":
+            return base_url_root
+        if filename.startswith("index-") and filename.endswith(".html"):
+            lang = filename[len("index-"):-len(".html")]
+            return f"{base_url_root}{lang}/"
+        return base_url_root
+
+    def _download_once(img_url: str, base_url: str):
+        if not img_url or img_url.startswith("data:image"):
+            return None
+        # Use a normalized key so we don't re-attempt the same download many times
+        key = img_url
+        if img_url.startswith("/"):
+            key = urljoin(base_url, img_url)
+        elif img_url.startswith("//"):
+            key = "https:" + img_url
+        elif not img_url.startswith(("http://", "https://")):
+            key = urljoin(base_url, img_url)
+        if key in processed_urls:
+            return None
+        processed_urls.add(key)
+        return download_image_if_not_exists(img_url, headers, auth, environment, writer, base_url=base_url)
+
     for html_file in html_files:
         if not os.path.exists(html_file):
             writer.write_summary(f"- {html_file} does not exist, skipping...\n")
             continue
+        base_url = _base_url_for_html_file(html_file)
 
         with open(html_file, "r") as file:
             soup = BeautifulSoup(file, 'html.parser')
@@ -72,8 +100,9 @@ def download_and_update_html(environment, wordpress_staging_username, wordpress_
         for img in images:
             img_url = img.get('src')
             if img_url and (not img_url.startswith('data:image')):
-                sanitized_filepath = download_image_if_not_exists(img_url, headers, auth, environment, writer)
-                img['src'] = os.path.join(base_path, os.path.basename(sanitized_filepath))
+                sanitized_filepath = _download_once(img_url, base_url)
+                if sanitized_filepath:
+                    img['src'] = os.path.join(base_path, os.path.basename(sanitized_filepath))
 
             img_srcset = img.get('srcset')
             if img_srcset and (not img_srcset.startswith('data:image')):
@@ -81,8 +110,12 @@ def download_and_update_html(environment, wordpress_staging_username, wordpress_
                 srcset_items = img_srcset.split(',')
                 for item in srcset_items:
                     url, size = item.strip().split(' ')
-                    sanitized_filepath = download_image_if_not_exists(url, headers, auth, environment, writer)
-                    new_srcset.append(f"{os.path.join(base_path, os.path.basename(sanitized_filepath))} {size}")
+                    sanitized_filepath = _download_once(url, base_url)
+                    if sanitized_filepath:
+                        new_srcset.append(f"{os.path.join(base_path, os.path.basename(sanitized_filepath))} {size}")
+                    else:
+                        # Keep original if we didn't download (already processed or data URL)
+                        new_srcset.append(f"{url} {size}")
 
                 img['srcset'] = ', '.join(new_srcset)
 
@@ -91,9 +124,10 @@ def download_and_update_html(environment, wordpress_staging_username, wordpress_
             if 'url(' in style:
                 urls = extract_urls_from_style(style)
                 for url in urls:
-                    sanitized_filepath = download_image_if_not_exists(url, headers, auth, environment, writer)
-                    new_url = os.path.join(base_path, os.path.basename(sanitized_filepath))
-                    style = style.replace(url, new_url)
+                    sanitized_filepath = _download_once(url, base_url)
+                    if sanitized_filepath:
+                        new_url = os.path.join(base_path, os.path.basename(sanitized_filepath))
+                        style = style.replace(url, new_url)
 
                 element['style'] = style
 
@@ -102,9 +136,10 @@ def download_and_update_html(environment, wordpress_staging_username, wordpress_
             if style_content and 'url(' in style_content:
                 urls = extract_urls_from_style(style_content)
                 for url in urls:
-                    sanitized_filepath = download_image_if_not_exists(url, headers, auth, environment, writer)
-                    new_url = os.path.join(base_path, os.path.basename(sanitized_filepath))
-                    style_content = style_content.replace(url, new_url)
+                    sanitized_filepath = _download_once(url, base_url)
+                    if sanitized_filepath:
+                        new_url = os.path.join(base_path, os.path.basename(sanitized_filepath))
+                        style_content = style_content.replace(url, new_url)
 
                 style_tag.string.replace_with(style_content)
 

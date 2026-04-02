@@ -15,6 +15,8 @@ def clone_css_files(environment, wordpress_staging_username, wordpress_staging_p
         f"{base_url}",  # This will clone the inline CSS on wordpress
         f"{base_url}wp-content/themes/orcid-outreach-pro/style.css",
         f"{base_url}wp-includes/css/dist/block-library/style.css",
+        # Some core blocks ship CSS outside block-library (e.g. Cover block).
+        f"{base_url}wp-includes/blocks/cover/style.min.css",
         f"{base_url}wp-content/plugins/genesis-blocks/dist/style-blocks.build.css",
         f"{base_url}wp-content/uploads/theplus_gutenberg/theplus-post-25422.min.css",
         f"{base_url}wp-content/uploads/theplus_gutenberg/plus-global.css",

@@ -44,7 +44,7 @@ def main(environment, post_id, wordpress_staging_username, wordpress_staging_pas
         response.raise_for_status()
 
         with open(file_path, "w") as file:
-            file.write("<!doctype html><html><head><link rel=\"stylesheet\" href=\"./wordpress-homepage.css\"></head><body class=\"homepage\" id=\"main\"> <script src=\"./wordpress-homepage.js\"></script><div >")
+            file.write("<!doctype html><html><head><link rel=\"stylesheet\" href=\"./wordpress-homepage.css\"><script src=\"./wordpress-homepage.js\" defer></script><script type=\"module\" src=\"./wordpress-homepage-modules.js\"></script></head><body class=\"homepage\" id=\"main\"><div>")
             html_content = response.json()["content"]["rendered"]
             file.write(html_content)
             file.write("</div></body></html>")

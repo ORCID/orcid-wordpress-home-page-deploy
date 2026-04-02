@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "gulp": "gulp",
-    "minify": "cleancss -o dist/wordpress-homepage.css dist/wordpress-homepage.css"
+    "minify": "cleancss -o dist/wordpress-homepage.css dist/wordpress-homepage.css",
+    "build:modules": "node scripts/build-js-modules.mjs"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
   },
   "homepage": "https://github.com/ORCID/orcid-wordpress-home-page-deploy#readme",
   "devDependencies": {
+    "esbuild": "^0.25.9",
     "gulp": "^5.0.0",
     "gulp-postcss": "^10.0.0",
     "gulp-rev": "^11.0.0",
@@ -30,6 +32,7 @@
     "clean-css-cli": "^5"
   },
   "dependencies": {
+    "@wordpress/interactivity": "^6.1.0",
     "line-reader": "^0.4.0"
   }
 }
