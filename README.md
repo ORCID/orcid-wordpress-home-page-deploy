@@ -82,7 +82,7 @@ Running the following command will run the cloning process on your local environ
 ```
 export GITHUB_OUTPUT="./dist/output"     
 export GITHUB_STEP_SUMMARY="./dist/summary"
-python3 wordpress-cloning-main.py STAGE 25422 orcidhomepage1 377e0ed1 --dry-run
+python3 wordpress-cloning-main.py STAGE 25422 <USERNAME> <PASSWORD> --dry-run
 ```
 
 #### Are you adding a new CSS stylesheet to WordPress?
