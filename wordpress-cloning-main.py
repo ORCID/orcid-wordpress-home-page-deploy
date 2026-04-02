@@ -82,7 +82,7 @@ def main():
 
 
     writer.write_summary("## CSS prefixing:\n")
-    run_script("wordpress-cloning-css-prefixer-script.py")
+    run_command("npm run css:prefix")
 
     writer.write_summary("## CSS minification:\n")
     run_command("npm run minify")
