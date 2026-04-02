@@ -2,7 +2,9 @@ import os
 import re
 import requests
 import shutil
+from typing import Optional
 from urllib.parse import urlparse, urlunparse, parse_qs
+from urllib.parse import urljoin
 
 
 def sanitize_filename(filename):
@@ -15,12 +17,30 @@ def strip_query_params(url):
     return urlunparse(parsed_url._replace(query=''))
 
 
-def download_image_if_not_exists(full_img_url, headers, auth, env, writer):
-    # Ensure the URL has a protocol
+def download_image_if_not_exists(full_img_url, headers, auth, env, writer, *, base_url: Optional[str] = None):
+    """
+    Downloads an image to ./dist/assets if missing, and returns the local filepath.
+
+    - Supports absolute URLs (http/https) and protocol-relative URLs (//example.com/foo.png)
+    - Supports site-relative URLs (/wp-content/uploads/foo.png) when base_url is provided
+    - Supports relative URLs (wp-content/uploads/foo.png) when base_url is provided
+    """
+    if not full_img_url:
+        return "./dist/assets/"
+
+    # Resolve URL to an absolute URL when possible.
     if full_img_url.startswith("//"):
         full_img_url = "https:" + full_img_url
+    elif full_img_url.startswith("/"):
+        if base_url:
+            full_img_url = urljoin(base_url, full_img_url)
+        else:
+            full_img_url = "https://" + full_img_url.lstrip("/")
     elif not full_img_url.startswith(("http://", "https://")):
-        full_img_url = "https://" + full_img_url
+        if base_url:
+            full_img_url = urljoin(base_url, full_img_url)
+        else:
+            full_img_url = "https://" + full_img_url
 
     # Strip query parameters for filename sanitization only
     url_without_query = strip_query_params(full_img_url)

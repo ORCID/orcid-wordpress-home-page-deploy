@@ -2,6 +2,7 @@ import sys
 import requests
 from requests.auth import HTTPBasicAuth
 from github_writer import GitHubWriter
+from pathlib import Path
 
 def fetch_and_write_js(url, file, headers, auth, writer):
     try:
@@ -22,16 +23,16 @@ def download_js_files(environment, wordpress_staging_username, wordpress_staging
     writer = GitHubWriter()
 
     base_url = "https://orcidhomepage1.wpenginepowered.com/" if environment != "PROD" else "https://info.orcid.org/"
+    base_url = base_url.rstrip("/")
+    blablablocks_tabs_view_url = f"{base_url}/wp-content/plugins/blablablocks-tabs-block/build/tabs/view.js"
     
     # List of JS URLs to fetch
     js_urls = [
-        f"{base_url}wp-includes/js/jquery/jquery.min.js",
-        f"{base_url}wp-includes/js/jquery/jquery-migrate.min.js",
+        f"{base_url}/wp-includes/js/jquery/jquery.min.js",
+        f"{base_url}/wp-includes/js/jquery/jquery-migrate.min.js",
         f"{base_url}/wp-content/plugins/so-widgets-bundle/widgets/tabs/js/tabs.min.js",
         f"{base_url}/wp-content/plugins/advanced-tabs-block/build/global/global.js",
-        f"{base_url}/plugins/advanced-tabs-block/build/blocks/tab/index.js",
         f"{base_url}/wp-content/plugins/advanced-tabs-block/build/blocks/tabs/view.js",
-        f"{base_url}/wp-content/plugins/blablablocks-tabs-block/build/tabs/view.js",
         
         # Add more JS URLs as needed
     ]
@@ -44,6 +45,21 @@ def download_js_files(environment, wordpress_staging_username, wordpress_staging
     headers = {
         "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36",
     }
+
+    # Fetch plugin modules separately (they may contain ESM imports).
+    # They will be bundled into `dist/wordpress-homepage-modules.js` by `npm run build:modules`.
+    try:
+        response = requests.get(blablablocks_tabs_view_url, headers=headers, auth=auth)
+        if response.status_code == 200:
+            Path("dist").mkdir(parents=True, exist_ok=True)
+            with open("dist/blablablocks-tabs-view.js", "w") as module_file:
+                module_file.write(response.text)
+                module_file.write("\n")
+            writer.write_summary(f"- Successfully added module entry JS from {blablablocks_tabs_view_url}\n")
+        else:
+            writer.write_summary(f"- Skipping module entry {blablablocks_tabs_view_url}: HTTP {response.status_code}\n")
+    except requests.exceptions.RequestException as e:
+        writer.write_summary(f"- Skipping module entry {blablablocks_tabs_view_url}. \n Error: {e}\n")
 
     with open('dist/wordpress-homepage.js', 'w') as file:
         # Read and write the adapter JS from wordpress-adapter.js

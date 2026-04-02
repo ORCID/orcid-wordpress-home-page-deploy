@@ -30,6 +30,8 @@ def download_and_update_css(environment, wordpress_staging_username, wordpress_s
     css_file = 'dist/wordpress-homepage.css'
     folder_path = './dist/assets'
     base_path = './assets'
+    base_url = "https://orcidhomepage1.wpenginepowered.com/" if environment != "PROD" else "https://info.orcid.org/"
+    processed_urls = set()
 
     # Setup authentication if not in production environment
     auth = None
@@ -50,7 +52,20 @@ def download_and_update_css(environment, wordpress_staging_username, wordpress_s
     # Find all URLs in the CSS content
     urls = extract_urls_from_style(css_content)
     for url in urls:
-        sanitized_filepath =download_image_if_not_exists(url, headers, auth, environment, writer)
+        if not url:
+            continue
+        key = url
+        if url.startswith("/"):
+            key = urljoin(base_url, url)
+        elif url.startswith("//"):
+            key = "https:" + url
+        elif not url.startswith(("http://", "https://")):
+            key = urljoin(base_url, url)
+        if key in processed_urls:
+            continue
+        processed_urls.add(key)
+
+        sanitized_filepath = download_image_if_not_exists(url, headers, auth, environment, writer, base_url=base_url)
         new_url = os.path.join(base_path, os.path.basename(sanitized_filepath))
         css_content = css_content.replace(url, new_url)
 

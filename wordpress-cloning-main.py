@@ -61,6 +61,9 @@ def main():
 
     writer.write_summary("## Clone JS script:\n")
     run_script("wordpress-cloning-js-script.py", args.environment, args.wordpress_username, args.wordpress_password)
+    
+    writer.write_summary("## Bundle module JS (esbuild):\n")
+    run_command("npm run build:modules")
 
     writer.write_summary("## HTML cloning script:\n")
     run_script("wordpress-cloning-html-script.py", args.environment, args.post_id, args.wordpress_username, args.wordpress_password, "true")
