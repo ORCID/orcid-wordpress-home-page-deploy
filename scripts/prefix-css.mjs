@@ -21,6 +21,15 @@ function transformSingleSelector(sel) {
   if (trimmed === ":root") return ":root .homepage";
   if (trimmed === "body") return "#main.homepage";
 
+  // In the ORCID Angular app, the homepage is embedded inside the `#main.homepage`
+  // container. Selectors that start with `html …` cannot be scoped by prefixing
+  // `.homepage html …` (html is never a descendant of the container), so rewrite
+  // them to target the container instead.
+  if (trimmed === "html") return "#main.homepage";
+  if (trimmed.startsWith("html ")) {
+    return `#main.homepage ${trimmed.slice("html ".length)}`;
+  }
+
   if (trimmed.startsWith(".homepage")) {
     const rest = trimmed.slice(".homepage".length).trimStart();
     return rest ? `#main.homepage ${rest}` : "#main.homepage";
