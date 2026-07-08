@@ -5,6 +5,29 @@ import shutil
 from typing import Optional
 from urllib.parse import urlparse, urlunparse, parse_qs
 from urllib.parse import urljoin
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
+
+_session = None
+
+
+def _get_session():
+    # Shared session with retries: WP Engine rate-limits bursts of image
+    # downloads with 429s, so back off and honor Retry-After instead of
+    # failing on the first response.
+    global _session
+    if _session is None:
+        _session = requests.Session()
+        retries = Retry(
+            total=5,
+            backoff_factor=2,
+            status_forcelist=[429, 500, 502, 503, 504],
+            allowed_methods=["GET"],
+            raise_on_status=False,
+        )
+        _session.mount('http://', HTTPAdapter(max_retries=retries))
+        _session.mount('https://', HTTPAdapter(max_retries=retries))
+    return _session
 
 
 def sanitize_filename(filename):
@@ -21,12 +44,16 @@ def download_image_if_not_exists(full_img_url, headers, auth, env, writer, *, ba
     """
     Downloads an image to ./dist/assets if missing, and returns the local filepath.
 
+    Returns None when the download fails. Callers must not rewrite references
+    for a None result — otherwise HTML/CSS ends up pointing at files that do
+    not exist in dist/assets.
+
     - Supports absolute URLs (http/https) and protocol-relative URLs (//example.com/foo.png)
     - Supports site-relative URLs (/wp-content/uploads/foo.png) when base_url is provided
     - Supports relative URLs (wp-content/uploads/foo.png) when base_url is provided
     """
     if not full_img_url:
-        return "./dist/assets/"
+        return None
 
     # Resolve URL to an absolute URL when possible.
     if full_img_url.startswith("//"):
@@ -55,19 +82,21 @@ def download_image_if_not_exists(full_img_url, headers, auth, env, writer, *, ba
     # Download and save the image if it doesn't exist locally
     if not os.path.exists(sanitized_filepath):
         try:
-            img_data = requests.get(full_img_url, stream=True, headers=headers, auth=auth)
+            img_data = _get_session().get(full_img_url, stream=True, headers=headers, auth=auth, timeout=30)
             if img_data.status_code != 200:
-                writer.write_summary_and_fail_on_prod(f"- 🚨 Failed to download image: {full_img_url}, status code: {img_data.status_code}\n", env)
-                return sanitized_filepath
+                writer.write_error(f"Failed to download image after retries: {full_img_url}, status code: {img_data.status_code}")
+                return None
             with open(sanitized_filepath, 'wb') as file:
                 img_data.raw.decode_content = True
                 shutil.copyfileobj(img_data.raw, file)
             writer.write_summary(f"- Successfully downloaded image: {full_img_url} \n")
-        except requests.exceptions.MissingSchema:
-            writer.write_summary_and_fail_on_prod(f"- Please use a full URL for {full_img_url}. \n", env)
+        except requests.exceptions.RequestException as e:
+            writer.write_error(f"Failed to download image: {full_img_url}, error: {e}")
+            return None
         except Exception as e:
-            writer.write_summary_and_fail_on_prod(f"Error: {str(e)}\n", env)
+            writer.write_error(f"Failed to save image: {full_img_url}, error: {e}")
+            return None
     else:
         writer.write_summary(f"- Image already exists: {sanitized_filepath}\n")
-    
+
     return sanitized_filepath

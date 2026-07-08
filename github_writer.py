@@ -12,6 +12,14 @@ class GitHubWriter:
             with open(self.step_summary_path, 'a') as f:
                 f.write(content)
 
+    def write_error(self, content):
+        # ::error:: makes the message show up as a red annotation on the
+        # workflow run page, so failures are visible without reading raw logs.
+        print(f"::error::{content}")
+        if self.step_summary_path:
+            with open(self.step_summary_path, 'a') as f:
+                f.write(f"- 🚨 {content}\n")
+
     def write_summary_and_fail_on_prod(self, content, env):
         print("> ", content)
         print(" ⚠️ WARNING: This error will fail for a prod build ⚠️")
@@ -22,7 +30,7 @@ class GitHubWriter:
 
         if env == "PROD":
             self.write_output("script-success", "false")
-            raise
+            raise RuntimeError(content)
 
     def write_summary_and_fail(self, content, env):
         print("> ", content)
@@ -31,12 +39,7 @@ class GitHubWriter:
                 f.write(content)
 
         self.write_output("script-success", "false")
-        raise 
-
-
-            
-
-
+        raise RuntimeError(content)
 
     def write_output(self, key, value):
         print("GITHUB_OUTPUT:")
