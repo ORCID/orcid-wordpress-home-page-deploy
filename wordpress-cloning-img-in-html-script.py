@@ -33,6 +33,7 @@ def download_and_update_html(environment, wordpress_staging_username, wordpress_
     # so every occurrence of a repeated URL gets rewritten, not just the first.
     processed_urls = {}
     failed_urls = []
+    current_html = {"file": None}
 
     # Setup authentication if not in production environment
     auth = None
@@ -87,13 +88,14 @@ def download_and_update_html(environment, wordpress_staging_username, wordpress_
         filepath = download_image_if_not_exists(img_url, headers, auth, environment, writer, base_url=base_url)
         processed_urls[key] = filepath
         if filepath is None:
-            failed_urls.append(key)
+            failed_urls.append(f"{key} (first referenced in {current_html['file']})")
         return filepath
 
     for html_file in html_files:
         if not os.path.exists(html_file):
             writer.write_summary(f"- {html_file} does not exist, skipping...\n")
             continue
+        current_html["file"] = html_file
         base_url = _base_url_for_html_file(html_file)
 
         with open(html_file, "r") as file:
