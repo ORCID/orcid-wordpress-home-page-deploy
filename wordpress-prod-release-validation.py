@@ -75,7 +75,7 @@ def validate_assets(url, version, github_writer, env):
 
     if failed_assets:
         for failed_asset in failed_assets:
-            github_writer.write_summary(f"Failed to fetch asset {failed_asset}.", env)
+            github_writer.write_error(f"Failed to fetch asset {failed_asset}.")
     return all_assets_valid
 
 def main():
@@ -112,7 +112,7 @@ def main():
         else:
             github_writer.write_summary("All environments have been deployed.")
     else:
-        github_writer.write_summary(f"Some assets failed to load or version {version} is missing for {env} environment.", env)
+        github_writer.write_error(f"Some assets failed to load or version {version} is missing for {env} environment.")
         sys.exit(1)
 
 if __name__ == "__main__":

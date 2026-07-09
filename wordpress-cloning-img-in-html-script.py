@@ -29,7 +29,11 @@ def download_and_update_html(environment, wordpress_staging_username, wordpress_
     folder_path = './dist/assets'
     base_path = './assets'
     base_url_root = "https://orcidhomepage1.wpenginepowered.com/" if environment != "PROD" else "https://info.orcid.org/"
-    processed_urls = set()
+    # Maps normalized URL -> local filepath (or None if the download failed),
+    # so every occurrence of a repeated URL gets rewritten, not just the first.
+    processed_urls = {}
+    failed_urls = []
+    current_html = {"file": None}
 
     # Setup authentication if not in production environment
     auth = None
@@ -80,14 +84,18 @@ def download_and_update_html(environment, wordpress_staging_username, wordpress_
         elif not img_url.startswith(("http://", "https://")):
             key = urljoin(base_url, img_url)
         if key in processed_urls:
-            return None
-        processed_urls.add(key)
-        return download_image_if_not_exists(img_url, headers, auth, environment, writer, base_url=base_url)
+            return processed_urls[key]
+        filepath = download_image_if_not_exists(img_url, headers, auth, environment, writer, base_url=base_url)
+        processed_urls[key] = filepath
+        if filepath is None:
+            failed_urls.append(f"{key} (first referenced in {current_html['file']})")
+        return filepath
 
     for html_file in html_files:
         if not os.path.exists(html_file):
             writer.write_summary(f"- {html_file} does not exist, skipping...\n")
             continue
+        current_html["file"] = html_file
         base_url = _base_url_for_html_file(html_file)
 
         with open(html_file, "r") as file:
@@ -145,6 +153,14 @@ def download_and_update_html(environment, wordpress_staging_username, wordpress_
 
         with open(html_file, 'w') as file:
             file.write(str(soup))
+
+    if failed_urls:
+        writer.write_summary(f"\n### 🚨 {len(failed_urls)} image download(s) failed\n")
+        writer.write_summary("| Failed image URL |\n| --- |\n")
+        for failed_url in failed_urls:
+            writer.write_summary(f"| {failed_url} |\n")
+        writer.write_error(f"{len(failed_urls)} image download(s) failed after retries (rate limited by WP Engine?). The HTML keeps the original URLs; this build must not be deployed or tagged.")
+        raise RuntimeError(f"{len(failed_urls)} image download(s) failed")
 
 if __name__ == "__main__":
     writer = GitHubWriter()

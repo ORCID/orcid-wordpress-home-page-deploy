@@ -32,6 +32,7 @@ def download_and_update_css(environment, wordpress_staging_username, wordpress_s
     base_path = './assets'
     base_url = "https://orcidhomepage1.wpenginepowered.com/" if environment != "PROD" else "https://info.orcid.org/"
     processed_urls = set()
+    failed_urls = []
 
     # Setup authentication if not in production environment
     auth = None
@@ -66,12 +67,25 @@ def download_and_update_css(environment, wordpress_staging_username, wordpress_s
         processed_urls.add(key)
 
         sanitized_filepath = download_image_if_not_exists(url, headers, auth, environment, writer, base_url=base_url)
+        if sanitized_filepath is None:
+            # Keep the original URL: rewriting to a file that was never
+            # downloaded would ship CSS pointing at non-existent assets.
+            failed_urls.append(key)
+            continue
         new_url = os.path.join(base_path, os.path.basename(sanitized_filepath))
         css_content = css_content.replace(url, new_url)
 
     # Write the updated CSS content back to the file
     with open(css_file, 'w') as file:
         file.write(css_content)
+
+    if failed_urls:
+        writer.write_summary(f"\n### 🚨 {len(failed_urls)} image download(s) failed\n")
+        writer.write_summary("| Failed image URL |\n| --- |\n")
+        for failed_url in failed_urls:
+            writer.write_summary(f"| {failed_url} |\n")
+        writer.write_error(f"{len(failed_urls)} CSS image download(s) failed after retries (rate limited by WP Engine?). The CSS keeps the original URLs; this build must not be deployed or tagged.")
+        raise RuntimeError(f"{len(failed_urls)} image download(s) failed")
 
 
 if __name__ == "__main__":
