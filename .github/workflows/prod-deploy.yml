@@ -41,7 +41,7 @@ jobs:
           git checkout ${{ github.event.inputs.version }}
 
       - name: Upload HTML to S3
-        uses: reggionick/s3-deploy@v4
+        uses: reggionick/s3-deploy@04c48f45adfd7a34c66348cf9cd1b6cd117cc467 # v4.0.0
         with:
           folder: dist
           bucket: ${{vars.QA_AWS_BUCKET}}
@@ -90,7 +90,7 @@ jobs:
           git checkout ${{ github.event.inputs.version }}
 
       - name: Upload HTML to S3
-        uses: reggionick/s3-deploy@v4
+        uses: reggionick/s3-deploy@04c48f45adfd7a34c66348cf9cd1b6cd117cc467 # v4.0.0
         with:
           folder: dist
           bucket: ${{ vars.FALLBACK_AWS_BUCKET }}
@@ -140,7 +140,7 @@ jobs:
         
 
       - name: Upload HTML to S3
-        uses: reggionick/s3-deploy@v4
+        uses: reggionick/s3-deploy@04c48f45adfd7a34c66348cf9cd1b6cd117cc467 # v4.0.0
         with:
           folder: dist
           bucket: ${{ vars.PROD_AWS_BUCKET }}

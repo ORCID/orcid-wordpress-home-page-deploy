@@ -72,7 +72,7 @@ jobs:
           exit 1
 
       - name: Upload HTML to S3
-        uses: reggionick/s3-deploy@v4
+        uses: reggionick/s3-deploy@04c48f45adfd7a34c66348cf9cd1b6cd117cc467 # v4.0.0
         if: ${{ inputs.createArtifact != 'true' }}
         with:
           folder: dist
@@ -172,7 +172,7 @@ jobs:
           git pull
 
       - name: Upload HTML to S3
-        uses: reggionick/s3-deploy@v4
+        uses: reggionick/s3-deploy@04c48f45adfd7a34c66348cf9cd1b6cd117cc467 # v4.0.0
         with:
           folder: dist
           bucket: ${{vars.QA_AWS_BUCKET}}
