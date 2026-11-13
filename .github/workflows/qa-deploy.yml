@@ -45,10 +45,10 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '18'
+          node-version: '18.20.8'
 
       - name: Install node dependencies
-        run: npm install
+        run: npm ci
 
       - name: Run clone and process script
         id: wordpress-cloning-main
