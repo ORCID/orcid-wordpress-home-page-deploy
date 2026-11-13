@@ -26,6 +26,11 @@ jobs:
       script-success: ${{ steps.wordpress-cloning-main.outputs.script-success }}
 
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@46b06cea07f9e64621fdf066ba77ac6915163d43 # v2.22.3
+        with:
+          egress-policy: audit
+
       - name: Checkout repository
         uses: actions/checkout@v3
 
@@ -67,7 +72,7 @@ jobs:
           exit 1
 
       - name: Upload HTML to S3
-        uses: reggionick/s3-deploy@v4
+        uses: reggionick/s3-deploy@04c48f45adfd7a34c66348cf9cd1b6cd117cc467 # v4.0.0
         if: ${{ inputs.createArtifact != 'true' }}
         with:
           folder: dist
@@ -89,6 +94,11 @@ jobs:
     needs: clone-post
     if: inputs.createArtifact == 'true' && needs.clone-post.outputs.script-success == 'true'
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@46b06cea07f9e64621fdf066ba77ac6915163d43 # v2.22.3
+        with:
+          egress-policy: audit
+
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
@@ -149,6 +159,11 @@ jobs:
     needs: release_prod_wordpress_new_version
     runs-on: ubuntu-latest
     steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@46b06cea07f9e64621fdf066ba77ac6915163d43 # v2.22.3
+        with:
+          egress-policy: audit
+
       - name: Checkout repository
         uses: actions/checkout@v3
         
@@ -157,7 +172,7 @@ jobs:
           git pull
 
       - name: Upload HTML to S3
-        uses: reggionick/s3-deploy@v4
+        uses: reggionick/s3-deploy@04c48f45adfd7a34c66348cf9cd1b6cd117cc467 # v4.0.0
         with:
           folder: dist
           bucket: ${{vars.QA_AWS_BUCKET}}

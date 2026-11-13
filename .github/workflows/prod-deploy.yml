@@ -17,6 +17,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@46b06cea07f9e64621fdf066ba77ac6915163d43 # v2.22.3
+        with:
+          egress-policy: audit
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -36,7 +41,7 @@ jobs:
           git checkout ${{ github.event.inputs.version }}
 
       - name: Upload HTML to S3
-        uses: reggionick/s3-deploy@v4
+        uses: reggionick/s3-deploy@04c48f45adfd7a34c66348cf9cd1b6cd117cc467 # v4.0.0
         with:
           folder: dist
           bucket: ${{vars.QA_AWS_BUCKET}}
@@ -61,6 +66,11 @@ jobs:
     needs: upload_prod_wordpress_to_qa_s3
     steps:
 
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@46b06cea07f9e64621fdf066ba77ac6915163d43 # v2.22.3
+        with:
+          egress-policy: audit
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -80,7 +90,7 @@ jobs:
           git checkout ${{ github.event.inputs.version }}
 
       - name: Upload HTML to S3
-        uses: reggionick/s3-deploy@v4
+        uses: reggionick/s3-deploy@04c48f45adfd7a34c66348cf9cd1b6cd117cc467 # v4.0.0
         with:
           folder: dist
           bucket: ${{ vars.FALLBACK_AWS_BUCKET }}
@@ -105,6 +115,11 @@ jobs:
     needs: upload_prod_wordpress_to_fallback_s3
     steps:
 
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@46b06cea07f9e64621fdf066ba77ac6915163d43 # v2.22.3
+        with:
+          egress-policy: audit
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -125,7 +140,7 @@ jobs:
         
 
       - name: Upload HTML to S3
-        uses: reggionick/s3-deploy@v4
+        uses: reggionick/s3-deploy@04c48f45adfd7a34c66348cf9cd1b6cd117cc467 # v4.0.0
         with:
           folder: dist
           bucket: ${{ vars.PROD_AWS_BUCKET }}
