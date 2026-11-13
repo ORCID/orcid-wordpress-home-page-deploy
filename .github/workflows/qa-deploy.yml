@@ -142,14 +142,10 @@ jobs:
           git push origin $NEW_TAG
 
       - name: Create GitHub release
-        uses: actions/create-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ steps.new_version.outputs.new_version }}
-          release_name: Release ${{ steps.new_version.outputs.new_version }}
-          draft: false
-          prerelease: false
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NEW_TAG: ${{ steps.new_version.outputs.new_version }}
+        run: gh release create "$NEW_TAG" --title "Release $NEW_TAG" --notes ""
 
 
   upload_prod_wordpress_to_qa_s3:
